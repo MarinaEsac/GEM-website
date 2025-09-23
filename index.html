@@ -35,6 +35,488 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
     <link href="./styles/index.css" rel="stylesheet" type="text/css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f7f7;
+            color: #333;
+            line-height: 1.6;
+            padding-top: 140px;
+        }
+        
+        /* .header-wrapper {
+            background: #fff;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+            z-index: 1000;
+        }
+         */
+         .header-wrapper {
+    background: #fff;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    position: fixed;  
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+        .header {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Top Row Styling */
+        .top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            position: relative;
+        }
+        
+        /* Search Box */
+        .search-box {
+            display: flex;
+            align-items: center;
+            width: 280px;
+            border-bottom: 1.5px solid #e6e6e6;
+            transition: border-color 0.3s ease;
+        }
+        
+        .search-box:focus-within {
+            border-color: #113463;
+        }
+        
+        .search-input {
+            flex: 1;
+            border: none;
+            padding: 8px 12px;
+            font-size: 14px;
+            color: #555;
+            background: transparent;
+        }
+        
+        .search-input:focus {
+            outline: none;
+        }
+        
+        .search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+            color: #777;
+            transition: color 0.3s ease;
+        }
+        
+        .search-btn:hover {
+            color: #113463;
+        }
+        .header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;   
+    margin-bottom: 10px;
+}
+
+        .logo {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .logo img {
+            height: 42px;
+            width: auto;
+            display: block;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+            transition: transform 0.3s ease;
+        }
+        
+        .logo img:hover {
+            transform: scale(1.03);
+        }
+        
+      .social-icons {
+    display: flex;
+    gap: 18px;
+    margin-right: 20px;
+}
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    /* background: #f8f8f8; */
+    color: #113463; 
+    margin-right: 2px;
+    transition: all 0.3s ease;
+}
+
+
+
+.social-icons svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+        
+        .actions {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .action-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #000; 
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+     
+        
+        .action-btn svg {
+            width: 22px;
+            height: 22px;
+            margin-bottom: 4px;
+            stroke: #000; 
+        }
+        
+        .label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        .action-btn.account-icon svg {
+            stroke-width: 1.4;
+            stroke: #000; 
+        }
+        
+        .action-btn.account-icon:hover svg {
+            stroke: #113463;
+            fill: rgba(212, 175, 55, 0.1);
+        }
+        
+        .nav-row {
+            display: flex;
+            justify-content: center;
+            border-top: 1px solid #f0f0f0;
+            position: relative;
+            padding: 0; 
+        }
+        
+        .nav-item {
+            position: relative;
+            padding: 6px 6px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #444;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-item:hover {
+            color: #113463;
+        }
+        
+        .chev {
+            font-size: 15px;
+            margin-left: 4px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-item:hover .chev {
+            transform: rotate(180deg);
+        }
+        
+       
+   .mega-dropdown {
+  /* position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;               
+  max-width: 1400px;         
+  max-height: 500px;          
+  overflow-y: auto;            
+  overflow-x: hidden;        
+  background: #fff;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  display: none;
+  grid-template-columns: repeat(7, minmax(110px, 1fr)); 
+  gap: 25px;
+  z-index: 999; */
+}
+
+.nav-item:hover .mega-dropdown {
+  display: grid;  
+}
+.mega-column a:hover {
+  color: inherit;      
+  background: none;     
+  text-decoration: none;
+  cursor: default;    
+}
+
+.mega-column {
+  color: black !important;
+  min-width: 1400px;
+}
+
+.mega-column h4 {
+ font-size: 14px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 4px;
+}
+
+.mega-column a {
+ display: block;
+  font-size: 13px;
+  color: grey;
+  padding: 3px 0;
+  text-decoration: none;
+}
+
+
+        
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #f9f5f0 0%, #f2ebe3 100%);
+            margin-bottom: 40px;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 300;
+            color: #333;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 14px 32px;
+            background: #113463;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            letter-spacing: 1px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        /* .cta-button:hover {
+            background: #113463;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        } */
+        
+        .content {
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+        
+        .content h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 400;
+        }
+        
+        .brands-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .brand-section {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .brand-section h3 {
+            font-size: 1.2rem;
+            color: #113463;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .brand-section ul {
+            list-style: none;
+        }
+        
+        .brand-section li {
+            margin-bottom: 10px;
+            font-size: 15px;
+            color: #555;
+        }
+        .brand {
+  width: 98%;
+  overflow: hidden;
+}
+
+.brand .swiper {
+  width: 100%;
+}
+
+.brand .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   width: 100px !important;
+}
+
+.brand .swiper-slide img {
+   height: 60px;  
+  width: auto;
+  object-fit: contain;
+}
+
+
+
+.hero-wrapper {
+  display: flex;
+  align-items: start;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.side-images {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 70%;
+  height: 380px;
+  margin-right: 20px; 
+}
+
+.side-box {
+  position: relative;
+  flex: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px; 
+}
+
+.side-box:last-child {
+  margin-bottom: 0;
+}
+
+
+.side-box img {
+  width: 100%;
+  object-fit:cover;
+  display: block;
+}
+
+.side-title {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.6);
+}
+     
+        @media (max-width: 1024px) {
+            .nav-row {
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding: 0 10px;
+            }
+            
+            .nav-item {
+                padding: 12px 12px; 
+                white-space: nowrap;
+            }
+            
+            .mega-dropdown {
+                max-width: 100vw;
+                left: 0;
+                right: 0;
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .top-row {
+                flex-wrap: wrap;
+            }
+            
+            .search-box {
+                order: 3;
+                width: 100%;
+                margin-top: 15px;
+            }
+            
+            .logo {
+                position: static;
+                transform: none;
+                order: 1;
+                margin-bottom: 10px;
+            }
+            
+            .social-icons {
+                order: 2;
+                margin-right: 0;
+            }
+            
+            .actions {
+                order: 4;
+                margin-top: 15px;
+                margin-left: auto;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .mega-dropdown {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
     <script type="text/javascript">
       !(function (o, c) {
         var n = c.documentElement,
@@ -69,7 +551,7 @@
   </head>
 
   <body>
-    <section style="opacity: 0" class="newsletter">
+    <!-- <section style="opacity: 0" class="newsletter">
       <div
         data-w-id="b7060a4e-efcb-63d5-1fad-6f8bd6d8bab8"
         class="model-bg"
@@ -157,231 +639,316 @@
           </div>
         </div>
       </div>
-    </section>
-    <header class="header-wrapper">
-      <div class="header">
-        <div class="top-row" role="navigation">
-          <div class="search-box" aria-hidden="false">
-            <input
-              class="search-input"
-              type="search"
-              placeholder="Search.."
-              aria-label="search"
-            />
-            <button class="search-btn" aria-label="search">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                width="18"
-                height="18"
-              >
-                <circle cx="11" cy="11" r="7" />
-                <line x1="21" y1="21" x2="16.65" y2="16.65" />
-              </svg>
-            </button>
-          </div>
+    </section> -->
+   <header class="header-wrapper">
+        <div class="header">
+            <div class="top-row" role="navigation">
+                <div class="search-box" aria-hidden="false">
+                    <div class="social-icons">
+    <a href="https://www.facebook.com/gem.egypt.company/" target="_blank" aria-label="Facebook">
+        <!-- Facebook Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+            <path d="M22.675 0h-21.35C.595 0 0 .6 0 1.337v21.326C0 23.404.595 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.464.099 2.796.143v3.24h-1.918c-1.505 0-1.797.716-1.797 1.767v2.317h3.59l-.467 3.622h-3.123V24h6.127c.73 0 1.325-.596 1.325-1.337V1.337C24 .6 23.405 0 22.675 0z"/>
+        </svg>
+    </a>
 
-          <div class="logo" aria-label="GEM">
-            <img src="./assets/Gem 2024-01.png" alt="logo" />
-          </div>
+    <a href="https://www.instagram.com/gem_egypt/" target="_blank" aria-label="Instagram">
+  <svg xmlns="http://www.w3.org/2000/svg" 
+       width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+    <path fill-rule="evenodd" d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 1.5A4 4 0 0 0 3.5 7.5v9a4 4 0 0 0 4 4h9a4 4 0 0 0 4-4v-9a4 4 0 0 0-4-4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4Zm5.25-2.55a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8Z"/>
+  </svg>
+</a>
 
-          <div class="actions" aria-hidden="false">
-            <a class="action-btn" href="#" title="account">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
-              <span class="label">ACCOUNT</span>
-            </a>
 
-            <!-- <a class="action-btn" href="#" title="menu">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8L12 21.5l8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/></svg>
-            <span class="label">WISH</span>
-          </a> -->
+    <a href="https://www.tiktok.com/@gem_egy" target="_blank" aria-label="TikTok">
+        <!-- TikTok Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+            <path d="M12.2 2h3.4a5.6 5.6 0 0 0 5.6 5.6v3.3a8.9 8.9 0 0 1-5.6-2v7.7a6.9 6.9 0 1 1-6.9-6.9h.7v3.5a3.5 3.5 0 1 0 2.8 3.4V2z"/>
+        </svg>
+    </a>
+</div>
+                    <input
+                        class="search-input"
+                        type="search"
+                        placeholder="Search.."
+                        aria-label="search"
+                    />
+                    <button class="search-btn" aria-label="search">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.6"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            width="18"
+                            height="18"
+                        >
+                            <circle cx="11" cy="11" r="7" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                    </button>
+                </div>
+    <div class="logo" aria-label="GEM">
+                    <img src="./assets/Gem 2024-01.png" alt="GEM Cosmetics Logo" />
+              
 
-            <a class="action-btn" href="#" title="cart">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M6 2l1 4h10l1-4" />
-                <path
-                  d="M6 6h12l-1.2 12.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 6z"
-                />
-              </svg>
-              <span class="label">STORE</span>
-            </a>
-          </div>
-        </div>
-        <nav class="nav-row" aria-label="Brands">
-          <div class="nav-item">
-            BRANDS
-            <span class="chev">▾</span>
-            <div class="mega-dropdown">
-              <div class="mega-column">
-                <a href="/dax">Dax</a>
-                <a href="https://www.bananaboat.com/">Banana Boat</a>
-                <a href="https://momentocosmetics.co.uk/">Cristal Momento</a>
-                <a href="/cristalRavita">Cristal Ravita</a>
-                <a href="/RevoxPlex">Revox Plex</a>
-                <a href="https://bobini.pl/en/">Bobini</a>
-                <a href="/carroten">Carroten</a>
-                <a href="/karsell">Karsell</a>
-              </div>
+               
+</div>
+                 
+                
+        
+
+                <div class="actions" aria-hidden="false">
+                    <a class="action-btn account-icon" href="#" title="account">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.4"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg>
+                        <span class="label">ACCOUNT</span>
+                    </a>
+
+                    <a class="action-btn" href="https://gihanbeauty.com/" title="cart">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.6"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <path d="M6 2l1 4h10l1-4" />
+                            <path
+                                d="M6 6h12l-1.2 12.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 6z"
+                            />
+                        </svg>
+                        <span class="label">STORE</span>
+                    </a>
+                </div>
+                
             </div>
-          </div>
-          <div class="nav-item">
-            HAIR CARE
-            <span class="chev">▾</span>
-            <div class="mega-dropdown">
-              <div class="mega-column">
-                <a href="#">Shampoo</a>
-                <a href="#">Conditioner</a>
-                <a href="#">Hair mask</a>
-                <a href="#">Hair Serum</a>
-                <a href="#">Hair Oil</a>
-                <a href="#">Leave-in</a>
-                <a href="#">Dry Shampoo</a>
-                <a href="#">Hair Food</a>
-                <a href="#">Styling Cream</a>
-              </div>
-              <div class="mega-column">
-                <a href="#">Gel & Wax</a>
-                <a href="#">Hair Spray</a>
-                <a href="#">Hair Iron</a>
-                <a href="#">Hair Relaxer</a>
-              </div>
-            </div>
-          </div>
-          <div class="nav-item">
-            MAKEUP
-            <span class="chev">▾</span>
-            <div class="mega-dropdown">
-              <div class="mega-column">
-                <h4>Face</h4>
-                <a href="#">Primer</a>
-                <a href="#">Corrector</a>
-                <a href="#">Foundation</a>
-                <a href="#">Blush,Powder,Glow</a>
-                <a href="#">Make-up fixing</a>
-                <a href="#">Brushes & Sponges</a>
-                <a href="#">Makeup Remover</a>
-              </div>
-              <div class="mega-column">
-                <h4>Eye</h4>
-                <a href="#">Concealer</a>
-                <a href="#">Eyeshadow</a>
-                <a href="#">Mascara</a>
-                <a href="#">Eyeliner</a>
-                <a href="#">Eye pencil</a>
-                <a href="#">Eyebrow</a>
-              </div>
-              <div class="mega-column">
-                <h4>Lip</h4>
-                <a href="#">Lip stick</a>
-                <a href="#">Lip Gloss & Lip liquid</a>
-                <a href="#">Lip pencil</a>
-                <a href="#">Lip palm</a>
-              </div>
-              <div class="mega-column">
-                <h4>Lashes</h4>
-                <a href="#">Multi packs</a>
-                <a href="#">Strip</a>
-                <a href="#">individual</a>
-                <a href="#">Glue & Remover</a>
-                <a href="#">Lash Tools</a>
-              </div>
-              <div class="mega-column">
-                <h4>Nails</h4>
-                <a href="#">Nail Lacquer</a>
-                <a href="#">Nail Care</a>
-                <a href="#">Quick Dry</a>
-                <a href="#">Nails</a>
-                <a href="#">Nail Glow</a>
-                <a href="#">Nail Tools</a>
-                <a href="#">Gel Polish</a>
-              </div>
-            </div>
-          </div>
-          <div class="nav-item">
-            SKIN CARE
-            <span class="chev">▾</span>
-            <div class="mega-dropdown">
-              <div class="mega-column">
-                <h4>Skin</h4>
-                <a href="#">Cleansers</a>
-                <a href="#">Hand Cream</a>
-                <a href="#">Moisturizers</a>
-                <a href="#">Lotions</a>
-                <a href="#">Masks & Peels</a>
-                <a href="#">Scrubs</a>
-                <a href="#">Eye mask & Contour</a>
-                <a href="#">Treatments & Serums</a>
-              </div>
-              <div class="mega-column">
-                <h4>Suncare</h4>
-                <a href="#">Sunscreen</a>
-                <a href="#">Tanning</a>
-                <a href="#">Aftersun</a>
-              </div>
-            </div>
-          </div>
-          <div class="nav-item">
-            FRAGRANCES
-            <span class="chev">▾</span>
-            <div class="mega-dropdown">
-              <div class="mega-column">
-                <h4>For Her</h4>
-                <a href="#">Perfume</a>
-                <a href="#">Body Spray</a>
-                <a href="#">Body Mist</a>
-              </div>
-              <div class="mega-column">
-                <h4>For Him</h4>
-                <a href="#">Perfume</a>
-                <a href="#">Body Spray</a>
-                <a href="#">Body Mist</a>
-              </div>
-            </div>
-          </div>
-          <div class="nav-item">
-            KIDS<span class="chev">▾</span>
-            <div class="mega-dropdown">
-              <div class="mega-column">
-                <a href="#">Baby Cream</a>
-                <a href="#">Shampo & Bath</a>
-                <a href="#">Sun Care</a>
-                <a href="#">Toothpaste</a>
-              </div>
-            </div>
-          </div>
-          <div class="nav-item" tabindex="0">SALE</div>
-        </nav>
+
+         <nav class="nav-row">
+  <div class="nav-item" data-target="brands">BRANDS <span class="chev">▾</span></div>
+  <div class="nav-item" data-target="hair">Hair & Skin Care <span class="chev">▾</span></div>
+  <div class="nav-item" data-target="personal">Personal Care <span class="chev">▾</span></div>
+  <div class="nav-item" data-target="makeup">Make-up & Tools <span class="chev">▾</span></div>
+  <div class="nav-item" data-target="fragrance">Fragrance <span class="chev">▾</span></div>
+  <div class="nav-item" data-target="professional">Professional <span class="chev">▾</span></div>
+  <div class="nav-item" data-target="sun">Sun Care <span class="chev">▾</span></div>
+ <div class="nav-item" data-target="baby">Baby Care <span class="chev">▾</span></div>
+ <div class="nav-item more-item">
+    More <span class="chev">▾</span>
+    <div class="more-dropdown">
+      <a href="#">Blog</a>
+      <a href="#">Live Events</a>
+      <a href="#">Service Center</a>
+      <a href="#">Product Catalogue</a>
+      <a href="#">Salon Design</a>
+      <a href="#">In the Press</a>
+      <a href="#">Careers</a>
+      <a href="#">Contact Us</a>
+    </div>
+  </div>
+<div class="mega-frame">
+  <span class="mega-close">&times;</span>
+
+  <div class="mega-content" id="brands">
+    <div class="mega-dropdown"> <div class="mega-column"> <h4>A</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>B</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>C</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>D</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>E</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>F</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>G</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>H</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>I</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>J</h4> <a href="#">Babyliss Paris</a> <a href="#">Babyliss Pro</a> <a href="#">Bandi</a> </div> <div class="mega-column"> <h4>K</h4> <a href="#">Caflon</a> <a href="#">Casmara</a> <a href="#">Ceriotti</a> </div> <div class="mega-column"> <h4>L</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>M</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>N</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>O</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>P</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>Q</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>R</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>S</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>T</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>U</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>V</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>W</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>X</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>Y</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>Z</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> </div>
+  </div>
+
+<div class="mega-content" id="hair">
+        <div class="mega-dropdown"> <div class="mega-column"> <h4>A</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>B</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>C</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>D</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>E</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>F</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>G</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>H</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>I</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>J</h4> <a href="#">Babyliss Paris</a> <a href="#">Babyliss Pro</a> <a href="#">Bandi</a> </div> <div class="mega-column"> <h4>K</h4> <a href="#">Caflon</a> <a href="#">Casmara</a> <a href="#">Ceriotti</a> </div> <div class="mega-column"> <h4>L</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>M</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>N</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>O</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>P</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>Q</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>R</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>S</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>T</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>U</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>V</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>W</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>X</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>Y</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>Z</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> </div>
+
+  </div>
+
+  <!-- Personal Care -->
+  <div class="mega-content" id="personal">
+        <div class="mega-dropdown"> <div class="mega-column"> <h4>A</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>B</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>C</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>D</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>E</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>F</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>G</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>H</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>I</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>J</h4> <a href="#">Babyliss Paris</a> <a href="#">Babyliss Pro</a> <a href="#">Bandi</a> </div> <div class="mega-column"> <h4>K</h4> <a href="#">Caflon</a> <a href="#">Casmara</a> <a href="#">Ceriotti</a> </div> <div class="mega-column"> <h4>L</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>M</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>N</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>O</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>P</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>Q</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>R</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>S</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>T</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>U</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>V</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>W</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>X</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>Y</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>Z</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> </div>
+
+  </div>
+
+  <!-- Make-up & Tools -->
+  <div class="mega-content" id="makeup">
+    <p>    <div class="mega-dropdown"> <div class="mega-column"> <h4>A</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>B</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>C</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>D</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>E</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>F</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>G</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>H</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>I</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>J</h4> <a href="#">Babyliss Paris</a> <a href="#">Babyliss Pro</a> <a href="#">Bandi</a> </div> <div class="mega-column"> <h4>K</h4> <a href="#">Caflon</a> <a href="#">Casmara</a> <a href="#">Ceriotti</a> </div> <div class="mega-column"> <h4>L</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>M</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>N</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>O</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>P</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>Q</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>R</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>S</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>T</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>U</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>V</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>W</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>X</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>Y</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>Z</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> </div>
+
+  </div>
+
+  <!-- Fragrance -->
+  <div class="mega-content" id="fragrance">
+       <div class="mega-dropdown"> <div class="mega-column"> <h4>A</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>B</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>C</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>D</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>E</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>F</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>G</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>H</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>I</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>J</h4> <a href="#">Babyliss Paris</a> <a href="#">Babyliss Pro</a> <a href="#">Bandi</a> </div> <div class="mega-column"> <h4>K</h4> <a href="#">Caflon</a> <a href="#">Casmara</a> <a href="#">Ceriotti</a> </div> <div class="mega-column"> <h4>L</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>M</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>N</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>O</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>P</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>Q</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>R</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>S</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>T</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>U</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>V</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>W</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>X</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>Y</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>Z</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> </div>
+
+  </div>
+
+  <!-- Professional -->
+  <div class="mega-content" id="professional">
+        <div class="mega-dropdown"> <div class="mega-column"> <h4>A</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>B</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>C</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>D</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>E</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>F</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>G</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>H</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>I</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>J</h4> <a href="#">Babyliss Paris</a> <a href="#">Babyliss Pro</a> <a href="#">Bandi</a> </div> <div class="mega-column"> <h4>K</h4> <a href="#">Caflon</a> <a href="#">Casmara</a> <a href="#">Ceriotti</a> </div> <div class="mega-column"> <h4>L</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>M</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>N</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>O</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>P</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>Q</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>R</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>S</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>T</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>U</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>V</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>W</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>X</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>Y</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>Z</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> </div>
+
+  </div>
+
+  <!-- Sun Care -->
+  <div class="mega-content" id="sun">
+        <div class="mega-dropdown"> <div class="mega-column"> <h4>A</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>B</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>C</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>D</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>E</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>F</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>G</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>H</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>I</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>J</h4> <a href="#">Babyliss Paris</a> <a href="#">Babyliss Pro</a> <a href="#">Bandi</a> </div> <div class="mega-column"> <h4>K</h4> <a href="#">Caflon</a> <a href="#">Casmara</a> <a href="#">Ceriotti</a> </div> <div class="mega-column"> <h4>L</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>M</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>N</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>O</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>P</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>Q</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>R</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>S</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>T</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>U</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>V</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>W</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>X</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>Y</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>Z</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> </div>
+
+  </div>
+
+  <!-- Baby Care -->
+  <div class="mega-content" id="baby">
+        <div class="mega-dropdown"> <div class="mega-column"> <h4>A</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>B</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>C</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>D</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>E</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>F</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>G</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>H</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>I</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>J</h4> <a href="#">Babyliss Paris</a> <a href="#">Babyliss Pro</a> <a href="#">Bandi</a> </div> <div class="mega-column"> <h4>K</h4> <a href="#">Caflon</a> <a href="#">Casmara</a> <a href="#">Ceriotti</a> </div> <div class="mega-column"> <h4>L</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>M</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>N</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>O</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>P</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>Q</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>R</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>S</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>T</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>U</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>V</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>W</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>X</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>Y</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>Z</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> </div>
+
+  </div>
+
+</div>
+</nav>
+
+<div class="mega-frame">
+  <span class="mega-close">&times;</span>
+
+  <div class="mega-content" id="brands">
+    <div class="mega-dropdown"> <div class="mega-column"> <h4>A</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>B</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>C</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>D</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>E</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>F</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>G</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>H</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>I</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a> </div> <div class="mega-column"> <h4>J</h4> <a href="#">Babyliss Paris</a> <a href="#">Babyliss Pro</a> <a href="#">Bandi</a> </div> <div class="mega-column"> <h4>K</h4> <a href="#">Caflon</a> <a href="#">Casmara</a> <a href="#">Ceriotti</a> </div> <div class="mega-column"> <h4>L</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>M</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>N</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>O</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>P</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>Q</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>R</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>S</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>T</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>U</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>V</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>W</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>X</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>Y</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> <div class="mega-column"> <h4>Z</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a> </div> </div>
+  </div>
+
+<div class="mega-content" id="hair">
+    <p>محتوى Hair & Skin Care</p>
+  </div>
+
+  <!-- Personal Care -->
+  <div class="mega-content" id="personal">
+    <p>محتوى Personal Care</p>
+  </div>
+
+  <!-- Make-up & Tools -->
+  <div class="mega-content" id="makeup">
+    <p>محتوى Make-up & Tools</p>
+  </div>
+
+  <!-- Fragrance -->
+  <div class="mega-content" id="fragrance">
+    <p>محتوى Fragrance</p>
+  </div>
+
+  <!-- Professional -->
+  <div class="mega-content" id="professional">
+    <p>محتوى Professional</p>
+  </div>
+
+  <!-- Sun Care -->
+  <div class="mega-content" id="sun">
+    <p>محتوى Sun Care</p>
+  </div>
+
+  <!-- Baby Care -->
+  <div class="mega-content" id="baby">
+    <p>محتوى Baby Care</p>
+  </div>
+
+  <!-- More -->
+  <div class="mega-content" id="more">
+    <div class="mega-dropdown">
+      <div class="mega-column">
+        <h4>Extra 1</h4>
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
       </div>
+      <div class="mega-column">
+        <h4>Extra 2</h4>
+        <a href="#">Link 4</a>
+        <a href="#">Link 5</a>
+        <a href="#">Link 6</a>
+      </div>
+      <div class="mega-column">
+        <h4>Extra 3</h4>
+        <a href="#">Link 7</a>
+        <a href="#">Link 8</a>
+        <a href="#">Link 9</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const navItems = document.querySelectorAll(".nav-item[data-target]");
+const frame = document.querySelector(".mega-frame");
+const closeBtn = document.querySelector(".mega-close");
+const contents = document.querySelectorAll(".mega-content");
+const moreItem = document.querySelector(".more-item");
+
+let activeTarget = null;
+
+navItems.forEach(item => {
+  item.addEventListener("click", () => {
+    const targetId = item.getAttribute("data-target");
+    const content = document.getElementById(targetId);
+
+    if (!content) return;
+
+    if (activeTarget === targetId && frame.classList.contains("active")) {
+      frame.classList.remove("active");
+      content.classList.remove("active");
+      activeTarget = null;
+      return;
+    }
+
+    contents.forEach(c => c.classList.remove("active"));
+    moreItem.classList.remove("active");
+
+    content.classList.add("active");
+    frame.classList.add("active");
+    activeTarget = targetId;
+  });
+});
+
+closeBtn.addEventListener("click", () => {
+  frame.classList.remove("active");
+  contents.forEach(c => c.classList.remove("active"));
+  moreItem.classList.remove("active");
+  activeTarget = null;
+});
+
+moreItem.addEventListener("click", (e) => {
+  e.stopPropagation();
+
+  if (moreItem.classList.contains("active")) {
+    moreItem.classList.remove("active");
+    activeTarget = null;
+  } else {
+    frame.classList.remove("active");
+    contents.forEach(c => c.classList.remove("active"));
+
+    moreItem.classList.add("active");
+    activeTarget = "more";
+  }
+});
+
+document.addEventListener("click", (e) => {
+  if (!moreItem.contains(e.target)) {
+    moreItem.classList.remove("active");
+    if (activeTarget === "more") activeTarget = null;
+  }
+});
+
+</script>
+
+
+
+        </div>
     </header>
 
+
     <script>
-      // Small JS to toggle dropdowns on click / keyboard (accessible)
       document.querySelectorAll(".nav-item").forEach((item) => {
         item.addEventListener("click", (e) => {
-          // close others
           document.querySelectorAll(".nav-item.open").forEach((open) => {
             if (open !== item) open.classList.remove("open");
           });
@@ -397,7 +964,6 @@
         });
       });
 
-      // close dropdowns if click outside
       document.addEventListener("click", (e) => {
         if (!e.target.closest(".nav-item")) {
           document.querySelectorAll(".nav-item.open").forEach((open) => {
@@ -405,516 +971,266 @@
           });
         }
       });
+      document.querySelectorAll(".nav-item").forEach(item => {
+  item.addEventListener("click", function(e) {
+    e.preventDefault();
+    const dropdown = document.querySelector(".mega-dropdown");
+
+    dropdown.style.display = (dropdown.style.display === "grid") ? "none" : "grid";
+  });
+});
+
     </script>
 
-    <!-- <section class="header">
-      <div class="topbar"><div>Free Shipping on Orders Over $50!</div></div>
-      <div
-        data-animation="over-left"
-        data-collapse="none"
-        data-duration="400"
-        data-easing="ease"
-        data-easing2="ease"
-        role="banner"
-        class="navbar w-nav"
-      >
-        <div class="nav-block">
-          <div
-            data-w-id="92c95f1a-b63f-b6d6-4019-705431dcff36"
-            class="nav-button"
-          >
-            <div class="top-line"></div>
-            <div class="center-line"></div>
-            <div class="bottom-line"></div>
-          </div>
-          <a href="/" aria-current="page" class="brand w-nav-brand w--current"
-            ><img loading="lazy" src="./Gem 2024-01.png" alt="GEM"
-          /></a>
-          <div class="nav-right">
-            <div
-              data-w-id="a872d873-d782-59bc-3f39-e5917b48732a"
-              class="search-btn"
-            >
-              <img
-                loading="lazy"
-                src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f74d444d40452487b0b5dc_ic-search.svg"
-                alt="Search Icon"
-              />
-            </div>
-            <div
-              data-open-product=""
-              data-wf-cart-type="modal"
-              data-wf-cart-query="query Dynamo3 {
-  database {
-    id
-    commerceOrder {
-      comment
-      extraItems {
-        name
-        pluginId
-        pluginName
-        price {
-          decimalValue
-          string
-          unit
-          value
-        }
-      }
-      id
-      startedOn
-      statusFlags {
-        hasDownloads
-        hasSubscription
-        isFreeOrder
-        requiresShipping
-      }
-      subtotal {
-        decimalValue
-        string
-        unit
-        value
-      }
-      total {
-        decimalValue
-        string
-        unit
-        value
-      }
-      updatedOn
-      userItems {
-        count
-        id
-        price {
-          value
-          unit
-          decimalValue
-          string
-        }
-        product {
-          id
-          cmsLocaleId
-          draft
-          archived
-          f_ec_product_type_2dr10dr: productType {
-            id
-            name
-          }
-          f_name_: name
-          f_sku_properties_3dr: skuProperties {
-            id
-            name
-            enum {
-              id
-              name
-              slug
-            }
-          }
-        }
-        rowTotal {
-          decimalValue
-          string
-          unit
-          value
-        }
-        sku {
-          cmsLocaleId
-          draft
-          archived
-          f_main_image_4dr: mainImage {
-            url
-            file {
-              size
-              origFileName
-              createdOn
-              updatedOn
-              mimeType
-              width
-              height
-              variants {
-                origFileName
-                quality
-                height
-                width
-                s3Url
-                error
-                size
-              }
-            }
-            alt
-          }
-          f_sku_values_3dr: skuValues {
-            property {
-              id
-            }
-            value {
-              id
-            }
-          }
-          id
-        }
-        subscriptionFrequency
-        subscriptionInterval
-        subscriptionTrial
-      }
-      userItemsCount
-    }
-  }
-  site {
-    commerce {
-      id
-      businessAddress {
-        country
-      }
-      defaultCountry
-      defaultCurrency
-      quickCheckoutEnabled
-    }
-  }
-}"
-              data-wf-page-link-href-prefix=""
-              class="w-commerce-commercecartwrapper"
-              data-node-type="commerce-cart-wrapper"
-            >
-              <a
-                class="w-commerce-commercecartopenlink cart-button w-inline-block"
-                role="button"
-                aria-haspopup="dialog"
-                aria-label="Open cart"
-                data-node-type="commerce-cart-open-link"
-                href="#"
-                ><img
-                  loading="lazy"
-                  src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f74d4437a393a9c31102cd_ic-cart.svg"
-                  alt="Cart Butt"
-                  class="cart-icon"
-                />
-                <div
-                  data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22Number%22%2C%22filter%22%3A%7B%22type%22%3A%22numberPrecision%22%2C%22params%22%3A%5B%220%22%2C%22numberPrecision%22%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItemsCount%22%7D%7D%5D"
-                  style="display: none"
-                  data-count-hide-rule="empty"
-                  class="w-commerce-commercecartopenlinkcount cart-quantity"
-                >
-                  0
-                </div></a
-              >
-              <div
-                style="display: none"
-                class="w-commerce-commercecartcontainerwrapper w-commerce-commercecartcontainerwrapper--cartType-modal"
-                data-node-type="commerce-cart-container-wrapper"
-              >
-                <div
-                  data-node-type="commerce-cart-container"
-                  role="dialog"
-                  class="w-commerce-commercecartcontainer"
-                >
-                  <div class="w-commerce-commercecartheader">
-                    <h4 class="w-commerce-commercecartheading">Your Cart</h4>
-                    <a
-                      class="w-commerce-commercecartcloselink w-inline-block"
-                      role="button"
-                      aria-label="Close cart"
-                      data-node-type="commerce-cart-close-link"
-                      ><svg width="16px" height="16px" viewBox="0 0 16 16">
-                        <g
-                          stroke="none"
-                          stroke-width="1"
-                          fill="none"
-                          fill-rule="evenodd"
-                        >
-                          <g fill-rule="nonzero" fill="#333333">
-                            <polygon
-                              points="6.23223305 8 0.616116524 13.6161165 2.38388348 15.3838835 8 9.76776695 13.6161165 15.3838835 15.3838835 13.6161165 9.76776695 8 15.3838835 2.38388348 13.6161165 0.616116524 8 6.23223305 2.38388348 0.616116524 0.616116524 2.38388348 6.23223305 8"
-                            ></polygon>
-                          </g>
-                        </g></svg
-                    ></a>
-                  </div>
-                  <div class="w-commerce-commercecartformwrapper">
-                    <form
-                      style="display: none"
-                      class="w-commerce-commercecartform"
-                      data-node-type="commerce-cart-form"
-                    >
-                      <script
-                        type="text/x-wf-template"
-                        id="wf-template-92c95f1a-b63f-b6d6-4019-705431dcff4b"
-                      >
-                        %3Cdiv%20class%3D%22w-commerce-commercecartitem%22%3E%3Cimg%20data-wf-bindings%3D%22%255B%257B%2522src%2522%253A%257B%2522type%2522%253A%2522ImageRef%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.f_main_image_4dr%2522%257D%257D%255D%22%20src%3D%22%22%20alt%3D%22%22%20class%3D%22w-commerce-commercecartitemimage%20w-dyn-bind-empty%22%2F%3E%3Cdiv%20class%3D%22w-commerce-commercecartiteminfo%22%3E%3Cdiv%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522PlainText%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_name_%2522%257D%257D%255D%22%20class%3D%22w-commerce-commercecartproductname%20w-dyn-bind-empty%22%3E%3C%2Fdiv%3E%3Cdiv%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522CommercePrice%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522price%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.price%2522%257D%257D%255D%22%3E%24%C2%A00.00%C2%A0USD%3C%2Fdiv%3E%3Cscript%20type%3D%22text%2Fx-wf-template%22%20id%3D%22wf-template-92c95f1a-b63f-b6d6-4019-705431dcff51%22%3E%253Cli%253E%253Cspan%2520data-wf-bindings%253D%2522%25255B%25257B%252522innerHTML%252522%25253A%25257B%252522type%252522%25253A%252522PlainText%252522%25252C%252522filter%252522%25253A%25257B%252522type%252522%25253A%252522identity%252522%25252C%252522params%252522%25253A%25255B%25255D%25257D%25252C%252522dataPath%252522%25253A%252522database.commerceOrder.userItems%25255B%25255D.product.f_sku_properties_3dr%25255B%25255D.name%252522%25257D%25257D%25255D%2522%2520class%253D%2522w-dyn-bind-empty%2522%253E%253C%252Fspan%253E%253Cspan%253E%253A%2520%253C%252Fspan%253E%253Cspan%2520data-wf-bindings%253D%2522%25255B%25257B%252522innerHTML%252522%25253A%25257B%252522type%252522%25253A%252522CommercePropValues%252522%25252C%252522filter%252522%25253A%25257B%252522type%252522%25253A%252522identity%252522%25252C%252522params%252522%25253A%25255B%25255D%25257D%25252C%252522dataPath%252522%25253A%252522database.commerceOrder.userItems%25255B%25255D.product.f_sku_properties_3dr%25255B%25255D%252522%25257D%25257D%25255D%2522%2520class%253D%2522w-dyn-bind-empty%2522%253E%253C%252Fspan%253E%253C%252Fli%253E%3C%2Fscript%3E%3Cul%20data-wf-bindings%3D%22%255B%257B%2522optionSets%2522%253A%257B%2522type%2522%253A%2522CommercePropTable%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%5B%5D%2522%257D%257D%252C%257B%2522optionValues%2522%253A%257B%2522type%2522%253A%2522CommercePropValues%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.f_sku_values_3dr%2522%257D%257D%255D%22%20class%3D%22w-commerce-commercecartoptionlist%22%20data-wf-collection%3D%22database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%22%20data-wf-template-id%3D%22wf-template-92c95f1a-b63f-b6d6-4019-705431dcff51%22%3E%3Cli%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522PlainText%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D.name%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3Cspan%3E%3A%20%3C%2Fspan%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522CommercePropValues%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3C%2Fli%3E%3C%2Ful%3E%3Ca%20href%3D%22%23%22%20role%3D%22button%22%20data-wf-bindings%3D%22%255B%257B%2522data-commerce-sku-id%2522%253A%257B%2522type%2522%253A%2522ItemRef%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.id%2522%257D%257D%255D%22%20class%3D%22w-inline-block%22%20data-wf-cart-action%3D%22remove-item%22%20data-commerce-sku-id%3D%22%22%20aria-label%3D%22Remove%20item%20from%20cart%22%3E%3Cdiv%3ERemove%3C%2Fdiv%3E%3C%2Fa%3E%3C%2Fdiv%3E%3Cinput%20aria-label%3D%22Update%20quantity%22%20data-wf-bindings%3D%22%255B%257B%2522value%2522%253A%257B%2522type%2522%253A%2522Number%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522numberPrecision%2522%252C%2522params%2522%253A%255B%25220%2522%252C%2522numberPrecision%2522%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.count%2522%257D%257D%252C%257B%2522data-commerce-sku-id%2522%253A%257B%2522type%2522%253A%2522ItemRef%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.id%2522%257D%257D%255D%22%20data-wf-conditions%3D%22%257B%2522condition%2522%253A%257B%2522fields%2522%253A%257B%2522product%253Aec-product-type%2522%253A%257B%2522ne%2522%253A%2522e348fd487d0102946c9179d2a94bb613%2522%252C%2522type%2522%253A%2522Option%2522%257D%257D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D%2522%257D%22%20class%3D%22w-commerce-commercecartquantity%22%20required%3D%22%22%20pattern%3D%22%5E%5B0-9%5D%2B%24%22%20inputMode%3D%22numeric%22%20type%3D%22number%22%20name%3D%22quantity%22%20autoComplete%3D%22off%22%20data-wf-cart-action%3D%22update-item-quantity%22%20data-commerce-sku-id%3D%22%22%20value%3D%221%22%2F%3E%3C%2Fdiv%3E
-                      </script>
-                      <div
-                        class="w-commerce-commercecartlist"
-                        data-wf-collection="database.commerceOrder.userItems"
-                        data-wf-template-id="wf-template-92c95f1a-b63f-b6d6-4019-705431dcff4b"
-                      >
-                        <div class="w-commerce-commercecartitem">
-                          <img
-                            data-wf-bindings="%5B%7B%22src%22%3A%7B%22type%22%3A%22ImageRef%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.sku.f_main_image_4dr%22%7D%7D%5D"
-                            src=""
-                            alt=""
-                            class="w-commerce-commercecartitemimage w-dyn-bind-empty"
-                          />
-                          <div class="w-commerce-commercecartiteminfo">
-                            <div
-                              data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22PlainText%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.product.f_name_%22%7D%7D%5D"
-                              class="w-commerce-commercecartproductname w-dyn-bind-empty"
-                            ></div>
-                            <div
-                              data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22CommercePrice%22%2C%22filter%22%3A%7B%22type%22%3A%22price%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.price%22%7D%7D%5D"
-                            >
-                              $ 0.00 USD
-                            </div>
-                            <script
-                              type="text/x-wf-template"
-                              id="wf-template-92c95f1a-b63f-b6d6-4019-705431dcff51"
-                            >
-                              %3Cli%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522PlainText%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D.name%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3Cspan%3E%3A%20%3C%2Fspan%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522CommercePropValues%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3C%2Fli%3E
-                            </script>
-                            <ul
-                              data-wf-bindings="%5B%7B%22optionSets%22%3A%7B%22type%22%3A%22CommercePropTable%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.product.f_sku_properties_3dr[]%22%7D%7D%2C%7B%22optionValues%22%3A%7B%22type%22%3A%22CommercePropValues%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.sku.f_sku_values_3dr%22%7D%7D%5D"
-                              class="w-commerce-commercecartoptionlist"
-                              data-wf-collection="database.commerceOrder.userItems%5B%5D.product.f_sku_properties_3dr"
-                              data-wf-template-id="wf-template-92c95f1a-b63f-b6d6-4019-705431dcff51"
-                            >
-                              <li>
-                                <span
-                                  data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22PlainText%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.product.f_sku_properties_3dr%5B%5D.name%22%7D%7D%5D"
-                                  class="w-dyn-bind-empty"
-                                ></span
-                                ><span>: </span
-                                ><span
-                                  data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22CommercePropValues%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.product.f_sku_properties_3dr%5B%5D%22%7D%7D%5D"
-                                  class="w-dyn-bind-empty"
-                                ></span>
-                              </li>
-                            </ul>
-                            <a
-                              href="#"
-                              role="button"
-                              data-wf-bindings="%5B%7B%22data-commerce-sku-id%22%3A%7B%22type%22%3A%22ItemRef%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.sku.id%22%7D%7D%5D"
-                              class="w-inline-block"
-                              data-wf-cart-action="remove-item"
-                              data-commerce-sku-id=""
-                              aria-label="Remove item from cart"
-                              ><div>Remove</div></a
-                            >
-                          </div>
-                          <input
-                            aria-label="Update quantity"
-                            data-wf-bindings="%5B%7B%22value%22%3A%7B%22type%22%3A%22Number%22%2C%22filter%22%3A%7B%22type%22%3A%22numberPrecision%22%2C%22params%22%3A%5B%220%22%2C%22numberPrecision%22%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.count%22%7D%7D%2C%7B%22data-commerce-sku-id%22%3A%7B%22type%22%3A%22ItemRef%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.sku.id%22%7D%7D%5D"
-                            data-wf-conditions="%7B%22condition%22%3A%7B%22fields%22%3A%7B%22product%3Aec-product-type%22%3A%7B%22ne%22%3A%22e348fd487d0102946c9179d2a94bb613%22%2C%22type%22%3A%22Option%22%7D%7D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D%22%7D"
-                            class="w-commerce-commercecartquantity"
-                            required=""
-                            pattern="^[0-9]+$"
-                            inputmode="numeric"
-                            type="number"
-                            name="quantity"
-                            autocomplete="off"
-                            data-wf-cart-action="update-item-quantity"
-                            data-commerce-sku-id=""
-                            value="1"
-                          />
-                        </div>
-                      </div>
-                      <div class="w-commerce-commercecartfooter">
-                        <div
-                          aria-live="polite"
-                          aria-atomic="true"
-                          class="w-commerce-commercecartlineitem"
-                        >
-                          <div>Subtotal</div>
-                          <div
-                            data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22CommercePrice%22%2C%22filter%22%3A%7B%22type%22%3A%22price%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.subtotal%22%7D%7D%5D"
-                            class="w-commerce-commercecartordervalue"
-                          ></div>
-                        </div>
-                        <div>
-                          <div
-                            data-node-type="commerce-cart-quick-checkout-actions"
-                            style="display: none"
-                          >
-                            <a
-                              role="button"
-                              aria-haspopup="dialog"
-                              aria-label="Apple Pay"
-                              data-node-type="commerce-cart-apple-pay-button"
-                              style="
-                                background-image: -webkit-named-image(
-                                  apple-pay-logo-white
-                                );
-                                background-size: 100% 50%;
-                                background-position: 50% 50%;
-                                background-repeat: no-repeat;
-                              "
-                              class="w-commerce-commercecartapplepaybutton"
-                              tabindex="0"
-                              ><div></div></a
-                            ><a
-                              role="button"
-                              tabindex="0"
-                              aria-haspopup="dialog"
-                              data-node-type="commerce-cart-quick-checkout-button"
-                              style="display: none"
-                              class="w-commerce-commercecartquickcheckoutbutton"
-                              ><svg
-                                class="w-commerce-commercequickcheckoutgoogleicon"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                              >
-                                <defs>
-                                  <polygon
-                                    id="google-mark-a"
-                                    points="0 .329 3.494 .329 3.494 7.649 0 7.649"
-                                  ></polygon>
-                                  <polygon
-                                    id="google-mark-c"
-                                    points=".894 0 13.169 0 13.169 6.443 .894 6.443"
-                                  ></polygon>
-                                </defs>
-                                <g fill="none" fill-rule="evenodd">
-                                  <path
-                                    fill="#4285F4"
-                                    d="M10.5967,12.0469 L10.5967,14.0649 L13.1167,14.0649 C14.6047,12.6759 15.4577,10.6209 15.4577,8.1779 C15.4577,7.6339 15.4137,7.0889 15.3257,6.5559 L7.8887,6.5559 L7.8887,9.6329 L12.1507,9.6329 C11.9767,10.6119 11.4147,11.4899 10.5967,12.0469"
-                                  ></path>
-                                  <path
-                                    fill="#34A853"
-                                    d="M7.8887,16 C10.0137,16 11.8107,15.289 13.1147,14.067 C13.1147,14.066 13.1157,14.065 13.1167,14.064 L10.5967,12.047 C10.5877,12.053 10.5807,12.061 10.5727,12.067 C9.8607,12.556 8.9507,12.833 7.8887,12.833 C5.8577,12.833 4.1387,11.457 3.4937,9.605 L0.8747,9.605 L0.8747,11.648 C2.2197,14.319 4.9287,16 7.8887,16"
-                                  ></path>
-                                  <g transform="translate(0 4)">
-                                    <mask id="google-mark-b" fill="#fff">
-                                      <use xlink:href="#google-mark-a"></use>
-                                    </mask>
-                                    <path
-                                      fill="#FBBC04"
-                                      d="M3.4639,5.5337 C3.1369,4.5477 3.1359,3.4727 3.4609,2.4757 L3.4639,2.4777 C3.4679,2.4657 3.4749,2.4547 3.4789,2.4427 L3.4939,0.3287 L0.8939,0.3287 C0.8799,0.3577 0.8599,0.3827 0.8459,0.4117 C-0.2821,2.6667 -0.2821,5.3337 0.8459,7.5887 L0.8459,7.5997 C0.8549,7.6167 0.8659,7.6317 0.8749,7.6487 L3.4939,5.6057 C3.4849,5.5807 3.4729,5.5587 3.4639,5.5337"
-                                      mask="url(#google-mark-b)"
-                                    ></path>
-                                  </g>
-                                  <mask id="google-mark-d" fill="#fff">
-                                    <use xlink:href="#google-mark-c"></use>
-                                  </mask>
-                                  <path
-                                    fill="#EA4335"
-                                    d="M0.894,4.3291 L3.478,6.4431 C4.113,4.5611 5.843,3.1671 7.889,3.1671 C9.018,3.1451 10.102,3.5781 10.912,4.3671 L13.169,2.0781 C11.733,0.7231 9.85,-0.0219 7.889,0.0001 C4.941,0.0001 2.245,1.6791 0.894,4.3291"
-                                    mask="url(#google-mark-d)"
-                                  ></path>
-                                </g></svg
-                              ><svg
-                                class="w-commerce-commercequickcheckoutmicrosofticon"
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                              >
-                                <g fill="none" fill-rule="evenodd">
-                                  <polygon
-                                    fill="#F05022"
-                                    points="7 7 1 7 1 1 7 1"
-                                  ></polygon>
-                                  <polygon
-                                    fill="#7DB902"
-                                    points="15 7 9 7 9 1 15 1"
-                                  ></polygon>
-                                  <polygon
-                                    fill="#00A4EE"
-                                    points="7 15 1 15 1 9 7 9"
-                                  ></polygon>
-                                  <polygon
-                                    fill="#FFB700"
-                                    points="15 15 9 15 9 9 15 9"
-                                  ></polygon>
-                                </g>
-                              </svg>
-                              <div>Pay with browser.</div></a
-                            >
-                          </div>
-                          <a
-                            href="/checkout"
-                            value="Continue to Checkout"
-                            class="w-commerce-commercecartcheckoutbutton primary-button hover"
-                            data-loading-text="Hang Tight..."
-                            data-node-type="cart-checkout-button"
-                            >Continue to Checkout</a
-                          >
-                        </div>
-                      </div>
-                    </form>
-                    <div class="w-commerce-commercecartemptystate">
-                      <div aria-label="This cart is empty" aria-live="polite">
-                        No items found.
-                      </div>
-                    </div>
-                    <div
-                      aria-live="assertive"
-                      style="display: none"
-                      data-node-type="commerce-cart-error"
-                      class="w-commerce-commercecarterrorstate"
-                    >
-                      <div
-                        class="w-cart-error-msg"
-                        data-w-cart-quantity-error="Product is not available in this quantity."
-                        data-w-cart-general-error="Something went wrong when adding this item to the cart."
-                        data-w-cart-checkout-error="Checkout is disabled on this site."
-                        data-w-cart-cart_order_min-error="The order minimum was not met. Add more items to your cart to continue."
-                        data-w-cart-subscription_error-error="Before you purchase, please use your email invite to verify your address so we can send order updates."
-                      >
-                        Product is not available in this quantity.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+    <section class="brand" style="margin: 20px">
+  <div class="container">
+    <div class="swiper brandSwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="./assets/daX-01.png" alt="DAX" />
         </div>
-        <div class="menu-open">
-          <a href="/about.html" class="nav-link top">About us</a
-          ><a href="/categories.html" class="nav-link">Categories</a
-          ><a href="/products.html" class="nav-link">Shop</a
-          ><a href="/brands.html" class="nav-link">Brands</a
-          ><a href="/faq" class="nav-link">FAQ’S</a
-          ><a href="/our-stores" class="nav-link">our stores</a
-          ><a href="/contact-us.html" class="nav-link">Contact us</a>
-          <div class="nav-bottom">© 2025 GEM.</div>
+        <div class="swiper-slide">
+          <img src="./assets/BANANA BOAT.png" alt="Banana Boat" />
         </div>
-        <div class="search-open">
-          <form action="/search" class="searchbar w-form">
-            <input
-              class="search-input w-input"
-              maxlength="256"
-              name="query"
-              placeholder="Discover skincare, makeup &amp; more..."
-              type="search"
-              id="search"
-              required=""
-            />
-            <div
-              data-w-id="96af735f-7cfa-780f-7122-9afcdcbdd082"
-              class="close-btn"
-            >
-              <img
-                src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/680355f1c9efdd38b5c09a3b_ic-close-02.svg"
-                loading="lazy"
-                alt=""
-              />
-            </div>
-            <input type="submit" class="d-none w-button" value="Search" />
-          </form>
+        <div class="swiper-slide">
+          <img src="./assets/Cristal Momento-01.png" alt="Momento" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/Bobini.png" alt="Bobini" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/Carroten.png" alt="Carroten" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/Crital Ravita-01.png" alt="Ravita" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/Karseell.png" alt="Karseell" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/Revox Plex-01.png" alt="Revox Plex" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/Schick New-01.png" alt="Schick" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/salon Perfect-01.png" alt="salon perfect" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/RT_Logos_Stacked_Black.png" alt="RT_Logos_Stacked_Black" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/Play Girl-01.png" alt="Play Girl" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/Perfumer's Choice-01.png" alt="Perfumer's Choice" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/Milton-Lloyd-01.png" alt="Milton-Lloyd" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/Ladys Secret-01.png" alt="Ladys Secret" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/l`origin-01.png" alt="l`origin" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/kiss-01.png" alt="kiss" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/Kashmir-01.png" alt="Kashmir" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/impress new-01.png" alt="impress new" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/ibd-01.png" alt="ibd" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/hawaii.png" alt="hawaii" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/Frais-01.png" alt="frais" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/fe-01.png" alt="fe" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/Eco Tools-01.png" alt="eco tools" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/Duo-01.png" alt="duo" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/Deomania.png" alt="Deomania" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/Cpc Lorigine.png" alt="cpc Lorigine" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/COLOUR ME  logo.png" alt="color me" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/ARDELL.png" alt="ardell" />
+        </div> 
+         <div class="swiper-slide">
+          <img src="./assets/Andera.png" alt="Andera" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/Union cosmetic.png" alt="Union cosmetic" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/wetbrush new 2025-01.png" alt="wetbrush" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/XL-01.png" alt="XL" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/YM.png" alt="YM" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/1-.png" alt="Batiste" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/Armada-01.png" alt="Armada" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/cabana sun.jpg" alt="cabana sun" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/Calypso-01.jpg" alt="Calypso" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/Cliven Italy-01.png" alt="Cliven Italy" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/Cocoa Skin Therapy-01.png" alt="Cocoa Skin Therapy" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/Creme of nature-01.png" alt="Creme of nature" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/dimples.png" alt="dimples" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/Disaar ..png" alt="Disaar" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/Enercos.png" alt="Enercos" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/Energy hair food-01.png" alt="Energy hair food" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/FashKool New-01.png" alt="FashKool" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/Galeria Professional-02.png" alt="Galeria" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/zero frizz new-01.png" alt="zero frizz" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/Zact new.png" alt="zact" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/youthhair-01.png" alt="youthhair" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/yara-01.png" alt="yara" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/Wildcolor new-01 (1).png" alt="Wildcolor" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/uniq one.png" alt="uniq one" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/Stoply-01.png" alt="stoply" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/Starkin-01.png" alt="Starkin" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/Smart Collection.png" alt="smart collection" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/Thichker fuller Hair-01 (2).png" alt="Thichker fuller Hair" />
+        </div>
+          <div class="swiper-slide">
+          <img src="./assets/Silkia-01 (2).png" alt="Silkia" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/SGX-01 (4).png" alt="SGX" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/SG-01 (2).png" alt="SG" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/Selsium-01 (1).png" alt="Selsium" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/Revox-01 (2).png" alt="revox" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/REVLON profissional (2).png" alt="REVLON" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/Re-gen New-01 (2).png" alt="Re-gen" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/Ravita logo-01 (2).png" alt="Ravita" />
+        </div>
+          <div class="swiper-slide">
+          <img src="./assets/Playtex (2).png" alt="Playtex" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/ORS(3)-01 (2).png" alt="ors" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/Oriense-01 (2).png" alt="Oriense" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/Olaplex (2).png" alt="Olaplex" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/Ohoud (2).png" alt="Ohoud" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/Nature s Bounty Black-03.png" alt="Nature s Bounty" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/NATURALIS new.png" alt="NATURALIS" />
+        </div>
+           <div class="swiper-slide">
+          <img src="./assets/Moroccanoil.png" alt="Moroccanoil" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/Morfose-02.png" alt="Morfose" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/Modish-01.png" alt="Modish" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/LILEN new.png" alt="LILEN" />
+        </div>
+          <div class="swiper-slide">
+          <img src="./assets/kodomo-01.png" alt="kodomo" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/kativa.png" alt="kativa" />
+        </div>
+         <div class="swiper-slide">
+          <img src="./assets/Hair Burst-01.png" alt="Hair Burst" />
         </div>
       </div>
-      <div
-        data-w-id="8a276e09-3bde-4b69-dd4c-54d733960088"
-        class="search-overly"
-      ></div>
-      <div
-        data-w-id="92c95f1a-b63f-b6d6-4019-705431dcff82"
-        class="menu-overly"
-      ></div>
-    </section> -->
+    </div>
+  </div>
+</section>
+
     <div class="page-data">
       <section class="hero-slider">
+        
         <div class="swiper heroSwiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
@@ -923,11 +1239,11 @@
                   <h1 class="hero-title animate">
                     A Touch That Transforms Your Skin
                   </h1>
-                  <p class="hero-desc animate">
+                  <p class="hero-desc animate"  style="color: grey;">
                     Experience the ultimate in luxury beauty and skincare with
                     our curated collection.
                   </p>
-                  <a href="./shop.html" class="hero-btn animate"
+                  <a href="./shop.html" class="hero-btn animate" style="background-color: #113463;"
                     >View Collection</a
                   >
                 </div>
@@ -941,21 +1257,21 @@
               </div>
             </div>
 
-            <div class="swiper-slide">
+            <div class="swiper-slide"">
               <div class="slide-content">
                 <div class="text-box">
                   <h1 class="hero-title animate">Glow Like Never Before</h1>
-                  <p class="hero-desc animate">
+                  <p class="hero-desc animate" style="color: grey;">
                     Discover skincare essentials designed to keep your skin
                     radiant and fresh.
                   </p>
-                  <a href="./shop.html" class="hero-btn animate"
+                  <a href="./shop.html" class="hero-btn animate"  style="background-color: #113463;"
                     >Shop Now</a
                   >
                 </div>
                 <div class="image-box">
                   <img
-                    src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/68021919bbdca4ff639d93a2_home-01.webp"
+                    src="./assets/revox image.png"
                     alt="Hero 2"
                     class="hero-img animate"
                   />
@@ -967,15 +1283,15 @@
               <div class="slide-content">
                 <div class="text-box">
                   <h1 class="hero-title animate">Beauty Meets Innovation</h1>
-                  <p class="hero-desc animate">
+                  <p class="hero-desc animate" style="color: grey;">
                     High-quality products trusted by thousands of glowing
                     customers.
                   </p>
-                  <a href="./shop.html" class="hero-btn animate">Explore</a>
+                  <a href="./shop.html" class="hero-btn animate" style="background-color: #113463;">Explore</a>
                 </div>
                 <div class="image-box">
                   <img
-                    src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/6802191abb9b378ffb1463f7_home-03.webp"
+                    src="./assets/sunscreen-image.png"
                     alt="Hero 3"
                     class="hero-img animate"
                   />
@@ -984,10 +1300,22 @@
             </div>
           </div>
 
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
+          <!-- <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div> -->
           <!-- <div class="swiper-pagination"></div> -->
         </div>
+         <div class="side-images">
+  <a href="./about.html" class="side-box">
+    <img src="./assets/bg-events.avif" alt="Gem History">
+    <h3 class="side-title">Gem History</h3>
+  </a>
+
+  <a href="gem-events.html" class="side-box">
+    <img src="./assets/bg-events.avif" alt="Gem Events">
+    <h3 class="side-title">Gem Events</h3>
+  </a>
+</div>
+
       </section>
 
       <link
@@ -998,1181 +1326,38 @@
       <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
       <script>
         var swiper = new Swiper(".heroSwiper", {
-          loop: true,
-          autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-          },
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-          },
-          effect: "slide",
-          speed: 800,
-        });
+  loop: true,
+  autoplay: {
+    delay: 2000,            
+    disableOnInteraction: false,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  effect: "slide",
+  speed: 600,               
+});
+
       </script>
-      <!-- 
-      <section class="categories">
-        <div class="w-layout-blockcontainer container w-container">
-          <div class="section-title">
-            <h2
-              data-w-id="7cd46389-5a1d-cf10-8245-be8d059a8754"
-              style="
-                -webkit-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1)
-                  rotateX(0) rotateY(0) rotateZ(0) skew(-10deg, 0);
-                -moz-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1)
-                  rotateX(0) rotateY(0) rotateZ(0) skew(-10deg, 0);
-                -ms-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1)
-                  rotateX(0) rotateY(0) rotateZ(0) skew(-10deg, 0);
-                transform: translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0)
-                  rotateY(0) rotateZ(0) skew(-10deg, 0);
-              "
-              class="section-heading"
-            >
-              Shop by Brand
-            </h2>
-          </div>
-          <div class="w-dyn-list">
-            <div
-              data-w-id="8a8d03a3-3792-257d-e73b-e406703cc529"
-              style="opacity: 0"
-              role="list"
-              class="category-list w-dyn-items"
-            >
-              <div role="listitem" class="categories-items w-dyn-item">
-                <a
-                  href="/category/beauty-tools.html"
-                  class="categories-box w-inline-block"
-                  ><div class="category-img">
-                    <img
-                      loading="lazy"
-                      src="./daX-01.png"
-                      alt="Categories Images"
-                      sizes="(max-width: 500px) 100vw, (max-width: 991px) 728px, 940px"
-                      class="category-image"
-                    />
-                  </div>
-                  <div class="category-bottom">
-                    <div>
-                      <h4 class="category-title">DAX</h4>
-                      <div class="plain-text">
-                        Precision for flawless beauty.
-                      </div>
-                    </div>
-                    <div
-                      data-w-id="35297b9f-2c82-fbc4-9d38-ddd65810f6dd"
-                      class="categories-button"
-                    >
-                      <div class="button-arrow-block">
-                        <img
-                          src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                          loading="lazy"
-                          style="
-                            -webkit-transform: translate3d(0, 0%, 0)
-                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
-                              skew(0, 0);
-                            -moz-transform: translate3d(0, 0%, 0)
-                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
-                              skew(0, 0);
-                            -ms-transform: translate3d(0, 0%, 0)
-                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
-                              skew(0, 0);
-                            transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
-                              rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                          "
-                          alt="Arrow"
-                          class="button-arrow"
-                        /><img
-                          src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                          loading="lazy"
-                          alt="Arrow"
-                          class="button-arrow hover"
-                        />
-                      </div>
-                      <div class="button-text-wrap">
-                        <div class="text-wrapper">
-                          <div
-                            style="
-                              -webkit-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -moz-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -ms-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
-                                rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                            "
-                            class="button-text"
-                          >
-                            Shop
-                          </div>
-                          <div class="button-text hover">Shop</div>
-                        </div>
-                        <div class="text-wrapper">
-                          <div
-                            style="
-                              -webkit-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -moz-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -ms-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
-                                rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                            "
-                            class="button-text-bottom"
-                          >
-                            Now
-                          </div>
-                          <div class="button-text-bottom hover">Now</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div></a
-                >
-              </div>
-              <div role="listitem" class="categories-items w-dyn-item">
-                <a
-                  href="/category/fragrances.html"
-                  class="categories-box w-inline-block"
-                  ><div class="category-img">
-                    <img
-                      loading="lazy"
-                      src="./BANANA BOAT.png"
-                      alt="Categories Images"
-                      class="category-image"
-                    />
-                  </div>
-                  <div class="category-bottom">
-                    <div>
-                      <h4 class="category-title">Banana Boat</h4>
-                      <div class="plain-text">
-                        Long-lasting, captivating scents.
-                      </div>
-                    </div>
-                    <div
-                      data-w-id="35297b9f-2c82-fbc4-9d38-ddd65810f6dd"
-                      class="categories-button"
-                    >
-                      <div class="button-arrow-block">
-                        <img
-                          src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                          loading="lazy"
-                          style="
-                            -webkit-transform: translate3d(0, 0%, 0)
-                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
-                              skew(0, 0);
-                            -moz-transform: translate3d(0, 0%, 0)
-                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
-                              skew(0, 0);
-                            -ms-transform: translate3d(0, 0%, 0)
-                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
-                              skew(0, 0);
-                            transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
-                              rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                          "
-                          alt="Arrow"
-                          class="button-arrow"
-                        /><img
-                          src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                          loading="lazy"
-                          alt="Arrow"
-                          class="button-arrow hover"
-                        />
-                      </div>
-                      <div class="button-text-wrap">
-                        <div class="text-wrapper">
-                          <div
-                            style="
-                              -webkit-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -moz-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -ms-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
-                                rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                            "
-                            class="button-text"
-                          >
-                            Shop
-                          </div>
-                          <div class="button-text hover">Shop</div>
-                        </div>
-                        <div class="text-wrapper">
-                          <div
-                            style="
-                              -webkit-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -moz-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -ms-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
-                                rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                            "
-                            class="button-text-bottom"
-                          >
-                            Now
-                          </div>
-                          <div class="button-text-bottom hover">Now</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div></a
-                >
-              </div>
-              <div role="listitem" class="categories-items w-dyn-item">
-                <a
-                  href="./category/makeup.html"
-                  class="categories-box w-inline-block"
-                  ><div class="category-img">
-                    <img
-                      loading="lazy"
-                      src="./Cristal Momento-01.png"
-                      alt="Categories Images"
-                      sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                      class="category-image"
-                    />
-                  </div>
-                  <div class="category-bottom">
-                    <div>
-                      <h4 class="category-title">Momento</h4>
-                      <div class="plain-text">Enhance, define, and glow.</div>
-                    </div>
-                    <div
-                      data-w-id="35297b9f-2c82-fbc4-9d38-ddd65810f6dd"
-                      class="categories-button"
-                    >
-                      <div class="button-arrow-block">
-                        <img
-                          src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                          loading="lazy"
-                          style="
-                            -webkit-transform: translate3d(0, 0%, 0)
-                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
-                              skew(0, 0);
-                            -moz-transform: translate3d(0, 0%, 0)
-                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
-                              skew(0, 0);
-                            -ms-transform: translate3d(0, 0%, 0)
-                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
-                              skew(0, 0);
-                            transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
-                              rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                          "
-                          alt="Arrow"
-                          class="button-arrow"
-                        /><img
-                          src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                          loading="lazy"
-                          alt="Arrow"
-                          class="button-arrow hover"
-                        />
-                      </div>
-                      <div class="button-text-wrap">
-                        <div class="text-wrapper">
-                          <div
-                            style="
-                              -webkit-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -moz-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -ms-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
-                                rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                            "
-                            class="button-text"
-                          >
-                            Shop
-                          </div>
-                          <div class="button-text hover">Shop</div>
-                        </div>
-                        <div class="text-wrapper">
-                          <div
-                            style="
-                              -webkit-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -moz-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -ms-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
-                                rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                            "
-                            class="button-text-bottom"
-                          >
-                            Now
-                          </div>
-                          <div class="button-text-bottom hover">Now</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div></a
-                >
-              </div>
-
-              <div role="listitem" class="categories-items w-dyn-item">
-                <a
-                  href="/category/skincare.html"
-                  class="categories-box w-inline-block"
-                  ><div class="category-img">
-                    <img
-                      loading="lazy"
-                      src="./Crital Ravita-01.png"
-                      alt="Categories Images"
-                      sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                      class="category-image"
-                    />
-                  </div>
-                  <div class="category-bottom">
-                    <div>
-                      <h4 class="category-title">Ravita</h4>
-                      <div class="plain-text">Nourish, hydrate, and glow.</div>
-                    </div>
-                    <div
-                      data-w-id="35297b9f-2c82-fbc4-9d38-ddd65810f6dd"
-                      class="categories-button"
-                    >
-                      <div class="button-arrow-block">
-                        <img
-                          src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                          loading="lazy"
-                          style="
-                            -webkit-transform: translate3d(0, 0%, 0)
-                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
-                              skew(0, 0);
-                            -moz-transform: translate3d(0, 0%, 0)
-                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
-                              skew(0, 0);
-                            -ms-transform: translate3d(0, 0%, 0)
-                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
-                              skew(0, 0);
-                            transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
-                              rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                          "
-                          alt="Arrow"
-                          class="button-arrow"
-                        /><img
-                          src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                          loading="lazy"
-                          alt="Arrow"
-                          class="button-arrow hover"
-                        />
-                      </div>
-                      <div class="button-text-wrap">
-                        <div class="text-wrapper">
-                          <div
-                            style="
-                              -webkit-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -moz-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -ms-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
-                                rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                            "
-                            class="button-text"
-                          >
-                            Shop
-                          </div>
-                          <div class="button-text hover">Shop</div>
-                        </div>
-                        <div class="text-wrapper">
-                          <div
-                            style="
-                              -webkit-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -moz-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -ms-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
-                                rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                            "
-                            class="button-text-bottom"
-                          >
-                            Now
-                          </div>
-                          <div class="button-text-bottom hover">Now</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div></a
-                >
-              </div>
-              <div role="listitem" class="categories-items w-dyn-item">
-                <a
-                  href="/category/skincare.html"
-                  class="categories-box w-inline-block"
-                  ><div class="category-img">
-                    <img
-                      loading="lazy"
-                      src="./Revox Plex-01.png"
-                      alt="Categories Images"
-                      sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                      class="category-image"
-                    />
-                  </div>
-                  <div class="category-bottom">
-                    <div>
-                      <h4 class="category-title">Revox Plex</h4>
-                      <div class="plain-text">Nourish, hydrate, and glow.</div>
-                    </div>
-                    <div
-                      data-w-id="35297b9f-2c82-fbc4-9d38-ddd65810f6dd"
-                      class="categories-button"
-                    >
-                      <div class="button-arrow-block">
-                        <img
-                          src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                          loading="lazy"
-                          style="
-                            -webkit-transform: translate3d(0, 0%, 0)
-                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
-                              skew(0, 0);
-                            -moz-transform: translate3d(0, 0%, 0)
-                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
-                              skew(0, 0);
-                            -ms-transform: translate3d(0, 0%, 0)
-                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
-                              skew(0, 0);
-                            transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
-                              rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                          "
-                          alt="Arrow"
-                          class="button-arrow"
-                        /><img
-                          src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                          loading="lazy"
-                          alt="Arrow"
-                          class="button-arrow hover"
-                        />
-                      </div>
-                      <div class="button-text-wrap">
-                        <div class="text-wrapper">
-                          <div
-                            style="
-                              -webkit-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -moz-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -ms-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
-                                rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                            "
-                            class="button-text"
-                          >
-                            Shop
-                          </div>
-                          <div class="button-text hover">Shop</div>
-                        </div>
-                        <div class="text-wrapper">
-                          <div
-                            style="
-                              -webkit-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -moz-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -ms-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
-                                rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                            "
-                            class="button-text-bottom"
-                          >
-                            Now
-                          </div>
-                          <div class="button-text-bottom hover">Now</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div></a
-                >
-              </div>
-              <div role="listitem" class="categories-items w-dyn-item">
-                <a
-                  href="/category/skincare.html"
-                  class="categories-box w-inline-block"
-                  ><div class="category-img">
-                    <img
-                      loading="lazy"
-                      src="./Bobini.png"
-                      alt="Categories Images"
-                      sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                      class="category-image"
-                    />
-                  </div>
-                  <div class="category-bottom">
-                    <div>
-                      <h4 class="category-title">Bobini</h4>
-                      <div class="plain-text">Nourish, hydrate, and glow.</div>
-                    </div>
-                    <div
-                      data-w-id="35297b9f-2c82-fbc4-9d38-ddd65810f6dd"
-                      class="categories-button"
-                    >
-                      <div class="button-arrow-block">
-                        <img
-                          src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                          loading="lazy"
-                          style="
-                            -webkit-transform: translate3d(0, 0%, 0)
-                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
-                              skew(0, 0);
-                            -moz-transform: translate3d(0, 0%, 0)
-                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
-                              skew(0, 0);
-                            -ms-transform: translate3d(0, 0%, 0)
-                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
-                              skew(0, 0);
-                            transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
-                              rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                          "
-                          alt="Arrow"
-                          class="button-arrow"
-                        /><img
-                          src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                          loading="lazy"
-                          alt="Arrow"
-                          class="button-arrow hover"
-                        />
-                      </div>
-                      <div class="button-text-wrap">
-                        <div class="text-wrapper">
-                          <div
-                            style="
-                              -webkit-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -moz-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -ms-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
-                                rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                            "
-                            class="button-text"
-                          >
-                            Shop
-                          </div>
-                          <div class="button-text hover">Shop</div>
-                        </div>
-                        <div class="text-wrapper">
-                          <div
-                            style="
-                              -webkit-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -moz-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -ms-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
-                                rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                            "
-                            class="button-text-bottom"
-                          >
-                            Now
-                          </div>
-                          <div class="button-text-bottom hover">Now</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div></a
-                >
-              </div>
-              <div role="listitem" class="categories-items w-dyn-item">
-                <a
-                  href="/category/skincare.html"
-                  class="categories-box w-inline-block"
-                  ><div class="category-img">
-                    <img
-                      loading="lazy"
-                      src="./Carroten.png"
-                      alt="Categories Images"
-                      sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                      class="category-image"
-                    />
-                  </div>
-                  <div class="category-bottom">
-                    <div>
-                      <h4 class="category-title">Carroten</h4>
-                      <div class="plain-text">Nourish, hydrate, and glow.</div>
-                    </div>
-                    <div
-                      data-w-id="35297b9f-2c82-fbc4-9d38-ddd65810f6dd"
-                      class="categories-button"
-                    >
-                      <div class="button-arrow-block">
-                        <img
-                          src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                          loading="lazy"
-                          style="
-                            -webkit-transform: translate3d(0, 0%, 0)
-                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
-                              skew(0, 0);
-                            -moz-transform: translate3d(0, 0%, 0)
-                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
-                              skew(0, 0);
-                            -ms-transform: translate3d(0, 0%, 0)
-                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
-                              skew(0, 0);
-                            transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
-                              rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                          "
-                          alt="Arrow"
-                          class="button-arrow"
-                        /><img
-                          src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                          loading="lazy"
-                          alt="Arrow"
-                          class="button-arrow hover"
-                        />
-                      </div>
-                      <div class="button-text-wrap">
-                        <div class="text-wrapper">
-                          <div
-                            style="
-                              -webkit-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -moz-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -ms-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
-                                rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                            "
-                            class="button-text"
-                          >
-                            Shop
-                          </div>
-                          <div class="button-text hover">Shop</div>
-                        </div>
-                        <div class="text-wrapper">
-                          <div
-                            style="
-                              -webkit-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -moz-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -ms-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
-                                rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                            "
-                            class="button-text-bottom"
-                          >
-                            Now
-                          </div>
-                          <div class="button-text-bottom hover">Now</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div></a
-                >
-              </div>
-              <div role="listitem" class="categories-items w-dyn-item">
-                <a
-                  href="/category/skincare.html"
-                  class="categories-box w-inline-block"
-                  ><div class="category-img">
-                    <img
-                      loading="lazy"
-                      src="./Karseell.png"
-                      alt="Categories Images"
-                      sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                      class="category-image"
-                    />
-                  </div>
-                  <div class="category-bottom">
-                    <div>
-                      <h4 class="category-title">Karseell</h4>
-                      <div class="plain-text">Nourish, hydrate, and glow.</div>
-                    </div>
-                    <div
-                      data-w-id="35297b9f-2c82-fbc4-9d38-ddd65810f6dd"
-                      class="categories-button"
-                    >
-                      <div class="button-arrow-block">
-                        <img
-                          src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                          loading="lazy"
-                          style="
-                            -webkit-transform: translate3d(0, 0%, 0)
-                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
-                              skew(0, 0);
-                            -moz-transform: translate3d(0, 0%, 0)
-                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
-                              skew(0, 0);
-                            -ms-transform: translate3d(0, 0%, 0)
-                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
-                              skew(0, 0);
-                            transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
-                              rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                          "
-                          alt="Arrow"
-                          class="button-arrow"
-                        /><img
-                          src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                          loading="lazy"
-                          alt="Arrow"
-                          class="button-arrow hover"
-                        />
-                      </div>
-                      <div class="button-text-wrap">
-                        <div class="text-wrapper">
-                          <div
-                            style="
-                              -webkit-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -moz-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -ms-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
-                                rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                            "
-                            class="button-text"
-                          >
-                            Shop
-                          </div>
-                          <div class="button-text hover">Shop</div>
-                        </div>
-                        <div class="text-wrapper">
-                          <div
-                            style="
-                              -webkit-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -moz-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              -ms-transform: translate3d(0, 0%, 0)
-                                scale3d(1, 1, 1) rotateX(0) rotateY(0)
-                                rotateZ(0) skew(0, 0);
-                              transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
-                                rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                            "
-                            class="button-text-bottom"
-                          >
-                            Now
-                          </div>
-                          <div class="button-text-bottom hover">Now</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div></a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> -->
-      <section class="brand" style="margin: 20px">
-        <div class="w-layout-blockcontainer container w-container">
-          <h2 class="section-heading">Shop by Brand</h2>
-
-          <div class="swiper brandSwiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <a href="" class="categories-box">
-                  <div class="category-img">
-                    <img
-                      src="./assets/daX-01.png"
-                      alt="DAX"
-                      class="category-image"
-                    />
-                  </div>
-                  <div class="category-bottom">
-                    <h4 class="category-title">DAX</h4>
-                    <div class="plain-text">Precision for flawless beauty.</div>
-                  </div>
-                  <div class="categories-button">
-                    <div class="button-arrow-block">
-                      <img
-                        src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                        loading="lazy"
-                        alt="Arrow"
-                        class="button-arrow"
-                      />
-                      <img
-                        src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                        loading="lazy"
-                        alt="Arrow"
-                        class="button-arrow hover"
-                      />
-                    </div>
-                    <div class="button-text-wrap">
-                      <div class="text-wrapper">
-                        <div class="button-text">Shop</div>
-                        <div class="button-text hover">Shop</div>
-                      </div>
-                      <div class="text-wrapper">
-                        <div class="button-text-bottom">Now</div>
-                        <div class="button-text-bottom hover">Now</div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div class="swiper-slide">
-                <a href="" class="categories-box">
-                  <div class="category-img">
-                    <img
-                      src="./assets/BANANA BOAT.png"
-                      alt="Banana Boat"
-                      class="category-image"
-                    />
-                  </div>
-                  <div class="category-bottom">
-                    <h4 class="category-title">Banana Boat</h4>
-                    <div class="plain-text">
-                      Long-lasting, captivating scents.
-                    </div>
-                  </div>
-                  <div class="categories-button">
-                    <div class="button-arrow-block">
-                      <img
-                        src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                        loading="lazy"
-                        alt="Arrow"
-                        class="button-arrow"
-                      />
-                      <img
-                        src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                        loading="lazy"
-                        alt="Arrow"
-                        class="button-arrow hover"
-                      />
-                    </div>
-                    <div class="button-text-wrap">
-                      <div class="text-wrapper">
-                        <div class="button-text">Shop</div>
-                        <div class="button-text hover">Shop</div>
-                      </div>
-                      <div class="text-wrapper">
-                        <div class="button-text-bottom">Now</div>
-                        <div class="button-text-bottom hover">Now</div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div class="swiper-slide">
-                <a href="" class="categories-box">
-                  <div class="category-img">
-                    <img
-                      src="./assets/Cristal Momento-01.png"
-                      alt="Momento"
-                      class="category-image"
-                    />
-                  </div>
-                  <div class="category-bottom">
-                    <h4 class="category-title">Momento</h4>
-                    <div class="plain-text">Enhance, define, and glow.</div>
-                  </div>
-                  <div class="categories-button">
-                    <div class="button-arrow-block">
-                      <img
-                        src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                        loading="lazy"
-                        alt="Arrow"
-                        class="button-arrow"
-                      />
-                      <img
-                        src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                        loading="lazy"
-                        alt="Arrow"
-                        class="button-arrow hover"
-                      />
-                    </div>
-                    <div class="button-text-wrap">
-                      <div class="text-wrapper">
-                        <div class="button-text">Shop</div>
-                        <div class="button-text hover">Shop</div>
-                      </div>
-                      <div class="text-wrapper">
-                        <div class="button-text-bottom">Now</div>
-                        <div class="button-text-bottom hover">Now</div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="" class="categories-box">
-                  <div class="category-img">
-                    <img
-                      src="./assets/Bobini.png"
-                      alt="Bobini"
-                      class="category-image"
-                    />
-                  </div>
-                  <div class="category-bottom">
-                    <h4 class="category-title">Bobini</h4>
-                    <div class="plain-text">Precision for flawless beauty.</div>
-                  </div>
-                  <div class="categories-button">
-                    <div class="button-arrow-block">
-                      <img
-                        src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                        loading="lazy"
-                        alt="Arrow"
-                        class="button-arrow"
-                      />
-                      <img
-                        src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                        loading="lazy"
-                        alt="Arrow"
-                        class="button-arrow hover"
-                      />
-                    </div>
-                    <div class="button-text-wrap">
-                      <div class="text-wrapper">
-                        <div class="button-text">Shop</div>
-                        <div class="button-text hover">Shop</div>
-                      </div>
-                      <div class="text-wrapper">
-                        <div class="button-text-bottom">Now</div>
-                        <div class="button-text-bottom hover">Now</div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="" class="categories-box">
-                  <div class="category-img">
-                    <img
-                      src="./assets/Carroten.png"
-                      alt="Carroten"
-                      class="category-image"
-                    />
-                  </div>
-                  <div class="category-bottom">
-                    <h4 class="category-title">Carroten</h4>
-                    <div class="plain-text">Precision for flawless beauty.</div>
-                  </div>
-                  <div class="categories-button">
-                    <div class="button-arrow-block">
-                      <img
-                        src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                        loading="lazy"
-                        alt="Arrow"
-                        class="button-arrow"
-                      />
-                      <img
-                        src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                        loading="lazy"
-                        alt="Arrow"
-                        class="button-arrow hover"
-                      />
-                    </div>
-                    <div class="button-text-wrap">
-                      <div class="text-wrapper">
-                        <div class="button-text">Shop</div>
-                        <div class="button-text hover">Shop</div>
-                      </div>
-                      <div class="text-wrapper">
-                        <div class="button-text-bottom">Now</div>
-                        <div class="button-text-bottom hover">Now</div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="" class="categories-box">
-                  <div class="category-img">
-                    <img
-                      src="./assets/Crital Ravita-01.png"
-                      alt="Ravita"
-                      class="category-image"
-                    />
-                  </div>
-                  <div class="category-bottom">
-                    <h4 class="category-title">Ravita</h4>
-                    <div class="plain-text">Precision for flawless beauty.</div>
-                  </div>
-                  <div class="categories-button">
-                    <div class="button-arrow-block">
-                      <img
-                        src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                        loading="lazy"
-                        alt="Arrow"
-                        class="button-arrow"
-                      />
-                      <img
-                        src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                        loading="lazy"
-                        alt="Arrow"
-                        class="button-arrow hover"
-                      />
-                    </div>
-                    <div class="button-text-wrap">
-                      <div class="text-wrapper">
-                        <div class="button-text">Shop</div>
-                        <div class="button-text hover">Shop</div>
-                      </div>
-                      <div class="text-wrapper">
-                        <div class="button-text-bottom">Now</div>
-                        <div class="button-text-bottom hover">Now</div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="" class="categories-box">
-                  <div class="category-img">
-                    <img
-                      src="./assets/Karseell.png"
-                      alt="Karseell"
-                      class="category-image"
-                    />
-                  </div>
-                  <div class="category-bottom">
-                    <h4 class="category-title">Karseell</h4>
-                    <div class="plain-text">Precision for flawless beauty.</div>
-                  </div>
-                  <div class="categories-button">
-                    <div class="button-arrow-block">
-                      <img
-                        src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                        loading="lazy"
-                        alt="Arrow"
-                        class="button-arrow"
-                      />
-                      <img
-                        src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                        loading="lazy"
-                        alt="Arrow"
-                        class="button-arrow hover"
-                      />
-                    </div>
-                    <div class="button-text-wrap">
-                      <div class="text-wrapper">
-                        <div class="button-text">Shop</div>
-                        <div class="button-text hover">Shop</div>
-                      </div>
-                      <div class="text-wrapper">
-                        <div class="button-text-bottom">Now</div>
-                        <div class="button-text-bottom hover">Now</div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="" class="categories-box">
-                  <div class="category-img">
-                    <img
-                      src="./assets/Revox Plex-01.png"
-                      alt="Revox Plex"
-                      class="category-image"
-                    />
-                  </div>
-                  <div class="category-bottom">
-                    <h4 class="category-title">Revox Plex</h4>
-                    <div class="plain-text">Precision for flawless beauty.</div>
-                  </div>
-                  <div class="categories-button">
-                    <div class="button-arrow-block">
-                      <img
-                        src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                        loading="lazy"
-                        alt="Arrow"
-                        class="button-arrow"
-                      />
-                      <img
-                        src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                        loading="lazy"
-                        alt="Arrow"
-                        class="button-arrow hover"
-                      />
-                    </div>
-                    <div class="button-text-wrap">
-                      <div class="text-wrapper">
-                        <div class="button-text">Shop</div>
-                        <div class="button-text hover">Shop</div>
-                      </div>
-                      <div class="text-wrapper">
-                        <div class="button-text-bottom">Now</div>
-                        <div class="button-text-bottom hover">Now</div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+     
+    
       <script>
-        var swiper = new Swiper(".brandSwiper", {
-          slidesPerView: 5,
-          spaceBetween: 20,
-          loop: true,
-          autoplay: {
-            delay: 2000,
-            disableOnInteraction: false,
-          },
-          speed: 1000,
-        });
+     var swiper = new Swiper(".brandSwiper", {
+  slidesPerView: "auto",  
+  spaceBetween: 10,          
+  loop: true,               
+  speed: 700,               
+  autoplay: {
+    delay: 0,               
+    disableOnInteraction: false,
+  },
+});
+
       </script>
 
       <!-- <section class="categories">
@@ -2629,7 +1814,7 @@
       <section class="shop-categories">
         <div class="shop-container">
           <div class="shop-title" style="text-align: left">
-            <h2>Shop by Category</h2>
+            <h2 style="color: #113463;">Shop by Category</h2>
           </div>
           <div class="shop-grid">
             <div class="shop-card">
@@ -2797,10 +1982,11 @@
       </section>
       <section class="top-product">
         <div class="w-layout-blockcontainer container w-container">
-          <div class="section-title">
+          <!-- <div class="section-title">
             <h2
               data-w-id="6335dba4-73e0-7111-9147-1fff76f48cf6"
               style="
+              color: #113463;
                 -webkit-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1)
                   rotateX(0) rotateY(0) rotateZ(0) skew(-10deg, 0);
                 -moz-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1)
@@ -2814,7 +2000,7 @@
             >
               Top Products
             </h2>
-          </div>
+          </div> -->
           <div class="tp-inner">
             <div
               data-w-id="1757ee07-0ee1-a553-15b2-165c47b7fdea"
@@ -2834,8 +2020,25 @@
                 "
                 class="on-scroll"
               ></div>
+              <h2
+              data-w-id="6335dba4-73e0-7111-9147-1fff76f48cf6"
+              style="
+              color: #113463;
+                -webkit-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1)
+                  rotateX(0) rotateY(0) rotateZ(0) skew(-10deg, 0);
+                -moz-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1)
+                  rotateX(0) rotateY(0) rotateZ(0) skew(-10deg, 0);
+                -ms-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1)
+                  rotateX(0) rotateY(0) rotateZ(0) skew(-10deg, 0);
+                transform: translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0)
+                  rotateY(0) rotateZ(0) skew(-10deg, 0);
+              "
+              class="section-heading"
+            >
+              Top Products
+            </h2>
               <img
-                src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/6800a15834a4dfcc6805e05d_product-img.webp"
+                src="./assets/fifth-product.png"
                 loading="lazy"
                 style="
                   filter: blur(5px);
@@ -2850,16 +2053,7 @@
                 "
                 sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
                 alt="Product Image"
-                srcset="
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/6800a15834a4dfcc6805e05d_product-img-p-500.webp   500w,
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/6800a15834a4dfcc6805e05d_product-img-p-800.webp   800w,
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/6800a15834a4dfcc6805e05d_product-img-p-1080.webp 1080w,
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/6800a15834a4dfcc6805e05d_product-img-p-1600.webp 1600w,
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/6800a15834a4dfcc6805e05d_product-img-p-2000.webp 2000w,
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/6800a15834a4dfcc6805e05d_product-img-p-2600.webp 2600w,
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/6800a15834a4dfcc6805e05d_product-img-p-3200.webp 3200w,
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/6800a15834a4dfcc6805e05d_product-img.webp        3780w
-                "
+              
                 class="on-scroll-image"
               />
             </div>
@@ -3082,6 +2276,7 @@
             <h2
               data-w-id="0462dc6e-94ce-6df6-d711-7f6986107206"
               style="
+              color: #113463;
                 -webkit-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1)
                   rotateX(0) rotateY(0) rotateZ(0) skew(-10deg, 0);
                 -moz-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1)
@@ -3533,7 +2728,7 @@
                   class="branding-block"
                 >
                   <img
-                    src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67ff7478022da176631e8490_hourglass.svg"
+                    src="./assets/carrefour-logo.png"
                     loading="lazy"
                     alt="Branding Logo"
                     height="Auto"
@@ -3545,19 +2740,20 @@
                   class="branding-block"
                 >
                   <img
-                    src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67ff7478fb1a6b441e4c582c_ic-globalbank.svg"
-                    loading="lazy"
-                    alt="Branding Logo"
-                    height="Auto"
-                    class="branding-logo"
-                  />
+  src="./assets/spinneys-logo.png"
+  loading="lazy"
+  alt="Branding Logo"
+  height="Auto"
+  class="branding-logo logo-spinneys"
+/>
+
                 </div>
                 <div
                   data-w-id="7504781e-bf66-ad04-1f08-749728682733"
                   class="branding-block"
                 >
                   <img
-                    src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67ff7478ae9a3bbda74d1de6_capsule.svg"
+                    src="./assets/elazaby-logo.png"
                     loading="lazy"
                     alt="Branding Logo"
                     height="Auto"
@@ -3569,25 +2765,62 @@
                   class="branding-block"
                 >
                   <img
-                    src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67ff7479866c06d105c8d3d4_spherule.svg"
+                    src="./assets/panda-logo.png"
                     loading="lazy"
                     alt="Branding Logo"
                     height="Auto"
                     class="branding-logo"
                   />
                 </div>
-                <div
-                  data-w-id="7504781e-bf66-ad04-1f08-749728682737"
+                 <div
+                  data-w-id="7504781e-bf66-ad04-1f08-749728682735"
                   class="branding-block"
                 >
                   <img
-                    src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67ff74787a1a7c8921b46a6f_logo.svg"
+                    src="./assets/flamingo-logo.png"
                     loading="lazy"
                     alt="Branding Logo"
                     height="Auto"
                     class="branding-logo"
                   />
                 </div>
+                 <div
+                  data-w-id="7504781e-bf66-ad04-1f08-749728682735"
+                  class="branding-block"
+                >
+                  <img
+                    src="./assets/oscar-logo.svg"
+                    loading="lazy"
+                    alt="Branding Logo"
+                    height="Auto"
+                    class="branding-logo"
+                  />
+                </div>
+                 <div
+                  data-w-id="7504781e-bf66-ad04-1f08-749728682735"
+                  class="branding-block"
+                >
+                  <img
+                    src="./assets/amazon-logo.png"
+                    loading="lazy"
+                    alt="Branding Logo"
+                    height="Auto"
+                    class="branding-logo"
+                  />
+                </div>
+                 <div
+                  data-w-id="7504781e-bf66-ad04-1f08-749728682735"
+                  class="branding-block"
+                >
+                  <img
+                    src="./assets/seif-logo.png"
+                    loading="lazy"
+                    alt="Branding Logo"
+                    height="Auto"
+                    class="branding-logo"
+                  />
+                </div>
+            
               </div>
             </div>
             <div
@@ -3598,16 +2831,12 @@
                 “Fast delivery and excellent products. My new favorite beauty
                 brand!”
               </div>
-              <div class="branding-data">
-                <div class="branding-text">Kathryn Murphy</div>
-                <div class="post-line"></div>
-                <div>Florida, US</div>
-              </div>
+              
             </div>
           </div>
         </div>
       </section>
-      <section class="blogs">
+      <!-- <section class="blogs">
         <div class="w-layout-blockcontainer container w-container">
           <div class="section-title">
             <h2
@@ -3694,7 +2923,7 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
     </div>
     <section class="inspire-post">
       <div
@@ -3774,103 +3003,71 @@
         </div>
       </div>
     </section>
-    <section class="footer">
-      <div class="w-layout-blockcontainer container w-container">
-        <div class="footer-inner">
-          <div class="footer-top">
-            <div class="footer-left">
-              <h3 class="footer-heading">Subscribe to our newsletter</h3>
-              <div class="footer-form w-form">
-                <form
-                  id="email-form"
-                  name="email-form"
-                  data-name="Email Form"
-                  method="get"
-                  class="ft-form"
-                  data-wf-page-id="673c1b266c89758068805929"
-                  data-wf-element-id="bdee3a1b-2add-f928-411e-aaf83589112e"
-                  data-turnstile-sitekey="0x4AAAAAAAQTptj2So4dx43e"
-                >
-                  <input
-                    class="footer-input w-input"
-                    maxlength="256"
-                    name="email"
-                    data-name="Email"
-                    placeholder="Enter your email"
-                    type="email"
-                    id="email"
-                    required=""
-                  /><input
-                    type="submit"
-                    data-wait=""
-                    class="footer-button w-button"
-                    value="Submit"
-                  />
-                </form>
-                <div class="success-message w-form-done">
-                  <div>Thank you! Your submission has been received!</div>
-                </div>
-                <div class="error-message w-form-fail">
-                  <div>
-                    Oops! Something went wrong while submitting the form.
-                  </div>
-                </div>
+     <section class="footer">
+    <div class="w-layout-blockcontainer container w-container">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-left">
+            <h3 class="footer-heading">Subscribe to our newsletter</h3>
+            <div class="footer-form w-form">
+              <form id="email-form" name="email-form" data-name="Email Form" method="get" class="ft-form"
+                data-wf-page-id="67ff4f289edc04a783f669d9" data-wf-element-id="bdee3a1b-2add-f928-411e-aaf83589112e"
+                data-turnstile-sitekey="0x4AAAAAAAQTptj2So4dx43e">
+                <input class="footer-input w-input" maxlength="256" name="email" data-name="Email"
+                  placeholder="Enter your email" type="email" id="email" required="" /><input type="submit" data-wait=""
+                  class="footer-button w-button" value="Submit" />
+              </form>
+              <div class="success-message w-form-done">
+                <div>Thank you! Your submission has been received!</div>
               </div>
-              <div class="footer-text">
-                Stay in the loop with exclusive offers, beauty tips, and new
-                arrivals delivered straight to your inbox.
+              <div class="error-message w-form-fail">
+                <div>
+                  Oops! Something went wrong while submitting the form.
+                </div>
               </div>
             </div>
-            <div class="menu-wrapper">
-              <div>
-                <div class="ft-title">PAGES</div>
-                <div class="ft-menu">
-                  <a href="/about.html" class="footer-link">About us</a
-                  ><a href="/categories.html" class="footer-link">Categories</a
-                  ><a href="/products.html" class="footer-link">Shop</a>
-                </div>
-              </div>
-              <div>
-                <div class="ft-title">RESOURCES</div>
-                <div class="ft-menu">
-                  <a href="/brands.html" class="footer-link">Brands</a
-                  ><a href="/faq" class="footer-link">FAQ</a
-                  ><a href="/our-stores" class="footer-link">Store Locator</a
-                  ><a href="/contact-us.html" class="footer-link">Contact us</a>
-                </div>
-              </div>
-              <div>
-                <div class="ft-title">UTILITY</div>
-                <div class="ft-menu">
-                  <a href="/template-info/style-guide" class="footer-link"
-                    >Style Guide</a
-                  ><a href="/template-info/licensing" class="footer-link"
-                    >Licensing</a
-                  ><a href="/privacy-policy" class="footer-link"
-                    >Privacy Policy</a
-                  ><a href="/terms-conditions" class="footer-link"
-                    >Terms &amp; Conditions</a
-                  ><a href="/return-policy" class="footer-link"
-                    >Return Policy</a
-                  >
-                </div>
-              </div>
+            <div class="footer-text">
+              Stay in the loop with exclusive offers, beauty tips, and new
+              arrivals delivered straight to your inbox.
             </div>
           </div>
-          <div class="footer-bottom">
-            <div class="footer-data">
-              <div>© 2025 GEM.</div>
+          <div class="menu-wrapper">
+            <div>
+              <div class="ft-title">PAGES</div>
+              <div class="ft-menu">
+                <a href="/about.html" aria-current="page" class="footer-link w--current">About us</a><a
+                  href="/categories.html" class="footer-link">Categories</a><a href="/products.html"
+                  class="footer-link">Shop</a>
+              </div>
             </div>
-            <a
-              href="/"
-              aria-current="page"
-              class="brand w-inline-block w--current"
-              ><img src="./Gem 2024-01.png" loading="lazy" alt=""
-            /></a>
+            <div>
+              <div class="ft-title">RESOURCES</div>
+              <div class="ft-menu">
+                <a href="/brands.html" class="footer-link">Brands</a><a href="/faq" class="footer-link">FAQ</a><a
+                  href="/our-stores" class="footer-link">Store Locator</a><a href="/contact-us.html"
+                  class="footer-link">Contact us</a>
+              </div>
+            </div>
+            <div>
+              <div class="ft-title">UTILITY</div>
+              <div class="ft-menu">
+                <a href="/template-info/style-guide" class="footer-link">Style Guide</a><a
+                  href="/template-info/licensing" class="footer-link">Licensing</a><a href="/privacy-policy"
+                  class="footer-link">Privacy Policy</a><a href="/terms-conditions" class="footer-link">Terms &amp;
+                  Conditions</a><a href="/return-policy" class="footer-link">Return Policy</a>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="footer-bottom">
+          <div class="footer-data">
+            <div>© 2025 GEM.</div>
+          </div>
+          <a href="/" class="brand w-inline-block"><img src="./assets/Gem 2024-01.png" loading="lazy" alt="" /></a>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
     <!-- <a
       href="https://webflow.com/templates/html/bavia-website-template"
       target="_blank"
