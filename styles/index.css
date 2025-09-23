@@ -10710,7 +10710,6 @@ blockquote {
   font-size: 14px;
   font-weight: bold;
 }
-/* dropdown الصغير بتاع More */
 .more-item {
   position: relative;
 }
@@ -10742,7 +10741,6 @@ blockquote {
   background: #f5f5f5;
 }
 
-/* إظهار dropdown لما nav-item more-item يتفتح */
 .more-item.active .more-dropdown {
   display: flex;
 }
