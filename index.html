@@ -34,6 +34,8 @@
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <link href="./styles/index.css" rel="stylesheet" type="text/css" />
     <style>
         * {
@@ -44,7 +46,7 @@
         }
         
         body {
-            background-color: #f9f7f7;
+            background-color: #ffffff;
             color: #333;
             line-height: 1.6;
             padding-top: 140px;
@@ -92,7 +94,7 @@
         }
         
         .search-box:focus-within {
-            border-color: #113463;
+            border-color: #0b2a59;
         }
         
         .search-input {
@@ -118,7 +120,7 @@
         }
         
         .search-btn:hover {
-            color: #113463;
+            color: #0b2a59;
         }
         .header-left {
     display: flex;
@@ -159,7 +161,7 @@
     height: 16px;
     border-radius: 50%;
     /* background: #f8f8f8; */
-    color: #113463; 
+    color: #0b2a59; 
     margin-right: 2px;
     transition: all 0.3s ease;
 }
@@ -208,7 +210,7 @@
         }
         
         .action-btn.account-icon:hover svg {
-            stroke: #113463;
+            stroke: #0b2a59;
             fill: rgba(212, 175, 55, 0.1);
         }
         
@@ -231,7 +233,7 @@
         }
         
         .nav-item:hover {
-            color: #113463;
+            color: #0b2a59;
         }
         
         .chev {
@@ -324,19 +326,17 @@
         
         .cta-button {
             display: inline-block;
-            padding: 14px 32px;
-            background: #113463;
+            padding: 18px 32px;
+            background: #0b2a59;
             color: white;
             text-decoration: none;
-            font-weight: 500;
             letter-spacing: 1px;
-            border-radius: 30px;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
         }
         
         /* .cta-button:hover {
-            background: #113463;
+            background: #0b2a59;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
         } */
@@ -370,7 +370,7 @@
         
         .brand-section h3 {
             font-size: 1.2rem;
-            color: #113463;
+            color: #0b2a59;
             margin-bottom: 15px;
             padding-bottom: 10px;
             border-bottom: 1px solid #f0f0f0;
@@ -1178,7 +1178,7 @@ document.addEventListener("click", (e) => {
                     Experience the ultimate in luxury beauty and skincare with
                     our curated collection.
                   </p>
-                  <a href="./shop.html" class="hero-btn animate" style="background-color: #113463;"
+                  <a href="./shop.html" class="hero-btn animate" style="background-color: #0b2a59;"
                     >View Collection</a
                   >
                 </div>
@@ -1200,7 +1200,7 @@ document.addEventListener("click", (e) => {
                     Discover skincare essentials designed to keep your skin
                     radiant and fresh.
                   </p>
-                  <a href="./shop.html" class="hero-btn animate"  style="background-color: #113463;"
+                  <a href="./shop.html" class="hero-btn animate"  style="background-color: #0b2a59;"
                     >Shop Now</a
                   >
                 </div>
@@ -1222,7 +1222,7 @@ document.addEventListener("click", (e) => {
                     High-quality products trusted by thousands of glowing
                     customers.
                   </p>
-                  <a href="./shop.html" class="hero-btn animate" style="background-color: #113463;">Explore</a>
+                  <a href="./shop.html" class="hero-btn animate" style="background-color: #0b2a59;">Explore</a>
                 </div>
                 <div class="image-box">
                   <img
@@ -1749,7 +1749,7 @@ document.addEventListener("click", (e) => {
       <section class="shop-categories">
         <div class="shop-container">
           <div class="shop-title" style="text-align: left">
-            <h2 style="color: #113463;">Shop by Category</h2>
+            <h2 style="color: #0b2a59;">Shop by Category</h2>
           </div>
           <div class="shop-grid">
             <div class="shop-card">
@@ -1926,11 +1926,17 @@ document.addEventListener("click", (e) => {
       </section>
       <section class="top-product">
         <div class="w-layout-blockcontainer container w-container">
-          <!-- <div class="section-title">
-            <h2
+          
+          <div class="tp-inner">
+              
+            <div
+              data-w-id="1757ee07-0ee1-a553-15b2-165c47b7fdea"
+              class="tp-left"
+            >
+          <h2
               data-w-id="6335dba4-73e0-7111-9147-1fff76f48cf6"
               style="
-              color: #113463;
+              color: #0b2a59;
                 -webkit-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1)
                   rotateX(0) rotateY(0) rotateZ(0) skew(-10deg, 0);
                 -moz-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1)
@@ -1944,12 +1950,6 @@ document.addEventListener("click", (e) => {
             >
               Top Products
             </h2>
-          </div> -->
-          <div class="tp-inner">
-            <div
-              data-w-id="1757ee07-0ee1-a553-15b2-165c47b7fdea"
-              class="tp-left"
-            >
               <div
                 style="
                   -webkit-transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
@@ -1964,25 +1964,9 @@ document.addEventListener("click", (e) => {
                 "
                 class="on-scroll"
               ></div>
-              <h2
-              data-w-id="6335dba4-73e0-7111-9147-1fff76f48cf6"
-              style="
-              color: #113463;
-                -webkit-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1)
-                  rotateX(0) rotateY(0) rotateZ(0) skew(-10deg, 0);
-                -moz-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1)
-                  rotateX(0) rotateY(0) rotateZ(0) skew(-10deg, 0);
-                -ms-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1)
-                  rotateX(0) rotateY(0) rotateZ(0) skew(-10deg, 0);
-                transform: translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0)
-                  rotateY(0) rotateZ(0) skew(-10deg, 0);
-              "
-              class="section-heading"
-            >
-              Top Products
-            </h2>
+              
               <img
-                src="./assets/fifth-product.png"
+                src="./assets/allproducts.jpg"
                 loading="lazy"
                 style="
                   filter: blur(5px);
@@ -2007,7 +1991,7 @@ document.addEventListener("click", (e) => {
                   <a
                     data-w-id="6f66405a-d5f0-d347-7f2f-3fabb710fd09"
                     style="opacity: 0"
-                    href="/product/glow-moisturizer.html"
+                    href="./product.html"
                     class="tp-block w-inline-block"
                   >
                     <div class="tp-img">
@@ -2019,6 +2003,7 @@ document.addEventListener("click", (e) => {
                         class="tp-image"
                       />
                     </div>
+                    <hr />
                     <div class="tp-bottom">
                       <h5 class="tp-heading">Glow Moisturizer</h5>
                       <div class="post-line mobile"></div>
@@ -2043,6 +2028,7 @@ document.addEventListener("click", (e) => {
                         class="tp-image"
                       />
                     </div>
+                    <hr />
                     <div class="tp-bottom">
                       <h5 class="tp-heading">Eau de Parfum</h5>
                       <div class="post-line mobile"></div>
@@ -2067,6 +2053,82 @@ document.addEventListener("click", (e) => {
                         class="tp-image"
                       />
                     </div>
+                    <hr />
+                    <div class="tp-bottom">
+                      <h5 class="tp-heading">Radiant Foundation</h5>
+                      <div class="post-line mobile"></div>
+                    
+                    </div>
+                  </a>
+                </div>
+                 <div role="listitem" class="tp-item w-dyn-item">
+                  <a
+                    data-w-id="6f66405a-d5f0-d347-7f2f-3fabb710fd09"
+                    style="opacity: 0"
+                    href="/product/radiant-foundation.html"
+                    class="tp-block w-inline-block"
+                  >
+                    <div class="tp-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/forth-product.png"
+                        alt="Product Image"
+                        sizes="100vw"
+                      
+                        class="tp-image"
+                      />
+                    </div>
+                    <hr />
+                    <div class="tp-bottom">
+                      <h5 class="tp-heading">Radiant Foundation</h5>
+                      <div class="post-line mobile"></div>
+                    
+                    </div>
+                  </a>
+                </div>
+                 <div role="listitem" class="tp-item w-dyn-item">
+                  <a
+                    data-w-id="6f66405a-d5f0-d347-7f2f-3fabb710fd09"
+                    style="opacity: 0"
+                    href="/product/radiant-foundation.html"
+                    class="tp-block w-inline-block"
+                  >
+                    <div class="tp-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/third-product.png"
+                        alt="Product Image"
+                        sizes="100vw"
+                      
+                        class="tp-image"
+                      />
+                    </div>
+                    <hr />
+                    <div class="tp-bottom">
+                      <h5 class="tp-heading">Radiant Foundation</h5>
+                      <div class="post-line mobile"></div>
+                    
+                    </div>
+                  </a>
+                </div>
+                  <div role="listitem" class="tp-item w-dyn-item">
+                  <a
+                    data-w-id="6f66405a-d5f0-d347-7f2f-3fabb710fd09"
+                    style="opacity: 0"
+                    href="/product/radiant-foundation.html"
+                    class="tp-block w-inline-block"
+                  >
+                    <div class="tp-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/fifth-product.png"
+                        alt="Product Image"
+                        sizes="100vw"
+                      
+                        class="tp-image"
+                      />
+                    </div>
+                    <hr />
                     <div class="tp-bottom">
                       <h5 class="tp-heading">Radiant Foundation</h5>
                       <div class="post-line mobile"></div>
@@ -2220,7 +2282,7 @@ document.addEventListener("click", (e) => {
             <h2
               data-w-id="0462dc6e-94ce-6df6-d711-7f6986107206"
               style="
-              color: #113463;
+              color: #0b2a59;
                 -webkit-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1)
                   rotateX(0) rotateY(0) rotateZ(0) skew(-10deg, 0);
                 -moz-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1)
@@ -2526,6 +2588,7 @@ document.addEventListener("click", (e) => {
                   type="submit"
                   data-wait=""
                   class="cta-button w-button"
+                  style="cursor: pointer;"
                   value="Subscribe"
                 />
               </form>
@@ -2947,7 +3010,79 @@ document.addEventListener("click", (e) => {
         </div>
       </div>
     </section>
-     <section class="footer">
+    <section class="footer">
+  <div class="footer-inner">
+    <!-- LEFT LOGO -->
+    <div class="footer-logo">
+      <img src="./assets/Gem Egypt.png" alt="Company Logo" />
+    </div>
+
+    <!-- CATEGORIES -->
+    <div class="footer-col">
+      <h3 class="ft-title">CATEGORIES</h3>
+      <ul class="ft-menu">
+        <li><a href="#">Hair Care</a></li>
+        <li><a href="#">Skin Care</a></li>
+        <li><a href="#">Makeup</a></li>
+        <li><a href="#">Fragrance</a></li>
+        <li><a href="#">Personal Care</a></li>
+        <li><a href="#">Kids</a></li>
+      </ul>
+    </div>
+
+    <!-- BRANDS -->
+    <div class="footer-col">
+      <h3 class="ft-title">BRANDS</h3>
+      <select class="brand-select">
+        <option>Select Brand</option>
+        <option>Creme of Nature</option>
+        <option>Dax</option>
+        <option>Energy</option>
+        <option>Fashkool</option>
+        <option>GHD</option>
+        <option>Hair Burst</option>
+        <option>Karseell</option>
+        <option>Lilien</option>
+        <option>Mane-n-tail</option>
+        <option>Modish</option>
+        <option>Morfose</option>
+        <option>ORS</option>
+        <option>Ravita</option>
+        <option>Selsium</option>
+        <option>S.G Salon Grafix</option>
+        <option>Thicker Fuller</option>
+        <option>Trimz</option>
+        <option>Zero Frizz</option>
+        <option>Cliven</option>
+        <option>Disaar</option>
+        <option>Fe</option>
+        <option>Jardin Flamingo</option>
+      </select>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="footer-col">
+      <h3 class="ft-title">CONTACT US</h3>
+      <p><strong>Phone:</strong>+20 106 0056882 / +20 122 5666619</p>
+      <p><strong>Email:</strong>Said@gemegypt.com</p>
+      <p><strong>Address:</strong>4 E Asmaa Fahmy. Ard El Golf, Helioplis, Pharma Plaza Build
+Cairo, Egypt.</p>
+      <h3 class="ft-title">FOLLOW US</h3>
+      <div class="social-icons-footer">
+        <a href="https://www.facebook.com/gem.egypt.company/"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/gem_egypt/"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@gem_egy"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <p>© 2025 GEM. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
+  </div>
+</section>
+
+     <!-- <section class="footer">
     <div class="w-layout-blockcontainer container w-container">
       <div class="footer-inner">
         <div class="footer-top">
@@ -3011,7 +3146,7 @@ document.addEventListener("click", (e) => {
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
     <!-- <a
       href="https://webflow.com/templates/html/bavia-website-template"
       target="_blank"

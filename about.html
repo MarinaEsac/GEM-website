@@ -19,6 +19,7 @@
   <meta content="summary_large_image" name="twitter:card" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <meta content="Webflow" name="generator" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="./styles/about.css" rel="stylesheet" type="text/css" />
   <style>
     @media (min-width: 992px) {
@@ -128,7 +129,7 @@
         }
         
         .search-box:focus-within {
-            border-color: #113463;
+            border-color: #0b2a59;
         }
         
         .search-input {
@@ -154,7 +155,7 @@
         }
         
         .search-btn:hover {
-            color: #113463;
+            color: #0b2a59;
         }
         .header-left {
     display: flex;
@@ -195,7 +196,7 @@
     height: 16px;
     border-radius: 50%;
     /* background: #f8f8f8; */
-    color: #113463; 
+    color: #0b2a59; 
     margin-right: 2px;
     transition: all 0.3s ease;
 }
@@ -244,7 +245,7 @@
         }
         
         .action-btn.account-icon:hover svg {
-            stroke: #113463;
+            stroke: #0b2a59;
             fill: rgba(212, 175, 55, 0.1);
         }
         
@@ -267,7 +268,7 @@
         }
         
         .nav-item:hover {
-            color: #113463;
+            color: #0b2a59;
         }
         
         .chev {
@@ -1309,70 +1310,76 @@ fueled by passion and innovative strategies.
     </section>
   </div>
   <section class="footer">
-    <div class="w-layout-blockcontainer container w-container">
-      <div class="footer-inner">
-        <div class="footer-top">
-          <div class="footer-left">
-            <h3 class="footer-heading">Subscribe to our newsletter</h3>
-            <div class="footer-form w-form">
-              <form id="email-form" name="email-form" data-name="Email Form" method="get" class="ft-form"
-                data-wf-page-id="67ff4f289edc04a783f669d9" data-wf-element-id="bdee3a1b-2add-f928-411e-aaf83589112e"
-                data-turnstile-sitekey="0x4AAAAAAAQTptj2So4dx43e">
-                <input class="footer-input w-input" maxlength="256" name="email" data-name="Email"
-                  placeholder="Enter your email" type="email" id="email" required="" /><input type="submit" data-wait=""
-                  class="footer-button w-button" value="Submit" />
-              </form>
-              <div class="success-message w-form-done">
-                <div>Thank you! Your submission has been received!</div>
-              </div>
-              <div class="error-message w-form-fail">
-                <div>
-                  Oops! Something went wrong while submitting the form.
-                </div>
-              </div>
-            </div>
-            <div class="footer-text">
-              Stay in the loop with exclusive offers, beauty tips, and new
-              arrivals delivered straight to your inbox.
-            </div>
-          </div>
-          <div class="menu-wrapper">
-            <div>
-              <div class="ft-title">PAGES</div>
-              <div class="ft-menu">
-                <a href="/about.html" aria-current="page" class="footer-link w--current">About us</a><a
-                  href="/categories.html" class="footer-link">Categories</a><a href="/products.html"
-                  class="footer-link">Shop</a>
-              </div>
-            </div>
-            <div>
-              <div class="ft-title">RESOURCES</div>
-              <div class="ft-menu">
-                <a href="/brands.html" class="footer-link">Brands</a><a href="/faq" class="footer-link">FAQ</a><a
-                  href="/our-stores" class="footer-link">Store Locator</a><a href="/contact-us.html"
-                  class="footer-link">Contact us</a>
-              </div>
-            </div>
-            <div>
-              <div class="ft-title">UTILITY</div>
-              <div class="ft-menu">
-                <a href="/template-info/style-guide" class="footer-link">Style Guide</a><a
-                  href="/template-info/licensing" class="footer-link">Licensing</a><a href="/privacy-policy"
-                  class="footer-link">Privacy Policy</a><a href="/terms-conditions" class="footer-link">Terms &amp;
-                  Conditions</a><a href="/return-policy" class="footer-link">Return Policy</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <div class="footer-data">
-            <div>© 2025 GEM.</div>
-          </div>
-          <a href="/" class="brand w-inline-block"><img src="./assets/Gem 2024-01.png" loading="lazy" alt="" /></a>
-        </div>
+  <div class="footer-inner">
+    <!-- LEFT LOGO -->
+    <div class="footer-logo">
+      <img src="./assets/Gem Egypt.png" alt="Company Logo" />
+    </div>
+
+    <!-- CATEGORIES -->
+    <div class="footer-col">
+      <h3 class="ft-title">CATEGORIES</h3>
+      <ul class="ft-menu">
+        <li><a href="#">Hair Care</a></li>
+        <li><a href="#">Skin Care</a></li>
+        <li><a href="#">Makeup</a></li>
+        <li><a href="#">Fragrance</a></li>
+        <li><a href="#">Personal Care</a></li>
+        <li><a href="#">Kids</a></li>
+      </ul>
+    </div>
+
+    <!-- BRANDS -->
+    <div class="footer-col">
+      <h3 class="ft-title">BRANDS</h3>
+      <select class="brand-select">
+        <option>Select Brand</option>
+        <option>Creme of Nature</option>
+        <option>Dax</option>
+        <option>Energy</option>
+        <option>Fashkool</option>
+        <option>GHD</option>
+        <option>Hair Burst</option>
+        <option>Karseell</option>
+        <option>Lilien</option>
+        <option>Mane-n-tail</option>
+        <option>Modish</option>
+        <option>Morfose</option>
+        <option>ORS</option>
+        <option>Ravita</option>
+        <option>Selsium</option>
+        <option>S.G Salon Grafix</option>
+        <option>Thicker Fuller</option>
+        <option>Trimz</option>
+        <option>Zero Frizz</option>
+        <option>Cliven</option>
+        <option>Disaar</option>
+        <option>Fe</option>
+        <option>Jardin Flamingo</option>
+      </select>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="footer-col">
+      <h3 class="ft-title">CONTACT US</h3>
+      <p><strong>Phone:</strong>+20 106 0056882 / +20 122 5666619</p>
+      <p><strong>Email:</strong>Said@gemegypt.com</p>
+      <p><strong>Address:</strong>4 E Asmaa Fahmy. Ard El Golf, Helioplis, Pharma Plaza Build
+Cairo, Egypt.</p>
+      <h3 class="ft-title">FOLLOW US</h3>
+      <div class="social-icons-footer">
+        <a href="https://www.facebook.com/gem.egypt.company/"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/gem_egypt/"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@gem_egy"><i class="fab fa-tiktok"></i></a>
       </div>
     </div>
-  </section>
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <p>© 2025 GEM. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
+  </div>
+</section>
   <!-- <a
       href="https://webflow.com/templates/html/bavia-website-template"
       target="_blank"
