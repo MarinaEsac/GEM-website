@@ -468,14 +468,10 @@
  <div class="nav-item more-item">
     More <span class="chev">▾</span>
     <div class="more-dropdown">
-      <a href="#">Blog</a>
-      <a href="#">Live Events</a>
-      <a href="#">Service Center</a>
-      <a href="#">Product Catalogue</a>
-      <a href="#">Salon Design</a>
-      <a href="#">In the Press</a>
-      <a href="#">Careers</a>
-      <a href="#">Contact Us</a>
+       <a href="./about.html">About Us</a>
+      <a href="./brands.html">Brands</a>
+      <a href="./categories.html">Categories</a>
+      <a href="./contact-us.html">Contact Us</a>
     </div>
   </div>
 <div class="mega-frame">
@@ -600,7 +596,7 @@ document.addEventListener("click", (e) => {
     </header>
 
 
-    <script>
+   <script>
       document.querySelectorAll(".nav-item").forEach((item) => {
         item.addEventListener("click", (e) => {
           document.querySelectorAll(".nav-item.open").forEach((open) => {
@@ -625,14 +621,16 @@ document.addEventListener("click", (e) => {
           });
         }
       });
-      document.querySelectorAll(".nav-item").forEach(item => {
+     document.querySelectorAll(".nav-item.dropdown").forEach(item => {
   item.addEventListener("click", function(e) {
-    e.preventDefault();
-    const dropdown = document.querySelector(".mega-dropdown");
-
-    dropdown.style.display = (dropdown.style.display === "grid") ? "none" : "grid";
+    e.preventDefault(); 
+    const dropdown = this.querySelector(".mega-dropdown");
+    if (dropdown) {
+      dropdown.style.display = (dropdown.style.display === "grid") ? "none" : "grid";
+    }
   });
 });
+
 
     </script>
   <section class="about-hero">

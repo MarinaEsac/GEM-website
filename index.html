@@ -749,14 +749,10 @@
  <div class="nav-item more-item">
     More <span class="chev">▾</span>
     <div class="more-dropdown">
-      <a href="#">Blog</a>
-      <a href="#">Live Events</a>
-      <a href="#">Service Center</a>
-      <a href="#">Product Catalogue</a>
-      <a href="#">Salon Design</a>
-      <a href="#">In the Press</a>
-      <a href="#">Careers</a>
-      <a href="#">Contact Us</a>
+       <a href="./about.html">About Us</a>
+      <a href="./brands.html">Brands</a>
+      <a href="./categories.html">Categories</a>
+      <a href="./contact-us.html">Contact Us</a>
     </div>
   </div>
 <div class="mega-frame">
@@ -906,14 +902,16 @@ document.addEventListener("click", (e) => {
           });
         }
       });
-      document.querySelectorAll(".nav-item").forEach(item => {
+     document.querySelectorAll(".nav-item.dropdown").forEach(item => {
   item.addEventListener("click", function(e) {
-    e.preventDefault();
-    const dropdown = document.querySelector(".mega-dropdown");
-
-    dropdown.style.display = (dropdown.style.display === "grid") ? "none" : "grid";
+    e.preventDefault(); 
+    const dropdown = this.querySelector(".mega-dropdown");
+    if (dropdown) {
+      dropdown.style.display = (dropdown.style.display === "grid") ? "none" : "grid";
+    }
   });
 });
+
 
     </script>
 
@@ -1168,29 +1166,30 @@ document.addEventListener("click", (e) => {
         
         <div class="swiper heroSwiper">
           <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="slide-content">
-                <div class="text-box">
-                  <h1 class="hero-title animate">
-                    A Touch That Transforms Your Skin
-                  </h1>
-                  <p class="hero-desc animate"  style="color: grey;">
-                    Experience the ultimate in luxury beauty and skincare with
-                    our curated collection.
-                  </p>
-                  <a href="./shop.html" class="hero-btn animate" style="background-color: #0b2a59;"
-                    >View Collection</a
-                  >
-                </div>
-                <div class="image-box">
-                  <img
-                    src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/68021921a2b9e6786431d419_home-02.webp"
-                    alt="Hero 1"
-                    class="hero-img animate"
-                  />
-                </div>
-              </div>
-            </div>
+           <div class="swiper-slide">
+  <div class="slide-content">
+    <div class="text-box">
+      <h1 class="hero-title animate">
+        Longer, Stronger, Healthier Hair
+      </h1>
+      <p class="hero-desc animate" style="color: grey;">
+        Nourish your hair with Hairburst formulas designed to boost growth, 
+        shine, and overall strength — naturally.
+      </p>
+      <a href="./shop.html" class="hero-btn animate" style="background-color: #0b2a59;">
+        Shop Collection
+      </a>
+    </div>
+    <div class="image-box">
+      <img
+        src="./assets/hair-burst.jpg"
+        alt="Hero 1"
+        class="hero-img animate"
+      />
+    </div>
+  </div>
+</div>
+
 
             <div class="swiper-slide"">
               <div class="slide-content">
@@ -1215,24 +1214,27 @@ document.addEventListener("click", (e) => {
             </div>
 
             <div class="swiper-slide">
-              <div class="slide-content">
-                <div class="text-box">
-                  <h1 class="hero-title animate">Beauty Meets Innovation</h1>
-                  <p class="hero-desc animate" style="color: grey;">
-                    High-quality products trusted by thousands of glowing
-                    customers.
-                  </p>
-                  <a href="./shop.html" class="hero-btn animate" style="background-color: #0b2a59;">Explore</a>
-                </div>
-                <div class="image-box">
-                  <img
-                    src="./assets/sunscreen-image.png"
-                    alt="Hero 3"
-                    class="hero-img animate"
-                  />
-                </div>
-              </div>
-            </div>
+  <div class="slide-content">
+    <div class="text-box">
+      <h1 class="hero-title animate">Glow with Protection</h1>
+      <p class="hero-desc animate" style="color: grey;">
+        Achieve a radiant golden tan while keeping your skin nourished and 
+        protected with Carroten sun care.
+      </p>
+      <a href="./shop.html" class="hero-btn animate" style="background-color: #0b2a59;">
+        Discover More
+      </a>
+    </div>
+    <div class="image-box">
+      <img
+        src="./assets/sunscreen-image.png"
+        alt="Hero 3"
+        class="hero-img animate"
+      />
+    </div>
+  </div>
+</div>
+
           </div>
 
           <!-- <div class="swiper-button-next"></div>
@@ -1246,7 +1248,7 @@ document.addEventListener("click", (e) => {
   </a>
 
   <a href="gem-events.html" class="side-box">
-    <img src="./assets/bg-events.avif" alt="Gem Events">
+    <img src="./assets/gem-events.jpg" alt="Gem Events">
     <h3 class="side-title">Gem Events</h3>
   </a>
 </div>
