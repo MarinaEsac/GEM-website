@@ -407,8 +407,6 @@
   object-fit: contain;
 }
 
-
-
 .hero-wrapper {
   display: flex;
   align-items: start;
@@ -454,68 +452,65 @@
   color: #fff;
   text-shadow: 0 2px 5px rgba(0,0,0,0.6);
 }
+
+@media (max-width: 768px) {
+  .brand { 
+    margin-top: 50px !important;               
+    width: 100vh;                         
+    margin-left: calc(50% - 50vw);         
+    margin-right: calc(50% - 50vw);
+  }
+
+  .brand > .container {
+    max-width: none !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin: 0 !important;
+  }
+
+  .brand .swiper {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
      
-        @media (max-width: 1024px) {
-            .nav-row {
-                overflow-x: auto;
-                justify-content: flex-start;
-                padding: 0 10px;
-            }
-            
-            .nav-item {
-                padding: 12px 12px; 
-                white-space: nowrap;
-            }
-            
-            .mega-dropdown {
-                max-width: 100vw;
-                left: 0;
-                right: 0;
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .top-row {
-                flex-wrap: wrap;
-            }
-            
-            .search-box {
-                order: 3;
-                width: 100%;
-                margin-top: 15px;
-            }
-            
-            .logo {
-                position: static;
-                transform: none;
-                order: 1;
-                margin-bottom: 10px;
-            }
-            
-            .social-icons {
-                order: 2;
-                margin-right: 0;
-            }
-            
-            .actions {
-                order: 4;
-                margin-top: 15px;
-                margin-left: auto;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .mega-dropdown {
-                grid-template-columns: 1fr;
-            }
-        }
+@media (max-width: 1024px) {
+  .brand .swiper-slide {
+    min-width: 140px;
+  }
+  .brand .swiper-slide img {
+    max-height: 60px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .brand .swiper-slide {
+    width: 25%;          
+  }
+  .brand .swiper-slide img {
+    max-height: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .brand .swiper-slide {
+    width: 33.33%;      
+  }
+  .brand .swiper-slide img {
+    max-height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand .swiper-slide {
+    width: 50%;           
+  }
+  .brand .swiper-slide img {
+    max-height: 44px;
+  }
+}
+
     </style>
     <script type="text/javascript">
       !(function (o, c) {
@@ -642,6 +637,7 @@
     </section> -->
    <header class="header-wrapper">
         <div class="header">
+
             <div class="top-row" role="navigation">
                 <div class="search-box" aria-hidden="false">
                     <div class="social-icons">
@@ -689,9 +685,13 @@
                         </svg>
                     </button>
                 </div>
+                  <button class="menu-toggle" aria-label="Open Menu" aria-controls="primary-nav" aria-expanded="false">☰</button>
+
+
     <div class="logo" aria-label="GEM">
               <img src="./assets/Gem 2024-01.png" alt="GEM Cosmetics Logo" />       
 </div>
+
 <div class="middle-nav">
   <div class="nav-links">
     <div class="nav-item more-item">
@@ -720,7 +720,7 @@
 
             </div>
 
-         <nav class="nav-row">
+         <nav class="nav-row"id="primary-nav">
   <div class="nav-item" data-target="brands">BRANDS <span class="chev">▾</span></div>
   <div class="nav-item" data-target="hair">Hair & Skin Care <span class="chev">▾</span></div>
   <div class="nav-item" data-target="personal">Personal Care <span class="chev">▾</span></div>
@@ -784,6 +784,15 @@
 
 
 <script>
+const toggleBtn = document.querySelector(".menu-toggle");
+const navRow = document.querySelector(".nav-row");
+
+toggleBtn.addEventListener("click", () => {
+  navRow.classList.toggle("active");
+});
+
+toggleBtn.setAttribute("aria-expanded", navRow.classList.contains("active") ? "true" : "false");
+
 const navItems = document.querySelectorAll(".nav-item[data-target]");
 const frame = document.querySelector(".mega-frame");
 const closeBtn = document.querySelector(".mega-close");
@@ -1254,9 +1263,8 @@ document.addEventListener("click", (e) => {
 
       </script>
      
-    
-      <script>
-     var swiper = new Swiper(".brandSwiper", {
+<script>
+var swiper = new Swiper(".brandSwiper", {
   slidesPerView: "auto",  
   spaceBetween: 10,          
   loop: true,               
@@ -1267,7 +1275,8 @@ document.addEventListener("click", (e) => {
   },
 });
 
-      </script>
+</script>
+
 
       <!-- <section class="categories">
         <div class="w-layout-blockcontainer container w-container">
