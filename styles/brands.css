@@ -445,8 +445,8 @@ html, body {
   text-align: center;
   justify-content: center;
   align-items: center;
-  padding-top: 126px;
-  padding-bottom: 60px;
+  padding-top: 24px;
+  padding-bottom: 24px;
   display: flex;
 }
 
@@ -472,57 +472,53 @@ html, body {
 }
 
 .categories {
-  padding: 60px 20px;
+  padding: 40px 20px;
   background: #f9f9f9;
 }
 
 .category-lists {
   display: grid;
- grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 4px;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); 
+  gap: 20px;
   justify-items: center;
 }
 
 .categories-items {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.categories-block {
-  overflow: hidden; 
-}
 
 .categories-block {
-   background: #fff;
+  background: #fff;
   border-radius: 12px;
-  padding: 10px;
+  padding: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px;       
-  width: 120px;       
+  /* height: 120px;    */
+  /* width: 140px;    */
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   transition: all 0.3s ease-in-out;
+  overflow: hidden;
 }
 
 .categories-block:hover {
   transform: translateY(-8px);
   box-shadow: 0 16px 24px rgba(0,0,0,0.15);
 }
-.categories, .category-lists {
-  max-width: 100%;
-  overflow-x: hidden;
-}
 
 .categories-img img {
   max-width: 100%;
-  height: auto;
+  max-height: 100%; 
+  object-fit: contain; 
   display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
-
 
 .categories-block:hover img {
   filter: grayscale(0%);
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
+
 @media (max-width: 1200px) {
   .category-lists {
     grid-template-columns: repeat(4, 1fr); 

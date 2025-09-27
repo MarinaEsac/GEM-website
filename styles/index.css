@@ -5689,8 +5689,6 @@ blockquote {
   transition: color 0.3s, background-color 0.25s;
 }
 
-
-
 .about {
   margin-bottom: var(--desktop);
 }
@@ -5784,23 +5782,23 @@ blockquote {
 }
 .side-box {
   display: flex;
-  flex-direction: column;     
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   text-align: center;
   width: 100%;
-  height: 100%;               
+  height: 100%;
   overflow: hidden;
-  border-radius: 12px;       
+  border-radius: 12px;
   background: #fff;
 }
 
 .side-box img {
   width: 100%;
   height: 100%;
-  object-fit: cover;         
+  object-fit: cover;
   display: block;
-  flex: 1;                    
+  flex: 1;
 }
 
 .branding {
@@ -6227,7 +6225,7 @@ blockquote {
   min-height: 500px;
   max-height: 800px;
   position: sticky;
-  top: 24%; 
+  top: 24%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -6238,7 +6236,7 @@ blockquote {
 }
 
 .tp-left h2.section-heading {
-  margin: 30px 0; 
+  margin: 30px 0;
   font-size: 2rem;
   font-weight: bold;
   color: #0b2a59;
