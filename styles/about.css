@@ -10637,4 +10637,63 @@ blockquote {
   transition: all 0.3s ease;
 }
 
+.middle-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 25px; 
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-item {
+  font-size: 15px;
+  font-weight: 500;
+  color: #222;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+  color: #0077cc;
+}
+
+.more-item {
+  position: relative;
+}
+
+.more-item .more-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  padding: 10px 0;
+}
+
+.more-item:hover .more-dropdown {
+  display: block;
+}
+
+.more-dropdown a {
+  display: block;
+  padding: 8px 15px;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.more-dropdown a:hover {
+  background: #f5f5f5;
+}
 

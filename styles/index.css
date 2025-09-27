@@ -3545,7 +3545,6 @@ body {
 
 h1 {
   color: var(--title);
-  /* text-transform: uppercase; */
   margin-top: 0;
   font-size: 74px;
   font-weight: 600;
@@ -3554,7 +3553,6 @@ h1 {
 
 h2 {
   color: var(--title);
-  /* text-transform: uppercase; */
   margin-top: 0;
   font-size: 60px;
   font-weight: 600;
@@ -4761,12 +4759,12 @@ blockquote {
   display: flex;
 }
 
-.contact-links {
+.contact-link {
   text-decoration: none;
   transition: color 0.2s, padding 0.2s;
 }
 
-.contact-links:hover {
+.contact-link:hover {
   color: var(--title);
   padding-left: 5px;
 }
@@ -6245,10 +6243,9 @@ blockquote {
 
 .tp-left img {
   margin-top: 20px;
-  width: 170%;
-  height: 98%;
-  object-fit: contain;
-  border-radius: 10%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
@@ -7455,6 +7452,16 @@ blockquote {
   position: relative;
   overflow: hidden;
 }
+
+
+.contact-link {
+  font-size: 16px;
+  font-weight: 500;
+  color: #222;
+  text-decoration: none;
+}
+
+
 
 .more-about {
   margin-bottom: var(--desktop);
@@ -10790,4 +10797,63 @@ blockquote {
 
 .more-item.active .more-dropdown {
   display: flex;
+}
+.middle-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 25px; 
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-item {
+  font-size: 15px;
+  font-weight: 500;
+  color: #222;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+  color: #0077cc; 
+}
+
+.more-item {
+  position: relative;
+}
+
+.more-item .more-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  padding: 10px 0;
+}
+
+.more-item:hover .more-dropdown {
+  display: block;
+}
+
+.more-dropdown a {
+  display: block;
+  padding: 8px 15px;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.more-dropdown a:hover {
+  background: #f5f5f5;
 }
