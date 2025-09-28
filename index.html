@@ -1692,67 +1692,140 @@ var swiper = new Swiper(".brandSwiper", {
           </div>
         </div>
       </section> -->
-      <section class="shop-categories">
-        <div class="shop-container">
-          <div class="shop-title" style="text-align: left">
-            <h2 style="color: #0b2a59;">Shop by Category</h2>
-          </div>
-          <div class="shop-grid">
-            <div class="shop-card">
-              <img
-                src="https://cdn.prod.website-files.com/67f74dda20fe8b479ec938a4/67fe5804b48872b2cd42d780_beauty-tool.webp"
-                alt="Beauty Tools"
-                class="shop-img"
-              />
-              <h3 class="shop-heading">BEAUTY TOOLS</h3>
-              <p class="shop-text">Precision for flawless beauty.</p>
-                <a href="./shop.html">
-              <button class="shop-btn">Shop Now</button>
-              </a>
-              <!-- <a href="./shop.html" class="shop-btn">Shop Now</a> -->
-            </div>
+   <section class="shop-categories">
+  <!-- Mobile-first, self-contained styles -->
+  <style>
+    .shop-categories { padding: 16px; }
+    .shop-container { max-width: 1200px; margin: 0 auto; }
+    .shop-title h2 { margin: 0 0 12px 0; font-size: 1.5rem; line-height: 1.25; }
 
-            <div class="shop-card">
-              <img
-                src="https://cdn.prod.website-files.com/67f74dda20fe8b479ec938a4/67fe5812ea8f09ce553c800c_fragrances.webp"
-                alt="Fragrances"
-                class="shop-img"
-              />
-              <h3 class="shop-heading">FRAGRANCES</h3>
-              <p class="shop-text">Long-lasting, captivating scents.</p>
-              <a href="./shop.html">
-              <button class="shop-btn">Shop Now</button>
-              </a>
-            </div>
+    .shop-grid {
+      display: grid;
+      grid-template-columns: 1fr;         /* 1 column on mobile */
+      gap: 16px;
+    }
 
-            <div class="shop-card">
-              <img
-                src="https://cdn.prod.website-files.com/67f74dda20fe8b479ec938a4/67fe581d25ff1626f14bee3e_makeup.webp"
-                alt="Makeup"
-                class="shop-img"
-              />
-              <h3 class="shop-heading">MAKEUP</h3>
-              <p class="shop-text">Enhance, define, and glow.</p>
-              <a href="./shop.html">
-              <button class="shop-btn">Shop Now</button>
-              </a>
-            </div>
+    .shop-card {
+      background: #fff;
+      border: 1px solid #e6e6e6;
+      border-radius: 12px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
 
-            <div class="shop-card">
-              <img
-                src="https://cdn.prod.website-files.com/67f74dda20fe8b479ec938a4/67fe5824d6de39c534d1a64f_skincare.webp"
-                alt="Skincare"
-                class="shop-img"
-              />
-              <h3 class="shop-heading">SKINCARE</h3>
-              <p class="shop-text">Nourish, hydrate, and glow.</p>
-             <a href="./shop.html">
-              <button class="shop-btn">Shop Now</button>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+    .shop-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .shop-heading {
+      font-size: 1rem;
+      margin: 12px 0 6px 0;
+      letter-spacing: 0.5px;
+    }
+
+    .shop-text {
+      margin: 0 0 12px 0;
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.35;
+      flex: 1 1 auto;
+    }
+
+    /* Make the CTA a real link styled as a button; improves accessibility */
+    .shop-btn {
+      display: inline-block;
+      text-align: center;
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 8px;
+      background: #0b2a59;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .shop-btn:focus-visible,
+    .shop-btn:hover { outline: none; filter: brightness(0.95); }
+
+    /* Small tablets: 2 columns */
+    @media (min-width: 480px) {
+      .shop-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+      .shop-img { height: 220px; }
+    }
+
+    /* Tablets / small desktops: 3 columns */
+    @media (min-width: 768px) {
+      .shop-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      .shop-title h2 { font-size: 1.75rem; }
+      .shop-img { height: 230px; }
+    }
+
+    /* Large screens: 4 columns */
+    @media (min-width: 1024px) {
+      .shop-grid { grid-template-columns: repeat(4, 1fr); gap: 22px; }
+      .shop-img { height: 240px; }
+    }
+  </style>
+
+  <div class="shop-container">
+    <div class="shop-title" style="text-align: left">
+      <h2 style="color: #0b2a59;">Shop by Category</h2>
+    </div>
+
+    <div class="shop-grid">
+      <div class="shop-card">
+        <img
+          src="https://cdn.prod.website-files.com/67f74dda20fe8b479ec938a4/67fe5804b48872b2cd42d780_beauty-tool.webp"
+          alt="Beauty Tools"
+          class="shop-img"
+        />
+        <h3 class="shop-heading">BEAUTY TOOLS</h3>
+        <p class="shop-text">Precision for flawless beauty.</p>
+        <a href="./shop.html" class="shop-btn" role="button" aria-label="Shop Beauty Tools">Shop Now</a>
+      </div>
+
+      <div class="shop-card">
+        <img
+          src="https://cdn.prod.website-files.com/67f74dda20fe8b479ec938a4/67fe5812ea8f09ce553c800c_fragrances.webp"
+          alt="Fragrances"
+          class="shop-img"
+        />
+        <h3 class="shop-heading">FRAGRANCES</h3>
+        <p class="shop-text">Long-lasting, captivating scents.</p>
+        <a href="./shop.html" class="shop-btn" role="button" aria-label="Shop Fragrances">Shop Now</a>
+      </div>
+
+      <div class="shop-card">
+        <img
+          src="https://cdn.prod.website-files.com/67f74dda20fe8b479ec938a4/67fe581d25ff1626f14bee3e_makeup.webp"
+          alt="Makeup"
+          class="shop-img"
+        />
+        <h3 class="shop-heading">MAKEUP</h3>
+        <p class="shop-text">Enhance, define, and glow.</p>
+        <a href="./shop.html" class="shop-btn" role="button" aria-label="Shop Makeup">Shop Now</a>
+      </div>
+
+      <div class="shop-card">
+        <img
+          src="https://cdn.prod.website-files.com/67f74dda20fe8b479ec938a4/67fe5824d6de39c534d1a64f_skincare.webp"
+          alt="Skincare"
+          class="shop-img"
+        />
+        <h3 class="shop-heading">SKINCARE</h3>
+        <p class="shop-text">Nourish, hydrate, and glow.</p>
+        <a href="./shop.html" class="shop-btn" role="button" aria-label="Shop Skincare">Shop Now</a>
+      </div>
+    </div>
+  </div>
+</section>
 
       <section class="more-about">
         <div class="w-layout-blockcontainer container w-container">
