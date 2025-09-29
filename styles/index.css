@@ -6245,7 +6245,7 @@ blockquote {
   margin-top: 20px;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
@@ -8109,7 +8109,7 @@ blockquote {
   }
 
   .tp-left {
-    max-width: 100%;
+    width: 100%;
     min-height: 500px;
     position: relative;
   }
@@ -10305,7 +10305,8 @@ blockquote {
   width: 99%;
   height: 500px;
   margin: auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
   align-items: center;
   position: relative;
   background: linear-gradient(135deg, #fbfaf9 0%, #ffffff 100%);
@@ -10645,10 +10646,18 @@ blockquote {
 }
 
 .shop-img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 200px;
+  object-fit: cover; 
   margin-bottom: 20px;
 }
+/* .shop-img {
+  width: 100%;
+  height: 250px; 
+  object-fit: cover; 
+  border-radius: 8px;
+} */
+
 
 .shop-heading {
   font-size: 18px;
@@ -10802,7 +10811,7 @@ blockquote {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 25px; 
+  gap: 25px;
 }
 
 .nav-links {
@@ -10868,14 +10877,14 @@ blockquote {
 
 @media (max-width: 768px) {
   .menu-toggle {
-    display: block; 
+    display: block;
   }
 
   .nav-row {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 60px; 
+    top: 0;
     left: 0;
     width: 100%;
     background: #fff;
@@ -10884,7 +10893,7 @@ blockquote {
   }
 
   .nav-row a {
-    padding: 14px 16px;
+    padding: 6px;
     border-bottom: 1px solid #eee;
     text-align: left;
     color: #333;
@@ -11057,15 +11066,6 @@ blockquote {
     display: block;
   }
 
-  .mega-close {
-    position: absolute;
-    right: 12px;
-    top: 8px;
-    font-size: 22px;
-    line-height: 1;
-    cursor: pointer;
-  }
-
   /* typical mega dropdown columns: stack tighter on mobile */
   .mega-dropdown {
     display: grid;
@@ -11131,6 +11131,7 @@ blockquote {
     border-radius: 8px;
     background: transparent;
   }
+
 }
 
 /* Make the logo behave on mobile (wins over the earlier !important) */
@@ -11204,9 +11205,10 @@ blockquote {
   .mega-content.active { display: block !important; }
 
   .mega-close {
+    background-color: #fff;
     position: absolute;
     right: 12px;
-    top: 8px;
+    top: 400px;
     font-size: 22px;
     line-height: 1;
     cursor: pointer;
@@ -11222,4 +11224,54 @@ blockquote {
     padding: 6px 0;
     border-bottom: 1px solid var(--border);
   }
+    .hero-slider{
+    display: unset !important;
+    height: '50vh' !important;
+  }
+  .slide-content{
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 20px !important;
+    margin-top: 40px !important;
+  }
+  .side-images{
+    width: 100% !important;
+    margin-top: 20px !important;
+  }
+  .shop-grid{
+    grid-template-columns: 1fr !important;
+  }
+  .footer-inner{
+    grid-template-columns: 1fr !important;
+  }
 }
+.heroSwiper {
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+
+
+  .footer-logo {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;               
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-logo {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-logo {
+    width: 300px;
+    height: 200px;
+  }
+}
+
+
+

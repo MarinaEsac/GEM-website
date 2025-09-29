@@ -921,6 +921,9 @@
               </svg>
             </button>
           </div>
+          <button class="menu-toggle" aria-label="Open Menu" aria-controls="primary-nav"
+                    aria-expanded="false">☰</button>
+
           <div class="logo" aria-label="GEM">
             <a href="./index.html">
               <img src="./assets/Gem 2024-01.png" alt="GEM Cosmetics Logo" />
@@ -2073,6 +2076,14 @@
         </nav>
 
         <script>
+            const toggleBtn = document.querySelector(".menu-toggle");
+                const navRow = document.querySelector(".nav-row");
+
+                toggleBtn.addEventListener("click", () => {
+                    navRow.classList.toggle("active");
+                     toggleBtn.setAttribute("aria-expanded", navRow.classList.contains("active") ? "true" : "false");
+
+                });
           const navItems = document.querySelectorAll(".nav-item[data-target]");
           const frame = document.querySelector(".mega-frame");
           const closeBtn = document.querySelector(".mega-close");
@@ -2177,10 +2188,10 @@
 
     </script>
     <div class="page-data">
-      <section class="products" style="margin-top: 30px">
+      <section class="products">
         <div class="w-layout-blockcontainer container w-container">
           <div class="product-inner">
-            <aside class="sidebar-filter">
+            <aside class="sidebar-filter" id="sidebarFilters">
               <!-- Fulfillment -->
               <div class="filter-group">
                 <div class="filter-header">
@@ -2305,7 +2316,7 @@
                       href="/products.html"
                       aria-current="page"
                       class="product-heading top w--current"
-                      >all</a
+                      >All</a
                     >
                     <div class="w-dyn-list">
                       <div role="list" class="categories-list w-dyn-items">
@@ -3259,6 +3270,30 @@
         </div>
       </section>
     </div>
+    <script>
+  // Toggle entire sidebar on mobile
+  (function () {
+    var toggleBtn = document.querySelector('.filter-toggle');
+    var sidebar   = document.getElementById('sidebarFilters');
+    if (toggleBtn && sidebar) {
+      toggleBtn.addEventListener('click', function () {
+        var open = sidebar.classList.toggle('open');
+        toggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+  })();
+
+  // Make individual groups collapsible (you already have CSS for .active)
+  (function () {
+    var headers = document.querySelectorAll('.sidebar-filter .filter-header');
+    headers.forEach(function (h) {
+      h.addEventListener('click', function () {
+        h.classList.toggle('active');
+      });
+    });
+  })();
+</script>
+
     <section class="footer">
       <div class="footer-inner">
         <!-- LEFT LOGO -->
