@@ -5163,7 +5163,7 @@ blockquote {
   background: white;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.20);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -5263,7 +5263,7 @@ blockquote {
   grid-column-gap: 28px;
   grid-row-gap: 50px;
   grid-template-rows: auto;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-auto-columns: 1fr;
   display: grid;
 }
@@ -6220,10 +6220,10 @@ blockquote {
 
 .tp-left {
   flex: 1;
-  min-height: 500px;
-  max-height: 800px;
+  min-height: 600px;
+  max-height: 900px;
   position: sticky;
-  top: 24%;
+  top: 12%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -6234,7 +6234,7 @@ blockquote {
 }
 
 .tp-left h2.section-heading {
-  margin: 30px 0;
+  margin: 40px 20px;
   font-size: 2rem;
   font-weight: bold;
   color: #0b2a59;
@@ -6242,11 +6242,11 @@ blockquote {
 }
 
 .tp-left img {
-  margin-top: 20px;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
+  margin-top: 20px;
 }
 
 .tp-list {
@@ -6282,7 +6282,7 @@ blockquote {
 }
 
 .tp-block {
-  width: 180px;
+  width: 200px;
   margin: 0 auto;
   text-decoration: none;
 }
@@ -6309,7 +6309,7 @@ blockquote {
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  width: 260px;
+  width: 380px;
   margin: 20px auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -10302,11 +10302,11 @@ blockquote {
   height: auto;
 }
 .hero-slider {
-  width: 99%;
-  height: 500px;
+  width: 100%;
+  height: 560px;
   margin: auto;
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 3fr 1fr;
   align-items: center;
   position: relative;
   background: linear-gradient(135deg, #fbfaf9 0%, #ffffff 100%);
@@ -10390,13 +10390,13 @@ blockquote {
 }
 .swiper-button-next,
 .swiper-button-prev {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 }
 
 .swiper-button-next::after,
 .swiper-button-prev::after {
-  font-size: 18px;
+  font-size: 0;
 }
 
 .swiper-button-next,
@@ -10607,7 +10607,8 @@ blockquote {
 }
 
 .shop-categories {
-  padding: 50px 20px;
+  padding-top: 4px;
+  padding-bottom: 50px;
   background: #fdfcf9;
 }
 
@@ -11246,7 +11247,7 @@ blockquote {
   }
 }
 .heroSwiper {
-  width: 100%;
+  width: 103%;
 }
 
 @media (max-width: 1024px) {
@@ -11274,4 +11275,31 @@ blockquote {
 }
 
 
+.store-link:hover {
+  text-decoration: none;
+}
+@media (max-width: 768px) {
+  .section-header {
+    flex-direction: column;  
+    align-items: flex-start;  
+  }
 
+  .section-title {
+    width: 100%; 
+    margin-bottom: 10px;
+  }
+
+  .filter-container {
+    width: 100%; 
+  }
+
+  .filter-container select {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .filter-container select {
+    width: 100%;
+    display: block;
+  }
+}

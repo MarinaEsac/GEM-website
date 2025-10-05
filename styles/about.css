@@ -6457,7 +6457,7 @@ blockquote {
 }
 
 .about-hero {
-  margin-bottom: var(--desktop);
+  margin-bottom: 50px;
   overflow: hidden;
 }
 

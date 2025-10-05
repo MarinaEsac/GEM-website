@@ -35,7 +35,14 @@
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
     <link href="./styles/products.css" rel="stylesheet" type="text/css" />
     <style>
@@ -293,6 +300,13 @@
         color: grey;
         padding: 3px 0;
         text-decoration: none;
+      }
+      .sidebar-filter {
+        margin-top: -25px !important;
+        padding-top: 12px !important;
+        position: sticky;
+        top: 115px;
+        z-index: 10;
       }
     </style>
     <script type="text/javascript">
@@ -921,8 +935,14 @@
               </svg>
             </button>
           </div>
-          <button class="menu-toggle" aria-label="Open Menu" aria-controls="primary-nav"
-                    aria-expanded="false">☰</button>
+          <button
+            class="menu-toggle"
+            aria-label="Open Menu"
+            aria-controls="primary-nav"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
 
           <div class="logo" aria-label="GEM">
             <a href="./index.html">
@@ -930,31 +950,26 @@
             </a>
           </div>
 
-       <div class="middle-nav">
-  <div class="nav-links">
-    <div class="nav-item more-item">
-      <span>View More ▾</span>
-      <div class="more-dropdown">
-        <a href="#">Blogs</a>
-        <a href="#">Events</a>
-        <a href="./contact-us.html">Contact Us</a>
-        <a href="#">Company profile</a>
-      </div>
-    </div>
+          <div class="middle-nav">
+            <div class="nav-links">
+              <div class="nav-item more-item">
+                <span>View More ▾</span>
+                <div class="more-dropdown">
+                  <a href="#">Blogs</a>
+                  <a href="#">Events</a>
+                  <a href="./contact-us.html">Contact Us</a>
+                  <a href="#">Company profile</a>
+                </div>
+              </div>
 
-    <a href="./contact-us.html" class="nav-item">Contact Us</a>
+              <a href="./contact-us.html" class="nav-item">Contact Us</a>
 
-    <a class="nav-item store-link" href="https://gihanbeauty.com/">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M6 2l1 4h10l1-4" />
-        <path d="M6 6h12l-1.2 12.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 6z" />
-      </svg>
-      <span>STORE</span>
-    </a>
-  </div>
-</div>
-
+              <a class="nav-item store-link" href="https://gihanbeauty.com/">
+                <span>STORE</span>
+                <i class="fas fa-store"></i>
+              </a>
+            </div>
+          </div>
         </div>
 
         <nav class="nav-row">
@@ -982,7 +997,7 @@
           <div class="nav-item" data-target="baby">
             Baby Care <span class="chev">▾</span>
           </div>
-         
+
           <div class="mega-frame">
             <span class="mega-close">&times;</span>
 
@@ -2076,14 +2091,16 @@
         </nav>
 
         <script>
-            const toggleBtn = document.querySelector(".menu-toggle");
-                const navRow = document.querySelector(".nav-row");
+          const toggleBtn = document.querySelector(".menu-toggle");
+          const navRow = document.querySelector(".nav-row");
 
-                toggleBtn.addEventListener("click", () => {
-                    navRow.classList.toggle("active");
-                     toggleBtn.setAttribute("aria-expanded", navRow.classList.contains("active") ? "true" : "false");
-
-                });
+          toggleBtn.addEventListener("click", () => {
+            navRow.classList.toggle("active");
+            toggleBtn.setAttribute(
+              "aria-expanded",
+              navRow.classList.contains("active") ? "true" : "false"
+            );
+          });
           const navItems = document.querySelectorAll(".nav-item[data-target]");
           const frame = document.querySelector(".mega-frame");
           const closeBtn = document.querySelector(".mega-close");
@@ -2150,7 +2167,7 @@
       </div>
     </header>
 
-<script>
+    <script>
       document.querySelectorAll(".nav-item").forEach((item) => {
         item.addEventListener("click", (e) => {
           document.querySelectorAll(".nav-item.open").forEach((open) => {
@@ -2175,1095 +2192,1103 @@
           });
         }
       });
-     document.querySelectorAll(".nav-item.dropdown").forEach(item => {
-  item.addEventListener("click", function(e) {
-    e.preventDefault(); 
-    const dropdown = this.querySelector(".mega-dropdown");
-    if (dropdown) {
-      dropdown.style.display = (dropdown.style.display === "grid") ? "none" : "grid";
-    }
-  });
-});
-
-
+      document.querySelectorAll(".nav-item.dropdown").forEach((item) => {
+        item.addEventListener("click", function (e) {
+          e.preventDefault();
+          const dropdown = this.querySelector(".mega-dropdown");
+          if (dropdown) {
+            dropdown.style.display =
+              dropdown.style.display === "grid" ? "none" : "grid";
+          }
+        });
+      });
     </script>
     <div class="page-data">
       <section class="products">
-        <div class="w-layout-blockcontainer container w-container">
-          <div class="product-inner">
-            <aside class="sidebar-filter" id="sidebarFilters">
-              <!-- Fulfillment -->
-              <div class="filter-group">
-                <div class="filter-header">
-                  <span>Fulfillment</span>
-                  <span class="icon">⌄</span>
-                </div>
-                <div class="filter-body">
-                  <label><input type="checkbox" /> Express</label>
-                </div>
+        <div class="product-inner">
+          <aside class="sidebar-filter" id="sidebarFilters">
+            <!-- Fulfillment -->
+            <div class="filter-group">
+              <div class="filter-header">
+                <span>Fulfillment</span>
+                <span class="icon">⌄</span>
               </div>
-
-              <!-- Category -->
-              <div class="filter-group">
-                <div class="filter-header">
-                  <span>Category</span>
-                  <span class="icon">⌄</span>
-                </div>
-                <div class="filter-body">
-                  <!-- <a href="#">Beauty Tools</a> -->
-                  <label><input type="checkbox" /> Fragrances</label>
-                  <label><input type="checkbox" /> Makeup</label>
-                  <!-- <a href="#">Skincare</a> -->
-                </div>
-              </div>
-
-              <!-- Brand -->
-              <div class="filter-group">
-                <div class="filter-header">
-                  <span>Brand</span>
-                  <span class="icon">⌄</span>
-                </div>
-                <div class="filter-body">
-                  <label><input type="checkbox" /> Dax</label>
-                  <label><input type="checkbox" /> Banana Boat</label>
-                  <label><input type="checkbox" /> Cristal Momento</label>
-                  <label><input type="checkbox" /> Cristal Ravita</label>
-                  <label><input type="checkbox" /> Revox Plex</label>
-                  <label><input type="checkbox" /> Bobini</label>
-                  <label><input type="checkbox" /> Carroten</label>
-                  <label><input type="checkbox" /> Karsell</label>
-                </div>
-              </div>
-
-              <!-- Skincare -->
-              <div class="filter-group">
-                <div class="filter-header">
-                  <span>Skincare</span>
-                  <span class="icon">⌄</span>
-                </div>
-                <div class="filter-body">
-                  <!-- Skin section -->
-                  <div class="sub-filter">
-                    <strong>Skin</strong>
-                    <label><input type="checkbox" /> Cleansers</label>
-                    <label><input type="checkbox" /> Hand Cream</label>
-                    <label><input type="checkbox" /> Moisturizers</label>
-                    <label><input type="checkbox" /> Lotions</label>
-                    <label><input type="checkbox" /> Masks & Peels</label>
-                    <label><input type="checkbox" /> Scrubs</label>
-                    <label><input type="checkbox" /> Eye mask & Contour</label>
-                    <label><input type="checkbox" /> Treatments & Serums</label>
-                  </div>
-
-                  <div class="sub-filter">
-                    <strong>Suncare</strong>
-                    <label><input type="checkbox" /> Sunscreen</label>
-                    <label><input type="checkbox" /> Tanning</label>
-                    <label><input type="checkbox" /> Aftersun</label>
-                  </div>
-                </div>
-              </div>
-
-             
-              <div class="filter-group">
-                <div class="filter-header">
-                  <span>New Arrivals</span>
-                  <span class="icon">⌄</span>
-                </div>
-                <div class="filter-body">
-                  <a href="#">Last 30 Days</a>
-                  <a href="#">Last 90 Days</a>
-                </div>
-              </div>
-
-             
-            </aside>
-
-            <div class="product-top">
-              <div
-                data-hover="false"
-                data-delay="0"
-                data-w-id="b35e10bb-6d89-c977-497b-bf1eb2f9ceeb"
-                style="opacity: 0"
-                class="product-menu w-dropdown"
-              >
-                <div class="product-toggle w-dropdown-toggle">
-                  <h6 class="product-title">sort by</h6>
-                  <img
-                    src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67fcf7c61a6a2b86b5af100b_ic-arrow-down.svg"
-                    loading="lazy"
-                    style="
-                      -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1)
-                        rotateX(0deg) rotateY(0) rotateZ(0) skew(0, 0);
-                      -moz-transform: translate3d(0, 0, 0) scale3d(1, 1, 1)
-                        rotateX(0deg) rotateY(0) rotateZ(0) skew(0, 0);
-                      -ms-transform: translate3d(0, 0, 0) scale3d(1, 1, 1)
-                        rotateX(0deg) rotateY(0) rotateZ(0) skew(0, 0);
-                      transform: translate3d(0, 0, 0) scale3d(1, 1, 1)
-                        rotateX(0deg) rotateY(0) rotateZ(0) skew(0, 0);
-                      transform-style: preserve-3d;
-                    "
-                    alt="Arrow"
-                    class="product-arrow"
-                  />
-                </div>
-                <nav
-                  style="height: 0px"
-                  class="product-menu-wrap w-dropdown-list"
-                >
-                  <div class="product-wrap">
-                    <a
-                      href="/products.html"
-                      aria-current="page"
-                      class="product-heading top w--current"
-                      >All</a
-                    >
-                    <div class="w-dyn-list">
-                      <div role="list" class="categories-list w-dyn-items">
-                        <div
-                          role="listitem"
-                          class="categories-items w-dyn-item"
-                        >
-                          <a
-                            href="/category/beauty-tools.html"
-                            class="product-heading"
-                            >Beauty Tools</a
-                          >
-                        </div>
-                        <div
-                          role="listitem"
-                          class="categories-items w-dyn-item"
-                        >
-                          <a
-                            href="/category/fragrances.html"
-                            class="product-heading"
-                            >Fragrances</a
-                          >
-                        </div>
-                        <div
-                          role="listitem"
-                          class="categories-items w-dyn-item"
-                        >
-                          <a
-                            href="./category/makeup.html"
-                            class="product-heading"
-                            >Makeup</a
-                          >
-                        </div>
-                        <div
-                          role="listitem"
-                          class="categories-items w-dyn-item"
-                        >
-                          <a
-                            href="/category/skincare.html"
-                            class="product-heading"
-                            >Skincare</a
-                          >
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </nav>
+              <div class="filter-body">
+                <label><input type="checkbox" /> Express</label>
               </div>
             </div>
-            <div class="product-right">
-              <div class="w-dyn-list">
-                <div role="list" class="products-list w-dyn-items">
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/first-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Glow Moisturizer</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/sec-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Glow Moisturizer</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/third-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Glow Moisturizer</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/sec-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Glow Moisturizer</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/sec-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Glow Moisturizer</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/sec-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Glow Moisturizer</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/sec-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Glow Moisturizer</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/sec-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Glow Moisturizer</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/sec-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Glow Moisturizer</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/sec-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Glow Moisturizer</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/sec-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Glow Moisturizer</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/sec-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Glow Moisturizer</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/forth-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Glow Moisturizer</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/fifth-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Glow Moisturizer</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/sixth-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Glow Moisturizer</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/fifth-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Glow Moisturizer</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/fifth-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Glow Moisturizer</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/fifth-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Glow Moisturizer</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/fifth-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Glow Moisturizer</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/fifth-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Glow Moisturizer</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/fifth-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Glow Moisturizer</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/fifth-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Glow Moisturizer</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/colorme-1.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">colorme</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/colorme-2.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">colorme</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/colorme-3.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">colorme</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/colorme-4.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">colorme</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/colorme-5.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">colorme</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/colorme-6.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">colorme</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/colorme-7.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">colorme</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/colorme-8.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">colorme</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/colorme-9.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">colorme</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/first-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Clear Brow Gel</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/sec-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Golden Highlighter</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/third-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Hydration Cream</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/forth-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Nude Matte Palette</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/fifth-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Eau de Parfum</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/sixth-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Radiant Foundation</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/first-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Bright Eyes Cream</h5>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" class="product-item w-dyn-item">
-                    <a
-                      data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
-                      style="opacity: 0"
-                      href="./product.html"
-                      class="product-block w-inline-block"
-                    >
-                      <div class="product-img">
-                        <img
-                          loading="lazy"
-                          src="./assets/sec-product.png"
-                          alt="Product Image"
-                          sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                          class="product-image"
-                        />
-                      </div>
-                      <hr class="product-divider" />
-                      <div>
-                        <h5 class="product-name">Cooling Roller</h5>
-                      </div>
-                    </a>
+
+            <!-- Category -->
+            <div class="filter-group">
+              <div class="filter-header">
+                <span>Category</span>
+                <span class="icon">⌄</span>
+              </div>
+              <div class="filter-body">
+                <!-- <a href="#">Beauty Tools</a> -->
+                <label><input type="checkbox" /> Fragrances</label>
+                <label><input type="checkbox" /> Makeup</label>
+                <!-- <a href="#">Skincare</a> -->
+              </div>
+            </div>
+
+            <!-- Brand -->
+            <div class="filter-group">
+              <div class="filter-header">
+                <span>Brand</span>
+                <span class="icon">⌄</span>
+              </div>
+              <div class="filter-body">
+                <label><input type="checkbox" /> Dax</label>
+                <label><input type="checkbox" /> Banana Boat</label>
+                <label><input type="checkbox" /> Cristal Momento</label>
+                <label><input type="checkbox" /> Cristal Ravita</label>
+                <label><input type="checkbox" /> Revox Plex</label>
+                <label><input type="checkbox" /> Bobini</label>
+                <label><input type="checkbox" /> Carroten</label>
+                <label><input type="checkbox" /> Karsell</label>
+              </div>
+            </div>
+
+            <!-- Skincare -->
+            <div class="filter-group">
+              <div class="filter-header">
+                <span>Skincare</span>
+                <span class="icon">⌄</span>
+              </div>
+              <div class="filter-body">
+                <!-- Skin section -->
+                <div class="sub-filter">
+                  <strong>Skin</strong>
+                  <label><input type="checkbox" /> Cleansers</label>
+                  <label><input type="checkbox" /> Hand Cream</label>
+                  <label><input type="checkbox" /> Moisturizers</label>
+                  <label><input type="checkbox" /> Lotions</label>
+                  <label><input type="checkbox" /> Masks & Peels</label>
+                  <label><input type="checkbox" /> Scrubs</label>
+                  <label><input type="checkbox" /> Eye mask & Contour</label>
+                  <label><input type="checkbox" /> Treatments & Serums</label>
+                </div>
+
+                <div class="sub-filter">
+                  <strong>Suncare</strong>
+                  <label><input type="checkbox" /> Sunscreen</label>
+                  <label><input type="checkbox" /> Tanning</label>
+                  <label><input type="checkbox" /> Aftersun</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <div class="filter-header">
+                <span>New Arrivals</span>
+                <span class="icon">⌄</span>
+              </div>
+              <div class="filter-body">
+                <a href="#">Last 30 Days</a>
+                <a href="#">Last 90 Days</a>
+              </div>
+            </div>
+          </aside>
+
+          <div class="product-top">
+            <div
+              data-hover="false"
+              data-delay="0"
+              data-w-id="b35e10bb-6d89-c977-497b-bf1eb2f9ceeb"
+              style="opacity: 0"
+              class="product-menu w-dropdown"
+            >
+              <div class="product-toggle w-dropdown-toggle">
+                <h6 class="product-title">sort by</h6>
+                <img
+                  src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67fcf7c61a6a2b86b5af100b_ic-arrow-down.svg"
+                  loading="lazy"
+                  style="
+                    -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1)
+                      rotateX(0deg) rotateY(0) rotateZ(0) skew(0, 0);
+                    -moz-transform: translate3d(0, 0, 0) scale3d(1, 1, 1)
+                      rotateX(0deg) rotateY(0) rotateZ(0) skew(0, 0);
+                    -ms-transform: translate3d(0, 0, 0) scale3d(1, 1, 1)
+                      rotateX(0deg) rotateY(0) rotateZ(0) skew(0, 0);
+                    transform: translate3d(0, 0, 0) scale3d(1, 1, 1)
+                      rotateX(0deg) rotateY(0) rotateZ(0) skew(0, 0);
+                    transform-style: preserve-3d;
+                  "
+                  alt="Arrow"
+                  class="product-arrow"
+                />
+              </div>
+              <nav
+                style="height: 0px"
+                class="product-menu-wrap w-dropdown-list"
+              >
+                <div class="product-wrap">
+                  <a
+                    href="/products.html"
+                    aria-current="page"
+                    class="product-heading top w--current"
+                    >All</a
+                  >
+                  <div class="w-dyn-list">
+                    <div role="list" class="categories-list w-dyn-items">
+                      <div role="listitem" class="categories-items w-dyn-item">
+                        <a
+                          href="/category/beauty-tools.html"
+                          class="product-heading"
+                          >Beauty Tools</a
+                        >
+                      </div>
+                      <div role="listitem" class="categories-items w-dyn-item">
+                        <a
+                          href="/category/fragrances.html"
+                          class="product-heading"
+                          >Fragrances</a
+                        >
+                      </div>
+                      <div role="listitem" class="categories-items w-dyn-item">
+                        <a href="./category/makeup.html" class="product-heading"
+                          >Makeup</a
+                        >
+                      </div>
+                      <div role="listitem" class="categories-items w-dyn-item">
+                        <a
+                          href="/category/skincare.html"
+                          class="product-heading"
+                          >Skincare</a
+                        >
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div
-                  role="navigation"
-                  aria-label="List"
-                  class="w-pagination-wrapper pagination"
-                >
+              </nav>
+            </div>
+          </div>
+          
+          <div class="product-right">
+            <div class="products-toolbar">
+  <div class="controls">
+    <select class="sort-dropdown">
+      <option>Sort</option>
+      <option>Featured</option>
+      <option>Best selling</option>
+      <option>Alphabetically, A–Z</option>
+      <option>Alphabetically, Z–A</option>
+      <!-- <option>Price, low to high</option>
+      <option>Price, high to low</option> -->
+      <option>Date, old to new</option>
+      <option>Date, new to old</option>
+    </select>
+  </div>
+   <div class="view-options">
+      <button class="view-btn" data-view="grid-2">
+        <i class="fas fa-th-large" style="color: #4e4b4b;"></i>
+      </button>
+      <button class="view-btn" data-view="grid-5">
+        <i class="fas fa-th" style="color: #4e4b4b;"></i>
+      </button>
+      <button class="view-btn" data-view="grid-1">
+        <i class="fas fa-list" style="color: #4e4b4b;"></i>
+      </button>
+    </div>
+</div>
+            <div class="w-dyn-list">
+              <div role="list" class="products-list w-dyn-items">
+                
+                <div class="product-item">
                   <a
-                    href="?2532c68f_page=2"
-                    aria-label="Next Page"
-                    class="w-pagination-next primary-button"
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
                   >
-                    <div class="button-arrow-block">
+                    <div class="product-img">
                       <img
-                        src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
                         loading="lazy"
-                        alt="Arrow"
-                        class="button-arrow"
-                      /><img
-                        src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                        loading="lazy"
-                        alt="Arrow"
-                        class="button-arrow hover"
+                        src="./assets/first-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
                       />
                     </div>
-                    <div class="button-text-wrap">
-                      <div class="text-wrapper">
-                        <div class="button-text">view</div>
-                        <div class="button-text hover">view</div>
-                      </div>
-                      <div class="text-wrapper">
-                        <div class="button-text-bottom">more</div>
-                        <div class="button-text-bottom hover">more</div>
-                      </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Glow Moisturizer</h5>
                     </div>
                   </a>
-                  <link rel="prerender" href="?2532c68f_page=2" />
                 </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/sec-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Glow Moisturizer</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/third-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Glow Moisturizer</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/sec-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Glow Moisturizer</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/sec-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Glow Moisturizer</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/sec-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Glow Moisturizer</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/sec-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Glow Moisturizer</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/sec-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Glow Moisturizer</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/sec-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Glow Moisturizer</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/sec-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Glow Moisturizer</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/sec-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Glow Moisturizer</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/sec-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Glow Moisturizer</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/forth-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Glow Moisturizer</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/fifth-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Glow Moisturizer</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/sixth-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Glow Moisturizer</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/fifth-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Glow Moisturizer</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/fifth-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Glow Moisturizer</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/fifth-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Glow Moisturizer</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/fifth-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Glow Moisturizer</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/fifth-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Glow Moisturizer</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/fifth-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Glow Moisturizer</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/fifth-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Glow Moisturizer</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/colorme-1.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">colorme</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/colorme-2.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">colorme</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/colorme-3.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">colorme</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/colorme-4.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">colorme</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/colorme-5.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">colorme</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/colorme-6.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">colorme</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/colorme-7.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">colorme</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/colorme-8.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">colorme</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/colorme-9.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">colorme</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/first-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Clear Brow Gel</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/sec-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Golden Highlighter</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/third-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Hydration Cream</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/forth-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Nude Matte Palette</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/fifth-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Eau de Parfum</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/sixth-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Radiant Foundation</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/first-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Bright Eyes Cream</h5>
+                    </div>
+                  </a>
+                </div>
+                <div role="listitem" class="product-item w-dyn-item">
+                  <a
+                    data-w-id="8f42cafc-aec6-a74f-abd5-43de6056a584"
+                    style="opacity: 0"
+                    href="./product.html"
+                    class="product-block w-inline-block"
+                  >
+                    <div class="product-img">
+                      <img
+                        loading="lazy"
+                        src="./assets/sec-product.png"
+                        alt="Product Image"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                        class="product-image"
+                      />
+                    </div>
+                    <hr class="product-divider" />
+                    <div>
+                      <h5 class="product-name">Cooling Roller</h5>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div
+                role="navigation"
+                aria-label="List"
+                class="w-pagination-wrapper pagination"
+              >
+                <a
+                  href="?2532c68f_page=2"
+                  aria-label="Next Page"
+                  class="w-pagination-next primary-button"
+                >
+                  <div class="button-arrow-block">
+                    <img
+                      src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
+                      loading="lazy"
+                      alt="Arrow"
+                      class="button-arrow"
+                    /><img
+                      src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
+                      loading="lazy"
+                      alt="Arrow"
+                      class="button-arrow hover"
+                    />
+                  </div>
+                  <div class="button-text-wrap">
+                    <div class="text-wrapper">
+                      <div class="button-text">view</div>
+                      <div class="button-text hover">view</div>
+                    </div>
+                    <div class="text-wrapper">
+                      <div class="button-text-bottom">more</div>
+                      <div class="button-text-bottom hover">more</div>
+                    </div>
+                  </div>
+                </a>
+                <link rel="prerender" href="?2532c68f_page=2" />
               </div>
             </div>
           </div>
@@ -3271,28 +3296,40 @@
       </section>
     </div>
     <script>
-  // Toggle entire sidebar on mobile
-  (function () {
-    var toggleBtn = document.querySelector('.filter-toggle');
-    var sidebar   = document.getElementById('sidebarFilters');
-    if (toggleBtn && sidebar) {
-      toggleBtn.addEventListener('click', function () {
-        var open = sidebar.classList.toggle('open');
-        toggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-    }
-  })();
+      // Toggle entire sidebar on mobile
+      (function () {
+        var toggleBtn = document.querySelector(".filter-toggle");
+        var sidebar = document.getElementById("sidebarFilters");
+        if (toggleBtn && sidebar) {
+          toggleBtn.addEventListener("click", function () {
+            var open = sidebar.classList.toggle("open");
+            toggleBtn.setAttribute("aria-expanded", open ? "true" : "false");
+          });
+        }
+      })();
 
-  // Make individual groups collapsible (you already have CSS for .active)
-  (function () {
-    var headers = document.querySelectorAll('.sidebar-filter .filter-header');
-    headers.forEach(function (h) {
-      h.addEventListener('click', function () {
-        h.classList.toggle('active');
+      (function () {
+        var headers = document.querySelectorAll(
+          ".sidebar-filter .filter-header"
+        );
+        headers.forEach(function (h) {
+          h.addEventListener("click", function () {
+            h.classList.toggle("active");
+          });
+        });
+      })();
+      const buttons = document.querySelectorAll(".view-btn");
+      const productsList = document.querySelector(".products-list");
+
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          buttons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          productsList.className = "products-list " + btn.dataset.view;
+        });
       });
-    });
-  })();
-</script>
+    </script>
 
     <section class="footer">
       <div class="footer-inner">
@@ -3346,18 +3383,26 @@
 
         <!-- CONTACT -->
         <div class="footer-col">
-      <h3 class="ft-title">CONTACT US</h3>
-      <p><strong>Phone:</strong>+20 106 0056882 / +20 122 5666619</p>
-      <p><strong>Email:</strong>Said@gemegypt.com</p>
-      <p><strong>Address:</strong>4 E Asmaa Fahmy. Ard El Golf, Helioplis, Pharma Plaza Build
-Cairo, Egypt.</p>
-      <h3 class="ft-title">FOLLOW US</h3>
-      <div class="social-icons-footer">
-        <a href="https://www.facebook.com/gem.egypt.company/"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/gem_egypt/"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@gem_egy"><i class="fab fa-tiktok"></i></a>
-      </div>
-    </div>
+          <h3 class="ft-title">CONTACT US</h3>
+          <p><strong>Phone:</strong>+20 106 0056882 / +20 122 5666619</p>
+          <p><strong>Email:</strong>Said@gemegypt.com</p>
+          <p>
+            <strong>Address:</strong>4 E Asmaa Fahmy. Ard El Golf, Helioplis,
+            Pharma Plaza Build Cairo, Egypt.
+          </p>
+          <h3 class="ft-title">FOLLOW US</h3>
+          <div class="social-icons-footer">
+            <a href="https://www.facebook.com/gem.egypt.company/"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="https://www.instagram.com/gem_egypt/"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://www.tiktok.com/@gem_egy"
+              ><i class="fab fa-tiktok"></i
+            ></a>
+          </div>
+        </div>
       </div>
 
       <!-- BOTTOM -->
@@ -3383,42 +3428,47 @@ Cairo, Egypt.</p>
       <div class="cursor"></div>
     </div>
     <!-- VERSION BAR -->
-<div id="version-bar" class="version-bar" role="region" aria-label="Version bar">
-  <div class="version-left">
-    <strong style="color: #fff;">Beta version</strong>
-  </div>
-</div>
+    <div
+      id="version-bar"
+      class="version-bar"
+      role="region"
+      aria-label="Version bar"
+    >
+      <div class="version-left">
+        <strong style="color: #fff">Beta version</strong>
+      </div>
+    </div>
 
-<style>
-  .version-bar {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 12px;
-    margin: 0 auto;
-    max-width: 160px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 14px;
-    background-color: #0b2a59;
-    color: #fff !important;
-    border: 1px solid rgba(0,0,0,0.06);
-    box-shadow: 0 6px 18px rgba(20,20,20,0.08);
-    border-radius: 10px;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-    z-index: 9999;
-    box-sizing: border-box;
-  }
+    <style>
+      .version-bar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 12px;
+        margin: 0 auto;
+        max-width: 160px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 14px;
+        background-color: #0b2a59;
+        color: #fff !important;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow: 0 6px 18px rgba(20, 20, 20, 0.08);
+        border-radius: 10px;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+        z-index: 9999;
+        box-sizing: border-box;
+      }
 
-  .version-left {
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-</style>
+      .version-left {
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+    </style>
 
     <script
       src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=673c1b266c8975806880591c"

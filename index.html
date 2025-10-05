@@ -23,6 +23,8 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <link href="./styles/index.css" rel="stylesheet" type="text/css" />
     <style>
@@ -410,7 +412,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            width: 90%;
+            width: 85%;
             height: 380px;
             margin: auto;
         }
@@ -507,6 +509,161 @@
                 max-height: 44px;
             }
         }
+    .product-block {
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+  border-radius: 12px;
+}
+
+.product-block:hover {
+  transform: translateY(-20px) scale(1.15);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.25); 
+  background-color: #0b2a59;
+  z-index: 10;
+  position: relative;
+}
+.product-block {
+  display: block;
+  text-align: center;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.product-block .product-name {
+  color: #0b2a59; 
+  padding: 10px 0;
+  transition: all 0.3s ease;
+}
+
+.product-block:hover {
+  background: #fff;  
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transform: translateY(-15px) scale(1.05);
+}
+
+.product-block .product-divider {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 10px auto;
+  width: 60%;
+  transition: border-color 0.3s ease;
+}
+
+.product-block:hover .product-divider {
+  border-color: #0b2a59;
+}
+
+.product-block:hover .product-name {
+  color: #0b2a59; 
+  font-weight: 600;
+}
+
+.product-name {
+    transition: color 0.4s ease;
+}
+.product-name:hover {
+    color: #fff;
+}
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding: 0 5px;
+}
+
+.section-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0b2a59;
+  margin: 0;
+}
+
+.filter-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  color: #0b2a59;
+}
+
+.filter-container label {
+  font-size: 14px;
+}
+
+.filter-container select {
+    width: 300px;
+  padding: 8px 14px;
+  border: 2px solid #0b2a59;
+  border-radius: 8px;
+  color: #0b2a59;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+.filter-container option {
+    background-color: #fff;
+    color: #0b2a59;
+    font-size: 14px;
+}
+.filter-container option:hover {
+    background-color: #0b2a59;
+    color: #f9f5f0;
+    font-size: 14px;
+}
+.tp-left img {
+  width: 130%;
+  height: 105%;
+  object-fit: contain; 
+  object-position: center; 
+  transform: none !important;
+  margin-left: 30px;
+}
+
+
+.leftSwiper {
+  width: 100%;
+  max-width: 1500px;
+  height: 490px; 
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.leftSwiper .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f9f9f9; 
+}
+
+.leftSwiper .slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  object-position: center;
+  display: block;
+}
+@media (max-width: 768px) {
+  .leftSwiper {
+    height: 350px;
+  }
+}
+
+.slide-image {
+  width: 100%;
+  height: 400px; 
+  object-fit: cover; 
+  border-radius: 12px;
+}
+
+.leftSwiper .swiper-button-next,
+.leftSwiper .swiper-button-prev {
+  color: #0b2a59;
+  transition: 0.3s;
+}
+
     </style>
     <script type="text/javascript">
         !(function (o, c) {
@@ -656,14 +813,10 @@
 
                         <a href="#" class="nav-item">Contact Us</a>
 
-                        <a class="nav-item store-link" href="https://gihanbeauty.com/">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M6 2l1 4h10l1-4" />
-                                <path d="M6 6h12l-1.2 12.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 6z" />
-                            </svg>
-                            <span>STORE</span>
-                        </a>
+                       <a class="nav-item store-link" href="https://gihanbeauty.com/">
+                        <span>STORE</span>
+                        <i class="fas fa-store"></i>
+                       </a>
                     </div>
                 </div>
 
@@ -1489,8 +1642,7 @@
 
     </script>
 
-    <section class="brand" style="margin: 20px">
-        <div class="container">
+    <section class="brand" style="width: 100%;">
             <div class="swiper brandSwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -1729,7 +1881,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <div class="page-data">
@@ -2344,7 +2495,7 @@
               />
               <h3 class="shop-heading">MAKEUP</h3>
               <p class="shop-text">Enhance, define, and glow.</p>
-               <a href="#">
+               <a href="./shop.html">
               <button class="shop-btn">Shop Now</button>
               </a>
             </div>
@@ -2357,7 +2508,7 @@
               />
               <h3 class="shop-heading">SKINCARE</h3>
               <p class="shop-text">Nourish, hydrate, and glow.</p>
-             <a href="#">
+             <a href="./shop.html">
               <button class="shop-btn">Shop Now</button>
               </a>
             </div>
@@ -2433,7 +2584,6 @@
         </div>
     </section>
     <section class="top-product">
-        <div class="w-layout-blockcontainer container w-container">
 
             <div class="tp-inner">
 
@@ -2463,7 +2613,7 @@
                   display: none;
                 " class="on-scroll"></div>
 
-                    <img src="./assets/products (1).png" loading="lazy" style="
+                    <!-- <img src="./assets/zero frizz.jpg" loading="lazy" style="
                   filter: blur(5px);
                   -webkit-transform: translate3d(0, 0, 0) scale3d(1.5, 1.5, 1)
                     rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
@@ -2474,7 +2624,43 @@
                   transform: translate3d(0, 0, 0) scale3d(1.5, 1.5, 1)
                     rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
                 " sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px" alt="Product Image"
-                        class="on-scroll-image" />
+                        class="on-scroll-image" /> -->
+                        <div class="swiper leftSwiper">
+    <div class="swiper-wrapper">
+      <!-- slide 1 -->
+      <div class="swiper-slide">
+        <img src="./assets/zero frizz.jpg" alt="Zero Frizz" class="slide-image" />
+      </div>
+
+      <!-- slide 2 -->
+<div class="swiper-slide" style="width: 100%;">
+  <img src="./assets/hair burst.jpg" 
+       alt="Hairburst" 
+       class="slide-image" 
+       style="width: 100%; height: 100%; object-fit: contain;" />
+</div>
+
+    </div>
+
+    <!-- arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+  <script>
+  const leftSwiper = new Swiper(".leftSwiper", {
+    loop: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    speed: 800,
+  });
+</script>
+
                 </div>
                 <div class="tp-list-wrapper w-dyn-list">
                     <div role="list" class="tp-list w-dyn-items">
@@ -2488,8 +2674,6 @@
                                 <hr />
                                 <div class="tp-bottom">
                                     <h5 class="tp-heading">Glow Moisturizer</h5>
-                                    <div class="post-line mobile"></div>
-
                                 </div>
                             </a>
                         </div>
@@ -2503,7 +2687,6 @@
                                 <hr />
                                 <div class="tp-bottom">
                                     <h5 class="tp-heading">Eau de Parfum</h5>
-                                    <div class="post-line mobile"></div>
 
                                 </div>
                             </a>
@@ -2518,7 +2701,6 @@
                                 <hr />
                                 <div class="tp-bottom">
                                     <h5 class="tp-heading">Radiant Foundation</h5>
-                                    <div class="post-line mobile"></div>
 
                                 </div>
                             </a>
@@ -2533,7 +2715,6 @@
                                 <hr />
                                 <div class="tp-bottom">
                                     <h5 class="tp-heading">Radiant Foundation</h5>
-                                    <div class="post-line mobile"></div>
 
                                 </div>
                             </a>
@@ -2548,7 +2729,6 @@
                                 <hr />
                                 <div class="tp-bottom">
                                     <h5 class="tp-heading">Radiant Foundation</h5>
-                                    <div class="post-line mobile"></div>
 
                                 </div>
                             </a>
@@ -2563,15 +2743,12 @@
                                 <hr />
                                 <div class="tp-bottom">
                                     <h5 class="tp-heading">Radiant Foundation</h5>
-                                    <div class="post-line mobile"></div>
-
                                 </div>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
     <!-- <section class="story">
         <div class="w-layout-blockcontainer container w-container">
@@ -2710,6 +2887,7 @@
       </section> -->
     <section class="latest-products">
         <div class="w-layout-blockcontainer container w-container">
+        <div class="section-header">
             <div class="section-title">
                 <h2 data-w-id="0462dc6e-94ce-6df6-d711-7f6986107206" style="
               color: #0b2a59;
@@ -2725,6 +2903,17 @@
                     Latest Products
                 </h2>
             </div>
+            <div class="filter-container">
+  <select id="brandFilter">
+    <option value="all">All Brands</option>
+    <option value="carroten">Carroten</option>
+    <option value="nivea">Mometo</option>
+    <option value="loreal">Karseel</option>
+    <option value="maybelline">Dax</option>
+  </select>
+</div>
+</div>
+
             <div class="w-dyn-list">
                 <div role="list" class="product-list w-dyn-items">
                     <div role="listitem" class="product-item w-dyn-item">
@@ -2961,14 +3150,11 @@
                 <div data-w-id="1993bbbb-6d96-3197-c5c5-6068839b9023" style="opacity: 0" class="features-left">
                     <div class="features-top">
                         <p class="single-text">
-                            Discover what makes this product a must-have in your beauty
-                            routine. Carefully formulated with skin’s health,
-                            high-performing ingredients, it delivers visible results while
-                            being gentle on your skin.
+                           Karseell Maca Collagen Hair Mask is designed to help restore and protect damaged hair. Enriched with collagen and maca extract, it works to improve hair strength, elasticity, and shine. The mask provides deep conditioning that helps reduce dryness, frizz, and breakage, leaving hair softer and more manageable.
                         </p>
                         <p class="single-text">
-                            Whether you&#x27;re seeking lasting coverage, this product is
-                            designed to enhance your natural beauty.
+Suitable for most hair types, especially dry, brittle, or chemically treated hair, this product helps maintain moisture balance and supports healthier-looking hair with regular use.
+
                         </p>
                     </div>
                     <a href="/shop.html" class="primary-button w-inline-block">
@@ -3003,7 +3189,7 @@
                       rotateY(0) rotateZ(0) skew(0, 0);
                     display: none;
                   " class="on-scroll"></div>
-                        <img src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/6801d836be70741534a4d7d2_features.webp"
+                        <img src="./assets/karseel-bg.jpg"
                             loading="lazy" style="
                     filter: blur(5px);
                     -webkit-transform: translate3d(0, 0, 0) scale3d(1.5, 1.5, 1)
@@ -3014,22 +3200,16 @@
                       rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
                     transform: translate3d(0, 0, 0) scale3d(1.5, 1.5, 1)
                       rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                  " sizes="100vw" alt="Features Image" srcset="
-                    https://cdn.prod.website-files.com/673c1b266c8975806880591c/6801d836be70741534a4d7d2_features-p-500.webp   500w,
-                    https://cdn.prod.website-files.com/673c1b266c8975806880591c/6801d836be70741534a4d7d2_features-p-800.webp   800w,
-                    https://cdn.prod.website-files.com/673c1b266c8975806880591c/6801d836be70741534a4d7d2_features-p-1080.webp 1080w,
-                    https://cdn.prod.website-files.com/673c1b266c8975806880591c/6801d836be70741534a4d7d2_features-p-1600.webp 1600w,
-                    https://cdn.prod.website-files.com/673c1b266c8975806880591c/6801d836be70741534a4d7d2_features.webp        1840w
-                  " class="on-scroll-image" />
+                  " sizes="100vw" alt="Features Image" class="on-scroll-image" />
                     </div>
                     <div class="feature-first">
-                        <div>Skin-Nourishing Ingredients</div>
+                        <div>Repairs Damaged Hair</div>
                     </div>
                     <div class="feature-center">
-                        <div>Gentle and effective on dry, &amp; sensitive skin.</div>
+                        <div>Smooth & Frizz Control</div>
                     </div>
                     <div class="feature-last">
-                        <div>Long-Lasting Moisture Barrier</div>
+                        <div>Adds Natural Shine</div>
                     </div>
                 </div>
             </div>
@@ -3187,7 +3367,7 @@
         </div>
         <div class="ip-bottom">
             <div class="ip-block">
-                <img src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/6800e101708711d4cfaeed5f_post-01.webp"
+                <img src="./assets/mojo.jpg"
                     loading="lazy" style="opacity: 0" data-w-id="b810b992-0b83-4c2f-0a27-234b96d87492" alt="Post Image"
                     class="ip-image" />
             </div>
