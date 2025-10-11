@@ -5163,7 +5163,7 @@ blockquote {
   background: white;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.20);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -11302,4 +11302,8 @@ blockquote {
     width: 100%;
     display: block;
   }
+}
+.newsletter-inner {
+  top: 58%; 
+  transform: translate(-50%, -50%);
 }
