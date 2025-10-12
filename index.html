@@ -678,6 +678,10 @@
     object-fit: cover; 
   }
 }
+.tp-left img {
+  margin-top: 40px; 
+}
+
     </style>
     <script type="text/javascript">
         !(function (o, c) {
@@ -2631,7 +2635,7 @@
                   display: none;
                 " class="on-scroll"></div>
 
-                    <!-- <img src="./assets/zero frizz.jpg" loading="lazy" style="
+                    <img src="./assets/zero frizz.jpg" loading="lazy" style="
                   filter: blur(5px);
                   -webkit-transform: translate3d(0, 0, 0) scale3d(1.5, 1.5, 1)
                     rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
@@ -2642,13 +2646,13 @@
                   transform: translate3d(0, 0, 0) scale3d(1.5, 1.5, 1)
                     rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
                 " sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px" alt="Product Image"
-                        class="on-scroll-image" /> -->
-    <div class="swiper-wrapper">
+                        class="on-scroll-image" />
+    <!-- <div class="swiper-wrapper">
       <div class="swiper-slide">
         <img src="./assets/zero frizz.jpg" alt="Zero Frizz" class="slide-image" loading="lazy"/>
       </div>
 
-    </div>
+    </div> -->
 
     <!-- arrows -->
     <!-- <div class="swiper-button-next"></div>
@@ -2716,6 +2720,72 @@
                 </div>
             </div>
     </section>
+    <script>
+const brandData = [
+  {
+    name: "Zero Frizz",
+    image: "./assets/zero frizz.jpg",
+    products: [
+      { img: "./assets/zero-frizz-product.jpg", name: "Glow Moisturizer" },
+      { img: "./assets/zero-frizz-2.webp", name: "Eau de Parfum" },
+      { img: "./assets/zero-frizz-product.jpg", name: "Radiant Foundation" },
+    ],
+  },
+  {
+    name: "Hair Burst",
+    image: "./assets/hair burst.jpg",
+    products: [
+      { img: "./assets/hair-burst(1).jpg", name: "Shampoo" },
+      { img: "./assets/hair-burst(2).jpg", name: "Conditioner" },
+      { img: "./assets/hair-burst(3).jpg", name: "Hair Vitamins" },
+    ],
+  },
+
+  
+];
+</script>
+<script>
+let currentBrand = 0;
+
+function updateTopProducts() {
+  const brand = brandData[currentBrand];
+
+  const leftImg = document.querySelector(".tp-left img");
+  leftImg.style.opacity = 0;
+  setTimeout(() => {
+    leftImg.src = brand.image;
+    leftImg.alt = brand.name;
+    leftImg.style.opacity = 1;
+  }, 400);
+
+  const list = document.querySelector(".tp-list");
+  list.innerHTML = ""; 
+
+  brand.products.forEach(prod => {
+    list.innerHTML += `
+      <div role="listitem" class="tp-item w-dyn-item">
+        <a href="#" class="tp-block w-inline-block">
+          <div class="tp-img">
+            <img loading="lazy" src="${prod.img}" alt="${prod.name}" class="tp-image" />
+          </div>
+          <hr />
+          <div class="tp-bottom">
+            <h5 class="tp-heading">${prod.name}</h5>
+          </div>
+        </a>
+      </div>
+    `;
+  });
+
+  currentBrand = (currentBrand + 1) % brandData.length;
+}
+
+updateTopProducts();
+setInterval(updateTopProducts, 9000);
+
+</script>
+
+
     <!-- <section class="story">
         <div class="w-layout-blockcontainer container w-container">
           <div class="story-heading">
