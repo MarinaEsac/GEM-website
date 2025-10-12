@@ -458,7 +458,7 @@ html, body {
 }
 .page-title {
   text-align: center;
-  padding: 24px;
+  padding: 60px 20px 30px;
   background: linear-gradient(135deg, #0b2a59, #1c3d7a);
   color: #fff;
 }
@@ -3936,19 +3936,6 @@ blockquote {
 
 .sg-section, .sg-titles, .sg-fonts {
   margin-bottom: 150px;
-}
-
-.page-title {
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  padding-top: 24px;
-  padding-bottom: 24px;
-  display: flex;
-}
-
-.page-title:hover {
-  text-decoration: none;
 }
 
 .topbar {
@@ -10332,10 +10319,6 @@ blockquote {
     margin-bottom: 100px;
   }
 
-  .page-title {
-    padding-top: 120px;
-  }
-
   .button-arrow-block.mobile {
     display: none;
   }
@@ -11241,11 +11224,6 @@ blockquote {
     margin-bottom: 80px;
   }
 
-  .page-title {
-    padding-top: 100px;
-    padding-bottom: 40px;
-  }
-
   .topbar {
     display: none;
   }
@@ -12143,10 +12121,6 @@ blockquote {
 
   .sg-section, .sg-titles, .sg-fonts {
     margin-bottom: 60px;
-  }
-
-  .page-title {
-    padding-bottom: 30px;
   }
 
   .utility-page-content {

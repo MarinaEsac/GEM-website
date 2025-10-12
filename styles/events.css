@@ -1,0 +1,93 @@
+.events-section {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.events-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #0b2a59;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.event-card {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.event-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out, transform 0.5s ease;
+  display: block;
+}
+
+.event-card img.loaded {
+  opacity: 1;
+  transform: scale(1.03);
+}
+
+.event-card:hover img {
+  transform: scale(1.1);
+}
+
+.event-card .overlay {
+  position: absolute;
+   bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(11, 42, 89, 0.6);
+  color: #fff;
+    padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.4s ease;
+}
+/* 
+.event-card:hover .overlay {
+  opacity: 1;
+} */
+
+.overlay h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  font-weight: 900;
+  color: #fff;
+}
+
+.overlay p {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+}
+.events-section .events-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: #0b2a59; 
+  margin-top: 6px;
+  margin-left: 0; 
+}
+.events-section {
+  text-align: left;
+}
+

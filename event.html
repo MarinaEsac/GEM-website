@@ -1,425 +1,319 @@
 <!DOCTYPE html>
-<!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Tue May 06 2025 08:53:15 GMT+0000 (Coordinated Universal Time) -->
-<html
-  data-wf-domain="GEM website"
-  data-wf-page="67fe55f48fb4c723a5d66191"
-  data-wf-site="673c1b266c8975806880591c"
-  lang="en"
->
-  <head>
+<html data-wf-domain="GEM website" data-wf-page="673c1b266c89758068805929" data-wf-site="673c1b266c8975806880591c"
+    lang="en">
+
+<head>
     <meta charset="utf-8" />
-    <title>Categories - GEM Ecommerce website</title>
-    <meta
-      content="GEM website designed for beauty and cosmetics stores."
-      name="description"
-    />
-    <meta content="Categories - GEM Ecommerce website" property="og:title" />
+    <title>GEM Website</title>
+    <meta content="GEM website designed for beauty and cosmetics stores." name="description" />
+    <meta content="GEM - Ecommerce website" property="og:title" />
     <meta
       content="GEM website designed for beauty and cosmetics stores."
       property="og:description"
     />
-    <meta
-      content="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f658fa591985465d576e8f_og-image.webp"
-      property="og:image"
-    />
-    <meta
-      content="Categories - GEM Ecommerce website"
-      property="twitter:title"
-    />
+  
+    <meta content="GEM - Ecommerce website" property="twitter:title" />
     <meta
       content="GEM website designed for beauty and cosmetics stores."
       property="twitter:description"
     />
-    <meta
-      content="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f658fa591985465d576e8f_og-image.webp"
-      property="twitter:image"
-    />
+  
     <meta property="og:type" content="website" />
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <link href="./styles/categories.css" rel="stylesheet" type="text/css" />
     <link href="./styles/index.css" rel="stylesheet" type="text/css" />
+    <link href="./styles/event.css" rel="stylesheet" type="text/css" />
 
     <style>
-      @media (min-width: 992px) {
-        html.w-mod-js:not(.w-mod-ix)
-          [data-w-id="28ab9f3c-c564-33b6-ccea-f7949309f6af"] {
-          opacity: 1;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        html.w-mod-js:not(.w-mod-ix)
-          [data-w-id="ba772834-6d01-18b5-2044-01244c4bb8be"] {
-          opacity: 0;
-          display: none;
+        body {
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+            padding-top: 140px;
         }
 
-        html.w-mod-js:not(.w-mod-ix)
-          [data-w-id="9ea8cc3c-14f9-326a-d54a-4dc7fcb0eaaa"] {
-          background-color: rgb(255, 253, 248);
-        }
-      }
-
-      @media (max-width: 991px) and (min-width: 768px) {
-        html.w-mod-js:not(.w-mod-ix)
-          [data-w-id="28ab9f3c-c564-33b6-ccea-f7949309f6af"] {
-          opacity: 1;
-        }
-
-        html.w-mod-js:not(.w-mod-ix)
-          [data-w-id="ba772834-6d01-18b5-2044-01244c4bb8be"] {
-          opacity: 0;
-          display: none;
-        }
-
-        html.w-mod-js:not(.w-mod-ix)
-          [data-w-id="9ea8cc3c-14f9-326a-d54a-4dc7fcb0eaaa"] {
-          background-color: rgb(255, 253, 248);
-        }
-      }
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      }
-
-      body {
-        background-color: #ffffff;
-        color: #333;
-        line-height: 1.6;
-        padding-top: 140px;
-      }
-
-      /* .header-wrapper {
+        /* .header-wrapper {
             background: #fff;
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
             position: relative;
             z-index: 1000;
         }
          */
-      .header-wrapper {
-        background: #fff;
-        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1000;
-      }
+        .header-wrapper {
+            background: #fff;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
 
-      .header {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 0 20px;
-      }
+        .header {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-      /* Top Row Styling */
-      .top-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 0;
-        position: relative;
-      }
+        /* Top Row Styling */
+        .top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            position: relative;
+        }
 
-      /* Search Box */
-      .search-box {
-        display: flex;
-        align-items: center;
-        width: 280px;
-        border-bottom: 1.5px solid #e6e6e6;
-        transition: border-color 0.3s ease;
-      }
+        /* Search Box */
+        .search-box {
+            display: flex;
+            align-items: center;
+            width: 280px;
+            border-bottom: 1.5px solid #e6e6e6;
+            transition: border-color 0.3s ease;
+        }
 
-      .search-box:focus-within {
-        border-color: #0b2a59;
-      }
+        .search-box:focus-within {
+            border-color: #0b2a59;
+        }
 
-      .search-input {
-        flex: 1;
-        border: none;
-        padding: 8px 12px;
-        font-size: 14px;
-        color: #555;
-        background: transparent;
-      }
+        .search-input {
+            flex: 1;
+            border: none;
+            padding: 8px 12px;
+            font-size: 14px;
+            color: #555;
+            background: transparent;
+        }
 
-      .search-input:focus {
-        outline: none;
-      }
+        .search-input:focus {
+            outline: none;
+        }
 
-      .search-btn {
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 6px;
-        color: #777;
-        transition: color 0.3s ease;
-      }
+        .search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+            color: #777;
+            transition: color 0.3s ease;
+        }
 
-      .search-btn:hover {
-        color: #0b2a59;
-      }
-      .header-left {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        margin-bottom: 10px;
-      }
+        .search-btn:hover {
+            color: #0b2a59;
+        }
 
-      .logo {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-      }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 10px;
+        }
 
-      .logo img {
-        height: 42px;
-        width: auto;
-        display: block;
-        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-        transition: transform 0.3s ease;
-      }
+        .logo {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
 
-      .logo img:hover {
-        transform: scale(1.03);
-      }
+        .logo img {
+            height: 42px;
+            width: auto;
+            display: block;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+            transition: transform 0.3s ease;
+        }
 
-      .social-icons {
-        display: flex;
-        gap: 18px;
-        margin-right: 20px;
-      }
-      .social-icons a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 16px;
-        height: 16px;
-        border-radius: 50%;
-        /* background: #f8f8f8; */
-        color: #0b2a59;
-        margin-right: 2px;
-        transition: all 0.3s ease;
-      }
+        .logo img:hover {
+            transform: scale(1.03);
+        }
 
-      .social-icons svg {
-        width: 16px;
-        height: 16px;
-        fill: currentColor;
-      }
+        .social-icons {
+            display: flex;
+            gap: 18px;
+            margin-right: 20px;
+        }
 
-      .actions {
-        display: flex;
-        gap: 20px;
-      }
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            /* background: #f8f8f8; */
+            color: #0b2a59;
+            margin-right: 2px;
+            transition: all 0.3s ease;
+        }
 
-      .action-btn {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-decoration: none;
-        color: #000;
-        transition: color 0.3s ease;
-        position: relative;
-      }
 
-      .action-btn svg {
-        width: 22px;
-        height: 22px;
-        margin-bottom: 4px;
-        stroke: #000;
-      }
 
-      .label {
-        font-size: 11px;
-        font-weight: 500;
-        letter-spacing: 0.5px;
-      }
+        .social-icons svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
 
-      .action-btn.account-icon svg {
-        stroke-width: 1.4;
-        stroke: #000;
-      }
+        .actions {
+            display: flex;
+            gap: 20px;
+        }
 
-      .action-btn.account-icon:hover svg {
-        stroke: #0b2a59;
-        fill: rgba(212, 175, 55, 0.1);
-      }
+        .action-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #000;
+            transition: color 0.3s ease;
+            position: relative;
+        }
 
-      .nav-row {
-        display: flex;
-        justify-content: center;
-        border-top: 1px solid #f0f0f0;
-        position: relative;
-        padding: 0;
-      }
 
-      .nav-item {
-        position: relative;
-        padding: 6px 6px;
-        font-size: 13px;
-        font-weight: 500;
-        color: #444;
-        cursor: pointer;
-        transition: color 0.3s ease;
-      }
 
-      .nav-item:hover {
-        color: #0b2a59;
-      }
+        .action-btn svg {
+            width: 22px;
+            height: 22px;
+            margin-bottom: 4px;
+            stroke: #000;
+        }
 
-      .chev {
-        font-size: 15px;
-        margin-left: 4px;
-        display: inline-block;
-        transition: transform 0.3s ease;
-      }
+        .label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
 
-      .nav-item:hover .chev {
-        transform: rotate(180deg);
-      }
+        .action-btn.account-icon svg {
+            stroke-width: 1.4;
+            stroke: #000;
+        }
 
-      .mega-dropdown {
-        /* position: absolute;
+        .action-btn.account-icon:hover svg {
+            stroke: #0b2a59;
+            fill: rgba(212, 175, 55, 0.1);
+        }
+
+        .nav-row {
+            display: flex;
+            justify-content: center;
+            border-top: 1px solid #f0f0f0;
+            position: relative;
+            padding: 0;
+        }
+
+        .nav-item {
+            position: relative;
+            padding: 6px 6px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #444;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .nav-item:hover {
+            color: #0b2a59;
+        }
+
+        .chev {
+            font-size: 15px;
+            margin-left: 4px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-item:hover .chev {
+            transform: rotate(180deg);
+        }
+
+
+        .mega-dropdown {
+            /* position: absolute;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  width: 100%;               
-  max-width: 1400px;         
-  max-height: 500px;          
-  overflow-y: auto;            
-  overflow-x: hidden;        
+  width: 100%;
+  max-width: 1400px;
+  max-height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
   background: #fff;
   padding: 25px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.25);
   display: none;
-  grid-template-columns: repeat(7, minmax(110px, 1fr)); 
+  grid-template-columns: repeat(7, minmax(110px, 1fr));
   gap: 25px;
   z-index: 999; */
-      }
-
-      .nav-item:hover .mega-dropdown {
-        display: grid;
-      }
-      .mega-column a:hover {
-        color: inherit;
-        background: none;
-        text-decoration: none;
-        cursor: default;
-      }
-
-      .mega-column {
-        color: black !important;
-        min-width: 1400px;
-      }
-
-      .mega-column h4 {
-        font-size: 14px;
-        font-weight: bold;
-        color: black;
-        margin-bottom: 8px;
-        border-bottom: 1px solid #444;
-        padding-bottom: 4px;
-      }
-
-      .mega-column a {
-        display: block;
-        font-size: 13px;
-        color: grey;
-        padding: 3px 0;
-        text-decoration: none;
-      }
-
-      @media (max-width: 1024px) {
-        .nav-row {
-          overflow-x: auto;
-          justify-content: flex-start;
-          padding: 0 10px;
         }
 
-        .nav-item {
-          padding: 12px 12px;
-          white-space: nowrap;
+        .nav-item:hover .mega-dropdown {
+            display: grid;
         }
 
-        .mega-dropdown {
-          max-width: 100vw;
-          left: 0;
-          right: 0;
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-
-      @media (max-width: 768px) {
-        .top-row {
-          flex-wrap: wrap;
+        .mega-column a:hover {
+            color: inherit;
+            background: none;
+            text-decoration: none;
+            cursor: default;
         }
 
-        .search-box {
-          order: 3;
-          width: 100%;
-          margin-top: 15px;
+        .mega-column {
+            color: black !important;
+            min-width: 1400px;
         }
 
-        .logo {
-          position: static;
-          transform: none;
-          order: 1;
-          margin-bottom: 10px;
+        .mega-column h4 {
+            font-size: 14px;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 4px;
         }
 
-        .social-icons {
-          order: 2;
-          margin-right: 0;
+        .mega-column a {
+            display: block;
+            font-size: 13px;
+            color: grey;
+            padding: 3px 0;
+            text-decoration: none;
         }
-
-        .actions {
-          order: 4;
-          margin-top: 15px;
-          margin-left: auto;
-        }
-
-        .hero h1 {
-          font-size: 2.2rem;
-        }
-
-        .hero p {
-          font-size: 1rem;
-        }
-
-        .mega-dropdown {
-          grid-template-columns: 1fr;
-        }
-      }
     </style>
     <script type="text/javascript">
-      !(function (o, c) {
-        var n = c.documentElement,
-          t = " w-mod-";
-        (n.className += t + "js"),
-          ("ontouchstart" in o ||
-            (o.DocumentTouch && c instanceof DocumentTouch)) &&
-            (n.className += t + "touch");
-      })(window, document);
+        !(function (o, c) {
+            var n = c.documentElement,
+                t = " w-mod-";
+            (n.className += t + "js"),
+                ("ontouchstart" in o ||
+                    (o.DocumentTouch && c instanceof DocumentTouch)) &&
+                (n.className += t + "touch");
+        })(window, document);
     </script>
     <link
-      href="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f65a0aaf034ccbc4bbb300_favicon-small.jpg"
+      href="./assets/Gem 2024-01.png"
       rel="shortcut icon"
       type="image/x-icon"
     />
     <link
-      href="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f65a10f14ea11f18193b27_favicon-big.jpg"
+      href="./assets/Gem 2024-01.png"
       rel="apple-touch-icon"
     />
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
       window.__WEBFLOW_CURRENCY_SETTINGS = {
         currencyCode: "USD",
         symbol: "$",
@@ -430,42 +324,11 @@
           '{{wf {"path":"symbol","type":"PlainText"} }} {{wf {"path":"amount","type":"CommercePrice"} }} {{wf {"path":"currencyCode","type":"PlainText"} }}',
         hideDecimalForWholeNumbers: false,
       };
-    </script>
-    <style>
-      .page-title {
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  padding-top: 24px;
-  padding-bottom: 24px;
-  display: flex;
-}
-
-.page-title:hover {
-  text-decoration: none;
-}
-.page-title {
-  text-align: center;
-  padding: 60px 20px 30px;
-  background: linear-gradient(135deg, #0b2a59, #1c3d7a);
-  color: #fff;
-}
-
-.page-title h1 {
-  font-size: 48px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  background: linear-gradient(to right, #fff, #d6e4ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transform: skew(-6deg);
-}
-    </style>
-    
-  </head>
+    </script> -->
+</head>
 
   <body>
+ 
    <header class="header-wrapper">
         <div class="header">
 
@@ -515,6 +378,7 @@
               <img src="./assets/Gem 2024-01.png" alt="GEM Cosmetics Logo" />
             </a>
           </div>
+
 
                 <div class="middle-nav">
                     <div class="nav-links">
@@ -1359,239 +1223,272 @@
 
     </script>
 
-    <div class="page-title">
-      <div class="w-layout-blockcontainer container w-container">
-        <div class="main-heading">
-          <h1
-            data-w-id="66e593ec-d978-9dc6-6d30-69ef9a3ee115"
-            style="
-              -webkit-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1)
-                rotateX(0) rotateY(0) rotateZ(0) skew(-10deg, 0);
-              -moz-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1)
-                rotateX(0) rotateY(0) rotateZ(0) skew(-10deg, 0);
-              -ms-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0)
-                rotateY(0) rotateZ(0) skew(-10deg, 0);
-              transform: translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0)
-                rotateY(0) rotateZ(0) skew(-10deg, 0);
-            "
-            class="main-title"
-          >
-            Our Categories
-          </h1>
-        </div>
-      </div>
+<section class="event-details">
+  <div class="event-info">
+    <h1 id="event-title">Egy Beauty</h1>
+    <p id="event-year">2024</p>
+  </div>
+
+  <div class="event-gallery">
+    <div class="event-gallery-inner">
+      <img src="./assets/events25(1).jpg" alt="Egy Beauty" loading="lazy">
+      <img src="./assets/event25(2).jpg" alt="Egy Beauty" loading="lazy">
+      <img src="./assets/event24(1).jpg" alt="Egy Beauty" loading="lazy">
     </div>
-    <div class="shop-grid">
-      <div class="shop-card">
-        <img
-          src="https://cdn.prod.website-files.com/67f74dda20fe8b479ec938a4/67fe5804b48872b2cd42d780_beauty-tool.webp"
-          alt="Beauty Tools"
-          class="shop-img"
-        />
-        <h3 class="shop-heading">BEAUTY TOOLS</h3>
-        <p class="shop-text">Precision for flawless beauty.</p>
-        <a href="./shop.html">
-          <button class="shop-btn">Shop Now</button>
-        </a>
-        <!-- <a href="./shop.html" class="shop-btn">Shop Now</a> -->
-      </div>
+  </div>
+</section>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const eventData = JSON.parse(localStorage.getItem('selectedEvent'));
+  if (eventData) {
+    document.getElementById('event-title').textContent = eventData.title;
+    document.getElementById('event-year').textContent = eventData.year;
 
-      <div class="shop-card">
-        <img
-          src="https://cdn.prod.website-files.com/67f74dda20fe8b479ec938a4/67fe5812ea8f09ce553c800c_fragrances.webp"
-          alt="Fragrances"
-          class="shop-img"
-        />
-        <h3 class="shop-heading">FRAGRANCES</h3>
-        <p class="shop-text">Long-lasting, captivating scents.</p>
-        <a href="./shop.html">
-          <button class="shop-btn">Shop Now</button>
-        </a>
-      </div>
+    const gallery = document.querySelector('.event-gallery-inner');
+    gallery.innerHTML = '';
 
-      <div class="shop-card">
-        <img
-          src="https://cdn.prod.website-files.com/67f74dda20fe8b479ec938a4/67fe581d25ff1626f14bee3e_makeup.webp"
-          alt="Makeup"
-          class="shop-img"
-        />
-        <h3 class="shop-heading">MAKEUP</h3>
-        <p class="shop-text">Enhance, define, and glow.</p>
-        <a href="./shop.html">
-          <button class="shop-btn">Shop Now</button>
-        </a>
-      </div>
+    eventData.images.forEach(src => {
+      const img = document.createElement('img');
+      img.setAttribute('data-src', src); 
+      img.alt = eventData.title;
+      img.loading = 'lazy';
+      img.classList.add('lazy-img');
+      gallery.appendChild(img);
+    });
 
-      <div class="shop-card">
-        <img
-          src="https://cdn.prod.website-files.com/67f74dda20fe8b479ec938a4/67fe5824d6de39c534d1a64f_skincare.webp"
-          alt="Skincare"
-          class="shop-img"
-        />
-        <h3 class="shop-heading">SKINCARE</h3>
-        <p class="shop-text">Nourish, hydrate, and glow.</p>
-        <a href="./shop.html">
-          <button class="shop-btn">Shop Now</button>
-        </a>
-      </div>
-    </div>
-    <section class="cta">
-      <div class="cta-data">
-        <div class="cta-top">
-          <div>@</div>
-          <h3 class="cta-heading">Exclusive Updates</h3>
-        </div>
-        <div class="cta-bottom">
-          <p class="single-text">
-            Join our beauty community and receive discounts, beauty tips, and
-            new product updates directly in your inbox!
-          </p>
-          <div class="w-form">
-            <form
-              id="wf-form-CTA-Form"
-              name="wf-form-CTA-Form"
-              data-name="CTA Form"
-              method="get"
-              class="cta-form"
-              data-wf-page-id="67fe55f48fb4c723a5d66191"
-              data-wf-element-id="52f993e2-453e-8ce0-288b-45369796858d"
-              data-turnstile-sitekey="0x4AAAAAAAQTptj2So4dx43e"
-            >
-              <input
-                class="cta-input w-input"
-                maxlength="256"
-                name="Email"
-                data-name="Email"
-                placeholder="Email address"
-                type="email"
-                id="email"
-              /><input
-                type="submit"
-                data-wait=""
-                class="cta-button w-button"
-                value="Subscribe"
-              />
-            </form>
-            <div class="success-message w-form-done">
-              <div>Thank you! Your submission has been received!</div>
-            </div>
-            <div class="error-message w-form-fail">
-              <div>Oops! Something went wrong while submitting the form.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    initLazyLoading();
+  }
+});
+function initLazyLoading() {
+  const lazyImages = document.querySelectorAll("img.lazy-img");
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        const dataSrc = img.getAttribute("data-src");
+        if (dataSrc) {
+          img.src = dataSrc;
+          img.onload = () => img.classList.add("loaded"); 
+        }
+        obs.unobserve(img);
+      }
+    });
+  });
+
+  lazyImages.forEach(img => observer.observe(img));
+}
+
+
+</script>
     <section class="footer">
-      <div class="footer-inner">
-        <!-- LEFT LOGO -->
-        <div class="footer-logo">
-          <img src="./assets/Gem Egypt.png" alt="Company Logo" />
+        <div class="footer-inner">
+            <!-- LEFT LOGO -->
+            <div class="footer-logo">
+                <img src="./assets/Gem Egypt.png" alt="Company Logo" />
+            </div>
+
+            <!-- CATEGORIES -->
+            <div class="footer-col">
+                <h3 class="ft-title">CATEGORIES</h3>
+                <ul class="ft-menu">
+                    <li><a href="#">Hair Care</a></li>
+                    <li><a href="#">Skin Care</a></li>
+                    <li><a href="#">Makeup</a></li>
+                    <li><a href="#">Fragrance</a></li>
+                    <li><a href="#">Personal Care</a></li>
+                    <li><a href="#">Kids</a></li>
+                </ul>
+            </div>
+
+            <!-- BRANDS -->
+            <div class="footer-col">
+                <h3 class="ft-title">BRANDS</h3>
+                <select class="brand-select">
+                    <option>Select Brand</option>
+                    <option>Creme of Nature</option>
+                    <option>Dax</option>
+                    <option>Energy</option>
+                    <option>Fashkool</option>
+                    <option>GHD</option>
+                    <option>Hair Burst</option>
+                    <option>Karseell</option>
+                    <option>Lilien</option>
+                    <option>Mane-n-tail</option>
+                    <option>Modish</option>
+                    <option>Morfose</option>
+                    <option>ORS</option>
+                    <option>Ravita</option>
+                    <option>Selsium</option>
+                    <option>S.G Salon Grafix</option>
+                    <option>Thicker Fuller</option>
+                    <option>Trimz</option>
+                    <option>Zero Frizz</option>
+                    <option>Cliven</option>
+                    <option>Disaar</option>
+                    <option>Fe</option>
+                    <option>Jardin Flamingo</option>
+                </select>
+            </div>
+
+            <!-- CONTACT -->
+            <div class="footer-col">
+                <h3 class="ft-title">CONTACT US</h3>
+                <p><strong> Phone: </strong> +20 120 876 0666 | 0020221825001 | 0020221825002 | 0020221825003 | 0020221825004 </p>
+                <p><strong>Email:</strong>info@gemegypt.com</p>
+
+                <p><strong>Address:</strong>4 E Asmaa Fahmy. Ard El Golf, Helioplis, Pharma Plaza Build
+                    Cairo, Egypt.</p>
+                <h3 class="ft-title">FOLLOW US</h3>
+                <div class="social-icons-footer">
+                    <a href="https://www.facebook.com/gem.egypt.company/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/gem_egypt/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@gem_egy"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
         </div>
 
-        <!-- CATEGORIES -->
-        <div class="footer-col">
-          <h3 class="ft-title">CATEGORIES</h3>
-          <ul class="ft-menu">
-            <li><a href="#">Hair Care</a></li>
-            <li><a href="#">Skin Care</a></li>
-            <li><a href="#">Makeup</a></li>
-            <li><a href="#">Fragrance</a></li>
-            <li><a href="#">Personal Care</a></li>
-            <li><a href="#">Kids</a></li>
-          </ul>
+        <!-- BOTTOM -->
+        <div class="footer-bottom">
+            <p>© 2025 GEM. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
         </div>
-
-        <!-- BRANDS -->
-        <div class="footer-col">
-          <h3 class="ft-title">BRANDS</h3>
-          <select class="brand-select">
-            <option>Select Brand</option>
-            <option>Creme of Nature</option>
-            <option>Dax</option>
-            <option>Energy</option>
-            <option>Fashkool</option>
-            <option>GHD</option>
-            <option>Hair Burst</option>
-            <option>Karseell</option>
-            <option>Lilien</option>
-            <option>Mane-n-tail</option>
-            <option>Modish</option>
-            <option>Morfose</option>
-            <option>ORS</option>
-            <option>Ravita</option>
-            <option>Selsium</option>
-            <option>S.G Salon Grafix</option>
-            <option>Thicker Fuller</option>
-            <option>Trimz</option>
-            <option>Zero Frizz</option>
-            <option>Cliven</option>
-            <option>Disaar</option>
-            <option>Fe</option>
-            <option>Jardin Flamingo</option>
-          </select>
-        </div>
-
-        <!-- CONTACT -->
-        <div class="footer-col">
-          <h3 class="ft-title">CONTACT US</h3>
-          <p><strong>Phone:</strong>+20 106 0056882 / +20 122 5666619</p>
-          <p><strong>Email:</strong>Said@gemegypt.com</p>
-          <p>
-            <strong>Address:</strong>4 E Asmaa Fahmy. Ard El Golf, Helioplis,
-            Pharma Plaza Build Cairo, Egypt.
-          </p>
-          <h3 class="ft-title">FOLLOW US</h3>
-          <div class="social-icons-footer">
-            <a href="https://www.facebook.com/gem.egypt.company/"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-            <a href="https://www.instagram.com/gem_egypt/"
-              ><i class="fab fa-instagram"></i
-            ></a>
-            <a href="https://www.tiktok.com/@gem_egy"
-              ><i class="fab fa-tiktok"></i
-            ></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- BOTTOM -->
-      <div class="footer-bottom">
-        <p>© 2025 GEM. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
-      </div>
     </section>
-    <!-- <a
-      href="https://webflow.com/templates/html/bavia-website-template"
-      target="_blank"
-      class="purchase-badge w-inline-block"
-      ><img
-        width="Auto"
-        loading="lazy"
-        alt="Webflow Icon"
-        src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f75e4e4b8eb6105153e9b9_ic-webflow.svg"
-        class="webflow-icon" /><img
-        loading="lazy"
-        src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f75e4e4b8eb6105153e9b8_badge-text.svg"
-        alt="Badge Text"
-    /></a> -->
+
+  
     <div class="cursor-wrap">
-      <div class="cursor"></div>
+        <div class="cursor"></div>
     </div>
-    <script
-      src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=673c1b266c8975806880591c"
-      type="text/javascript"
-      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/js/webflow.schunk.cc3fb98876623427.js"
-      type="text/javascript"
-    ></script>
-    <script src="./scripts/categories.js" type="text/javascript"></script>
-    <script
-      src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/js/webflow.888312d9.b6cb7981a5cf1176.js"
-      type="text/javascript"
-    ></script>
-  </body>
+    <div id="version-bar" class="version-bar" role="region" aria-label="Version bar" style="display:none;">
+        <div class="version-left">
+            <strong style="color: #fff;">Beta version</strong>
+        </div>
+    </div>
+
+    <style>
+        .version-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+
+        .popup-content {
+            background: #fff;
+            color: #222;
+            padding: 20px 30px;
+            border-radius: 12px;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+        }
+
+        .popup-content h3 {
+            margin: 0 0 10px;
+        }
+
+        .popup-content p {
+            margin: 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            font-size: 18px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .close-btn:hover {
+            color: #000;
+        }
+
+        .version-bar {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 12px;
+            margin: 0 auto;
+            max-width: 160px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 14px;
+            background-color: #0b2a59;
+            color: #fff !important;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 6px 18px rgba(20, 20, 20, 0.08);
+            border-radius: 10px;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+            z-index: 9999;
+            box-sizing: border-box;
+        }
+
+        .version-left {
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    </style>
+
+    <script>
+        (function () {
+            const popupEl = document.getElementById('version-popup');
+            const popupClose = document.getElementById('close-popup');
+            const versionBarEl = document.getElementById('version-bar');
+
+            popupClose.addEventListener('click', () => {
+                popupEl.style.display = 'none';
+                versionBarEl.style.display = 'flex';
+            });
+        })();
+    </script>
+
+
+    <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=673c1b266c8975806880591c"
+        type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/js/webflow.schunk.cc3fb98876623427.js"
+        type="text/javascript"></script>
+    <script src="./scripts/index.js" type="text/javascript"></script>
+    <script src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/js/webflow.888312d9.b6cb7981a5cf1176.js"
+        type="text/javascript"></script>
+        <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const lazyImages = document.querySelectorAll("img[loading='lazy']");
+
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          const dataSrc = img.getAttribute("data-src");
+          if (dataSrc) {
+            img.src = dataSrc;
+            img.onload = () => img.classList.add("loaded");
+          }
+          observer.unobserve(img);
+        }
+      });
+    });
+
+    lazyImages.forEach(img => {
+      imageObserver.observe(img);
+    });
+  });
+</script>
+
+</body>
+
 </html>
