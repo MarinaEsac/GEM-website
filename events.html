@@ -1745,14 +1745,7 @@
       </div>
     </section>
 <script>
-    document.querySelectorAll('.event-card').forEach(card => {
-  card.addEventListener('click', () => {
-    const title = card.querySelector('h3').textContent;
-    const year = card.querySelector('p').textContent;
-    localStorage.setItem('selectedEvent', JSON.stringify({ title, year }));
-    window.location.href = './event-details.html';
-  });
-  document.querySelectorAll('.event-card').forEach(card => {
+document.querySelectorAll('.event-card').forEach(card => {
   card.addEventListener('click', () => {
     const title = card.querySelector('h3').textContent;
     const year = card.querySelector('p').textContent;
@@ -1761,32 +1754,29 @@
 
     if (year === "2025") {
       images = [
-        "./assets/events25(1).jpg",
+        "./assets/event25(1).jpg",
         "./assets/event25(2).jpg",
-        "./assets/events25(3).jpg"
+        "./assets/event25(3).jpg",
+        "./assets/event25(4).jpg",
+        "./assets/event25(5).jpg",
+        "./assets/event25(6).jpg"
       ];
     } else if (year === "2024") {
       images = [
         "./assets/event24(1).jpg",
-        "./assets/event24(1).jpg",
-        "./assets/event24(1).jpg"
+        "./assets/event24(2).jpg",
+        "./assets/event24(3).jpg"
       ];
     } else if (year === "2023") {
-      images = [
-        "",
-        "",
-        ""
-      ];
+      images = [];
     }
 
     localStorage.setItem('selectedEvent', JSON.stringify({ title, year, images }));
-    window.location.href = './event-details.html';
+    window.location.href = './event.html';
   });
 });
-
-});
-
 </script>
+
     <section class="footer">
       <div class="footer-inner">
         <!-- LEFT LOGO -->

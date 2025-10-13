@@ -387,7 +387,7 @@
                             <div class="more-dropdown">
                                 <a href="#">Blogs</a>
                                 <a href="./events.html">Events</a>
-                                <a href="./contact-us.html">Contact Us</a>
+                                <a href="./about.html">About Us</a>
                                 <a href="./assets/Gem - Company Profile 2025.pdf" target="_blank" download>Company profile</a>
                               </div>
                         </div>
@@ -1231,56 +1231,74 @@
 
   <div class="event-gallery">
     <div class="event-gallery-inner">
-      <img src="./assets/events25(1).jpg" alt="Egy Beauty" loading="lazy">
+      <img src="./assets/event25(1).jpg" alt="Egy Beauty" loading="lazy">
       <img src="./assets/event25(2).jpg" alt="Egy Beauty" loading="lazy">
-      <img src="./assets/event24(1).jpg" alt="Egy Beauty" loading="lazy">
+      <img src="./assets/event25(3).jpg" alt="Egy Beauty" loading="lazy">
+      <img src="./assets/event25(4).jpg" alt="Egy Beauty" loading="lazy">
+      <img src="./assets/event25(5).jpg" alt="Egy Beauty" loading="lazy">
+      <img src="./assets/event25(6).jpg" alt="Egy Beauty" loading="lazy">
     </div>
   </div>
 </section>
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const eventData = JSON.parse(localStorage.getItem('selectedEvent'));
-  if (eventData) {
-    document.getElementById('event-title').textContent = eventData.title;
-    document.getElementById('event-year').textContent = eventData.year;
+document.addEventListener("DOMContentLoaded", () => {
+  const eventData = JSON.parse(localStorage.getItem("selectedEvent"));
 
-    const gallery = document.querySelector('.event-gallery-inner');
-    gallery.innerHTML = '';
-
-    eventData.images.forEach(src => {
-      const img = document.createElement('img');
-      img.setAttribute('data-src', src); 
-      img.alt = eventData.title;
-      img.loading = 'lazy';
-      img.classList.add('lazy-img');
-      gallery.appendChild(img);
-    });
-
-    initLazyLoading();
+  if (!eventData || !eventData.images) {
+    console.warn("No event data found.");
+    return;
   }
-});
-function initLazyLoading() {
-  const lazyImages = document.querySelectorAll("img.lazy-img");
 
+  document.getElementById("event-title").textContent = eventData.title;
+  document.getElementById("event-year").textContent = eventData.year;
+
+  const gallery = document.querySelector(".event-gallery-inner");
+  gallery.innerHTML = "";
+
+  eventData.images.forEach((src) => {
+    const img = document.createElement("img");
+    img.dataset.src = src;
+    img.alt = eventData.title;
+    img.loading = "lazy";
+    img.classList.add("lazy-img");
+    gallery.appendChild(img);
+  });
+
+setTimeout(() => {
+  const lazyImages = document.querySelectorAll("img.lazy-img");
   const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const img = entry.target;
-        const dataSrc = img.getAttribute("data-src");
-        if (dataSrc) {
-          img.src = dataSrc;
-          img.onload = () => img.classList.add("loaded"); 
+        const src = img.dataset.src;
+
+        if (src) {
+          img.src = src;
+          img.onload = () => img.classList.add("loaded");
         }
+
         obs.unobserve(img);
       }
     });
   });
 
-  lazyImages.forEach(img => observer.observe(img));
-}
+  lazyImages.forEach((img, index) => {
+    observer.observe(img);
 
+    if (index < 3) {
+      const src = img.dataset.src;
+      if (src) {
+        img.src = src;
+        img.onload = () => img.classList.add("loaded");
+      }
+    }
+  });
+}, 300);
 
+});
 </script>
+
+
     <section class="footer">
         <div class="footer-inner">
             <!-- LEFT LOGO -->
