@@ -433,930 +433,1431 @@
     </script>
     <style>
       .page-title {
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  padding-top: 24px;
-  padding-bottom: 24px;
-  display: flex;
-}
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        padding-top: 24px;
+        padding-bottom: 24px;
+        display: flex;
+      }
 
-.page-title:hover {
-  text-decoration: none;
-}
-.page-title {
-  text-align: center;
-  padding: 60px 20px 30px;
-  background: linear-gradient(135deg, #0b2a59, #1c3d7a);
-  color: #fff;
-}
+      .page-title:hover {
+        text-decoration: none;
+      }
+      .page-title {
+        text-align: center;
+        padding: 60px 20px 30px;
+        background: linear-gradient(135deg, #0b2a59, #1c3d7a);
+        color: #fff;
+      }
 
-.page-title h1 {
-  font-size: 48px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  background: linear-gradient(to right, #fff, #d6e4ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transform: skew(-6deg);
-}
+      .page-title h1 {
+        font-size: 48px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        background: linear-gradient(to right, #fff, #d6e4ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transform: skew(-6deg);
+      }
     </style>
-    
   </head>
 
   <body>
-   <header class="header-wrapper">
-        <div class="header">
+    <header class="header-wrapper">
+      <div class="header">
+        <div class="top-row" role="navigation">
+          <div class="search-box" aria-hidden="false">
+            <div class="social-icons">
+              <a
+                href="https://www.facebook.com/gem.egypt.company/"
+                target="_blank"
+                aria-label="Facebook"
+              >
+                <!-- Facebook Icon -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M22.675 0h-21.35C.595 0 0 .6 0 1.337v21.326C0 23.404.595 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.464.099 2.796.143v3.24h-1.918c-1.505 0-1.797.716-1.797 1.767v2.317h3.59l-.467 3.622h-3.123V24h6.127c.73 0 1.325-.596 1.325-1.337V1.337C24 .6 23.405 0 22.675 0z"
+                  />
+                </svg>
+              </a>
 
-            <div class="top-row" role="navigation">
-                <div class="search-box" aria-hidden="false">
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com/gem.egypt.company/" target="_blank" aria-label="Facebook">
-                            <!-- Facebook Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                                <path
-                                    d="M22.675 0h-21.35C.595 0 0 .6 0 1.337v21.326C0 23.404.595 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.464.099 2.796.143v3.24h-1.918c-1.505 0-1.797.716-1.797 1.767v2.317h3.59l-.467 3.622h-3.123V24h6.127c.73 0 1.325-.596 1.325-1.337V1.337C24 .6 23.405 0 22.675 0z" />
-                            </svg>
-                        </a>
+              <a
+                href="https://www.instagram.com/gem_egypt/"
+                target="_blank"
+                aria-label="Instagram"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 1.5A4 4 0 0 0 3.5 7.5v9a4 4 0 0 0 4 4h9a4 4 0 0 0 4-4v-9a4 4 0 0 0-4-4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4Zm5.25-2.55a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8Z"
+                  />
+                </svg>
+              </a>
 
-                        <a href="https://www.instagram.com/gem_egypt/" target="_blank" aria-label="Instagram">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path fill-rule="evenodd"
-                                    d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 1.5A4 4 0 0 0 3.5 7.5v9a4 4 0 0 0 4 4h9a4 4 0 0 0 4-4v-9a4 4 0 0 0-4-4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4Zm5.25-2.55a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8Z" />
-                            </svg>
-                        </a>
+              <a
+                href="https://www.tiktok.com/@gem_egy"
+                target="_blank"
+                aria-label="TikTok"
+              >
+                <!-- TikTok Icon -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12.2 2h3.4a5.6 5.6 0 0 0 5.6 5.6v3.3a8.9 8.9 0 0 1-5.6-2v7.7a6.9 6.9 0 1 1-6.9-6.9h.7v3.5a3.5 3.5 0 1 0 2.8 3.4V2z"
+                  />
+                </svg>
+              </a>
+            </div>
+            <input
+              class="search-input"
+              type="search"
+              placeholder="Search.."
+              aria-label="search"
+            />
+            <button class="search-btn" aria-label="search">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                width="18"
+                height="18"
+              >
+                <circle cx="11" cy="11" r="7" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            </button>
+          </div>
+          <button
+            class="menu-toggle"
+            aria-label="Open Menu"
+            aria-controls="primary-nav"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
 
-
-                        <a href="https://www.tiktok.com/@gem_egy" target="_blank" aria-label="TikTok">
-                            <!-- TikTok Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                                <path
-                                    d="M12.2 2h3.4a5.6 5.6 0 0 0 5.6 5.6v3.3a8.9 8.9 0 0 1-5.6-2v7.7a6.9 6.9 0 1 1-6.9-6.9h.7v3.5a3.5 3.5 0 1 0 2.8 3.4V2z" />
-                            </svg>
-                        </a>
-                    </div>
-                    <input class="search-input" type="search" placeholder="Search.." aria-label="search" />
-                    <button class="search-btn" aria-label="search">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                            stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
-                            <circle cx="11" cy="11" r="7" />
-                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                        </svg>
-                    </button>
-                </div>
-                <button class="menu-toggle" aria-label="Open Menu" aria-controls="primary-nav"
-                    aria-expanded="false">☰</button>
-
-
-               <div class="logo" aria-label="GEM">
+          <div class="logo" aria-label="GEM">
             <a href="./index.html">
               <img src="./assets/Gem 2024-01.png" alt="GEM Cosmetics Logo" />
             </a>
           </div>
 
-                <div class="middle-nav">
-                    <div class="nav-links">
-                        <div class="nav-item more-item">
-                            <span>View More ▾</span>
-                            <div class="more-dropdown">
-                                <a href="#">Blogs</a>
-                                <a href="./events.html">Events</a>
-                                <a href="./about.html">About Us</a>
-                                <a href="./assets/Gem - Company Profile 2025.pdf" target="_blank" download>Company profile</a>
-                              </div>
-                        </div>
+          <div class="middle-nav">
+            <div class="nav-links">
+              <div class="nav-item more-item">
+                <span>View More ▾</span>
+                <div class="more-dropdown">
+                  <a href="#">Blogs</a>
+                  <a href="./events.html">Events</a>
+                  <a href="./about.html">About Us</a>
+                  <a
+                    href="./assets/Gem - Company Profile 2025.pdf"
+                    target="_blank"
+                    download
+                    >Company profile</a
+                  >
+                </div>
+              </div>
 
-                        <a href="./contact-us.html" class="nav-item">Contact Us</a>
+              <a href="./contact-us.html" class="nav-item">Contact Us</a>
 
-                       <a class="nav-item store-link" href="https://gihanbeauty.com/">
-                        <span>STORE</span>
-                        <i class="fas fa-store"></i>
-                       </a>
-                    </div>
+              <a class="nav-item store-link" href="https://gihanbeauty.com/">
+                <span>STORE</span>
+                <i class="fas fa-store"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <nav class="nav-row" id="primary-nav">
+          <div class="nav-item" data-target="brands">
+            BRANDS <span class="chev">▾</span>
+          </div>
+          <div class="nav-item" data-target="hair">
+            Hair & Skin Care <span class="chev">▾</span>
+          </div>
+          <div class="nav-item" data-target="personal">
+            Personal Care <span class="chev">▾</span>
+          </div>
+          <div class="nav-item" data-target="makeup">
+            Make-up & Tools <span class="chev">▾</span>
+          </div>
+          <div class="nav-item" data-target="fragrance">
+            Fragrance <span class="chev">▾</span>
+          </div>
+          <div class="nav-item" data-target="professional">
+            Professional <span class="chev">▾</span>
+          </div>
+          <div class="nav-item" data-target="sun">
+            Sun Care <span class="chev">▾</span>
+          </div>
+          <div class="nav-item" data-target="baby">
+            Baby Care <span class="chev">▾</span>
+          </div>
+
+          <div class="mega-frame">
+            <span class="mega-close">&times;</span>
+
+            <div class="mega-content" id="brands">
+              <div class="mega-dropdown">
+                <div class="mega-column">
+                  <h4>A</h4>
+                  <a href="#">Andera</a>
+                  <a href="#">Ardell</a>
+                  <a href="#">Armada</a>
                 </div>
 
+                <div class="mega-column">
+                  <h4>B</h4>
+                  <a href="#">Batiste</a>
+                  <a href="#">Banana Boat</a>
+                  <a href="#">Bobini</a>
+                </div>
 
+                <div class="mega-column">
+                  <h4>C</h4>
+                  <a href="#">Cabana Sun</a>
+                  <a href="#">Calypso</a>
+                  <a href="#">Carroten</a>
+                  <a href="#">Cliven Italy</a>
+                  <a href="#">Cocoa Skin Therapy</a>
+                  <a href="#">Colour Me</a>
+                  <a href="#">Cristal Momento</a>
+                  <a href="#">Creme of Nature</a>
+                </div>
+
+                <div class="mega-column">
+                  <h4>D</h4>
+                  <a href="#">DAX</a>
+                  <a href="#">Deomania</a>
+                  <a href="#">Dimples</a>
+                  <a href="#">Disaar</a>
+                  <a href="#">Duo</a>
+                </div>
+
+                <div class="mega-column">
+                  <h4>E</h4>
+                  <a href="#">Eco Tools</a>
+                  <a href="#">Enercos</a>
+                  <a href="#">Energy Hair Food</a>
+                </div>
+
+                <div class="mega-column">
+                  <h4>F</h4>
+                  <a href="#">FashKool</a>
+                  <a href="#">Frais</a>
+                </div>
+
+                <div class="mega-column">
+                  <h4>G</h4>
+                  <a href="#">Galeria</a>
+                </div>
+
+                <div class="mega-column">
+                  <h4>H</h4>
+                  <a href="#">Hair Burst</a>
+                  <a href="#">Hawaii</a>
+                </div>
+
+                <div class="mega-column">
+                  <h4>I</h4>
+                  <a href="#">IBD</a>
+                  <a href="#">Impress New</a>
+                </div>
+
+                <div class="mega-column">
+                  <h4>K</h4>
+                  <a href="#">Kashmir</a>
+                  <a href="#">Karsell</a>
+                  <a href="#">Kativa</a>
+                  <a href="#">Kiss</a>
+                  <a href="#">Kodomo</a>
+                </div>
+
+                <div class="mega-column">
+                  <h4>L</h4>
+                  <a href="#">Lady’s Secret</a>
+                  <a href="#">Lilien</a>
+                  <a href="#">L`Origin</a>
+                </div>
+
+                <div class="mega-column">
+                  <h4>M</h4>
+                  <a href="#">Milton-Lloyd</a>
+                  <a href="#">Modish</a>
+                  <a href="#">Momento</a>
+                  <a href="#">Moroccanoil</a>
+                  <a href="#">Morfose</a>
+                </div>
+
+                <div class="mega-column">
+                  <h4>N</h4>
+                  <a href="#">Naturalis</a>
+                  <a href="#">Nature’s Bounty</a>
+                </div>
+
+                <div class="mega-column">
+                  <h4>O</h4>
+                  <a href="#">Ohoud</a>
+                  <a href="#">Olaplex</a>
+                  <a href="#">Oriense</a>
+                  <a href="#">ORS</a>
+                </div>
+
+                <div class="mega-column">
+                  <h4>P</h4>
+                  <a href="#">Perfumer’s Choice</a>
+                  <a href="#">Play Girl</a>
+                  <a href="#">Playtex</a>
+                </div>
+
+                <div class="mega-column">
+                  <h4>R</h4>
+                  <a href="#">Ravita</a>
+                  <a href="#">Re-Gen</a>
+                  <a href="#">Revox</a>
+                  <a href="#">Revox Plex</a>
+                  <a href="#">Revlon</a>
+                  <a href="#">RT Logos Stacked</a>
+                </div>
+
+                <div class="mega-column">
+                  <h4>S</h4>
+                  <a href="#">Salon Perfect</a>
+                  <a href="#">Schick</a>
+                  <a href="#">SG</a>
+                  <a href="#">SGX</a>
+                  <a href="#">Selsium</a>
+                  <a href="#">Silkia</a>
+                  <a href="#">Smart Collection</a>
+                  <a href="#">Starkin</a>
+                  <a href="#">Stoply</a>
+                </div>
+
+                <div class="mega-column">
+                  <h4>T</h4>
+                  <a href="#">Thicker Fuller Hair</a>
+                </div>
+
+                <div class="mega-column">
+                  <h4>U</h4>
+                  <a href="#">Uniq One</a>
+                  <a href="#">Union Cosmetic</a>
+                </div>
+
+                <div class="mega-column">
+                  <h4>W</h4>
+                  <a href="#">WetBrush</a>
+                  <a href="#">Wildcolor</a>
+                </div>
+
+                <div class="mega-column">
+                  <h4>X</h4>
+                  <a href="#">XL</a>
+                </div>
+
+                <div class="mega-column">
+                  <h4>Y</h4>
+                  <a href="#">Yara</a>
+                  <a href="#">YM</a>
+                  <a href="#">YouthHair</a>
+                </div>
+
+                <div class="mega-column">
+                  <h4>Z</h4>
+                  <a href="#">Zact</a>
+                  <a href="#">Zero Frizz</a>
+                </div>
+              </div>
             </div>
 
-            <nav class="nav-row" id="primary-nav">
-                <div class="nav-item" data-target="brands">BRANDS <span class="chev">▾</span></div>
-                <div class="nav-item" data-target="hair">Hair & Skin Care <span class="chev">▾</span></div>
-                <div class="nav-item" data-target="personal">Personal Care <span class="chev">▾</span></div>
-                <div class="nav-item" data-target="makeup">Make-up & Tools <span class="chev">▾</span></div>
-                <div class="nav-item" data-target="fragrance">Fragrance <span class="chev">▾</span></div>
-                <div class="nav-item" data-target="professional">Professional <span class="chev">▾</span></div>
-                <div class="nav-item" data-target="sun">Sun Care <span class="chev">▾</span></div>
-                <div class="nav-item" data-target="baby">Baby Care <span class="chev">▾</span></div>
-
-                <div class="mega-frame">
-                    <span class="mega-close">&times;</span>
-
-                    <div class="mega-content" id="brands">
-                        <div class="mega-dropdown">
-                            <div class="mega-column">
-                                <h4>A</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>B</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>C</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>D</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>E</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>F</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>G</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>H</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>I</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>J</h4> <a href="#">Babyliss Paris</a> <a href="#">Babyliss Pro</a> <a
-                                    href="#">Bandi</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>K</h4> <a href="#">Caflon</a> <a href="#">Casmara</a> <a href="#">Ceriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>L</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>M</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>N</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>O</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>P</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Q</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>R</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>S</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>T</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>U</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>V</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>W</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>X</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Y</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Z</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mega-content" id="hair">
-                        <div class="mega-dropdown">
-                            <div class="mega-column">
-                                <h4>A</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>B</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>C</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>D</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>E</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>F</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>G</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>H</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>I</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>J</h4> <a href="#">Babyliss Paris</a> <a href="#">Babyliss Pro</a> <a
-                                    href="#">Bandi</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>K</h4> <a href="#">Caflon</a> <a href="#">Casmara</a> <a href="#">Ceriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>L</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>M</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>N</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>O</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>P</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Q</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>R</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>S</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>T</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>U</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>V</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>W</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>X</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Y</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Z</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- Personal Care -->
-                    <div class="mega-content" id="personal">
-                        <div class="mega-dropdown">
-                            <div class="mega-column">
-                                <h4>A</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>B</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>C</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>D</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>E</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>F</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>G</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>H</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>I</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>J</h4> <a href="#">Babyliss Paris</a> <a href="#">Babyliss Pro</a> <a
-                                    href="#">Bandi</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>K</h4> <a href="#">Caflon</a> <a href="#">Casmara</a> <a href="#">Ceriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>L</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>M</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>N</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>O</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>P</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Q</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>R</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>S</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>T</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>U</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>V</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>W</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>X</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Y</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Z</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- Make-up & Tools -->
-                    <div class="mega-content" id="makeup">
-                        <p>
-                        <div class="mega-dropdown">
-                            <div class="mega-column">
-                                <h4>A</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>B</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>C</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>D</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>E</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>F</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>G</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>H</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>I</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>J</h4> <a href="#">Babyliss Paris</a> <a href="#">Babyliss Pro</a> <a
-                                    href="#">Bandi</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>K</h4> <a href="#">Caflon</a> <a href="#">Casmara</a> <a href="#">Ceriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>L</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>M</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>N</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>O</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>P</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Q</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>R</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>S</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>T</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>U</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>V</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>W</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>X</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Y</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Z</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- Fragrance -->
-                    <div class="mega-content" id="fragrance">
-                        <div class="mega-dropdown">
-                            <div class="mega-column">
-                                <h4>A</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>B</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>C</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>D</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>E</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>F</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>G</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>H</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>I</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>J</h4> <a href="#">Babyliss Paris</a> <a href="#">Babyliss Pro</a> <a
-                                    href="#">Bandi</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>K</h4> <a href="#">Caflon</a> <a href="#">Casmara</a> <a href="#">Ceriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>L</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>M</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>N</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>O</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>P</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Q</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>R</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>S</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>T</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>U</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>V</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>W</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>X</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Y</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Z</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- Professional -->
-                    <div class="mega-content" id="professional">
-                        <div class="mega-dropdown">
-                            <div class="mega-column">
-                                <h4>A</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>B</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>C</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>D</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>E</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>F</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>G</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>H</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>I</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>J</h4> <a href="#">Babyliss Paris</a> <a href="#">Babyliss Pro</a> <a
-                                    href="#">Bandi</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>K</h4> <a href="#">Caflon</a> <a href="#">Casmara</a> <a href="#">Ceriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>L</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>M</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>N</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>O</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>P</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Q</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>R</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>S</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>T</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>U</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>V</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>W</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>X</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Y</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Z</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- Sun Care -->
-                    <div class="mega-content" id="sun">
-                        <div class="mega-dropdown">
-                            <div class="mega-column">
-                                <h4>A</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>B</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>C</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>D</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>E</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>F</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>G</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>H</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>I</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>J</h4> <a href="#">Babyliss Paris</a> <a href="#">Babyliss Pro</a> <a
-                                    href="#">Bandi</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>K</h4> <a href="#">Caflon</a> <a href="#">Casmara</a> <a href="#">Ceriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>L</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>M</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>N</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>O</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>P</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Q</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>R</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>S</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>T</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>U</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>V</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>W</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>X</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Y</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Z</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- Baby Care -->
-                    <div class="mega-content" id="baby">
-                        <div class="mega-dropdown">
-                            <div class="mega-column">
-                                <h4>A</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>B</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>C</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>D</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>E</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>F</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>G</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>H</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>I</h4> <a href="#">Accu-Test</a> <a href="#">Agiss</a> <a href="#">AGV</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>J</h4> <a href="#">Babyliss Paris</a> <a href="#">Babyliss Pro</a> <a
-                                    href="#">Bandi</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>K</h4> <a href="#">Caflon</a> <a href="#">Casmara</a> <a href="#">Ceriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>L</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>M</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>N</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>O</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>P</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Q</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>R</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>S</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>T</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>U</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>V</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>W</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>X</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Y</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Z</h4> <a href="#">Daflon</a> <a href="#">Dasmara</a> <a href="#">Deriotti</a>
-                            </div>
-                        </div>
-
-                    </div>
-
+            <div class="mega-content" id="hair">
+              <div class="mega-dropdown">
+                <div class="mega-column">
+                  <h4>A</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
                 </div>
-            </nav>
+                <div class="mega-column">
+                  <h4>B</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>C</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>D</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>E</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>F</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>G</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>H</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>I</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>J</h4>
+                  <a href="#">Babyliss Paris</a> <a href="#">Babyliss Pro</a>
+                  <a href="#">Bandi</a>
+                </div>
+                <div class="mega-column">
+                  <h4>K</h4>
+                  <a href="#">Caflon</a> <a href="#">Casmara</a>
+                  <a href="#">Ceriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>L</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>M</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>N</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>O</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>P</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>Q</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>R</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>S</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>T</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>U</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>V</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>W</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>X</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>Y</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>Z</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+              </div>
+            </div>
 
+            <!-- Personal Care -->
+            <div class="mega-content" id="personal">
+              <div class="mega-dropdown">
+                <div class="mega-column">
+                  <h4>A</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>B</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>C</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>D</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>E</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>F</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>G</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>H</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>I</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>J</h4>
+                  <a href="#">Babyliss Paris</a> <a href="#">Babyliss Pro</a>
+                  <a href="#">Bandi</a>
+                </div>
+                <div class="mega-column">
+                  <h4>K</h4>
+                  <a href="#">Caflon</a> <a href="#">Casmara</a>
+                  <a href="#">Ceriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>L</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>M</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>N</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>O</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>P</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>Q</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>R</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>S</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>T</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>U</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>V</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>W</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>X</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>Y</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>Z</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+              </div>
+            </div>
 
+            <!-- Make-up & Tools -->
+            <div class="mega-content" id="makeup">
+              <p></p>
+              <div class="mega-dropdown">
+                <div class="mega-column">
+                  <h4>A</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>B</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>C</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>D</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>E</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>F</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>G</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>H</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>I</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>J</h4>
+                  <a href="#">Babyliss Paris</a> <a href="#">Babyliss Pro</a>
+                  <a href="#">Bandi</a>
+                </div>
+                <div class="mega-column">
+                  <h4>K</h4>
+                  <a href="#">Caflon</a> <a href="#">Casmara</a>
+                  <a href="#">Ceriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>L</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>M</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>N</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>O</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>P</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>Q</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>R</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>S</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>T</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>U</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>V</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>W</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>X</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>Y</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>Z</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+              </div>
+            </div>
 
-            <script>
-                const toggleBtn = document.querySelector(".menu-toggle");
-                const navRow = document.querySelector(".nav-row");
+            <!-- Fragrance -->
+            <div class="mega-content" id="fragrance">
+              <div class="mega-dropdown">
+                <div class="mega-column">
+                  <h4>A</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>B</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>C</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>D</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>E</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>F</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>G</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>H</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>I</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>J</h4>
+                  <a href="#">Babyliss Paris</a> <a href="#">Babyliss Pro</a>
+                  <a href="#">Bandi</a>
+                </div>
+                <div class="mega-column">
+                  <h4>K</h4>
+                  <a href="#">Caflon</a> <a href="#">Casmara</a>
+                  <a href="#">Ceriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>L</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>M</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>N</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>O</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>P</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>Q</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>R</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>S</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>T</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>U</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>V</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>W</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>X</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>Y</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>Z</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+              </div>
+            </div>
 
-                toggleBtn.addEventListener("click", () => {
-                    navRow.classList.toggle("active");
-                    toggleBtn.setAttribute("aria-expanded", navRow.classList.contains("active") ? "true" : "false");
-                });
+            <!-- Professional -->
+            <div class="mega-content" id="professional">
+              <div class="mega-dropdown">
+                <div class="mega-column">
+                  <h4>A</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>B</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>C</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>D</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>E</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>F</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>G</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>H</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>I</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>J</h4>
+                  <a href="#">Babyliss Paris</a> <a href="#">Babyliss Pro</a>
+                  <a href="#">Bandi</a>
+                </div>
+                <div class="mega-column">
+                  <h4>K</h4>
+                  <a href="#">Caflon</a> <a href="#">Casmara</a>
+                  <a href="#">Ceriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>L</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>M</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>N</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>O</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>P</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>Q</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>R</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>S</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>T</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>U</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>V</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>W</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>X</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>Y</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>Z</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+              </div>
+            </div>
 
-                const navItems = document.querySelectorAll(".nav-item[data-target]");
-                const frame = document.querySelector(".mega-frame");
-                const closeBtn = document.querySelector(".mega-close");
-                const contents = document.querySelectorAll(".mega-content");
-                const moreItem = document.querySelector(".more-item");
+            <!-- Sun Care -->
+            <div class="mega-content" id="sun">
+              <div class="mega-dropdown">
+                <div class="mega-column">
+                  <h4>A</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>B</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>C</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>D</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>E</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>F</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>G</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>H</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>I</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>J</h4>
+                  <a href="#">Babyliss Paris</a> <a href="#">Babyliss Pro</a>
+                  <a href="#">Bandi</a>
+                </div>
+                <div class="mega-column">
+                  <h4>K</h4>
+                  <a href="#">Caflon</a> <a href="#">Casmara</a>
+                  <a href="#">Ceriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>L</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>M</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>N</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>O</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>P</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>Q</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>R</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>S</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>T</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>U</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>V</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>W</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>X</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>Y</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>Z</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+              </div>
+            </div>
 
-                let activeTarget = null;
+            <!-- Baby Care -->
+            <div class="mega-content" id="baby">
+              <div class="mega-dropdown">
+                <div class="mega-column">
+                  <h4>A</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>B</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>C</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>D</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>E</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>F</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>G</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>H</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>I</h4>
+                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
+                  <a href="#">AGV</a>
+                </div>
+                <div class="mega-column">
+                  <h4>J</h4>
+                  <a href="#">Babyliss Paris</a> <a href="#">Babyliss Pro</a>
+                  <a href="#">Bandi</a>
+                </div>
+                <div class="mega-column">
+                  <h4>K</h4>
+                  <a href="#">Caflon</a> <a href="#">Casmara</a>
+                  <a href="#">Ceriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>L</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>M</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>N</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>O</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>P</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>Q</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>R</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>S</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>T</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>U</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>V</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>W</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>X</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>Y</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+                <div class="mega-column">
+                  <h4>Z</h4>
+                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
+                  <a href="#">Deriotti</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
 
-                navItems.forEach(item => {
-                    item.addEventListener("click", () => {
-                        const targetId = item.getAttribute("data-target");
-                        const content = document.getElementById(targetId);
+        <script>
+          const toggleBtn = document.querySelector(".menu-toggle");
+          const navRow = document.querySelector(".nav-row");
 
-                        if (!content) return;
+          toggleBtn.addEventListener("click", () => {
+            navRow.classList.toggle("active");
+            toggleBtn.setAttribute(
+              "aria-expanded",
+              navRow.classList.contains("active") ? "true" : "false"
+            );
+          });
 
-                        if (activeTarget === targetId && frame.classList.contains("active")) {
-                            frame.classList.remove("active");
-                            content.classList.remove("active");
-                            activeTarget = null;
-                            return;
-                        }
+          const navItems = document.querySelectorAll(".nav-item[data-target]");
+          const frame = document.querySelector(".mega-frame");
+          const closeBtn = document.querySelector(".mega-close");
+          const contents = document.querySelectorAll(".mega-content");
+          const moreItem = document.querySelector(".more-item");
 
-                        contents.forEach(c => c.classList.remove("active"));
-                        moreItem.classList.remove("active");
+          let activeTarget = null;
 
-                        content.classList.add("active");
-                        frame.classList.add("active");
-                        activeTarget = targetId;
-                    });
-                });
+          navItems.forEach((item) => {
+            item.addEventListener("click", () => {
+              const targetId = item.getAttribute("data-target");
+              const content = document.getElementById(targetId);
 
-                closeBtn.addEventListener("click", () => {
-                    frame.classList.remove("active");
-                    contents.forEach(c => c.classList.remove("active"));
-                    moreItem.classList.remove("active");
-                    activeTarget = null;
-                });
+              if (!content) return;
 
-                moreItem.addEventListener("click", (e) => {
-                    e.stopPropagation();
+              if (
+                activeTarget === targetId &&
+                frame.classList.contains("active")
+              ) {
+                frame.classList.remove("active");
+                content.classList.remove("active");
+                activeTarget = null;
+                return;
+              }
 
-                    if (moreItem.classList.contains("active")) {
-                        moreItem.classList.remove("active");
-                        activeTarget = null;
-                    } else {
-                        frame.classList.remove("active");
-                        contents.forEach(c => c.classList.remove("active"));
+              contents.forEach((c) => c.classList.remove("active"));
+              moreItem.classList.remove("active");
 
-                        moreItem.classList.add("active");
-                        activeTarget = "more";
-                    }
-                });
+              content.classList.add("active");
+              frame.classList.add("active");
+              activeTarget = targetId;
+            });
+          });
 
-                document.addEventListener("click", (e) => {
-                    if (!moreItem.contains(e.target)) {
-                        moreItem.classList.remove("active");
-                        if (activeTarget === "more") activeTarget = null;
-                    }
-                });
+          closeBtn.addEventListener("click", () => {
+            frame.classList.remove("active");
+            contents.forEach((c) => c.classList.remove("active"));
+            moreItem.classList.remove("active");
+            activeTarget = null;
+          });
 
-            </script>
+          moreItem.addEventListener("click", (e) => {
+            e.stopPropagation();
 
+            if (moreItem.classList.contains("active")) {
+              moreItem.classList.remove("active");
+              activeTarget = null;
+            } else {
+              frame.classList.remove("active");
+              contents.forEach((c) => c.classList.remove("active"));
 
+              moreItem.classList.add("active");
+              activeTarget = "more";
+            }
+          });
 
-        </div>
+          document.addEventListener("click", (e) => {
+            if (!moreItem.contains(e.target)) {
+              moreItem.classList.remove("active");
+              if (activeTarget === "more") activeTarget = null;
+            }
+          });
+        </script>
+      </div>
     </header>
 
-
     <script>
-        document.querySelectorAll(".nav-item").forEach((item) => {
-            item.addEventListener("click", (e) => {
-                document.querySelectorAll(".nav-item.open").forEach((open) => {
-                    if (open !== item) open.classList.remove("open");
-                });
-                item.classList.toggle("open");
-            });
-            item.addEventListener("keydown", (e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    item.click();
-                } else if (e.key === "Escape") {
-                    item.classList.remove("open");
-                }
-            });
+      document.querySelectorAll(".nav-item").forEach((item) => {
+        item.addEventListener("click", (e) => {
+          document.querySelectorAll(".nav-item.open").forEach((open) => {
+            if (open !== item) open.classList.remove("open");
+          });
+          item.classList.toggle("open");
         });
-
-        document.addEventListener("click", (e) => {
-            if (!e.target.closest(".nav-item")) {
-                document.querySelectorAll(".nav-item.open").forEach((open) => {
-                    open.classList.remove("open");
-                });
-            }
+        item.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            item.click();
+          } else if (e.key === "Escape") {
+            item.classList.remove("open");
+          }
         });
-        document.querySelectorAll(".nav-item.dropdown").forEach(item => {
-            item.addEventListener("click", function (e) {
-                e.preventDefault();
-                const dropdown = this.querySelector(".mega-dropdown");
-                if (dropdown) {
-                    dropdown.style.display = (dropdown.style.display === "grid") ? "none" : "grid";
-                }
-            });
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest(".nav-item")) {
+          document.querySelectorAll(".nav-item.open").forEach((open) => {
+            open.classList.remove("open");
+          });
+        }
+      });
+      document.querySelectorAll(".nav-item.dropdown").forEach((item) => {
+        item.addEventListener("click", function (e) {
+          e.preventDefault();
+          const dropdown = this.querySelector(".mega-dropdown");
+          if (dropdown) {
+            dropdown.style.display =
+              dropdown.style.display === "grid" ? "none" : "grid";
+          }
         });
-
-
+      });
     </script>
 
     <div class="page-title">

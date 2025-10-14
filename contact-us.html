@@ -47,7 +47,6 @@
     <link href="./styles/contact-us.css" rel="stylesheet" type="text/css" />
 
     <style>
-    
       * {
         margin: 0;
         padding: 0;
@@ -204,65 +203,64 @@
         stroke: #000;
       }
       .middle-nav {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 25px; 
-}
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 25px;
+      }
 
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-}
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+      }
 
-.nav-item {
-  font-size: 15px;
-  font-weight: 500;
-  color: #222;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
+      .nav-item {
+        font-size: 15px;
+        font-weight: 500;
+        color: #222;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
 
-.nav-item:hover {
-  color: #0077cc;
-}
+      .nav-item:hover {
+        color: #0077cc;
+      }
 
-.more-item {
-  position: relative;
-}
+      .more-item {
+        position: relative;
+      }
 
-.more-item .more-dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: white;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  border-radius: 8px;
-  padding: 10px 0;
-}
+      .more-item .more-dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        border-radius: 8px;
+        padding: 10px 0;
+      }
 
-.more-item:hover .more-dropdown {
-  display: block;
-}
+      .more-item:hover .more-dropdown {
+        display: block;
+      }
 
-.more-dropdown a {
-  display: block;
-  padding: 8px 15px;
-  color: #333;
-  text-decoration: none;
-  font-size: 14px;
-}
+      .more-dropdown a {
+        display: block;
+        padding: 8px 15px;
+        color: #333;
+        text-decoration: none;
+        font-size: 14px;
+      }
 
-.more-dropdown a:hover {
-  background: #f5f5f5;
-}
-
+      .more-dropdown a:hover {
+        background: #f5f5f5;
+      }
 
       .label {
         font-size: 11px;
@@ -364,226 +362,235 @@
         text-decoration: none;
       }
 
-   /* Contact Section */
-.contact-section {
-  font-family: 'Poppins', sans-serif;
-  /* padding: 80px 20px; */
-  background: #fff;
-}
+      /* Contact Section */
+      .contact-section {
+        font-family: "Poppins", sans-serif;
+        /* padding: 80px 20px; */
+        background: #fff;
+      }
 
-.container {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-  max-width: 1200px;
-  margin: auto;
-  flex-wrap: wrap;
-}
+      .container {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+        max-width: 1200px;
+        margin: auto;
+        flex-wrap: wrap;
+      }
 
-/* Card style */
-.card {
-  background: #fff;
-  color: #333;
-  padding: 35px;
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-  flex: 1;
-  min-width: 320px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-}
+      /* Card style */
+      .card {
+        background: #fff;
+        color: #333;
+        padding: 35px;
+        border-radius: 16px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        flex: 1;
+        min-width: 320px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+      }
 
-/* Contact Info */
-.contact-info h2 {
-  font-size: 26px;
-  margin-bottom: 25px;
-  color: #0b2a59;
-}
+      /* Contact Info */
+      .contact-info h2 {
+        font-size: 26px;
+        margin-bottom: 25px;
+        color: #0b2a59;
+      }
 
-.info-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 15px;
-  margin-bottom: 20px;
-}
+      .info-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 20px;
+      }
 
-.info-item .icon {
-  font-size: 20px;
-  color: #fff;
-  background: #818080;
-  padding: 14px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: 0.3s;
-}
+      .info-item .icon {
+        font-size: 20px;
+        color: #fff;
+        background: #818080;
+        padding: 14px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: 0.3s;
+      }
 
+      .contact-info h4 {
+        margin: 0 0 5px;
+        font-size: 24px;
+        color: #131313;
+      }
 
-.contact-info h4 {
-  margin: 0 0 5px;
-  font-size: 24px;
-  color: #131313;
-}
+      .contact-info a {
+        color: #615f5f;
+        text-decoration: none;
+      }
 
-.contact-info a {
-  color: #615f5f;
-  text-decoration: none;
-}
+      /* Social icons */
+      .social-icons-form {
+        margin-top: 4px;
+      }
+      .social-icons-form a {
+        display: inline-block;
+        margin-right: 8px;
+        font-size: 20px;
+        color: #5b5a5a;
+        transition: 0.3s;
+      }
 
+      /* Contact Form */
+      .contact-form h2 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #0b2a59;
+      }
 
-/* Social icons */
-.social-icons-form {
-  margin-top: 4px;
-}
-.social-icons-form a {
-  display: inline-block;
-  margin-right: 8px;
-  font-size: 20px;
-  color: #5b5a5a;
-  transition: 0.3s;
-}
+      .contact-form form .row {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+      }
 
-/* Contact Form */
-.contact-form h2 {
-  margin-bottom: 20px;
-  font-size: 24px;
-  color: #0b2a59;
-}
+      .contact-form input,
+      .contact-form textarea {
+        flex: 1;
+        padding: 14px 16px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        font-size: 15px;
+        transition: 0.3s;
+      }
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 14px;
+      }
+      .contact-form textarea {
+        height: 100px;
+        resize: none;
+        margin-bottom: 15px;
+      }
 
-.contact-form form .row {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 15px;
-  flex-wrap: wrap;
-}
+      .contact-form .btn-wrap {
+        text-align: right;
+      }
+      .contact-form button {
+        padding: 14px 28px;
+        background-color: #0b2a59;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: bold;
+        transition: 0.3s;
+      }
 
-.contact-form input,
-.contact-form textarea {
-  flex: 1;
-  padding: 14px 16px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  font-size: 15px;
-  transition: 0.3s;
-}
-.contact-form input, .contact-form textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; } .contact-form textarea { height: 100px; resize: none; margin-bottom: 15px; }
+      /* Map */
+      .map {
+        margin-top: 50px;
+      }
+      .map iframe {
+        width: 100%;
+        height: 420px;
+        border: none;
+        border-radius: 16px;
+      }
 
-.contact-form .btn-wrap {
-  text-align: right;
-}
-.contact-form button {
-  padding: 14px 28px;
-  background-color: #0b2a59;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 15px;
-  font-weight: bold;
-  transition: 0.3s;
-}
+      /* Responsive */
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+          gap: 30px;
+        }
+        .contact-form .btn-wrap {
+          text-align: center;
+        }
+      }
+      .section-title {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 4px;
+        padding-bottom: 10px;
+        font-weight: 700;
+        color: #0b2a59 !important;
+      }
 
+      .section-title::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 110px;
+        height: 3px;
+        background: linear-gradient(90deg, #0b2a59, #0c3d86);
+        border-radius: 2px;
+      }
+      .info-item h4 {
+        font-size: 18px;
+      }
+      .hero-banner {
+        position: relative;
+        width: 100%;
+        height: 220px;
+        overflow: hidden;
+        margin-top: 0 !important;
+      }
 
-/* Map */
-.map {
-  margin-top: 50px;
-}
-.map iframe {
-  width: 100%;
-  height: 420px;
-  border: none;
-  border-radius: 16px;
-}
+      .hero-banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .hero-banner .overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #fff;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    gap: 30px;
-  }
-  .contact-form .btn-wrap {
-    text-align: center;
-  }
-}
-.section-title {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 4px; 
-  padding-bottom: 10px; 
-  font-weight: 700;
-  color: #0b2a59 !important; 
-}
+      .hero-banner .overlay h1 {
+        font-size: 56px;
+        font-weight: bold;
+        color: #fff;
+      }
 
-.section-title::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0; 
-  transform: translateX(-50%);
-  width: 110px; 
-  height: 3px;
-  background: linear-gradient(90deg, #0b2a59, #0c3d86);
-  border-radius: 2px;
-}
-.info-item h4 {
-  font-size: 18px;
-}
-.hero-banner {
-  position: relative;
-  width: 100%;
-  height: 220px;
-  overflow: hidden;
-   margin-top: 0 !important;
-}
+      .hero-banner .overlay p {
+        font-size: 16px;
+      }
+      .hero-banner {
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+      }
+      @media (max-width: 768px) {
+        .hero-banner {
+          height: 200px;
+        }
 
-.hero-banner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.hero-banner .overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: #fff;
-   width: 100%;
-  margin: 0;
-  padding: 0;
-}
+        .hero-banner .overlay h1 {
+          font-size: 22px;
+        }
 
-.hero-banner .overlay h1 {
-  font-size: 56px;
-  font-weight: bold;
-  color: #fff;
-}
-
-.hero-banner .overlay p {
-  font-size: 16px;
-}
-.hero-banner {
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.20);
-}
-@media (max-width: 768px) {
-  .hero-banner {
-    height: 200px; 
-  }
-
-  .hero-banner .overlay h1 {
-    font-size: 22px;  
-  }
-
-  .hero-banner .overlay p {
-    font-size: 14px; 
-  }
-}
+        .hero-banner .overlay p {
+          font-size: 14px;
+        }
+      }
     </style>
     <script type="text/javascript">
       !(function (o, c) {
@@ -595,15 +602,12 @@
             (n.className += t + "touch");
       })(window, document);
     </script>
-     <link
-     href="./assets/Gem 2024-01.png"
-     rel="shortcut icon"
-     type="image/x-icon"
-   />
-   <link
-     href="./assets/Gem 2024-01.png"
-     rel="apple-touch-icon"
-   />
+    <link
+      href="./assets/Gem 2024-01.png"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
+    <link href="./assets/Gem 2024-01.png" rel="apple-touch-icon" />
     <script type="text/javascript">
       window.__WEBFLOW_CURRENCY_SETTINGS = {
         currencyCode: "USD",
@@ -700,34 +704,45 @@
               </svg>
             </button>
           </div>
-           <button class="menu-toggle" aria-label="Open Menu" aria-controls="primary-nav" aria-expanded="false">☰</button>
+          <button
+            class="menu-toggle"
+            aria-label="Open Menu"
+            aria-controls="primary-nav"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
 
           <div class="logo" aria-label="GEM">
             <a href="./index.html">
               <img src="./assets/Gem 2024-01.png" alt="GEM Cosmetics Logo" />
             </a>
           </div>
-         <div class="middle-nav">
-  <div class="nav-links">
-    <div class="nav-item more-item">
-      <span>View More ▾</span>
-      <div class="more-dropdown">
-         <a href="#">Blogs</a>
-        <a href="./events.html">Events</a>
-        <a href="./about.html">About Us</a>
-        <a href="#">Company profile</a>
-      </div>
-    </div>
+          <div class="middle-nav">
+            <div class="nav-links">
+              <div class="nav-item more-item">
+                <span>View More ▾</span>
+                <div class="more-dropdown">
+                  <a href="#">Blogs</a>
+                  <a href="./events.html">Events</a>
+                  <a href="./about.html">About Us</a>
+                  <a
+                    href="./assets/Gem - Company Profile 2025.pdf"
+                    target="_blank"
+                    download
+                    >Company profile</a
+                  >
+                </div>
+              </div>
 
-    <a href="./contact-us.html" class="nav-item">Contact Us</a>
+              <a href="./contact-us.html" class="nav-item">Contact Us</a>
 
-    <a class="nav-item store-link" href="https://gihanbeauty.com/">
+              <a class="nav-item store-link" href="https://gihanbeauty.com/">
                 <span>STORE</span>
                 <i class="fas fa-store"></i>
               </a>
-  </div>
-</div>
-
+            </div>
+          </div>
         </div>
 
         <nav class="nav-row" id="primary-nav">
@@ -755,7 +770,7 @@
           <div class="nav-item" data-target="baby">
             Baby Care <span class="chev">▾</span>
           </div>
-          
+
           <div class="mega-frame">
             <span class="mega-close">&times;</span>
 
@@ -763,133 +778,171 @@
               <div class="mega-dropdown">
                 <div class="mega-column">
                   <h4>A</h4>
-                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
-                  <a href="#">AGV</a>
+                  <a href="#">Andera</a>
+                  <a href="#">Ardell</a>
+                  <a href="#">Armada</a>
                 </div>
+
                 <div class="mega-column">
                   <h4>B</h4>
-                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
-                  <a href="#">AGV</a>
+                  <a href="#">Batiste</a>
+                  <a href="#">Banana Boat</a>
+                  <a href="#">Bobini</a>
                 </div>
+
                 <div class="mega-column">
                   <h4>C</h4>
-                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
-                  <a href="#">AGV</a>
+                  <a href="#">Cabana Sun</a>
+                  <a href="#">Calypso</a>
+                  <a href="#">Carroten</a>
+                  <a href="#">Cliven Italy</a>
+                  <a href="#">Cocoa Skin Therapy</a>
+                  <a href="#">Colour Me</a>
+                  <a href="#">Cristal Momento</a>
+                  <a href="#">Creme of Nature</a>
                 </div>
+
                 <div class="mega-column">
                   <h4>D</h4>
-                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
-                  <a href="#">AGV</a>
+                  <a href="#">DAX</a>
+                  <a href="#">Deomania</a>
+                  <a href="#">Dimples</a>
+                  <a href="#">Disaar</a>
+                  <a href="#">Duo</a>
                 </div>
+
                 <div class="mega-column">
                   <h4>E</h4>
-                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
-                  <a href="#">AGV</a>
+                  <a href="#">Eco Tools</a>
+                  <a href="#">Enercos</a>
+                  <a href="#">Energy Hair Food</a>
                 </div>
+
                 <div class="mega-column">
                   <h4>F</h4>
-                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
-                  <a href="#">AGV</a>
+                  <a href="#">FashKool</a>
+                  <a href="#">Frais</a>
                 </div>
+
                 <div class="mega-column">
                   <h4>G</h4>
-                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
-                  <a href="#">AGV</a>
+                  <a href="#">Galeria</a>
                 </div>
+
                 <div class="mega-column">
                   <h4>H</h4>
-                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
-                  <a href="#">AGV</a>
+                  <a href="#">Hair Burst</a>
+                  <a href="#">Hawaii</a>
                 </div>
+
                 <div class="mega-column">
                   <h4>I</h4>
-                  <a href="#">Accu-Test</a> <a href="#">Agiss</a>
-                  <a href="#">AGV</a>
+                  <a href="#">IBD</a>
+                  <a href="#">Impress New</a>
                 </div>
-                <div class="mega-column">
-                  <h4>J</h4>
-                  <a href="#">Babyliss Paris</a> <a href="#">Babyliss Pro</a>
-                  <a href="#">Bandi</a>
-                </div>
+
                 <div class="mega-column">
                   <h4>K</h4>
-                  <a href="#">Caflon</a> <a href="#">Casmara</a>
-                  <a href="#">Ceriotti</a>
+                  <a href="#">Kashmir</a>
+                  <a href="#">Karsell</a>
+                  <a href="#">Kativa</a>
+                  <a href="#">Kiss</a>
+                  <a href="#">Kodomo</a>
                 </div>
+
                 <div class="mega-column">
                   <h4>L</h4>
-                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
-                  <a href="#">Deriotti</a>
+                  <a href="#">Lady’s Secret</a>
+                  <a href="#">Lilien</a>
+                  <a href="#">L`Origin</a>
                 </div>
+
                 <div class="mega-column">
                   <h4>M</h4>
-                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
-                  <a href="#">Deriotti</a>
+                  <a href="#">Milton-Lloyd</a>
+                  <a href="#">Modish</a>
+                  <a href="#">Momento</a>
+                  <a href="#">Moroccanoil</a>
+                  <a href="#">Morfose</a>
                 </div>
+
                 <div class="mega-column">
                   <h4>N</h4>
-                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
-                  <a href="#">Deriotti</a>
+                  <a href="#">Naturalis</a>
+                  <a href="#">Nature’s Bounty</a>
                 </div>
+
                 <div class="mega-column">
                   <h4>O</h4>
-                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
-                  <a href="#">Deriotti</a>
+                  <a href="#">Ohoud</a>
+                  <a href="#">Olaplex</a>
+                  <a href="#">Oriense</a>
+                  <a href="#">ORS</a>
                 </div>
+
                 <div class="mega-column">
                   <h4>P</h4>
-                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
-                  <a href="#">Deriotti</a>
+                  <a href="#">Perfumer’s Choice</a>
+                  <a href="#">Play Girl</a>
+                  <a href="#">Playtex</a>
                 </div>
-                <div class="mega-column">
-                  <h4>Q</h4>
-                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
-                  <a href="#">Deriotti</a>
-                </div>
+
                 <div class="mega-column">
                   <h4>R</h4>
-                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
-                  <a href="#">Deriotti</a>
+                  <a href="#">Ravita</a>
+                  <a href="#">Re-Gen</a>
+                  <a href="#">Revox</a>
+                  <a href="#">Revox Plex</a>
+                  <a href="#">Revlon</a>
+                  <a href="#">RT Logos Stacked</a>
                 </div>
+
                 <div class="mega-column">
                   <h4>S</h4>
-                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
-                  <a href="#">Deriotti</a>
+                  <a href="#">Salon Perfect</a>
+                  <a href="#">Schick</a>
+                  <a href="#">SG</a>
+                  <a href="#">SGX</a>
+                  <a href="#">Selsium</a>
+                  <a href="#">Silkia</a>
+                  <a href="#">Smart Collection</a>
+                  <a href="#">Starkin</a>
+                  <a href="#">Stoply</a>
                 </div>
+
                 <div class="mega-column">
                   <h4>T</h4>
-                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
-                  <a href="#">Deriotti</a>
+                  <a href="#">Thicker Fuller Hair</a>
                 </div>
+
                 <div class="mega-column">
                   <h4>U</h4>
-                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
-                  <a href="#">Deriotti</a>
+                  <a href="#">Uniq One</a>
+                  <a href="#">Union Cosmetic</a>
                 </div>
-                <div class="mega-column">
-                  <h4>V</h4>
-                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
-                  <a href="#">Deriotti</a>
-                </div>
+
                 <div class="mega-column">
                   <h4>W</h4>
-                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
-                  <a href="#">Deriotti</a>
+                  <a href="#">WetBrush</a>
+                  <a href="#">Wildcolor</a>
                 </div>
+
                 <div class="mega-column">
                   <h4>X</h4>
-                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
-                  <a href="#">Deriotti</a>
+                  <a href="#">XL</a>
                 </div>
+
                 <div class="mega-column">
                   <h4>Y</h4>
-                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
-                  <a href="#">Deriotti</a>
+                  <a href="#">Yara</a>
+                  <a href="#">YM</a>
+                  <a href="#">YouthHair</a>
                 </div>
+
                 <div class="mega-column">
                   <h4>Z</h4>
-                  <a href="#">Daflon</a> <a href="#">Dasmara</a>
-                  <a href="#">Deriotti</a>
+                  <a href="#">Zact</a>
+                  <a href="#">Zero Frizz</a>
                 </div>
               </div>
             </div>
@@ -1849,77 +1902,80 @@
         </nav>
 
         <script>
-                const toggleBtn = document.querySelector(".menu-toggle");
-                const navRow = document.querySelector(".nav-row");
+          const toggleBtn = document.querySelector(".menu-toggle");
+          const navRow = document.querySelector(".nav-row");
 
-                toggleBtn.addEventListener("click", () => {
-                    navRow.classList.toggle("active");
-                    toggleBtn.setAttribute("aria-expanded", navRow.classList.contains("active") ? "true" : "false");
-                });
+          toggleBtn.addEventListener("click", () => {
+            navRow.classList.toggle("active");
+            toggleBtn.setAttribute(
+              "aria-expanded",
+              navRow.classList.contains("active") ? "true" : "false"
+            );
+          });
 
+          const navItems = document.querySelectorAll(".nav-item[data-target]");
+          const frame = document.querySelector(".mega-frame");
+          const closeBtn = document.querySelector(".mega-close");
+          const contents = document.querySelectorAll(".mega-content");
+          const moreItem = document.querySelector(".more-item");
 
-                const navItems = document.querySelectorAll(".nav-item[data-target]");
-                const frame = document.querySelector(".mega-frame");
-                const closeBtn = document.querySelector(".mega-close");
-                const contents = document.querySelectorAll(".mega-content");
-                const moreItem = document.querySelector(".more-item");
+          let activeTarget = null;
 
-                let activeTarget = null;
+          navItems.forEach((item) => {
+            item.addEventListener("click", () => {
+              const targetId = item.getAttribute("data-target");
+              const content = document.getElementById(targetId);
 
-                navItems.forEach(item => {
-                    item.addEventListener("click", () => {
-                        const targetId = item.getAttribute("data-target");
-                        const content = document.getElementById(targetId);
+              if (!content) return;
 
-                        if (!content) return;
+              if (
+                activeTarget === targetId &&
+                frame.classList.contains("active")
+              ) {
+                frame.classList.remove("active");
+                content.classList.remove("active");
+                activeTarget = null;
+                return;
+              }
 
-                        if (activeTarget === targetId && frame.classList.contains("active")) {
-                            frame.classList.remove("active");
-                            content.classList.remove("active");
-                            activeTarget = null;
-                            return;
-                        }
+              contents.forEach((c) => c.classList.remove("active"));
+              moreItem.classList.remove("active");
 
-                        contents.forEach(c => c.classList.remove("active"));
-                        moreItem.classList.remove("active");
+              content.classList.add("active");
+              frame.classList.add("active");
+              activeTarget = targetId;
+            });
+          });
 
-                        content.classList.add("active");
-                        frame.classList.add("active");
-                        activeTarget = targetId;
-                    });
-                });
+          closeBtn.addEventListener("click", () => {
+            frame.classList.remove("active");
+            contents.forEach((c) => c.classList.remove("active"));
+            moreItem.classList.remove("active");
+            activeTarget = null;
+          });
 
-                closeBtn.addEventListener("click", () => {
-                    frame.classList.remove("active");
-                    contents.forEach(c => c.classList.remove("active"));
-                    moreItem.classList.remove("active");
-                    activeTarget = null;
-                });
+          moreItem.addEventListener("click", (e) => {
+            e.stopPropagation();
 
-                moreItem.addEventListener("click", (e) => {
-                    e.stopPropagation();
+            if (moreItem.classList.contains("active")) {
+              moreItem.classList.remove("active");
+              activeTarget = null;
+            } else {
+              frame.classList.remove("active");
+              contents.forEach((c) => c.classList.remove("active"));
 
-                    if (moreItem.classList.contains("active")) {
-                        moreItem.classList.remove("active");
-                        activeTarget = null;
-                    } else {
-                        frame.classList.remove("active");
-                        contents.forEach(c => c.classList.remove("active"));
+              moreItem.classList.add("active");
+              activeTarget = "more";
+            }
+          });
 
-                        moreItem.classList.add("active");
-                        activeTarget = "more";
-                    }
-                });
-
-                document.addEventListener("click", (e) => {
-                    if (!moreItem.contains(e.target)) {
-                        moreItem.classList.remove("active");
-                        if (activeTarget === "more") activeTarget = null;
-                    }
-                });
-
-            </script>
-
+          document.addEventListener("click", (e) => {
+            if (!moreItem.contains(e.target)) {
+              moreItem.classList.remove("active");
+              if (activeTarget === "more") activeTarget = null;
+            }
+          });
+        </script>
       </div>
     </header>
     <script>
@@ -1958,84 +2014,106 @@
         });
       });
     </script>
-<section class="hero-banner">
-  <img src="./assets/contact-us2.png.jpg" alt="Contact Banner" loading="lazy">
-  <div class="overlay">
-    <h1>Contact Us</h1>
-    <p>We would love to hear from you</p>
-  </div>
-</section>
-   <section class="contact-section">
-  <div class="container">
-    <!-- Left Contact Info -->
-    <div class="contact-info card">
-      <h2 class="section-title">Get in touch</h2>
-     
-      <div class="info-item">
-        <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
-        <div>
-          <h4>Location</h4>
-          <p>4 E Asmaa Fahmy. Ard El Golf, Heliopolis, Pharma Plaza Build, Cairo, Egypt</p>
+    <section class="hero-banner">
+      <img
+        src="./assets/contact-us2.png.jpg"
+        alt="Contact Banner"
+        loading="lazy"
+      />
+      <div class="overlay">
+        <h1>Contact Us</h1>
+        <p>We would love to hear from you</p>
+      </div>
+    </section>
+    <section class="contact-section">
+      <div class="container">
+        <!-- Left Contact Info -->
+        <div class="contact-info card">
+          <h2 class="section-title">Get in touch</h2>
+
+          <div class="info-item">
+            <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+            <div>
+              <h4>Location</h4>
+              <p>
+                4 E Asmaa Fahmy. Ard El Golf, Heliopolis, Pharma Plaza Build,
+                Cairo, Egypt
+              </p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="icon"><i class="fas fa-envelope"></i></span>
+            <div>
+              <h4>Email us</h4>
+              <p><a href="mailto:info@gemegypt.com">info@gemegypt.com</a></p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="icon"><i class="fas fa-phone"></i></span>
+            <div>
+              <h4>Call us</h4>
+              <p>
+                +20 120 876 0666 | 0020221825001 | 0020221825002 | 0020221825003
+                | 0020221825004
+              </p>
+            </div>
+          </div>
+
+          <h4 class="section-title">Follow us</h4>
+          <div class="social-icons-form">
+            <a
+              href="https://www.facebook.com/gem.egypt.company/"
+              target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="https://www.instagram.com/gem_egypt/" target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://www.tiktok.com/@gem_egy" target="_blank"
+              ><i class="fab fa-tiktok"></i
+            ></a>
+          </div>
+        </div>
+
+        <!-- Right Contact Form -->
+        <div class="contact-form card">
+          <h2 class="section-title">Send a message</h2>
+          <form>
+            <div class="row">
+              <input type="text" placeholder="Full Name" required />
+            </div>
+            <div class="row">
+              <input type="tel" placeholder="Phone" />
+              <input type="email" placeholder="Email" required />
+            </div>
+            <textarea placeholder="Write your message here..."></textarea>
+            <div class="btn-wrap">
+              <button type="submit">SEND MESSAGE</button>
+            </div>
+          </form>
         </div>
       </div>
 
-      <div class="info-item">
-        <span class="icon"><i class="fas fa-envelope"></i></span>
-        <div>
-          <h4>Email us</h4>
-          <p><a href="mailto:info@gemegypt.com">info@gemegypt.com</a></p>
+      <!-- Map Section -->
+      <div class="map">
+        <div class="map-embed">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.082601940591!2d31.334266!3d30.071647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583f79b3ad12ff%3A0x5f6cfbe8c5b27a83!2s4%20Asmaa%20Fahmi%2C%20Al%20Golf%2C%20Nasr%20City%2C%20Cairo%20Governorate!5e0!3m2!1sen!2seg!4v1695642000000!5m2!1sen!2seg"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
       </div>
-
-      <div class="info-item">
-        <span class="icon"><i class="fas fa-phone"></i></span>
-        <div>
-          <h4>Call us</h4>
-          <p>+20 120 876 0666 | 0020221825001 | 0020221825002 | 0020221825003 | 0020221825004 </p>
-
-
-
-        </div>
-      </div>
-
-      <h4 class="section-title">Follow us</h4>
-      <div class="social-icons-form">
-        <a href="https://www.facebook.com/gem.egypt.company/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/gem_egypt/" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@gem_egy" target="_blank"><i class="fab fa-tiktok"></i></a>
-      </div>
-    </div>
-
-    <!-- Right Contact Form -->
-    <div class="contact-form card">
-      <h2 class="section-title">Send a message</h2>
-      <form>
-        <div class="row">
-          <input type="text" placeholder="Full Name" required />
-        </div>
-        <div class="row">
-          <input type="tel" placeholder="Phone" />
-          <input type="email" placeholder="Email" required />
-        </div>
-        <textarea placeholder="Write your message here..."></textarea>
-        <div class="btn-wrap">
-          <button type="submit">SEND MESSAGE</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Map Section -->
-  <div class="map"> <div class="map-embed"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.082601940591!2d31.334266!3d30.071647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583f79b3ad12ff%3A0x5f6cfbe8c5b27a83!2s4%20Asmaa%20Fahmi%2C%20Al%20Golf%2C%20Nasr%20City%2C%20Cairo%20Governorate!5e0!3m2!1sen!2seg!4v1695642000000!5m2!1sen!2seg" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" ></iframe> </div> </div>
-</section>
-
-
+    </section>
 
     <section class="footer">
       <div class="footer-inner">
         <!-- LEFT LOGO -->
         <div class="footer-logo">
-          <img src="./assets/Gem Egypt.png" alt="Company Logo" loading="lazy"/>
+          <img src="./assets/Gem Egypt.png" alt="Company Logo" loading="lazy" />
         </div>
 
         <!-- CATEGORIES -->
@@ -2084,7 +2162,10 @@
         <!-- CONTACT -->
         <div class="footer-col">
           <h3 class="ft-title">CONTACT US</h3>
-          <p><strong> Phone: </strong> +20 120 876 0666 | 0020221825001 | 0020221825002 | 0020221825003 | 0020221825004 </p>
+          <p>
+            <strong> Phone: </strong> +20 120 876 0666 | 0020221825001 |
+            0020221825002 | 0020221825003 | 0020221825004
+          </p>
           <p><strong>Email:</strong>info@gemegypt.com</p>
           <p>
             <strong>Address:</strong>4 E Asmaa Fahmy. Ard El Golf, Helioplis,
@@ -2112,42 +2193,47 @@
     </section>
     <div class="cursor-wrap"><div class="cursor"></div></div>
     <!-- VERSION BAR -->
-<div id="version-bar" class="version-bar" role="region" aria-label="Version bar">
-  <div class="version-left">
-    <strong style="color: #fff;">Beta version</strong>
-  </div>
-</div>
+    <div
+      id="version-bar"
+      class="version-bar"
+      role="region"
+      aria-label="Version bar"
+    >
+      <div class="version-left">
+        <strong style="color: #fff">Beta version</strong>
+      </div>
+    </div>
 
-<style>
-  .version-bar {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 12px;
-    margin: 0 auto;
-    max-width: 160px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 14px;
-    background-color: #0b2a59;
-    color: #fff !important;
-    border: 1px solid rgba(0,0,0,0.06);
-    box-shadow: 0 6px 18px rgba(20,20,20,0.08);
-    border-radius: 10px;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-    z-index: 9999;
-    box-sizing: border-box;
-  }
+    <style>
+      .version-bar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 12px;
+        margin: 0 auto;
+        max-width: 160px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 14px;
+        background-color: #0b2a59;
+        color: #fff !important;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow: 0 6px 18px rgba(20, 20, 20, 0.08);
+        border-radius: 10px;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+        z-index: 9999;
+        box-sizing: border-box;
+      }
 
-  .version-left {
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-</style>
+      .version-left {
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+    </style>
 
     <script
       src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=673c1b266c8975806880591c"
