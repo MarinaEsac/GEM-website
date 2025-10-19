@@ -42,7 +42,7 @@
     <link href="./styles/event.css" rel="stylesheet" type="text/css" />
 
     <style>
-      * {
+     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -126,7 +126,6 @@
       .search-btn:hover {
         color: #0b2a59;
       }
-
       .header-left {
         display: flex;
         align-items: center;
@@ -158,7 +157,6 @@
         gap: 18px;
         margin-right: 20px;
       }
-
       .social-icons a {
         display: flex;
         align-items: center;
@@ -198,6 +196,65 @@
         height: 22px;
         margin-bottom: 4px;
         stroke: #000;
+      }
+      .middle-nav {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 25px;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+      }
+
+      .nav-item {
+        font-size: 15px;
+        font-weight: 500;
+        color: #222;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+
+      .nav-item:hover {
+        color: #0077cc;
+      }
+
+      .more-item {
+        position: relative;
+      }
+
+      .more-item .more-dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        border-radius: 8px;
+        padding: 10px 0;
+      }
+
+      .more-item:hover .more-dropdown {
+        display: block;
+      }
+
+      .more-dropdown a {
+        display: block;
+        padding: 8px 15px;
+        color: #333;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .more-dropdown a:hover {
+        background: #f5f5f5;
       }
 
       .label {
@@ -254,16 +311,16 @@
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  width: 100%;
-  max-width: 1400px;
-  max-height: 500px;
-  overflow-y: auto;
-  overflow-x: hidden;
+  width: 100%;               
+  max-width: 1400px;         
+  max-height: 500px;          
+  overflow-y: auto;            
+  overflow-x: hidden;        
   background: #fff;
   padding: 25px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.25);
   display: none;
-  grid-template-columns: repeat(7, minmax(110px, 1fr));
+  grid-template-columns: repeat(7, minmax(110px, 1fr)); 
   gap: 25px;
   z-index: 999; */
       }
@@ -271,7 +328,6 @@
       .nav-item:hover .mega-dropdown {
         display: grid;
       }
-
       .mega-column a:hover {
         color: inherit;
         background: none;
@@ -300,6 +356,124 @@
         padding: 3px 0;
         text-decoration: none;
       }
+      
+@media (max-width: 768px) {
+  .header {
+    padding: 8px 12px;
+  }
+
+  .top-row {
+    min-height: auto; /* stop fighting absolute logo on small screens */
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+  /* show hamburger */
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    font-size: 20px;
+    line-height: 1;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: transparent;
+    color: inherit;
+    order: 1; /* first item on the row */
+  }
+
+
+  /* center logo, remove absolute positioning so it doesn't overlap */
+  .logo {
+    position: static;
+    transform: none;
+    order: 0;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+  }
+  .logo img {
+    height: 56px !important;
+  }
+
+  /* search spans full width under the logo/hamburger */
+  .search-box {
+    order: 2;
+    flex: 1 1 100%;
+    max-width: none;
+  }
+
+  /* optional: hide social icons on tight screens to save space */
+  .social-icons {
+    display: none;
+  }
+
+  /* collapse the big category bar into a vertical drawer */
+  .nav-row {
+    display: none;                 /* closed by default */
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    border-top: 1px solid var(--border);
+    margin-top: 6px;
+  }
+  .nav-row.active {
+    display: flex;                 /* opened by hamburger */
+  }
+
+  /* mega menu becomes a bottom sheet on mobile */
+  .mega-frame {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    display: none;
+    z-index: 1000;
+  }
+  .mega-frame.active {
+    display: block;
+  }
+
+  .mega-content {
+    display: none !important;
+    position: fixed !important;
+    left: 0; right: 0; bottom: 0;
+    max-height: 70vh; overflow: auto;
+    background: var(--bg);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    padding: 16px;
+    z-index: 1001;
+  }
+  .mega-content.active { display: block !important; }
+
+.mega-close {
+    background-color: #fff;
+    position: absolute;
+    right: 12px;
+    top: 370px;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+.mega-dropdown {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .mega-column h4 {
+    margin: 8px 0 6px;
+  }
+  .mega-column a {
+    display: block;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+}
     </style>
     <script type="text/javascript">
       !(function (o, c) {

@@ -8,42 +8,30 @@
 >
   <head>
     <meta charset="utf-8" />
-    <title>About</title>
-    <meta
-      content="GEM website designed for beauty and cosmetics stores."
-      name="description"
-    />
-    <meta content="About - GEM Ecommerce website" property="og:title" />
+    <title>GEM Website</title>
+    <meta content="GEM website designed for beauty and cosmetics stores." name="description" />
+    <meta content="GEM - Ecommerce website" property="og:title" />
     <meta
       content="GEM website designed for beauty and cosmetics stores."
       property="og:description"
     />
-    <meta
-      content="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f658fa591985465d576e8f_og-image.webp"
-      property="og:image"
-    />
-    <meta
-      content="About -GEM Ecommerce website template"
-      property="twitter:title"
-    />
+  
+    <meta content="GEM - Ecommerce website" property="twitter:title" />
     <meta
       content="GEM website designed for beauty and cosmetics stores."
       property="twitter:description"
     />
-    <meta
-      content="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f658fa591985465d576e8f_og-image.webp"
-      property="twitter:image"
-    />
+  
     <meta property="og:type" content="website" />
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <link href="./styles/about.css" rel="stylesheet" type="text/css" />
-    <style>
+    <!-- <style>
       @media (min-width: 992px) {
         html.w-mod-js:not(.w-mod-ix)
           [data-w-id="868d78d7-a49c-9948-5142-c40cc65d69b0"] {
@@ -123,9 +111,9 @@
           opacity: 0;
         }
       }
-    </style>
-    <style>
-      * {
+    </style> -->
+ <style>
+       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -133,7 +121,7 @@
       }
 
       body {
-        background-color: #f9f7f7;
+        background-color: #ffffff;
         color: #333;
         line-height: 1.6;
         padding-top: 140px;
@@ -280,6 +268,65 @@
         margin-bottom: 4px;
         stroke: #000;
       }
+      .middle-nav {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 25px;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+      }
+
+      .nav-item {
+        font-size: 15px;
+        font-weight: 500;
+        color: #222;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+
+      .nav-item:hover {
+        color: #0077cc;
+      }
+
+      .more-item {
+        position: relative;
+      }
+
+      .more-item .more-dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        border-radius: 8px;
+        padding: 10px 0;
+      }
+
+      .more-item:hover .more-dropdown {
+        display: block;
+      }
+
+      .more-dropdown a {
+        display: block;
+        padding: 8px 15px;
+        color: #333;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .more-dropdown a:hover {
+        background: #f5f5f5;
+      }
 
       .label {
         font-size: 11px;
@@ -380,6 +427,124 @@
         padding: 3px 0;
         text-decoration: none;
       }
+      
+@media (max-width: 768px) {
+  .header {
+    padding: 8px 12px;
+  }
+
+  .top-row {
+    min-height: auto; /* stop fighting absolute logo on small screens */
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+  /* show hamburger */
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    font-size: 20px;
+    line-height: 1;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: transparent;
+    color: inherit;
+    order: 1; /* first item on the row */
+  }
+
+
+  /* center logo, remove absolute positioning so it doesn't overlap */
+  .logo {
+    position: static;
+    transform: none;
+    order: 0;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+  }
+  .logo img {
+    height: 56px !important;
+  }
+
+  /* search spans full width under the logo/hamburger */
+  .search-box {
+    order: 2;
+    flex: 1 1 100%;
+    max-width: none;
+  }
+
+  /* optional: hide social icons on tight screens to save space */
+  .social-icons {
+    display: none;
+  }
+
+  /* collapse the big category bar into a vertical drawer */
+  .nav-row {
+    display: none;                 /* closed by default */
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    border-top: 1px solid var(--border);
+    margin-top: 6px;
+  }
+  .nav-row.active {
+    display: flex;                 /* opened by hamburger */
+  }
+
+  /* mega menu becomes a bottom sheet on mobile */
+  .mega-frame {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    display: none;
+    z-index: 1000;
+  }
+  .mega-frame.active {
+    display: block;
+  }
+
+  .mega-content {
+    display: none !important;
+    position: fixed !important;
+    left: 0; right: 0; bottom: 0;
+    max-height: 70vh; overflow: auto;
+    background: var(--bg);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    padding: 16px;
+    z-index: 1001;
+  }
+  .mega-content.active { display: block !important; }
+
+.mega-close {
+    background-color: #fff;
+    position: absolute;
+    right: 12px;
+    top: 370px;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+.mega-dropdown {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .mega-column h4 {
+    margin: 8px 0 6px;
+  }
+  .mega-column a {
+    display: block;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+}
     </style>
     <script type="text/javascript">
       !(function (o, c) {
@@ -391,13 +556,13 @@
             (n.className += t + "touch");
       })(window, document);
     </script>
-    <link
-      href="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f65a0aaf034ccbc4bbb300_favicon-small.jpg"
+   <link
+      href="./assets/Gem 2024-01.png"
       rel="shortcut icon"
       type="image/x-icon"
     />
     <link
-      href="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f65a10f14ea11f18193b27_favicon-big.jpg"
+      href="./assets/Gem 2024-01.png"
       rel="apple-touch-icon"
     />
     <script type="text/javascript">
@@ -415,7 +580,7 @@
   </head>
 
   <body>
-    <header class="header-wrapper">
+   <header class="header-wrapper">
       <div class="header">
         <div class="top-row" role="navigation">
           <div class="search-box" aria-hidden="false">
@@ -505,12 +670,12 @@
           >
             ☰
           </button>
+
           <div class="logo" aria-label="GEM">
             <a href="./index.html">
               <img src="./assets/Gem 2024-01.png" alt="GEM Cosmetics Logo" />
             </a>
           </div>
-
           <div class="middle-nav">
             <div class="nav-links">
               <div class="nav-item more-item">
@@ -538,7 +703,7 @@
           </div>
         </div>
 
-        <nav class="nav-row">
+        <nav class="nav-row" id="primary-nav">
           <div class="nav-item" data-target="brands">
             BRANDS <span class="chev">▾</span>
           </div>
@@ -1694,7 +1859,7 @@
           </div>
         </nav>
 
-        <script>
+  <script>
           const toggleBtn = document.querySelector(".menu-toggle");
           const navRow = document.querySelector(".nav-row");
 
@@ -1705,6 +1870,7 @@
               navRow.classList.contains("active") ? "true" : "false"
             );
           });
+
           const navItems = document.querySelectorAll(".nav-item[data-target]");
           const frame = document.querySelector(".mega-frame");
           const closeBtn = document.querySelector(".mega-close");
@@ -1770,7 +1936,6 @@
         </script>
       </div>
     </header>
-
     <script>
       document.querySelectorAll(".nav-item").forEach((item) => {
         item.addEventListener("click", (e) => {

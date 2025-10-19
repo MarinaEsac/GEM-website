@@ -8,80 +8,34 @@
 >
   <head>
     <meta charset="utf-8" />
-    <title>Categories - GEM Ecommerce website</title>
-    <meta
-      content="GEM website designed for beauty and cosmetics stores."
-      name="description"
-    />
-    <meta content="Categories - GEM Ecommerce website" property="og:title" />
+    <title>GEM Website</title>
+    <meta content="GEM website designed for beauty and cosmetics stores." name="description" />
+    <meta content="GEM - Ecommerce website" property="og:title" />
     <meta
       content="GEM website designed for beauty and cosmetics stores."
       property="og:description"
     />
-    <meta
-      content="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f658fa591985465d576e8f_og-image.webp"
-      property="og:image"
-    />
-    <meta
-      content="Categories - GEM Ecommerce website"
-      property="twitter:title"
-    />
+  
+    <meta content="GEM - Ecommerce website" property="twitter:title" />
     <meta
       content="GEM website designed for beauty and cosmetics stores."
       property="twitter:description"
     />
-    <meta
-      content="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f658fa591985465d576e8f_og-image.webp"
-      property="twitter:image"
-    />
+  
     <meta property="og:type" content="website" />
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <link href="./styles/categories.css" rel="stylesheet" type="text/css" />
     <link href="./styles/brands.css" rel="stylesheet" type="text/css" />
 
     <style>
-      @media (min-width: 992px) {
-        html.w-mod-js:not(.w-mod-ix)
-          [data-w-id="28ab9f3c-c564-33b6-ccea-f7949309f6af"] {
-          opacity: 1;
-        }
-
-        html.w-mod-js:not(.w-mod-ix)
-          [data-w-id="ba772834-6d01-18b5-2044-01244c4bb8be"] {
-          opacity: 0;
-          display: none;
-        }
-
-        html.w-mod-js:not(.w-mod-ix)
-          [data-w-id="9ea8cc3c-14f9-326a-d54a-4dc7fcb0eaaa"] {
-          background-color: rgb(255, 253, 248);
-        }
-      }
-
-      @media (max-width: 991px) and (min-width: 768px) {
-        html.w-mod-js:not(.w-mod-ix)
-          [data-w-id="28ab9f3c-c564-33b6-ccea-f7949309f6af"] {
-          opacity: 1;
-        }
-
-        html.w-mod-js:not(.w-mod-ix)
-          [data-w-id="ba772834-6d01-18b5-2044-01244c4bb8be"] {
-          opacity: 0;
-          display: none;
-        }
-
-        html.w-mod-js:not(.w-mod-ix)
-          [data-w-id="9ea8cc3c-14f9-326a-d54a-4dc7fcb0eaaa"] {
-          background-color: rgb(255, 253, 248);
-        }
-      }
-      * {
+     
+ * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -236,6 +190,65 @@
         margin-bottom: 4px;
         stroke: #000;
       }
+      .middle-nav {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 25px;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+      }
+
+      .nav-item {
+        font-size: 15px;
+        font-weight: 500;
+        color: #222;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+
+      .nav-item:hover {
+        color: #0077cc;
+      }
+
+      .more-item {
+        position: relative;
+      }
+
+      .more-item .more-dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        border-radius: 8px;
+        padding: 10px 0;
+      }
+
+      .more-item:hover .more-dropdown {
+        display: block;
+      }
+
+      .more-dropdown a {
+        display: block;
+        padding: 8px 15px;
+        color: #333;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .more-dropdown a:hover {
+        background: #f5f5f5;
+      }
 
       .label {
         font-size: 11px;
@@ -269,12 +282,10 @@
         color: #444;
         cursor: pointer;
         transition: color 0.3s ease;
-        text-decoration: none;
       }
 
       .nav-item:hover {
         color: #0b2a59;
-        text-decoration: none;
       }
 
       .chev {
@@ -338,7 +349,124 @@
         padding: 3px 0;
         text-decoration: none;
       }
+      
+@media (max-width: 768px) {
+  .header {
+    padding: 8px 12px;
+  }
 
+  .top-row {
+    min-height: auto; /* stop fighting absolute logo on small screens */
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+  /* show hamburger */
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    font-size: 20px;
+    line-height: 1;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: transparent;
+    color: inherit;
+    order: 1; /* first item on the row */
+  }
+
+
+  /* center logo, remove absolute positioning so it doesn't overlap */
+  .logo {
+    position: static;
+    transform: none;
+    order: 0;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+  }
+  .logo img {
+    height: 56px !important;
+  }
+
+  /* search spans full width under the logo/hamburger */
+  .search-box {
+    order: 2;
+    flex: 1 1 100%;
+    max-width: none;
+  }
+
+  /* optional: hide social icons on tight screens to save space */
+  .social-icons {
+    display: none;
+  }
+
+  /* collapse the big category bar into a vertical drawer */
+  .nav-row {
+    display: none;                 /* closed by default */
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    border-top: 1px solid var(--border);
+    margin-top: 6px;
+  }
+  .nav-row.active {
+    display: flex;                 /* opened by hamburger */
+  }
+
+  /* mega menu becomes a bottom sheet on mobile */
+  .mega-frame {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    display: none;
+    z-index: 1000;
+  }
+  .mega-frame.active {
+    display: block;
+  }
+
+  .mega-content {
+    display: none !important;
+    position: fixed !important;
+    left: 0; right: 0; bottom: 0;
+    max-height: 70vh; overflow: auto;
+    background: var(--bg);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    padding: 16px;
+    z-index: 1001;
+  }
+  .mega-content.active { display: block !important; }
+
+.mega-close {
+    background-color: #fff;
+    position: absolute;
+    right: 12px;
+    top: 370px;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+.mega-dropdown {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .mega-column h4 {
+    margin: 8px 0 6px;
+  }
+  .mega-column a {
+    display: block;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+}
       .category-lists {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -346,29 +474,76 @@
         justify-items: center;
       }
 
-      /* Mobile View */
-      @media (max-width: 767px) {
-        .category-lists {
-          grid-template-columns: repeat(4, 1fr);
-          gap: 8px;
-        }
 
-        .categories-items {
-          aspect-ratio: 1 / 1;
-          background-color: #fff;
-          border-radius: 10px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          overflow: hidden;
-        }
+.categories-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;      
+  display: block;
+  max-width: 220px;        
+  margin: 6px auto;
+}
 
-        .categories-items img {
-          width: 80%;
-          height: 80%;
-          object-fit: contain;
-        }
-      }
+.categories-img {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-wrapper { 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  body { padding-top: 120px; }
+}
+@media (max-width: 900px) {
+  body { padding-top: 100px; }
+}
+
+@media (max-width: 1024px) {
+  .category-lists { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .categories-items { padding: 8px; }
+  .categories-image { max-width: 180px; }
+  .search-box { width: 220px; }
+}
+
+@media (max-width: 767px) {
+  .category-lists { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding: 0 10px; }
+  .categories-items { aspect-ratio: 1 / 1; padding: 8px; border-radius: 10px; }
+  .categories-image { max-width: 140px; object-fit: cover; } 
+
+  .logo { position: static; transform: none; left: auto; top: auto; margin: 0 auto; display: block; }
+  .logo img { height: 44px; }
+
+  .top-row { padding: 10px 0; gap: 8px; align-items: center; }
+  .search-box { width: 100%; max-width: none; border-bottom-width: 1px; }
+}
+
+@media (max-width: 480px) {
+  .category-lists { grid-template-columns: 1fr; gap: 12px; padding: 0 8px; }
+  .categories-items { aspect-ratio: auto; padding: 10px 12px; display: flex; justify-content: flex-start; gap: 12px; align-items: center; }
+  .categories-image { max-width: 90px; height: auto; object-fit: contain; margin: 0; }
+
+  .nav-item { font-size: 13px; padding: 6px 8px; }
+  .main-title { font-size: 28px; line-height: 1.05; }
+}
+
+.categories-block:focus,
+.categories-block:focus-within,
+.nav-item:focus {
+  outline: 3px solid rgba(11,42,89,0.12);
+  outline-offset: 3px;
+}
+
+.container, .w-layout-blockcontainer, .w-container {
+  max-width: 100%;
+  box-sizing: border-box;
+}
     </style>
     <script type="text/javascript">
       !(function (o, c) {
@@ -381,12 +556,12 @@
       })(window, document);
     </script>
     <link
-      href="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f65a0aaf034ccbc4bbb300_favicon-small.jpg"
+      href="./assets/Gem 2024-01.png"
       rel="shortcut icon"
       type="image/x-icon"
     />
     <link
-      href="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f65a10f14ea11f18193b27_favicon-big.jpg"
+      href="./assets/Gem 2024-01.png"
       rel="apple-touch-icon"
     />
     <script type="text/javascript">
@@ -1832,7 +2007,6 @@
             >
               <div role="listitem" class="categories-items w-dyn-item">
                 <a
-                  data-w-id="9ea8cc3c-14f9-326a-d54a-4dc7fcb0eaaa"
                   href="#"
                   class="categories-block w-inline-block"
                 >
@@ -1849,7 +2023,6 @@
               </div>
               <div role="listitem" class="categories-items w-dyn-item">
                 <a
-                  data-w-id="9ea8cc3c-14f9-326a-d54a-4dc7fcb0eaaa"
                   href="#"
                   class="categories-block w-inline-block"
                 >
@@ -1866,7 +2039,6 @@
               </div>
               <div role="listitem" class="categories-items w-dyn-item">
                 <a
-                  data-w-id="9ea8cc3c-14f9-326a-d54a-4dc7fcb0eaaa"
                   href="#"
                   class="categories-block w-inline-block"
                 >
@@ -1883,7 +2055,6 @@
               </div>
               <div role="listitem" class="categories-items w-dyn-item">
                 <a
-                  data-w-id="9ea8cc3c-14f9-326a-d54a-4dc7fcb0eaaa"
                   href="#"
                   class="categories-block w-inline-block"
                 >
@@ -1900,7 +2071,6 @@
               </div>
               <div role="listitem" class="categories-items w-dyn-item">
                 <a
-                  data-w-id="9ea8cc3c-14f9-326a-d54a-4dc7fcb0eaaa"
                   href="#"
                   class="categories-block w-inline-block"
                 >
@@ -1918,7 +2088,6 @@
 
               <div role="listitem" class="categories-items w-dyn-item">
                 <a
-                  data-w-id="9ea8cc3c-14f9-326a-d54a-4dc7fcb0eaaa"
                   href="#"
                   class="categories-block w-inline-block"
                 >
@@ -1936,7 +2105,6 @@
 
               <div role="listitem" class="categories-items w-dyn-item">
                 <a
-                  data-w-id="9ea8cc3c-14f9-326a-d54a-4dc7fcb0eaaa"
                   href="#"
                   class="categories-block w-inline-block"
                 >
@@ -1953,7 +2121,6 @@
               </div>
               <div role="listitem" class="categories-items w-dyn-item">
                 <a
-                  data-w-id="9ea8cc3c-14f9-326a-d54a-4dc7fcb0eaaa"
                   href="#"
                   class="categories-block w-inline-block"
                 >
@@ -1970,7 +2137,6 @@
               </div>
               <div role="listitem" class="categories-items w-dyn-item">
                 <a
-                  data-w-id="9ea8cc3c-14f9-326a-d54a-4dc7fcb0eaaa"
                   href="#"
                   class="categories-block w-inline-block"
                 >
@@ -1987,7 +2153,6 @@
               </div>
               <div role="listitem" class="categories-items w-dyn-item">
                 <a
-                  data-w-id="9ea8cc3c-14f9-326a-d54a-4dc7fcb0eaaa"
                   href="#"
                   class="categories-block w-inline-block"
                 >
@@ -2004,7 +2169,6 @@
               </div>
               <div role="listitem" class="categories-items w-dyn-item">
                 <a
-                  data-w-id="9ea8cc3c-14f9-326a-d54a-4dc7fcb0eaaa"
                   href="#"
                   class="categories-block w-inline-block"
                 >
@@ -2021,7 +2185,6 @@
               </div>
               <div role="listitem" class="categories-items w-dyn-item">
                 <a
-                  data-w-id="9ea8cc3c-14f9-326a-d54a-4dc7fcb0eaaa"
                   href="#"
                   class="categories-block w-inline-block"
                 >
@@ -2039,7 +2202,6 @@
 
               <div role="listitem" class="categories-items w-dyn-item">
                 <a
-                  data-w-id="9ea8cc3c-14f9-326a-d54a-4dc7fcb0eaaa"
                   href="#"
                   class="categories-block w-inline-block"
                 >
@@ -2056,7 +2218,6 @@
               </div>
               <div role="listitem" class="categories-items w-dyn-item">
                 <a
-                  data-w-id="9ea8cc3c-14f9-326a-d54a-4dc7fcb0eaaa"
                   href="#"
                   class="categories-block w-inline-block"
                 >
@@ -2073,7 +2234,6 @@
               </div>
               <div role="listitem" class="categories-items w-dyn-item">
                 <a
-                  data-w-id="9ea8cc3c-14f9-326a-d54a-4dc7fcb0eaaa"
                   href="#"
                   class="categories-block w-inline-block"
                 >
@@ -2090,7 +2250,6 @@
               </div>
               <div role="listitem" class="categories-items w-dyn-item">
                 <a
-                  data-w-id="9ea8cc3c-14f9-326a-d54a-4dc7fcb0eaaa"
                   href="#"
                   class="categories-block w-inline-block"
                 >
@@ -2107,7 +2266,6 @@
               </div>
               <div role="listitem" class="categories-items w-dyn-item">
                 <a
-                  data-w-id="9ea8cc3c-14f9-326a-d54a-4dc7fcb0eaaa"
                   href="#"
                   class="categories-block w-inline-block"
                 >
@@ -2124,7 +2282,6 @@
               </div>
               <div role="listitem" class="categories-items w-dyn-item">
                 <a
-                  data-w-id="9ea8cc3c-14f9-326a-d54a-4dc7fcb0eaaa"
                   href="#"
                   class="categories-block w-inline-block"
                 >
@@ -2141,7 +2298,6 @@
               </div>
               <div role="listitem" class="categories-items w-dyn-item">
                 <a
-                  data-w-id="9ea8cc3c-14f9-326a-d54a-4dc7fcb0eaaa"
                   href="#"
                   class="categories-block w-inline-block"
                 >
@@ -2160,149 +2316,9 @@
           </div>
         </div>
       </section>
-      <!-- <section class="features-section">
-      <div class="fs-wrap">
-        <div class="w-layout-blockcontainer container w-container">
-          <div class="fs-inner-wrap">
-            <div data-w-id="c8f4bfb5-7e49-b4e4-be9d-fa6a61ad4826" style="opacity: 0" class="fs-block">
-              <img
-                src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/6814a8e94eba66a12bf2a154_ic-features-01.svg"
-                loading="lazy" alt="Features Icon" class="fs-icon" />
-              <div>Dermatologist Tested</div>
-            </div>
-            <div data-w-id="1f1e468d-bf17-bf54-c762-8efe392665d3" style="opacity: 0" class="fs-block">
-              <img
-                src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/6814a8e923d551ae60aef3e0_ic-features-02.svg"
-                loading="lazy" alt="Features Icon" class="fs-icon" />
-              <div>Paraben &amp; Sulfate-Free</div>
-            </div>
-            <div data-w-id="47c54d5e-0c84-10d1-04d9-dd63088f930b" style="opacity: 0" class="fs-block">
-              <img
-                src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/6814a8e95b5cacdf4e65741e_ic-features-03.svg"
-                loading="lazy" alt="Features Icon" class="fs-icon" />
-              <div>Long-Lasting Wear</div>
-            </div>
-            <div data-w-id="05f91684-9619-c55e-9b60-9989139a648d" style="opacity: 0" class="fs-block">
-              <img
-                src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/6814a8e9de6ad29cf312f19b_ic-features-04.svg"
-                loading="lazy" alt="Features Icon" class="fs-icon" />
-              <div>Eco-Friendly Packaging</div>
-            </div>
-            <div data-w-id="91cc5851-ed77-6eef-e830-b1ab5461cdc6" style="opacity: 0" class="fs-block">
-              <img
-                src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/6814a908ca3d179cff563d9d_ic-features-05.svg"
-                loading="lazy" alt="Features Icon" class="fs-icon" />
-              <div>Hydrating Formulas</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="w-layout-blockcontainer container w-container">
-        <div class="crafted-wrapper">
-          <div data-w-id="2c61c6b8-bd22-fd70-277a-2efc3e6f17da" class="crafted-img">
-            <div style="
-                  -webkit-transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
-                    rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                  -moz-transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
-                    rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                  -ms-transform: translate3d(0, 0%, 0) scale3d(1, 1, 1)
-                    rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                  transform: translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0)
-                    rotateY(0) rotateZ(0) skew(0, 0);
-                  display: none;
-                " class="on-scroll"></div>
-            <img
-              src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/6814a7184b82b17f5cc1169c_17c71373a9d2e62ab07fd4993e75e838_crafted.webp"
-              loading="lazy" style="
-                  filter: blur(5px);
-                  -webkit-transform: translate3d(0, 0, 0) scale3d(1.5, 1.5, 1)
-                    rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                  -moz-transform: translate3d(0, 0, 0) scale3d(1.5, 1.5, 1)
-                    rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                  -ms-transform: translate3d(0, 0, 0) scale3d(1.5, 1.5, 1)
-                    rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                  transform: translate3d(0, 0, 0) scale3d(1.5, 1.5, 1)
-                    rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                " sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px" alt="Crafted Image" srcset="
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/6814a7184b82b17f5cc1169c_17c71373a9d2e62ab07fd4993e75e838_crafted-p-500.webp   500w,
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/6814a7184b82b17f5cc1169c_17c71373a9d2e62ab07fd4993e75e838_crafted-p-800.webp   800w,
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/6814a7184b82b17f5cc1169c_17c71373a9d2e62ab07fd4993e75e838_crafted-p-1080.webp 1080w,
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/6814a7184b82b17f5cc1169c_17c71373a9d2e62ab07fd4993e75e838_crafted-p-1600.webp 1600w,
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/6814a7184b82b17f5cc1169c_17c71373a9d2e62ab07fd4993e75e838_crafted-p-2000.webp 2000w,
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/6814a7184b82b17f5cc1169c_17c71373a9d2e62ab07fd4993e75e838_crafted-p-2600.webp 2600w,
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/6814a7184b82b17f5cc1169c_17c71373a9d2e62ab07fd4993e75e838_crafted.webp        2720w
-                " class="on-scroll-image" />
-          </div>
-          <div class="crafted-right">
-            <div data-w-id="c0b691fe-a456-d592-e875-1f5041ea5399" style="opacity: 0" class="crafted-top">
-              <h2 class="crafted-title">Your Daily Ritual</h2>
-              <p class="crafted-text">
-                Our products are carefully crafted with nature’s finest
-                ingredients to nourish, enhance &amp; celebrate your natural
-                beauty.
-              </p>
-              <div class="crafted-info">
-                <div>Revitalize</div>
-                <div class="crafted-dot"></div>
-                <div>Flawless</div>
-                <div class="crafted-dot"></div>
-                <div>Luminous</div>
-              </div>
-            </div>
-            <a data-w-id="ce8be330-4e64-e21f-e29a-cda7e06c87c5" style="opacity: 0" href="/categories.html"
-              aria-current="page" class="primary-button w-inline-block w--current">
-              <div class="button-arrow-block">
-                <img
-                  src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                  loading="lazy" alt="Arrow" class="button-arrow" /><img
-                  src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
-                  loading="lazy" alt="Arrow" class="button-arrow hover" />
-              </div>
-              <div class="button-text-wrap">
-                <div class="text-wrapper">
-                  <div class="button-text">View Our</div>
-                  <div class="button-text hover">View Our</div>
-                </div>
-                <div class="text-wrapper">
-                  <div class="button-text-bottom">Collections</div>
-                  <div class="button-text-bottom hover">Collections</div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section> -->
+    
     </div>
-    <!-- <section class="cta">
-    <div class="cta-data">
-      <div class="cta-top">
-        <div>@</div>
-        <h3 class="cta-heading">Exclusive Updates</h3>
-      </div>
-      <div class="cta-bottom">
-        <p class="single-text">
-          Join our beauty community and receive discounts, beauty tips, and
-          new product updates directly in your inbox!
-        </p>
-        <div class="w-form">
-          <form id="wf-form-CTA-Form" name="wf-form-CTA-Form" data-name="CTA Form" method="get" class="cta-form"
-            data-wf-page-id="67fe55f48fb4c723a5d66191" data-wf-element-id="52f993e2-453e-8ce0-288b-45369796858d"
-            data-turnstile-sitekey="0x4AAAAAAAQTptj2So4dx43e">
-            <input class="cta-input w-input" maxlength="256" name="Email" data-name="Email" placeholder="Email address"
-              type="email" id="email" /><input type="submit" data-wait="" class="cta-button w-button"
-              value="Subscribe" />
-          </form>
-          <div class="success-message w-form-done">
-            <div>Thank you! Your submission has been received!</div>
-          </div>
-          <div class="error-message w-form-fail">
-            <div>Oops! Something went wrong while submitting the form.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
+   
     <section class="footer">
       <div class="footer-inner">
         <!-- LEFT LOGO -->
@@ -2382,20 +2398,7 @@
         <p>© 2025 GEM. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
       </div>
     </section>
-    <!-- <a
-      href="https://webflow.com/templates/html/bavia-website-template"
-      target="_blank"
-      class="purchase-badge w-inline-block"
-      ><img
-        width="Auto"
-        loading="lazy"
-        alt="Webflow Icon"
-        src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f75e4e4b8eb6105153e9b9_ic-webflow.svg"
-        class="webflow-icon" /><img
-        loading="lazy"
-        src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f75e4e4b8eb6105153e9b8_badge-text.svg"
-        alt="Badge Text"
-    /></a> -->
+    
     <div class="cursor-wrap">
       <div class="cursor"></div>
     </div>
