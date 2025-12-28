@@ -11310,3 +11310,11 @@ blockquote {
 /* #brandsContainer {
   display: block !important;
 } */
+
+.mega-frame {
+  display: none;
+}
+
+.mega-content {
+  display: none;
+}

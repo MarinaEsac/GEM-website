@@ -36439,11 +36439,29 @@ document.addEventListener("DOMContentLoaded", () => {
   renderBrands(brandsData.brands, "brandsContainer");
 });
 document.addEventListener("DOMContentLoaded", () => {
-  const brandNav = document.querySelector('.nav-item[data-target="brands"]');
-  if (brandNav) {
-    brandNav.addEventListener('click', () => {
-      const menu = document.querySelector('#brands');
-      if (menu) menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+  const navItems = document.querySelectorAll(".nav-item");
+  const megaFrame = document.querySelector(".mega-frame");
+  const megaContents = document.querySelectorAll(".mega-content");
+
+  navItems.forEach(item => {
+    item.addEventListener("click", () => {
+      const targetId = item.dataset.target;
+      const targetContent = document.getElementById(targetId);
+      if (!targetContent) return;
+
+      const isOpen =
+        megaFrame.style.display === "block" &&
+        targetContent.style.display === "block";
+
+      megaContents.forEach(c => (c.style.display = "none"));
+
+      if (isOpen) {
+        megaFrame.style.display = "none";
+      } else {
+        megaFrame.style.display = "block";
+        targetContent.style.display = "block";
+      }
     });
-  }
+  });
 });
+
