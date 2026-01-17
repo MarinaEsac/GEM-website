@@ -36349,32 +36349,6 @@ function mapBrandsByLetter(brandsArray) {
   return { brands: result };
 }
 
-// function mapBrandsByLetter(brandsArray) {
-//   const result = {};
-
-//   brandsArray.forEach(brand => {
-//     if (!brand || typeof brand !== "string") return;
-
-//     const cleanBrand = brand.trim();
-//     if (!cleanBrand) return;
-
-//     const letter = cleanBrand[0].toUpperCase();
-
-//     if (!result[letter]) {
-//       result[letter] = [];
-//     }
-
-//     result[letter].push(cleanBrand);
-//   });
-
-//   // sort brands inside each letter
-//   Object.keys(result).forEach(letter => {
-//     result[letter].sort((a, b) => a.localeCompare(b));
-//   });
-
-//   return { brands: result };
-// }
-
 function renderBrands(data, containerId) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
@@ -36399,38 +36373,6 @@ function renderBrands(data, containerId) {
     container.appendChild(column);
   });
 }
-
-// function renderBrands(data, containerId) {
-//   const container = document.getElementById(containerId);
-//   if (!container) return;
-
-//   container.innerHTML = "";
-
-//   Object.keys(data)
-//     .sort()
-//     .forEach(letter => {
-//       const column = document.createElement("div");
-//       column.className = "mega-column";
-
-//       const title = document.createElement("h4");
-//       title.textContent = letter;
-//       column.appendChild(title);
-
-//       data[letter].forEach(brand => {
-//         const link = document.createElement("a");
-
-//         link.href = `/brands/${brand
-//           .toLowerCase()
-//           .replace(/[^a-z0-9]+/g, "-")
-//           .replace(/^-|-$/g, "")}`;
-
-//         link.textContent = brand;
-//         column.appendChild(link);
-//       });
-
-//       container.appendChild(column);
-//     });
-// }
 
 const brandsData = mapBrandsByLetter(backendBrandsMock);
 
@@ -36465,3 +36407,223 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+
+// hair care 
+const backendHairMock = [
+  "Anti Dandruff",
+  "Argan Oil",
+  "Biotin Shampoo",
+  "Curl Cream",
+  "Conditioner",
+  "Hair Mask",
+  "Hair Oil",
+  "Hair Serum",
+  "Keratin Treatment",
+  "Leave In Conditioner",
+  "Shampoo",
+  "Styling Gel"
+];
+
+function mapByLetter(itemsArray) {
+  const result = {};
+
+  itemsArray.forEach(item => {
+    if (!item || typeof item !== "string") return;
+
+    const letter = item[0].toUpperCase();
+    if (!result[letter]) result[letter] = [];
+    result[letter].push(item);
+  });
+
+  return result;
+}
+function renderMegaItems(data, containerId, baseUrl) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = "";
+
+  Object.keys(data).forEach(letter => {
+    const column = document.createElement("div");
+    column.className = "mega-column";
+
+    const title = document.createElement("h4");
+    title.textContent = letter;
+    column.appendChild(title);
+
+    data[letter].forEach(item => {
+      const link = document.createElement("a");
+      link.href = `/${baseUrl}/${item.replace(/\s+/g, "-").toLowerCase()}`;
+      link.textContent = item;
+      column.appendChild(link);
+    });
+
+    container.appendChild(column);
+  });
+}
+const hairData = mapBrandsByLetter(backendHairMock);
+
+document.addEventListener("DOMContentLoaded", () => {
+  console.log(hairData);
+  renderBrands(hairData.brands, "hairContainer");
+});
+// document.addEventListener("DOMContentLoaded", () => {
+//   const navItems = document.querySelectorAll(".nav-item");
+//   const megaFrame = document.querySelector(".mega-frame");
+//   const megaContents = document.querySelectorAll(".mega-content");
+
+//   navItems.forEach(item => {
+//     item.addEventListener("click", () => {
+//       const targetId = item.dataset.target;
+//       const targetContent = document.getElementById(targetId);
+//       if (!targetContent) return;
+
+//       const isOpen =
+//         megaFrame.style.display === "block" &&
+//         targetContent.style.display === "block";
+
+//       megaContents.forEach(c => (c.style.display = "none"));
+
+//       if (isOpen) {
+//         megaFrame.style.display = "none";
+//       } else {
+//         megaFrame.style.display = "block";
+//         targetContent.style.display = "block";
+//       }
+//     });
+//   });
+// });
+
+// personal care
+const backendPersonalCareMock = [
+  "Body Lotion",
+  "Body Wash",
+  "Deodorant",
+  "Face Cleanser",
+  "Face Mask",
+  "Hand Cream",
+  "Hand Wash",
+  "Intimate Wash",
+  "Moisturizer",
+  "Shower Gel",
+  "Sun Screen",
+  "Toothpaste"
+];
+
+const personalCareData = mapBrandsByLetter(backendPersonalCareMock);
+
+document.addEventListener("DOMContentLoaded", () => {
+  console.log(personalCareData);
+  renderBrands(personalCareData.brands, "personalContainer");
+});
+
+// makeup amd tools
+
+const backendMakeupToolsMock = [
+  "Blush", "Bronzer", "Concealer", "Eyeliner", "Eyeshadow",
+  "Foundation", "Highlighter", "Lip Gloss", "Lipstick", "Mascara",
+  "Powder", "Primer",
+  "Beauty Blender", "Brush Cleaner", "Eyelash Curler", "Face Roller",
+  "Makeup Brushes", "Mirror", "Nail Clipper", "Razor", "Tweezers"
+];
+
+const makeupData = mapByLetter(backendMakeupToolsMock);
+
+document.addEventListener("DOMContentLoaded", () => {
+  console.log(makeupData);
+  renderMegaItems(makeupData, "makeupToolsContainer");
+});
+
+
+// fragrance
+const backendFragranceMock = [
+  "Acqua Di Gio",
+  "Armani Code",
+  "Boss Bottled",
+  "Chanel No. 5",
+  "Dior Sauvage",
+  "Gucci Bloom",
+  "Hugo Woman",
+  "Invictus",
+  "J'adore",
+  "La Vie Est Belle",
+  "Light Blue",
+  "Miss Dior",
+  "Narciso Rodriguez",
+  "Paco Rabanne",
+  "Sì",
+  "Tom Ford Black Orchid",
+  "Versace Eros"
+];
+  const fragranceData = mapByLetter(backendFragranceMock);
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderMegaItems(fragranceData, "fragranceContainer", "fragrance");
+});
+
+// Sun Care
+const backendSunCareMock = [
+  "After Sun Lotion",
+  "Kids Sunscreen",
+  "SPF 30",
+  "SPF 50",
+  "Sunblock Spray",
+  "Sun Lotion",
+  "Tan Accelerator"
+];
+  const sunData = mapByLetter(backendSunCareMock);
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderMegaItems(sunData, "sunContainer", "sun");
+});
+
+// Baby Care
+const backendBabyCareMock = [
+  "Baby Lotion",
+  "Baby Oil",
+  "Baby Powder",
+  "Baby Shampoo",
+  "Diaper Rash Cream",
+  "Baby Wipes",
+  "Baby Soap"
+];
+  const babyData = mapByLetter(backendBabyCareMock);
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderMegaItems(babyData, "babyContainer", "baby");
+});
+
+const backendSkinCareMock = [
+  "Acne Treatment",
+  "Anti-Aging Serum",
+  "BB Cream",
+  "Body Lotion",
+  "Body Scrub",
+  "CC Cream",
+  "Cleansing Wipes",
+  "Clay Mask",
+  "Exfoliator",
+  "Face Cleanser",
+  "Face Mask",
+  "Face Mist",
+  "Facial Oil",
+  "Hand Cream",
+  "Hydrating Mist",
+  "Lip Balm",
+  "Makeup Remover",
+  "Micellar Water",
+  "Moisturizer",
+  "Night Cream",
+  "Peeling Gel",
+  "Retinol Cream",
+  "Sheet Mask",
+  "Sunscreen",
+  "Toner",
+  "Vitamin C Serum",
+  "Eye Cream",
+  "Eye Gel"
+];
+
+ const skinData = mapByLetter(backendSkinCareMock);
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderMegaItems(skinData, "skinContainer", "skin");
+});
