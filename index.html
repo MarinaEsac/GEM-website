@@ -1122,91 +1122,6 @@
 
 </div>
 
-
-  <script>
-const toggleBtn = document.querySelector(".menu-toggle");
-const navRow = document.querySelector(".nav-row");
-const navItems = document.querySelectorAll(".nav-item[data-target]");
-const frame = document.querySelector(".mega-frame");
-const closeBtn = document.querySelector(".mega-close");
-const contents = document.querySelectorAll(".mega-content");
-const moreItem = document.querySelector(".more-item");
-
-let activeTarget = null;
-
-/* Mobile menu */
-toggleBtn?.addEventListener("click", () => {
-  navRow.classList.toggle("active");
-  toggleBtn.setAttribute(
-    "aria-expanded",
-    navRow.classList.contains("active")
-  );
-});
-
-/* Close all mega */
-function closeMega() {
-  frame.classList.remove("active");
-  contents.forEach(c => c.classList.remove("active"));
-  moreItem?.classList.remove("active");
-  activeTarget = null;
-
-  document.querySelectorAll(".nav-item.open").forEach(item => {
-    item.classList.remove("open");
-  });
-}
-
-/* Stop bubbling inside mega */
-frame.addEventListener("click", e => {
-  e.stopPropagation();
-});
-
-closeBtn.addEventListener("click", e => {
-  console.log("X clicked!"); 
-  e.preventDefault();
-  e.stopPropagation();
-  closeMega();
-});
-navItems.forEach(item => {
-  item.addEventListener("click", e => {
-    if (e.target.closest(".mega-close")) return;
-
-    const id = item.dataset.target;
-    const content = document.getElementById(id);
-    if (!content) return;
-
-    if (activeTarget === id) {
-      closeMega();
-      return;
-    }
-
-    closeMega();
-    content.classList.add("active");
-    frame.classList.add("active");
-    activeTarget = id;
-  });
-});
-
-
-/* More item */
-moreItem?.addEventListener("click", e => {
-  e.stopPropagation();
-
-  if (activeTarget === "more") {
-    moreItem.classList.remove("active");
-    activeTarget = null;
-  } else {
-    closeMega();
-    moreItem.classList.add("active");
-    activeTarget = "more";
-  }
-});
-
-/* Click outside */
-document.addEventListener("click", () => {
-  closeMega();
-});
-</script>
-
       </div>
     </header>
   
@@ -2037,9 +1952,7 @@ document.addEventListener("click", () => {
               />
               <h3 class="shop-heading">BEAUTY TOOLS</h3>
               <p class="shop-text">Precision for flawless beauty.</p>
-                <a href="./shop.html">
-              <button class="shop-btn">Shop Now</button>
-              </a>
+               <a href="./shop.html?type=beauty-tools" class="shop-btn">Shop Now</a>
               <!-- <a href="./shop.html" class="shop-btn">Shop Now</a> -->
             </div>
 
@@ -2052,9 +1965,7 @@ document.addEventListener("click", () => {
               />
               <h3 class="shop-heading">FRAGRANCES</h3>
               <p class="shop-text">Long-lasting, captivating scents.</p>
-              <a href="./shop.html">
-              <button class="shop-btn">Shop Now</button>
-              </a>
+              <a href="./shop.html?type=fragrance" class="shop-btn">Shop Now</a>
             </div>
 
             <div class="shop-card">
@@ -2066,9 +1977,7 @@ document.addEventListener("click", () => {
               />
               <h3 class="shop-heading">MAKEUP</h3>
               <p class="shop-text">Enhance, define, and glow.</p>
-               <a href="./shop.html">
-              <button class="shop-btn">Shop Now</button>
-              </a>
+               <a href="./shop.html?type=makeup" class="shop-btn">Shop Now</a>
             </div>
             
             <div class="shop-card">
@@ -2080,9 +1989,7 @@ document.addEventListener("click", () => {
               />
               <h3 class="shop-heading">SKINCARE</h3>
               <p class="shop-text">Nourish, hydrate, and glow.</p>
-             <a href="./shop.html">
-              <button class="shop-btn">Shop Now</button>
-              </a>
+            <a href="./shop.html?type=skin-care" class="shop-btn">Shop Now</a>
             </div>
           </div>
         </div>
@@ -2386,199 +2293,21 @@ setInterval(updateTopProducts, 9000);
   <select id="brandFilter">
     <option value="all">All Brands</option>
     <option value="carroten">Carroten</option>
-    <option value="nivea">Mometo</option>
-    <option value="loreal">Karseel</option>
-    <option value="maybelline">Dax</option>
+    <option value="momento">Momento</option>
+    <option value="karseell">Karseell</option>
+    <option value="dax">Dax</option>
+    <option value="disaar">Disaar</option>
   </select>
 </div>
 </div>
 
-            <div class="w-dyn-list">
-                <div role="list" class="product-list w-dyn-items">
-                    <div role="listitem" class="product-item w-dyn-item">
-                        <a data-w-id="5254b012-553f-051b-c7d2-095f3d7d0b91" style="opacity: 0"
-                            href="/product/glow-moisturizer.html" class="product-block w-inline-block">
-                            <div class="product-img">
-                                <img loading="lazy" src="./assets/fifth-product.png " alt="Product Image"
-                                    sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                                    class="product-image" />
-                            </div>
-                            <hr class="product-divider" />
-                            <div>
-                                <h5 class="product-name">Tan Gel</h5>
-                            </div>
-                        </a>
-                    </div>
-                    <div role="listitem" class="product-item w-dyn-item">
-                        <a data-w-id="5254b012-553f-051b-c7d2-095f3d7d0b91" style="opacity: 0"
-                            href="#" class="product-block w-inline-block">
-                            <div class="product-img">
-                                <img loading="lazy" src="./assets/sec-product.png" alt="Product Image" sizes="100vw"
-                                    class="product-image" />
-                            </div>
-                            <hr class="product-divider" />
-                            <div>
-                                <h5 class="product-name">Sun Screen</h5>
-                            </div>
-                        </a>
-                    </div>
-                    <div role="listitem" class="product-item w-dyn-item">
-                        <a data-w-id="5254b012-553f-051b-c7d2-095f3d7d0b91" style="opacity: 0"
-                            href="#" class="product-block w-inline-block">
-                            <div class="product-img">
-                                <img loading="lazy" src="./assets/third-product.png" alt="Product Image" sizes="100vw"
-                                    class="product-image" />
-                            </div>
-                            <hr class="product-divider" />
-                            <div>
-                                <h5 class="product-name">Tan Gel</h5>
-                            </div>
-                        </a>
-                    </div>
-                    <div role="listitem" class="product-item w-dyn-item">
-                        <a data-w-id="5254b012-553f-051b-c7d2-095f3d7d0b91" style="opacity: 0"
-                            href="#" class="product-block w-inline-block">
-                            <div class="product-img">
-                                <img loading="lazy" src="./assets/fifth-product.png" alt="Product Image" sizes="100vw"
-                                    class="product-image" />
-                            </div>
-                            <hr class="product-divider" />
-                            <div>
-                                <h5 class="product-name">Tan Gel</h5>
-                            </div>
-                        </a>
-                    </div>
-                    <div role="listitem" class="product-item w-dyn-item">
-                        <a data-w-id="5254b012-553f-051b-c7d2-095f3d7d0b91" style="opacity: 0"
-                            href="#" class="product-block w-inline-block">
-                            <div class="product-img">
-                                <img loading="lazy" src="./assets/sixth-product.png" alt="Product Image" sizes="100vw"
-                                    class="product-image" />
-                            </div>
-                            <hr class="product-divider" />
-                            <div>
-                                <h5 class="product-name">Hair Care Spray</h5>
-                            </div>
-                        </a>
-                    </div>
-                    <div role="listitem" class="product-item w-dyn-item">
-                        <a data-w-id="5254b012-553f-051b-c7d2-095f3d7d0b91" style="opacity: 0"
-                            href="#" class="product-block w-inline-block">
-                            <div class="product-img">
-                                <img loading="lazy" src="./assets/first-product.png" alt="Product Image" sizes="100vw"
-                                    class="product-image" />
-                            </div>
-                            <hr class="product-divider" />
-                            <div>
-                                <h5 class="product-name">Sun Screen</h5>
-                            </div>
-                        </a>
-                    </div>
-                    <div role="listitem" class="product-item w-dyn-item">
-                        <a data-w-id="5254b012-553f-051b-c7d2-095f3d7d0b91" style="opacity: 0"
-                            href="#" class="product-block w-inline-block">
-                            <div class="product-img">
-                                <img loading="lazy" src="./assets/first-product.png" alt="Product Image" sizes="100vw"
-                                    class="product-image" />
-                            </div>
-                            <hr class="product-divider" />
-                            <div>
-                                <h5 class="product-name">Sun Screen</h5>
-                            </div>
-                        </a>
-                    </div>
-                    <div role="listitem" class="product-item w-dyn-item">
-                        <a data-w-id="5254b012-553f-051b-c7d2-095f3d7d0b91" style="opacity: 0"
-                            href="#" class="product-block w-inline-block">
-                            <div class="product-img">
-                                <img loading="lazy" src="./assets/forth-product.png" alt="Product Image" sizes="100vw"
-                                    class="product-image" />
-                            </div>
-                            <hr class="product-divider" />
-
-                            <h5 class="product-name">Tanning Oil Spray</h5>
-                        </a>
-                    </div>
-                </div>
-            </div>
+           <div class="w-dyn-list">
+      <div id="latest-products-list" role="list" class="product-list w-dyn-items">
+        </div>
+    </div>
         </div>
     </section>
-    <!-- <section class="behind-beauty">
-        <div class="w-layout-blockcontainer container w-container">
-          <div class="bb-wrapper">
-            <div
-              id="w-node-_89d25492-7f84-deae-5e83-fa8f12437e38-68805929"
-              class="bb-left"
-            >
-              <div class="bb-top">
-                <div>GEM</div>
-                <h2 class="bb-title">Behind Beauty</h2>
-                <div
-                  data-w-id="628b159c-0675-d3e1-bba9-1db2b0e77e66"
-                  class="bb-thumb"
-                >
-                  <div class="on-scroll light"></div>
-                  <img
-                    src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/6814b8f928dc01a1149228d2_behind-beauty-01.webp"
-                    loading="lazy"
-                    style="
-                      filter: blur(5px);
-                      -webkit-transform: translate3d(0, 0, 0)
-                        scale3d(1.5, 1.5, 1) rotateX(0) rotateY(0) rotateZ(0)
-                        skew(0, 0);
-                      -moz-transform: translate3d(0, 0, 0) scale3d(1.5, 1.5, 1)
-                        rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                      -ms-transform: translate3d(0, 0, 0) scale3d(1.5, 1.5, 1)
-                        rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                      transform: translate3d(0, 0, 0) scale3d(1.5, 1.5, 1)
-                        rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                    "
-                    sizes="100vw"
-                    alt="Image"
-                    srcset="
-                      https://cdn.prod.website-files.com/673c1b266c8975806880591c/6814b8f928dc01a1149228d2_behind-beauty-01-p-500.webp   500w,
-                      https://cdn.prod.website-files.com/673c1b266c8975806880591c/6814b8f928dc01a1149228d2_behind-beauty-01-p-800.webp   800w,
-                      https://cdn.prod.website-files.com/673c1b266c8975806880591c/6814b8f928dc01a1149228d2_behind-beauty-01-p-1080.webp 1080w,
-                      https://cdn.prod.website-files.com/673c1b266c8975806880591c/6814b8f928dc01a1149228d2_behind-beauty-01.webp        1280w
-                    "
-                    class="on-scroll-image"
-                  />
-                </div>
-              </div>
-              <div>
-                <div>Beauty rooted in integrity</div>
-                <p class="bb-text">
-                  Every step is rooted in transparency and guided by our
-                  commitment to creating products that are as thoughtful as they
-                  are effective.
-                </p>
-              </div>
-            </div>
-            <div
-              data-w-id="f4418081-311f-7251-c7b6-e4cc0e865f93"
-              style="opacity: 0"
-              class="bb-img"
-            >
-              <img
-                src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/6814b8fcc6f950a3f271129a_283667787c362f992c5cf2d277fb92e4_behind-beauty-02.webp"
-                loading="lazy"
-                sizes="100vw"
-                srcset="
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/6814b8fcc6f950a3f271129a_283667787c362f992c5cf2d277fb92e4_behind-beauty-02-p-500.webp   500w,
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/6814b8fcc6f950a3f271129a_283667787c362f992c5cf2d277fb92e4_behind-beauty-02-p-800.webp   800w,
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/6814b8fcc6f950a3f271129a_283667787c362f992c5cf2d277fb92e4_behind-beauty-02-p-1080.webp 1080w,
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/6814b8fcc6f950a3f271129a_283667787c362f992c5cf2d277fb92e4_behind-beauty-02-p-1600.webp 1600w,
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/6814b8fcc6f950a3f271129a_283667787c362f992c5cf2d277fb92e4_behind-beauty-02-p-2000.webp 2000w,
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/6814b8fcc6f950a3f271129a_283667787c362f992c5cf2d277fb92e4_behind-beauty-02-p-2600.webp 2600w,
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/6814b8fcc6f950a3f271129a_283667787c362f992c5cf2d277fb92e4_behind-beauty-02.webp        2720w
-                "
-                alt="Image"
-                class="bb-image"
-              />
-            </div>
-          </div>
-        </div>
-      </section> -->
+   
     <section class="cta home">
         <div class="cta-data">
             <div class="cta-top">

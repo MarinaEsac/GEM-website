@@ -36754,3 +36754,53 @@ document.addEventListener("DOMContentLoaded", () => {
   updateTopProducts();
   setInterval(updateTopProducts, 9000);
 });
+
+
+// latest products 
+
+const latestProductsData = [
+  { id: 1, name: "Tan Gel", brand: "Momento", img: "./assets/fifth-product.png", slug: "tan-gel" },
+  { id: 2, name: "Sun Screen", brand: "Momento", img: "./assets/sec-product.png", slug: "sun-screen" },
+  { id: 3, name: "Hair Care Spray", brand: "Karseell", img: "./assets/sixth-product.png", slug: "hair-care-spray" },
+  { id: 4, name: "Whitening Cream", brand: "Disaar", img: "./assets/first-product.png", slug: "whitening-cream" }
+];
+
+function renderLatest(products) {
+  const listContainer = document.getElementById("latest-products-list");
+  if (!listContainer) return;
+
+  listContainer.innerHTML = products.map(prod => `
+    <div role="listitem" class="product-item w-dyn-item">
+      <a href="/product/${prod.slug}" class="product-block w-inline-block" style="opacity: 1">
+        <div class="product-img">
+          <img loading="lazy" src="${prod.img}" alt="${prod.name}" class="product-image" />
+        </div>
+        <hr class="product-divider" />
+        <div>
+          <h5 class="product-name">${prod.name}</h5>
+        </div>
+      </a>
+    </div>
+  `).join("");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderLatest(latestProductsData);
+
+  const filterSelect = document.getElementById("brandFilter");
+  
+  filterSelect?.addEventListener("change", (e) => {
+    const selectedBrand = e.target.value;
+    
+    if (selectedBrand === "all") {
+      renderLatest(latestProductsData);
+    } else {
+      const filtered = latestProductsData.filter(p => 
+        p.brand.toLowerCase() === selectedBrand.toLowerCase()
+      );
+      renderLatest(filtered);
+    }
+  });
+});
+
+
