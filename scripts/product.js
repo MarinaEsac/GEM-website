@@ -36081,7 +36081,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (featuresContainer && product.features) {
             featuresContainer.innerHTML = product.features.map(f => `
                 <div class="feature-box">${f}</div>
-            `).join('') + `<div class="product-btn-wrapper"><button class="product-btn">Buy Now</button></div>`;
+            `).join('');
         }
     }
 });
