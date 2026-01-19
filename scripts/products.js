@@ -36090,33 +36090,94 @@
   },
 ]);
 
-// products
 
 let allProducts = [
-  { id: 101, name: "Glow Foundation", price: 450, brand: "dax", type: "makeup", img: "./assets/first-product.png", link: "./product.html", date: "2024-01-10" },
-  { id: 102, name: "Hydrating Serum", price: 300, brand: "karsell", type: "skincare", img: "./assets/sec-product.png", link: "./product.html", date: "2024-01-15" },
-  { id: 103, name: "Precision Brush", price: 150, brand: "banana-boat", type: "beauty-tools", img: "./assets/third-product.png", link: "./product.html", date: "2024-02-01" },
-  { id: 104, name: "Night Oud Perfume", price: 1200, brand: "dax", type: "fragrance", img: "./assets/colorme-1.png", link: "./product.html", date: "2024-02-05" },
-  { id: 1, name: "Glow Moisturizer", img: "./assets/fifth-product.png", link: "./product.html", price: 250, brand: "dax", type: "conditioner", date: "2024-01-10" },
-  { id: 2, name: "Golden Highlighter", img: "./assets/forth-product.png", link: "./product.html", price: 400, brand: "banana-boat", type: "hair-mask", date: "2023-12-05" },
-  { id: 3, name: "Hydration Cream", img: "./assets/colorme-2.png", link: "./product.html", price: 300, brand: "karsell", type: "conditioner", date: "2024-01-15" }
-];
+  { 
+    id: 101, name: "Glow Foundation", price: 450, brand: "dax", type: "makeup", 
+    img: "./assets/first-product.png", date: "2024-01-10",
+    description: "A lightweight, radiant foundation that provides buildable coverage with a natural glow.",
+    features: ["☀️ Boosts Natural Tan", "💧 Deep Hydration", "🛡 SPF 20 Protection"]
+  },
+  { 
+    id: 102, name: "Hydrating Serum", price: 300, brand: "karsell", type: "skincare", 
+    img: "./assets/sec-product.png", date: "2024-01-15",
+    description: "Concentrated hydrating serum with hyaluronic acid to plump and revitalize tired skin.",
+    features: ["💧 Deep Hydration", "✨ Instant Radiance", "🌿 Pure Hyaluronic Acid"]
+  },
+  { 
+    id: 103, name: "Precision Brush", price: 150, brand: "banana-boat", type: "beauty-tools", 
+    img: "./assets/third-product.png", date: "2024-02-01",
+    description: "Professional grade makeup brush for high-precision contouring and seamless blending.",
+    features: ["🖌️ Ultra-soft Bristles", "🎯 Ergonomic Handle", "💎 Durable Design"]
+  },
 
+  { id: 1, name: "Zero Frizz Shampoo", price: 350, brand: "zero-frizz", type: "haircare", img: "./assets/zero-frizz-product.jpg", description: "Eliminates frizz and flyaways while gently cleansing.", features: ["✨ Keratin Infused", "💧 Anti-Frizz Formula", "🛡️ Heat Protection"] },
+  { id: 2, name: "Zero Frizz Serum", price: 420, brand: "zero-frizz", type: "haircare", img: "./assets/zero-frizz-2.webp", description: "Instant smoothing serum that seals the hair cuticle.", features: ["🌟 Instant Shine", "🧵 Silk Proteins", "🚫 Non-Greasy"] },
+  { id: 3, name: "Zero Frizz Conditioner", price: 350, brand: "zero-frizz", type: "haircare", img: "./assets/zero-frizz-product.jpg", description: "Deeply nourishes and detangles unruly hair.", features: ["🌿 Natural Oils", "🚿 Easy Detangling", "✨ Smoothing Effect"] },
+
+  { id: 4, name: "Hair Burst Shampoo", price: 550, brand: "hair-burst", type: "haircare", img: "./assets/hair-burst(1).jpg", description: "Specially formulated to encourage longer hair growth.", features: ["🌱 Hair Growth Boost", "🥥 Coconut Oil", "💪 Strengthens Roots"] },
+  { id: 5, name: "Hair Burst Vitamins", price: 600, brand: "hair-burst", type: "personalcare", img: "./assets/hair-burst(2).jpg", description: "Nutritional supplements packed with Biotin.", features: ["💊 26 Essential Vitamins", "🍓 Tasty Gummy Form", "🧬 Biotin Riched"] },
+  { id: 6, name: "Hair Burst Conditioner", price: 550, brand: "hair-burst", type: "haircare", img: "./assets/hair-burst(3).jpg", description: "Prevents breakage and adds volume to thin hair.", features: ["🛡️ Reduces Breakage", "🌊 Volume Boost", "🌿 Sulfate Free"] },
+
+  { id: 7, name: "Karseell Hair Mask", price: 480, brand: "karsell", type: "haircare", img: "./assets/karseel(1).jpg", description: "Repairs split ends and dry hair within minutes.", features: ["💆 Professional Repair", "🧬 Collagen Power", "🌊 Silky Texture"] },
+  { id: 8, name: "Karseell Shampoo", price: 400, brand: "karsell", type: "haircare", img: "./assets/karseell(2).jpg", description: "Provides essential nutrients to the scalp and hair.", features: ["🌿 Herbal Extracts", "🚿 Scalp Care", "✨ Natural Shine"] },
+  { id: 9, name: "Karseell Hair Oil", price: 500, brand: "karsell", type: "haircare", img: "./assets/karseell(3).jpg", description: "Lightweight Moroccan Argan oil absorbs quickly.", features: ["💎 Moroccan Argan", "🧵 Frizz Control", "🔥 Heat Shield"] },
+
+  { id: 10, name: "Revox Argan Oil", price: 450, brand: "revox", type: "skincare", img: "./assets/revox(1).jpg", description: "Pure Argan oil rich in Vitamin E.", features: ["🌿 100% Organic", "💆 Rich in Vitamin E", "✨ Multi-use Oil"] },
+  { id: 11, name: "Revox Moisturizing", price: 380, brand: "revox", type: "skincare", img: "./assets/revox(2).jpg", description: "Creates a protective barrier for the skin.", features: ["☁️ Lightweight", "🛡️ Skin Protection", "💧 Non-comedogenic"] },
+  { id: 12, name: "Revox Cleansing Gel", price: 320, brand: "revox", type: "skincare", img: "./assets/revox(3).jpg", description: "Gently removes impurities and makeup.", features: ["🫧 Deep Cleansing", "🚫 No Dryness", "🛡️ pH Balanced"] },
+
+  { id: 13, name: "Momento Sunscreen", price: 320, brand: "momento", type: "skincare", img: "./assets/momento(1).jpg", description: "SPF 50+ lotion that protects against UVA/UVB rays.", features: ["☀️ SPF 50+", "💦 Water Resistant", "🚫 No White Cast"] },
+  { id: 14, name: "Momento After Sun", price: 280, brand: "momento", type: "skincare", img: "./assets/momento(2).jpg", description: "Cooling aloe vera gel that soothes skin after sun.", features: ["❄️ Cooling Effect", "🌵 Aloe Vera", "🧬 Skin Repair"] },
+  { id: 15, name: "Momento Tanning Oil", price: 400, brand: "momento", type: "skincare", img: "./assets/momento(3).jpg", description: "Deep, long-lasting golden tan with carrot oil.", features: ["🥕 Carrot Extract", "🏖️ Golden Glow", "💧 Skin Softener"] },
+
+  { id: 16, name: "Disaar Foundation", price: 290, brand: "disaar", type: "makeup", img: "./assets/disaar(1).png", description: "Whitening foundation that conceals pores instantly.", features: ["✨ Instant Brightening", "🛡️ UV Filter", "🧽 Full Coverage"] },
+  { id: 17, name: "Disaar Whitening Cream", price: 250, brand: "disaar", type: "skincare", img: "./assets/disaar(2).png", description: "Targets dark spots and promotes even skin tone.", features: ["🎯 Spot Correction", "🌟 Even Tone", "💆 Daily Use"] },
+  { id: 18, name: "Disaar Eye Mask", price: 180, brand: "disaar", type: "skincare", img: "./assets/disaar(3).png", description: "Collagen eye patches that reduce dark circles.", features: ["👁️ Anti-Dark Circles", "🧬 Collagen Riched", "❄️ Refreshing"] },
+
+  { 
+    id: 201, name: "Tan Gel", price: 350, brand: "momento", type: "skincare", 
+    img: "./assets/fifth-product.png", 
+    description: "Deep tanning gel for a flawless summer glow.",
+    features: ["☀️ Rapid Tan", "💧 Skin Smoothing", "🥥 Tropical Scent"]
+  },
+  { 
+    id: 202, name: "Sun Screen", price: 380, brand: "momento", type: "skincare", 
+    img: "./assets/sec-product.png", 
+    description: "High protection sunscreen for face and body.",
+    features: ["🛡️ Maximum Shield", "🚫 Non-Sticky", "🌊 Ocean Friendly"]
+  },
+  { 
+    id: 203, name: "Hair Care Spray", price: 420, brand: "karseell", type: "haircare", 
+    img: "./assets/sixth-product.png", 
+    description: "Leave-in spray for heat protection and intensive care.",
+    features: ["🔥 Heat Defense", "✨ Anti-Breakage", "💎 Soft Finish"]
+  },
+  { 
+    id: 204, name: "Whitening Cream", price: 290, brand: "disaar", type: "skincare", 
+    img: "./assets/first-product.png", 
+    description: "Advanced whitening formula for clear and radiant skin.",
+    features: ["🌟 Radiant Skin", "🧬 Skin Cell Renewal", "☁️ Velvet Touch"]
+  }
+];
 let currentDisplayedProducts = [...allProducts];
 
 const filterData = {
   brands: [
-    { id: "dax", name: "Dax" },
+   { id: "dax", name: "Dax" },
     { id: "banana-boat", name: "Banana Boat" },
     { id: "karsell", name: "Karsell" },
+    { id: "creme-of-nature", name: "Creme of Nature" },
+    { id: "fashkool", name: "FashKool" }
   ],
   productTypes: [
     { id: "skincare", name: "Skincare" },
     { id: "makeup", name: "Makeup" },
     { id: "fragrance", name: "Fragrances" },
     { id: "beauty-tools", name: "Beauty Tools" },
-    { id: "conditioner", name: "Conditioner" }, 
-    { id: "hair-mask", name: "Hair Mask" }
+    { id: "haircare", name: "Hair Care" }, 
+    { id: "haircare", name: "Hair Care" },
+    { id: "personalcare", name: "Personal Care" }
   ],
 };
 
@@ -36133,12 +36194,29 @@ function startApp() {
     
     const urlParams = new URLSearchParams(window.location.search);
     const typeFromUrl = urlParams.get('type');
+    const brandFromUrl = urlParams.get('brand');
 
-    if (typeFromUrl) {
+    if (typeFromUrl || brandFromUrl) {
         setTimeout(() => {
-            const checkbox = document.querySelector(`input[name="type"][value="${typeFromUrl}"]`);
-            if (checkbox) {
-                checkbox.checked = true;
+            let hasAppliedFilter = false;
+
+            if (typeFromUrl) {
+                const typeCheckbox = document.querySelector(`input[name="type"][value="${typeFromUrl}"]`);
+                if (typeCheckbox) {
+                    typeCheckbox.checked = true;
+                    hasAppliedFilter = true;
+                }
+            }
+
+            if (brandFromUrl) {
+                const brandCheckbox = document.querySelector(`input[name="brand"][value="${brandFromUrl}"]`);
+                if (brandCheckbox) {
+                    brandCheckbox.checked = true;
+                    hasAppliedFilter = true;
+                }
+            }
+
+            if (hasAppliedFilter) {
                 applyAllFilters(); 
             } else {
                 renderProducts(allProducts);
@@ -36157,7 +36235,7 @@ function renderProducts(list) {
 
   container.innerHTML = list.length > 0 ? list.map(product => `
       <div role="listitem" class="product-item w-dyn-item">
-          <a href="${product.link}" class="product-block w-inline-block">
+          <a href="./product.html?id=${product.id}" class="product-block w-inline-block">
               <div class="product-img">
                   <img loading="lazy" src="${product.img}" alt="${product.name}" class="product-image" />
               </div>

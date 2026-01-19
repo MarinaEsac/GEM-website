@@ -36731,9 +36731,9 @@ function updateTopProducts() {
     }, 400);
   }
 
-  const productsHTML = brand.products.map(prod => `
+ const productsHTML = brand.products.map(prod => `
     <div role="listitem" class="tp-item w-dyn-item">
-      <a href="/product/${prod.slug}" class="tp-block w-inline-block" style="opacity: 1"> 
+      <a href="./product.html?id=${prod.id}" class="tp-block w-inline-block" style="opacity: 1"> 
         <div class="tp-img">
           <img loading="lazy" src="${prod.img}" alt="${prod.name}" class="tp-image" />
         </div>
@@ -36743,7 +36743,7 @@ function updateTopProducts() {
         </div>
       </a>
     </div>
-  `).join("");
+`).join("");
 
   listContainer.innerHTML = productsHTML;
 
@@ -36759,10 +36759,10 @@ document.addEventListener("DOMContentLoaded", () => {
 // latest products 
 
 const latestProductsData = [
-  { id: 1, name: "Tan Gel", brand: "Momento", img: "./assets/fifth-product.png", slug: "tan-gel" },
-  { id: 2, name: "Sun Screen", brand: "Momento", img: "./assets/sec-product.png", slug: "sun-screen" },
-  { id: 3, name: "Hair Care Spray", brand: "Karseell", img: "./assets/sixth-product.png", slug: "hair-care-spray" },
-  { id: 4, name: "Whitening Cream", brand: "Disaar", img: "./assets/first-product.png", slug: "whitening-cream" }
+  { id: 201, name: "Tan Gel", brand: "Momento", img: "./assets/fifth-product.png" },
+  { id: 202, name: "Sun Screen", brand: "Momento", img: "./assets/sec-product.png" },
+  { id: 203, name: "Hair Care Spray", brand: "Karseell", img: "./assets/sixth-product.png" },
+  { id: 204, name: "Whitening Cream", brand: "Disaar", img: "./assets/first-product.png" }
 ];
 
 function renderLatest(products) {
@@ -36771,7 +36771,7 @@ function renderLatest(products) {
 
   listContainer.innerHTML = products.map(prod => `
     <div role="listitem" class="product-item w-dyn-item">
-      <a href="/product/${prod.slug}" class="product-block w-inline-block" style="opacity: 1">
+      <a href="./product.html?id=${prod.id}" class="product-block w-inline-block" style="opacity: 1">
         <div class="product-img">
           <img loading="lazy" src="${prod.img}" alt="${prod.name}" class="product-image" />
         </div>
@@ -36783,7 +36783,6 @@ function renderLatest(products) {
     </div>
   `).join("");
 }
-
 document.addEventListener("DOMContentLoaded", () => {
   renderLatest(latestProductsData);
 
@@ -36803,4 +36802,27 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// footer
+document.addEventListener("DOMContentLoaded", () => {
+    const brandSelect = document.getElementById("footerBrandSelect");
+
+    if (brandSelect && typeof filterData !== 'undefined' && filterData.brands) {
+        
+        brandSelect.innerHTML = '<option value="">Select Brand</option>';
+
+        filterData.brands.forEach(brand => {
+            const option = document.createElement("option");
+            option.value = brand.id; 
+            option.textContent = brand.name; 
+            brandSelect.appendChild(option);
+        });
+
+        brandSelect.addEventListener("change", (e) => {
+            const selectedBrand = e.target.value;
+            if (selectedBrand) {
+                window.location.href = `shop.html?brand=${selectedBrand}`;
+            }
+        });
+    }
+});
 

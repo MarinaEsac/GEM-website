@@ -36059,6 +36059,29 @@
     2292: function () {},
   },
 ]);
-Explain;
 
+//single product
+document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
 
+    const product = allProducts.find(p => p.id == productId);
+
+    if (product) {
+        const mainImg = document.getElementById('mainProductImg');
+        if (mainImg) mainImg.src = product.img;
+
+        const title = document.getElementById('productTitle');
+        if (title) title.textContent = product.name;
+
+        const desc = document.getElementById('productDescription');
+        if (desc) desc.textContent = product.description || "High quality product from Gem Egypt.";
+
+        const featuresContainer = document.getElementById('featuresContainer');
+        if (featuresContainer && product.features) {
+            featuresContainer.innerHTML = product.features.map(f => `
+                <div class="feature-box">${f}</div>
+            `).join('') + `<div class="product-btn-wrapper"><button class="product-btn">Buy Now</button></div>`;
+        }
+    }
+});
