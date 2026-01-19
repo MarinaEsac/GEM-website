@@ -36060,4 +36060,31 @@
     2292: function () {},
   },
 ]);
-Explain;
+// Explain;
+
+// contact us form
+document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+    e.preventDefault(); 
+
+    const btn = document.getElementById('submitBtn');
+    const responseMsg = document.getElementById('formResponse');
+    
+    const formData = {
+        fullName: document.getElementById('userName').value,
+        phone: document.getElementById('userPhone').value,
+        email: document.getElementById('userEmail').value,
+        message: document.getElementById('userMessage').value
+    };
+
+    btn.textContent = "SENDING...";
+    btn.disabled = true;
+
+    console.log("Data to be sent to Backend:", formData);
+
+    setTimeout(() => {
+        alert("Success! Data collected. Ready for Backend API.");
+        btn.textContent = "SEND MESSAGE";
+        btn.disabled = false;
+        this.reset();
+    }, 1500);
+});
