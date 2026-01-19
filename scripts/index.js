@@ -36802,6 +36802,32 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// filter by brand in latest product
+document.addEventListener("DOMContentLoaded", () => {
+    const brandFilter = document.getElementById("brandFilter");
+
+    if (brandFilter && typeof filterData !== 'undefined' && filterData.brands) {
+        filterData.brands.forEach(brand => {
+            const option = document.createElement("option");
+            option.value = brand.id.toLowerCase(); 
+            option.textContent = brand.name;       
+            brandFilter.appendChild(option);
+        });
+    }
+
+    brandFilter?.addEventListener("change", (e) => {
+        const selectedBrand = e.target.value;
+        
+        if (selectedBrand === "all") {
+            renderLatest(latestProductsData);
+        } else {
+            const filtered = latestProductsData.filter(p => 
+                p.brand.toLowerCase() === selectedBrand.toLowerCase()
+            );
+            renderLatest(filtered);
+        }
+    });
+});
 // footer
 document.addEventListener("DOMContentLoaded", () => {
     const brandSelect = document.getElementById("footerBrandSelect");

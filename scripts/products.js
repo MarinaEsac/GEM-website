@@ -36291,19 +36291,30 @@ function initEventListeners() {
     priceSlider?.addEventListener("input", (e) => {
         const priceValue = document.getElementById("priceValue");
         if (priceValue) priceValue.textContent = `LE ${Number(e.target.value).toLocaleString()}`;
+        applyAllFilters(); 
     });
 
     const sortSelect = document.querySelector(".sort-dropdown");
     sortSelect?.addEventListener("change", function() {
         const val = this.value;
-        if (val === "az") currentDisplayedProducts.sort((a, b) => a.name.localeCompare(b.name));
-        else if (val === "za") currentDisplayedProducts.sort((a, b) => b.name.localeCompare(a.name));
-        else if (val === "new") currentDisplayedProducts.sort((a, b) => new Date(b.date) - new Date(a.date));
-        else if (val === "best") currentDisplayedProducts.sort((a, b) => b.price - a.price);
-        renderProducts(currentDisplayedProducts);
+        
+        let sortedData = [...currentDisplayedProducts];
+
+        if (val === "az") {
+            sortedData.sort((a, b) => a.name.localeCompare(b.name));
+        } else if (val === "za") {
+            sortedData.sort((a, b) => b.name.localeCompare(a.name));
+        } else if (val === "new") {
+            sortedData.sort((a, b) => new Date(b.date || "2000-01-01") - new Date(a.date || "2000-01-01"));
+        } else if (val === "old") {
+            sortedData.sort((a, b) => new Date(a.date || "2000-01-01") - new Date(b.date || "2000-01-01"));
+        } else if (val === "best") {
+            sortedData.sort((a, b) => b.price - a.price);
+        }
+
+        renderProducts(sortedData);
     });
 }
-
 function initAccordion() {
   document.querySelectorAll(".filter-header").forEach(header => {
     header.onclick = () => header.parentElement.classList.toggle("active");
