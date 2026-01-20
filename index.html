@@ -75,7 +75,7 @@
       }
 
       /* Search Box */
-      .search-box {
+      /* .search-box {
         display: flex;
         align-items: center;
         width: 280px;
@@ -111,7 +111,68 @@
 
       .search-btn:hover {
         color: #0b2a59;
-      }
+      } */
+.search-box {
+  display: flex;
+  align-items: center; 
+  width: 280px;
+  border-bottom: 1.5px solid #e6e6e6;
+  transition: border-color 0.3s ease;
+  position: relative; 
+}
+
+.search-box:focus-within {
+  border-color: #0b2a59;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+  margin-right: 10px;
+  align-items: center;
+}
+
+#searchForm {
+  flex: 1; 
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%; 
+  border: none;
+  padding: 8px 30px 8px 5px;
+  font-size: 14px;
+  color: #555;
+  background: transparent;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.search-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #777;
+  transition: color 0.3s ease;
+  position: absolute; 
+  right: 0; 
+  display: flex;
+  align-items: center;
+}
+
+.search-btn:hover {
+  color: #0b2a59;
+}
+
+.search-btn svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
       .header-left {
         display: flex;
         align-items: center;
@@ -1001,13 +1062,21 @@
                 </svg>
               </a>
             </div>
-            <input
+            <!-- <input
               class="search-input"
               type="search"
               placeholder="Search.."
               aria-label="search"
-            />
-            <button class="search-btn" aria-label="search">
+            /> -->
+            <form id="searchForm" action="./shop.html" method="GET">
+  <input
+    name="q" 
+    class="search-input"
+    type="search"
+    placeholder="Search.."
+    aria-label="search"
+  />
+   <button class="search-btn" aria-label="search">
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -1022,6 +1091,22 @@
                 <line x1="21" y1="21" x2="16.65" y2="16.65" />
               </svg>
             </button>
+</form>
+            <!-- <button class="search-btn" aria-label="search">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                width="18"
+                height="18"
+              >
+                <circle cx="11" cy="11" r="7" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            </button> -->
           </div>
           <button
             class="menu-toggle"

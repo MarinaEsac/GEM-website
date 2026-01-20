@@ -36093,13 +36093,13 @@
 
 let allProducts = [
   { 
-    id: 101, name: "Glow Foundation", price: 450, brand: "dax", type: "makeup", 
+    id: 101, name: "Glow Foundation", price: 450, brand: "carroten", type: "makeup", 
     img: "./assets/first-product.png", date: "2024-01-10",
     description: "A lightweight, radiant foundation that provides buildable coverage with a natural glow.",
     features: ["☀️ Boosts Natural Tan", "💧 Deep Hydration", "🛡 SPF 20 Protection"]
   },
   { 
-    id: 102, name: "Hydrating Serum", price: 300, brand: "karsell", type: "skincare", 
+    id: 102, name: "Hydrating Serum", price: 300, brand: "carroten", type: "skincare", 
     img: "./assets/sec-product.png", date: "2024-01-15",
     description: "Concentrated hydrating serum with hyaluronic acid to plump and revitalize tired skin.",
     features: ["💧 Deep Hydration", "✨ Instant Radiance", "🌿 Pure Hyaluronic Acid"]
@@ -36136,25 +36136,25 @@ let allProducts = [
   { id: 18, name: "Disaar Eye Mask", price: 180, brand: "disaar", type: "skincare", img: "./assets/disaar(3).png", description: "Collagen eye patches that reduce dark circles.", features: ["👁️ Anti-Dark Circles", "🧬 Collagen Riched", "❄️ Refreshing"] },
 
   { 
-    id: 201, name: "Tan Gel", price: 350, brand: "momento", type: "skincare", 
+    id: 201, name: "Tan Gel", price: 350, brand: "carroten", type: "skincare", 
     img: "./assets/fifth-product.png", 
     description: "Deep tanning gel for a flawless summer glow.",
     features: ["☀️ Rapid Tan", "💧 Skin Smoothing", "🥥 Tropical Scent"]
   },
   { 
-    id: 202, name: "Sun Screen", price: 380, brand: "momento", type: "skincare", 
+    id: 202, name: "Sun Screen", price: 380, brand: "carroten", type: "skincare", 
     img: "./assets/sec-product.png", 
     description: "High protection sunscreen for face and body.",
     features: ["🛡️ Maximum Shield", "🚫 Non-Sticky", "🌊 Ocean Friendly"]
   },
   { 
-    id: 203, name: "Hair Care Spray", price: 420, brand: "karseell", type: "haircare", 
+    id: 203, name: "Hair Care Spray", price: 420, brand: "carroten", type: "haircare", 
     img: "./assets/sixth-product.png", 
     description: "Leave-in spray for heat protection and intensive care.",
     features: ["🔥 Heat Defense", "✨ Anti-Breakage", "💎 Soft Finish"]
   },
   { 
-    id: 204, name: "Whitening Cream", price: 290, brand: "disaar", type: "skincare", 
+    id: 204, name: "Whitening Cream", price: 290, brand: "carroten", type: "skincare", 
     img: "./assets/first-product.png", 
     description: "Advanced whitening formula for clear and radiant skin.",
     features: ["🌟 Radiant Skin", "🧬 Skin Cell Renewal", "☁️ Velvet Touch"]
@@ -36168,7 +36168,8 @@ const filterData = {
     { id: "banana-boat", name: "Banana Boat" },
     { id: "karsell", name: "Karsell" },
     { id: "creme-of-nature", name: "Creme of Nature" },
-    { id: "fashkool", name: "FashKool" }
+    { id: "fashkool", name: "FashKool" },
+    { id: "carroten", name: "Carroten" }
   ],
   productTypes: [
     { id: "skincare", name: "Skincare" },
@@ -36322,3 +36323,25 @@ function initAccordion() {
 }
 
 document.addEventListener("DOMContentLoaded", fetchProductsFromServer);
+
+// search input 
+
+document.addEventListener("DOMContentLoaded", () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchQuery = urlParams.get('q'); 
+
+    if (searchQuery) {
+        const filtered = allProducts.filter(product => 
+            product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            product.brand.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+        
+        renderProducts(filtered);
+        
+        const shopSearchInput = document.querySelector(".search-input");
+        if (shopSearchInput) shopSearchInput.value = searchQuery;
+
+    } else {
+        renderProducts(allProducts);
+    }
+});

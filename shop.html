@@ -93,7 +93,7 @@
       }
 
       /* Search Box */
-      .search-box {
+      /* .search-box {
         display: flex;
         align-items: center;
         width: 280px;
@@ -129,6 +129,67 @@
 
       .search-btn:hover {
         color: #0b2a59;
+      } */
+      .search-box {
+        display: flex;
+        align-items: center;
+        width: 280px;
+        border-bottom: 1.5px solid #e6e6e6;
+        transition: border-color 0.3s ease;
+        position: relative;
+      }
+
+      .search-box:focus-within {
+        border-color: #0b2a59;
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 10px;
+        margin-right: 10px;
+        align-items: center;
+      }
+
+      #searchForm {
+        flex: 1;
+        display: flex;
+        align-items: center;
+      }
+
+      .search-input {
+        width: 100%;
+        border: none;
+        padding: 8px 30px 8px 5px;
+        font-size: 14px;
+        color: #555;
+        background: transparent;
+      }
+
+      .search-input:focus {
+        outline: none;
+      }
+
+      .search-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        color: #777;
+        transition: color 0.3s ease;
+        position: absolute;
+        right: 0;
+        display: flex;
+        align-items: center;
+      }
+
+      .search-btn:hover {
+        color: #0b2a59;
+      }
+
+      .search-btn svg {
+        display: block;
+        width: 18px;
+        height: 18px;
       }
       .header-left {
         display: flex;
@@ -609,7 +670,7 @@
                 </svg>
               </a>
             </div>
-            <input
+            <!-- <input
               class="search-input"
               type="search"
               placeholder="Search.."
@@ -629,7 +690,31 @@
                 <circle cx="11" cy="11" r="7" />
                 <line x1="21" y1="21" x2="16.65" y2="16.65" />
               </svg>
-            </button>
+            </button> -->
+            <form id="searchForm" action="./shop.html" method="GET">
+              <input
+                name="q"
+                class="search-input"
+                type="search"
+                placeholder="Search.."
+                aria-label="search"
+              />
+              <button class="search-btn" aria-label="search">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  width="18"
+                  height="18"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+              </button>
+            </form>
           </div>
           <button
             class="menu-toggle"
@@ -746,19 +831,31 @@
     <div class="page-data">
       <section class="products">
         <div class="product-inner">
-       <aside class="sidebar-filter" id="sidebarFilters">
-    <div class="filter-group">
-        <div class="filter-header"><span>Price</span><span class="icon">⌄</span></div>
-        <div class="filter-body">
-            <div class="price-input-group">
-                <input type="range" id="priceRange" name="max-price" min="0" max="2000" value="1750" class="price-slider" />
-                <div class="price-labels"><span>LE 0</span><span id="priceValue">LE 1,750</span></div>
+          <aside class="sidebar-filter" id="sidebarFilters">
+            <div class="filter-group">
+              <div class="filter-header">
+                <span>Price</span><span class="icon">⌄</span>
+              </div>
+              <div class="filter-body">
+                <div class="price-input-group">
+                  <input
+                    type="range"
+                    id="priceRange"
+                    name="max-price"
+                    min="0"
+                    max="2000"
+                    value="1750"
+                    class="price-slider"
+                  />
+                  <div class="price-labels">
+                    <span>LE 0</span><span id="priceValue">LE 1,750</span>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
-    </div>
 
-    <div id="dynamicFiltersContainer"></div>
-</aside>
+            <div id="dynamicFiltersContainer"></div>
+          </aside>
 
           <div class="product-top">
             <div
@@ -868,13 +965,12 @@
                 role="navigation"
                 aria-label="List"
                 class="w-pagination-wrapper pagination"
-                
               >
                 <a
                   href="?2532c68f_page=2"
                   aria-label="Next Page"
                   class="w-pagination-next primary-button"
-                  style="background-color: #0b2a59;"
+                  style="background-color: #0b2a59"
                 >
                   <div class="button-arrow-block">
                     <img
@@ -977,54 +1073,65 @@
     </script>
 
     <section class="footer">
-        <div class="footer-inner">
-            <!-- LEFT LOGO -->
-            <div class="footer-logo">
-                <img src="./assets/Gem Egypt.png" alt="Company Logo" loading="lazy"/>
-            </div>
-
-            <!-- CATEGORIES -->
-            <div class="footer-col">
-                <h3 class="ft-title">CATEGORIES</h3>
-                <ul class="ft-menu">
-                    <li><a href="shop.html?type=haircare">Hair Care</a></li>
-                    <li><a href="shop.html?type=skincare">Skin Care</a></li>
-                    <li><a href="shop.html?type=makeup">Makeup</a></li>
-                    <li><a href="shop.html?type=fragrance">Fragrance</a></li>
-                    <li><a href="shop.html?type=personalcare">Personal Care</a></li>
-                    <li><a href="#">Kids</a></li>
-                </ul>
-            </div>
-
-            <!-- BRANDS -->
-            <div class="footer-col">
-                <h3 class="ft-title">BRANDS</h3>
-                <select id="footerBrandSelect" class="brand-select">
-        <option value="">Select Brand</option>
-        </select>
-            </div>
-
-            <!-- CONTACT -->
-            <div class="footer-col">
-                <h3 class="ft-title">CONTACT US</h3>
-                <p><strong> Phone: </strong> +20 120 876 0666 | 0020221825001 | 0020221825002 | 0020221825003 | 0020221825004 </p>
-                <p><strong>Email:</strong>info@gemegypt.com</p>
-
-                <p><strong>Address:</strong>4 E Asmaa Fahmy. Ard El Golf, Helioplis, Pharma Plaza Build
-                    Cairo, Egypt.</p>
-                <h3 class="ft-title">FOLLOW US</h3>
-                <div class="social-icons-footer">
-                    <a href="https://www.facebook.com/gem.egypt.company/"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/gem_egypt/"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@gem_egy"><i class="fab fa-tiktok"></i></a>
-                </div>
-            </div>
+      <div class="footer-inner">
+        <!-- LEFT LOGO -->
+        <div class="footer-logo">
+          <img src="./assets/Gem Egypt.png" alt="Company Logo" loading="lazy" />
         </div>
 
-        <!-- BOTTOM -->
-        <div class="footer-bottom">
-            <p>© 2025 GEM. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
+        <!-- CATEGORIES -->
+        <div class="footer-col">
+          <h3 class="ft-title">CATEGORIES</h3>
+          <ul class="ft-menu">
+            <li><a href="shop.html?type=haircare">Hair Care</a></li>
+            <li><a href="shop.html?type=skincare">Skin Care</a></li>
+            <li><a href="shop.html?type=makeup">Makeup</a></li>
+            <li><a href="shop.html?type=fragrance">Fragrance</a></li>
+            <li><a href="shop.html?type=personalcare">Personal Care</a></li>
+            <li><a href="#">Kids</a></li>
+          </ul>
         </div>
+
+        <!-- BRANDS -->
+        <div class="footer-col">
+          <h3 class="ft-title">BRANDS</h3>
+          <select id="footerBrandSelect" class="brand-select">
+            <option value="">Select Brand</option>
+          </select>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="footer-col">
+          <h3 class="ft-title">CONTACT US</h3>
+          <p>
+            <strong> Phone: </strong> +20 120 876 0666 | 0020221825001 |
+            0020221825002 | 0020221825003 | 0020221825004
+          </p>
+          <p><strong>Email:</strong>info@gemegypt.com</p>
+
+          <p>
+            <strong>Address:</strong>4 E Asmaa Fahmy. Ard El Golf, Helioplis,
+            Pharma Plaza Build Cairo, Egypt.
+          </p>
+          <h3 class="ft-title">FOLLOW US</h3>
+          <div class="social-icons-footer">
+            <a href="https://www.facebook.com/gem.egypt.company/"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="https://www.instagram.com/gem_egypt/"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://www.tiktok.com/@gem_egy"
+              ><i class="fab fa-tiktok"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOTTOM -->
+      <div class="footer-bottom">
+        <p>© 2025 GEM. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
+      </div>
     </section>
 
     <!-- <a
