@@ -36090,151 +36090,382 @@
   },
 ]);
 
-
 let allProducts = [
-  { 
-    id: 101, name: "Glow Foundation", price: 450, brand: "carroten", type: "makeup", 
-    img: "./assets/first-product.png", date: "2024-01-10",
-    description: "A lightweight, radiant foundation that provides buildable coverage with a natural glow.",
-    features: ["☀️ Boosts Natural Tan", "💧 Deep Hydration", "🛡 SPF 20 Protection"]
+  {
+    id: 101,
+    name: "Glow Foundation",
+    price: 450,
+    brand: "carroten",
+    type: "makeup",
+    img: "./assets/first-product.png",
+    date: "2024-01-10",
+    description:
+      "A lightweight, radiant foundation that provides buildable coverage with a natural glow.",
+    features: [
+      "☀️ Boosts Natural Tan",
+      "💧 Deep Hydration",
+      "🛡 SPF 20 Protection",
+    ],
   },
-  { 
-    id: 102, name: "Hydrating Serum", price: 300, brand: "carroten", type: "skincare", 
-    img: "./assets/sec-product.png", date: "2024-01-15",
-    description: "Concentrated hydrating serum with hyaluronic acid to plump and revitalize tired skin.",
-    features: ["💧 Deep Hydration", "✨ Instant Radiance", "🌿 Pure Hyaluronic Acid"]
+  {
+    id: 102,
+    name: "Hydrating Serum",
+    price: 300,
+    brand: "carroten",
+    type: "skincare",
+    img: "./assets/sec-product.png",
+    date: "2024-01-15",
+    description:
+      "Concentrated hydrating serum with hyaluronic acid to plump and revitalize tired skin.",
+    features: [
+      "💧 Deep Hydration",
+      "✨ Instant Radiance",
+      "🌿 Pure Hyaluronic Acid",
+    ],
   },
-  { 
-    id: 103, name: "Precision Brush", price: 150, brand: "banana-boat", type: "beauty-tools", 
-    img: "./assets/third-product.png", date: "2024-02-01",
-    description: "Professional grade makeup brush for high-precision contouring and seamless blending.",
-    features: ["🖌️ Ultra-soft Bristles", "🎯 Ergonomic Handle", "💎 Durable Design"]
+  {
+    id: 103,
+    name: "Precision Brush",
+    price: 150,
+    brand: "banana-boat",
+    type: "beauty-tools",
+    img: "./assets/third-product.png",
+    date: "2024-02-01",
+    description:
+      "Professional grade makeup brush for high-precision contouring and seamless blending.",
+    features: [
+      "🖌️ Ultra-soft Bristles",
+      "🎯 Ergonomic Handle",
+      "💎 Durable Design",
+    ],
   },
 
-  { id: 1, name: "Zero Frizz Shampoo", price: 350, brand: "zero-frizz", type: "haircare", img: "./assets/zero-frizz-product.jpg", description: "Eliminates frizz and flyaways while gently cleansing.", features: ["✨ Keratin Infused", "💧 Anti-Frizz Formula", "🛡️ Heat Protection"] },
-  { id: 2, name: "Zero Frizz Serum", price: 420, brand: "zero-frizz", type: "haircare", img: "./assets/zero-frizz-2.webp", description: "Instant smoothing serum that seals the hair cuticle.", features: ["🌟 Instant Shine", "🧵 Silk Proteins", "🚫 Non-Greasy"] },
-  { id: 3, name: "Zero Frizz Conditioner", price: 350, brand: "zero-frizz", type: "haircare", img: "./assets/zero-frizz-product.jpg", description: "Deeply nourishes and detangles unruly hair.", features: ["🌿 Natural Oils", "🚿 Easy Detangling", "✨ Smoothing Effect"] },
+  {
+    id: 1,
+    name: "Zero Frizz Shampoo",
+    price: 350,
+    brand: "zero-frizz",
+    type: "haircare",
+    img: "./assets/zero-frizz-product.jpg",
+    description: "Eliminates frizz and flyaways while gently cleansing.",
+    features: [
+      "✨ Keratin Infused",
+      "💧 Anti-Frizz Formula",
+      "🛡️ Heat Protection",
+    ],
+  },
+  {
+    id: 2,
+    name: "Zero Frizz Serum",
+    price: 420,
+    brand: "zero-frizz",
+    type: "haircare",
+    img: "./assets/zero-frizz-2.webp",
+    description: "Instant smoothing serum that seals the hair cuticle.",
+    features: ["🌟 Instant Shine", "🧵 Silk Proteins", "🚫 Non-Greasy"],
+  },
+  {
+    id: 3,
+    name: "Zero Frizz Conditioner",
+    price: 350,
+    brand: "zero-frizz",
+    type: "haircare",
+    img: "./assets/zero-frizz-product.jpg",
+    description: "Deeply nourishes and detangles unruly hair.",
+    features: ["🌿 Natural Oils", "🚿 Easy Detangling", "✨ Smoothing Effect"],
+  },
 
-  { id: 4, name: "Hair Burst Shampoo", price: 550, brand: "hair-burst", type: "haircare", img: "./assets/hair-burst(1).jpg", description: "Specially formulated to encourage longer hair growth.", features: ["🌱 Hair Growth Boost", "🥥 Coconut Oil", "💪 Strengthens Roots"] },
-  { id: 5, name: "Hair Burst Vitamins", price: 600, brand: "hair-burst", type: "personalcare", img: "./assets/hair-burst(2).jpg", description: "Nutritional supplements packed with Biotin.", features: ["💊 26 Essential Vitamins", "🍓 Tasty Gummy Form", "🧬 Biotin Riched"] },
-  { id: 6, name: "Hair Burst Conditioner", price: 550, brand: "hair-burst", type: "haircare", img: "./assets/hair-burst(3).jpg", description: "Prevents breakage and adds volume to thin hair.", features: ["🛡️ Reduces Breakage", "🌊 Volume Boost", "🌿 Sulfate Free"] },
+  {
+    id: 4,
+    name: "Hair Burst Shampoo",
+    price: 550,
+    brand: "hair-burst",
+    type: "haircare",
+    img: "./assets/hair-burst(1).jpg",
+    description: "Specially formulated to encourage longer hair growth.",
+    features: [
+      "🌱 Hair Growth Boost",
+      "🥥 Coconut Oil",
+      "💪 Strengthens Roots",
+    ],
+  },
+  {
+    id: 5,
+    name: "Hair Burst Vitamins",
+    price: 600,
+    brand: "hair-burst",
+    type: "personalcare",
+    img: "./assets/hair-burst(2).jpg",
+    description: "Nutritional supplements packed with Biotin.",
+    features: [
+      "💊 26 Essential Vitamins",
+      "🍓 Tasty Gummy Form",
+      "🧬 Biotin Riched",
+    ],
+  },
+  {
+    id: 6,
+    name: "Hair Burst Conditioner",
+    price: 550,
+    brand: "hair-burst",
+    type: "haircare",
+    img: "./assets/hair-burst(3).jpg",
+    description: "Prevents breakage and adds volume to thin hair.",
+    features: ["🛡️ Reduces Breakage", "🌊 Volume Boost", "🌿 Sulfate Free"],
+  },
 
-  { id: 7, name: "Karseell Hair Mask", price: 480, brand: "karsell", type: "haircare", img: "./assets/karseel(1).jpg", description: "Repairs split ends and dry hair within minutes.", features: ["💆 Professional Repair", "🧬 Collagen Power", "🌊 Silky Texture"] },
-  { id: 8, name: "Karseell Shampoo", price: 400, brand: "karsell", type: "haircare", img: "./assets/karseell(2).jpg", description: "Provides essential nutrients to the scalp and hair.", features: ["🌿 Herbal Extracts", "🚿 Scalp Care", "✨ Natural Shine"] },
-  { id: 9, name: "Karseell Hair Oil", price: 500, brand: "karsell", type: "haircare", img: "./assets/karseell(3).jpg", description: "Lightweight Moroccan Argan oil absorbs quickly.", features: ["💎 Moroccan Argan", "🧵 Frizz Control", "🔥 Heat Shield"] },
+  {
+    id: 7,
+    name: "Karseell Hair Mask",
+    price: 480,
+    brand: "karsell",
+    type: "haircare",
+    img: "./assets/karseel(1).jpg",
+    description: "Repairs split ends and dry hair within minutes.",
+    features: [
+      "💆 Professional Repair",
+      "🧬 Collagen Power",
+      "🌊 Silky Texture",
+    ],
+  },
+  {
+    id: 8,
+    name: "Karseell Shampoo",
+    price: 400,
+    brand: "karsell",
+    type: "haircare",
+    img: "./assets/karseell(2).jpg",
+    description: "Provides essential nutrients to the scalp and hair.",
+    features: ["🌿 Herbal Extracts", "🚿 Scalp Care", "✨ Natural Shine"],
+  },
+  {
+    id: 9,
+    name: "Karseell Hair Oil",
+    price: 500,
+    brand: "karsell",
+    type: "haircare",
+    img: "./assets/karseell(3).jpg",
+    description: "Lightweight Moroccan Argan oil absorbs quickly.",
+    features: ["💎 Moroccan Argan", "🧵 Frizz Control", "🔥 Heat Shield"],
+  },
 
-  { id: 10, name: "Revox Argan Oil", price: 450, brand: "revox", type: "skincare", img: "./assets/revox(1).jpg", description: "Pure Argan oil rich in Vitamin E.", features: ["🌿 100% Organic", "💆 Rich in Vitamin E", "✨ Multi-use Oil"] },
-  { id: 11, name: "Revox Moisturizing", price: 380, brand: "revox", type: "skincare", img: "./assets/revox(2).jpg", description: "Creates a protective barrier for the skin.", features: ["☁️ Lightweight", "🛡️ Skin Protection", "💧 Non-comedogenic"] },
-  { id: 12, name: "Revox Cleansing Gel", price: 320, brand: "revox", type: "skincare", img: "./assets/revox(3).jpg", description: "Gently removes impurities and makeup.", features: ["🫧 Deep Cleansing", "🚫 No Dryness", "🛡️ pH Balanced"] },
+  {
+    id: 10,
+    name: "Revox Argan Oil",
+    price: 450,
+    brand: "revox",
+    type: "skincare",
+    img: "./assets/revox(1).jpg",
+    description: "Pure Argan oil rich in Vitamin E.",
+    features: ["🌿 100% Organic", "💆 Rich in Vitamin E", "✨ Multi-use Oil"],
+  },
+  {
+    id: 11,
+    name: "Revox Moisturizing",
+    price: 380,
+    brand: "revox",
+    type: "skincare",
+    img: "./assets/revox(2).jpg",
+    description: "Creates a protective barrier for the skin.",
+    features: ["☁️ Lightweight", "🛡️ Skin Protection", "💧 Non-comedogenic"],
+  },
+  {
+    id: 12,
+    name: "Revox Cleansing Gel",
+    price: 320,
+    brand: "revox",
+    type: "skincare",
+    img: "./assets/revox(3).jpg",
+    description: "Gently removes impurities and makeup.",
+    features: ["🫧 Deep Cleansing", "🚫 No Dryness", "🛡️ pH Balanced"],
+  },
 
-  { id: 13, name: "Momento Sunscreen", price: 320, brand: "momento", type: "skincare", img: "./assets/momento(1).jpg", description: "SPF 50+ lotion that protects against UVA/UVB rays.", features: ["☀️ SPF 50+", "💦 Water Resistant", "🚫 No White Cast"] },
-  { id: 14, name: "Momento After Sun", price: 280, brand: "momento", type: "skincare", img: "./assets/momento(2).jpg", description: "Cooling aloe vera gel that soothes skin after sun.", features: ["❄️ Cooling Effect", "🌵 Aloe Vera", "🧬 Skin Repair"] },
-  { id: 15, name: "Momento Tanning Oil", price: 400, brand: "momento", type: "skincare", img: "./assets/momento(3).jpg", description: "Deep, long-lasting golden tan with carrot oil.", features: ["🥕 Carrot Extract", "🏖️ Golden Glow", "💧 Skin Softener"] },
+  {
+    id: 13,
+    name: "Momento Sunscreen",
+    price: 320,
+    brand: "momento",
+    type: "skincare",
+    img: "./assets/momento(1).jpg",
+    description: "SPF 50+ lotion that protects against UVA/UVB rays.",
+    features: ["☀️ SPF 50+", "💦 Water Resistant", "🚫 No White Cast"],
+  },
+  {
+    id: 14,
+    name: "Momento After Sun",
+    price: 280,
+    brand: "momento",
+    type: "skincare",
+    img: "./assets/momento(2).jpg",
+    description: "Cooling aloe vera gel that soothes skin after sun.",
+    features: ["❄️ Cooling Effect", "🌵 Aloe Vera", "🧬 Skin Repair"],
+  },
+  {
+    id: 15,
+    name: "Momento Tanning Oil",
+    price: 400,
+    brand: "momento",
+    type: "skincare",
+    img: "./assets/momento(3).jpg",
+    description: "Deep, long-lasting golden tan with carrot oil.",
+    features: ["🥕 Carrot Extract", "🏖️ Golden Glow", "💧 Skin Softener"],
+  },
 
-  { id: 16, name: "Disaar Foundation", price: 290, brand: "disaar", type: "makeup", img: "./assets/disaar(1).png", description: "Whitening foundation that conceals pores instantly.", features: ["✨ Instant Brightening", "🛡️ UV Filter", "🧽 Full Coverage"] },
-  { id: 17, name: "Disaar Whitening Cream", price: 250, brand: "disaar", type: "skincare", img: "./assets/disaar(2).png", description: "Targets dark spots and promotes even skin tone.", features: ["🎯 Spot Correction", "🌟 Even Tone", "💆 Daily Use"] },
-  { id: 18, name: "Disaar Eye Mask", price: 180, brand: "disaar", type: "skincare", img: "./assets/disaar(3).png", description: "Collagen eye patches that reduce dark circles.", features: ["👁️ Anti-Dark Circles", "🧬 Collagen Riched", "❄️ Refreshing"] },
+  {
+    id: 16,
+    name: "Disaar Foundation",
+    price: 290,
+    brand: "disaar",
+    type: "makeup",
+    img: "./assets/disaar(1).png",
+    description: "Whitening foundation that conceals pores instantly.",
+    features: ["✨ Instant Brightening", "🛡️ UV Filter", "🧽 Full Coverage"],
+  },
+  {
+    id: 17,
+    name: "Disaar Whitening Cream",
+    price: 250,
+    brand: "disaar",
+    type: "skincare",
+    img: "./assets/disaar(2).png",
+    description: "Targets dark spots and promotes even skin tone.",
+    features: ["🎯 Spot Correction", "🌟 Even Tone", "💆 Daily Use"],
+  },
+  {
+    id: 18,
+    name: "Disaar Eye Mask",
+    price: 180,
+    brand: "disaar",
+    type: "skincare",
+    img: "./assets/disaar(3).png",
+    description: "Collagen eye patches that reduce dark circles.",
+    features: ["👁️ Anti-Dark Circles", "🧬 Collagen Riched", "❄️ Refreshing"],
+  },
 
-  { 
-    id: 201, name: "Tan Gel", price: 350, brand: "carroten", type: "skincare", 
-    img: "./assets/fifth-product.png", 
+  {
+    id: 201,
+    name: "Tan Gel",
+    price: 350,
+    brand: "carroten",
+    type: "skincare",
+    img: "./assets/fifth-product.png",
     description: "Deep tanning gel for a flawless summer glow.",
-    features: ["☀️ Rapid Tan", "💧 Skin Smoothing", "🥥 Tropical Scent"]
+    features: ["☀️ Rapid Tan", "💧 Skin Smoothing", "🥥 Tropical Scent"],
   },
-  { 
-    id: 202, name: "Sun Screen", price: 380, brand: "carroten", type: "skincare", 
-    img: "./assets/sec-product.png", 
+  {
+    id: 202,
+    name: "Sun Screen",
+    price: 380,
+    brand: "carroten",
+    type: "skincare",
+    img: "./assets/sec-product.png",
     description: "High protection sunscreen for face and body.",
-    features: ["🛡️ Maximum Shield", "🚫 Non-Sticky", "🌊 Ocean Friendly"]
+    features: ["🛡️ Maximum Shield", "🚫 Non-Sticky", "🌊 Ocean Friendly"],
   },
-  { 
-    id: 203, name: "Hair Care Spray", price: 420, brand: "carroten", type: "haircare", 
-    img: "./assets/sixth-product.png", 
+  {
+    id: 203,
+    name: "Hair Care Spray",
+    price: 420,
+    brand: "carroten",
+    type: "haircare",
+    img: "./assets/sixth-product.png",
     description: "Leave-in spray for heat protection and intensive care.",
-    features: ["🔥 Heat Defense", "✨ Anti-Breakage", "💎 Soft Finish"]
+    features: ["🔥 Heat Defense", "✨ Anti-Breakage", "💎 Soft Finish"],
   },
-  { 
-    id: 204, name: "Whitening Cream", price: 290, brand: "carroten", type: "skincare", 
-    img: "./assets/first-product.png", 
+  {
+    id: 204,
+    name: "Whitening Cream",
+    price: 290,
+    brand: "carroten",
+    type: "skincare",
+    img: "./assets/first-product.png",
     description: "Advanced whitening formula for clear and radiant skin.",
-    features: ["🌟 Radiant Skin", "🧬 Skin Cell Renewal", "☁️ Velvet Touch"]
-  }
+    features: ["🌟 Radiant Skin", "🧬 Skin Cell Renewal", "☁️ Velvet Touch"],
+  },
 ];
 let currentDisplayedProducts = [...allProducts];
 
 const filterData = {
   brands: [
-   { id: "dax", name: "Dax" },
+    { id: "dax", name: "Dax" },
     { id: "banana-boat", name: "Banana Boat" },
     { id: "karsell", name: "Karsell" },
     { id: "creme-of-nature", name: "Creme of Nature" },
     { id: "fashkool", name: "FashKool" },
-    { id: "carroten", name: "Carroten" }
+    { id: "carroten", name: "Carroten" },
   ],
   productTypes: [
     { id: "skincare", name: "Skincare" },
     { id: "makeup", name: "Makeup" },
     { id: "fragrance", name: "Fragrances" },
     { id: "beauty-tools", name: "Beauty Tools" },
-    { id: "haircare", name: "Hair Care" }, 
     { id: "haircare", name: "Hair Care" },
-    { id: "personalcare", name: "Personal Care" }
+    { id: "haircare", name: "Hair Care" },
+    { id: "personalcare", name: "Personal Care" },
   ],
 };
 
 async function fetchProductsFromServer() {
-    try {
-        startApp(); 
-    } catch (error) {
-        console.error("Error loading products:", error);
-    }
+  try {
+    startApp();
+  } catch (error) {
+    console.error("Error loading products:", error);
+  }
 }
 
 function startApp() {
-    renderSidebarFilters();
-    
-    const urlParams = new URLSearchParams(window.location.search);
-    const typeFromUrl = urlParams.get('type');
-    const brandFromUrl = urlParams.get('brand');
+  renderSidebarFilters();
 
-    if (typeFromUrl || brandFromUrl) {
-        setTimeout(() => {
-            let hasAppliedFilter = false;
+  const urlParams = new URLSearchParams(window.location.search);
+  const typeFromUrl = urlParams.get("type");
+  const brandFromUrl = urlParams.get("brand");
 
-            if (typeFromUrl) {
-                const typeCheckbox = document.querySelector(`input[name="type"][value="${typeFromUrl}"]`);
-                if (typeCheckbox) {
-                    typeCheckbox.checked = true;
-                    hasAppliedFilter = true;
-                }
-            }
+  if (typeFromUrl || brandFromUrl) {
+    setTimeout(() => {
+      let hasAppliedFilter = false;
 
-            if (brandFromUrl) {
-                const brandCheckbox = document.querySelector(`input[name="brand"][value="${brandFromUrl}"]`);
-                if (brandCheckbox) {
-                    brandCheckbox.checked = true;
-                    hasAppliedFilter = true;
-                }
-            }
+      if (typeFromUrl) {
+        const typeCheckbox = document.querySelector(
+          `input[name="type"][value="${typeFromUrl}"]`,
+        );
+        if (typeCheckbox) {
+          typeCheckbox.checked = true;
+          hasAppliedFilter = true;
+        }
+      }
 
-            if (hasAppliedFilter) {
-                applyAllFilters(); 
-            } else {
-                renderProducts(allProducts);
-            }
-        }, 50);
-    } else {
+      if (brandFromUrl) {
+        const brandCheckbox = document.querySelector(
+          `input[name="brand"][value="${brandFromUrl}"]`,
+        );
+        if (brandCheckbox) {
+          brandCheckbox.checked = true;
+          hasAppliedFilter = true;
+        }
+      }
+
+      if (hasAppliedFilter) {
+        applyAllFilters();
+      } else {
         renderProducts(allProducts);
-    }
+      }
+    }, 50);
+  } else {
+    renderProducts(allProducts);
+  }
 
-    initEventListeners();
+  initEventListeners();
 }
 
 function renderProducts(list) {
   const container = document.getElementById("productsContainer");
   if (!container) return;
 
-  container.innerHTML = list.length > 0 ? list.map(product => `
+  container.innerHTML =
+    list.length > 0
+      ? list
+          .map(
+            (product) => `
       <div role="listitem" class="product-item w-dyn-item">
           <a href="./product.html?id=${product.id}" class="product-block w-inline-block">
               <div class="product-img">
@@ -36244,7 +36475,10 @@ function renderProducts(list) {
               <h5 class="product-name">${product.name}</h5>
           </a>
       </div>
-  `).join("") : "<h3>No products found matching these filters.</h3>";
+  `,
+          )
+          .join("")
+      : "<h3>No products found matching these filters.</h3>";
 }
 
 function renderSidebarFilters() {
@@ -36258,25 +36492,36 @@ function renderSidebarFilters() {
             <span class="icon">⌄</span>
         </div>
         <div class="filter-body">
-            ${data.map(item => `
+            ${data
+              .map(
+                (item) => `
                 <label><input type="checkbox" name="${name}" value="${item.id}" /> ${item.name}</label>
-            `).join("")}
+            `,
+              )
+              .join("")}
         </div>
     </div>`;
 
-  container.innerHTML = createGroup("Brand", filterData.brands, "brand") +
-                        createGroup("Product Type", filterData.productTypes, "type");
+  container.innerHTML =
+    createGroup("Brand", filterData.brands, "brand") +
+    createGroup("Product Type", filterData.productTypes, "type");
   initAccordion();
 }
 
 function applyAllFilters() {
-  const selectedBrands = Array.from(document.querySelectorAll('input[name="brand"]:checked')).map(el => el.value);
-  const selectedTypes = Array.from(document.querySelectorAll('input[name="type"]:checked')).map(el => el.value);
+  const selectedBrands = Array.from(
+    document.querySelectorAll('input[name="brand"]:checked'),
+  ).map((el) => el.value);
+  const selectedTypes = Array.from(
+    document.querySelectorAll('input[name="type"]:checked'),
+  ).map((el) => el.value);
   const maxPrice = document.getElementById("priceRange")?.value || 2000;
 
-  currentDisplayedProducts = allProducts.filter(product => {
-    const matchesBrand = selectedBrands.length === 0 || selectedBrands.includes(product.brand);
-    const matchesType = selectedTypes.length === 0 || selectedTypes.includes(product.type);
+  currentDisplayedProducts = allProducts.filter((product) => {
+    const matchesBrand =
+      selectedBrands.length === 0 || selectedBrands.includes(product.brand);
+    const matchesType =
+      selectedTypes.length === 0 || selectedTypes.includes(product.type);
     const matchesPrice = product.price <= maxPrice;
     return matchesBrand && matchesType && matchesPrice;
   });
@@ -36285,63 +36530,93 @@ function applyAllFilters() {
 }
 
 function initEventListeners() {
-    const sidebar = document.getElementById("sidebarFilters");
-    sidebar?.addEventListener("change", applyAllFilters);
+  const sidebar = document.getElementById("sidebarFilters");
+  sidebar?.addEventListener("change", applyAllFilters);
 
-    const priceSlider = document.getElementById("priceRange");
-    priceSlider?.addEventListener("input", (e) => {
-        const priceValue = document.getElementById("priceValue");
-        if (priceValue) priceValue.textContent = `LE ${Number(e.target.value).toLocaleString()}`;
-        applyAllFilters(); 
-    });
+  const priceSlider = document.getElementById("priceRange");
+  priceSlider?.addEventListener("input", (e) => {
+    const priceValue = document.getElementById("priceValue");
+    if (priceValue)
+      priceValue.textContent = `LE ${Number(e.target.value).toLocaleString()}`;
+    applyAllFilters();
+  });
 
-    const sortSelect = document.querySelector(".sort-dropdown");
-    sortSelect?.addEventListener("change", function() {
-        const val = this.value;
-        
-        let sortedData = [...currentDisplayedProducts];
+  const sortSelect = document.querySelector(".sort-dropdown");
+  sortSelect?.addEventListener("change", function () {
+    const val = this.value;
 
-        if (val === "az") {
-            sortedData.sort((a, b) => a.name.localeCompare(b.name));
-        } else if (val === "za") {
-            sortedData.sort((a, b) => b.name.localeCompare(a.name));
-        } else if (val === "new") {
-            sortedData.sort((a, b) => new Date(b.date || "2000-01-01") - new Date(a.date || "2000-01-01"));
-        } else if (val === "old") {
-            sortedData.sort((a, b) => new Date(a.date || "2000-01-01") - new Date(b.date || "2000-01-01"));
-        } else if (val === "best") {
-            sortedData.sort((a, b) => b.price - a.price);
-        }
+    let sortedData = [...currentDisplayedProducts];
 
-        renderProducts(sortedData);
-    });
+    if (val === "az") {
+      sortedData.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (val === "za") {
+      sortedData.sort((a, b) => b.name.localeCompare(a.name));
+    } else if (val === "new") {
+      sortedData.sort(
+        (a, b) =>
+          new Date(b.date || "2000-01-01") - new Date(a.date || "2000-01-01"),
+      );
+    } else if (val === "old") {
+      sortedData.sort(
+        (a, b) =>
+          new Date(a.date || "2000-01-01") - new Date(b.date || "2000-01-01"),
+      );
+    } else if (val === "best") {
+      sortedData.sort((a, b) => b.price - a.price);
+    }
+
+    renderProducts(sortedData);
+  });
 }
 function initAccordion() {
-  document.querySelectorAll(".filter-header").forEach(header => {
+  document.querySelectorAll(".filter-header").forEach((header) => {
     header.onclick = () => header.parentElement.classList.toggle("active");
   });
 }
 
 document.addEventListener("DOMContentLoaded", fetchProductsFromServer);
 
-// search input 
+// search input
 
 document.addEventListener("DOMContentLoaded", () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const searchQuery = urlParams.get('q'); 
+  const urlParams = new URLSearchParams(window.location.search);
+  const searchQuery = urlParams.get("q");
 
-    if (searchQuery) {
-        const filtered = allProducts.filter(product => 
-            product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            product.brand.toLowerCase().includes(searchQuery.toLowerCase())
+  if (searchQuery) {
+    const filtered = allProducts.filter(
+      (product) =>
+        product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        product.brand.toLowerCase().includes(searchQuery.toLowerCase()),
+    );
+
+    renderProducts(filtered);
+
+    const shopSearchInput = document.querySelector(".search-input");
+    if (shopSearchInput) shopSearchInput.value = searchQuery;
+  } else {
+    renderProducts(allProducts);
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const selectedBrand = urlParams.get("brand");
+
+  if (selectedBrand) {
+    setTimeout(() => {
+      const brandCheckbox = document.querySelector(
+        `input[name="brand"][value="${selectedBrand.toLowerCase()}"]`,
+      );
+
+      if (brandCheckbox) {
+        brandCheckbox.checked = true;
+        applyAllFilters();
+      } else {
+        const filtered = allProducts.filter(
+          (p) => p.brand.toLowerCase() === selectedBrand.toLowerCase(),
         );
-        
         renderProducts(filtered);
-        
-        const shopSearchInput = document.querySelector(".search-input");
-        if (shopSearchInput) shopSearchInput.value = searchQuery;
-
-    } else {
-        renderProducts(allProducts);
-    }
+      }
+    }, 100);
+  }
 });

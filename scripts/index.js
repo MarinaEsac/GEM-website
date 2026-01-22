@@ -36349,6 +36349,30 @@ function mapBrandsByLetter(brandsArray) {
   return { brands: result };
 }
 
+// function renderBrands(data, containerId) {
+//   const container = document.getElementById(containerId);
+//   container.innerHTML = "";
+
+//   Object.keys(data).forEach(letter => {
+//     const column = document.createElement("div");
+//     column.className = "mega-column";
+
+//     const title = document.createElement("h4");
+//     title.textContent = letter;
+
+//     column.appendChild(title);
+
+//     data[letter].forEach(brand => {
+//       const link = document.createElement("a");
+//       link.href = `/brands/${brand.replace(/\s+/g, "-").toLowerCase()}`;
+//       link.textContent = brand;
+
+//       column.appendChild(link);
+//     });
+
+//     container.appendChild(column);
+//   });
+// }
 function renderBrands(data, containerId) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
@@ -36359,14 +36383,14 @@ function renderBrands(data, containerId) {
 
     const title = document.createElement("h4");
     title.textContent = letter;
-
     column.appendChild(title);
 
     data[letter].forEach(brand => {
       const link = document.createElement("a");
-      link.href = `/brands/${brand.replace(/\s+/g, "-").toLowerCase()}`;
+      
+      link.href = `shop.html?brand=${encodeURIComponent(brand)}`;
+      
       link.textContent = brand;
-
       column.appendChild(link);
     });
 
