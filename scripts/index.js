@@ -36789,7 +36789,7 @@ async function updateTopProducts() {
     leftImg.style.transition = "opacity 0.4s ease-in-out";
     leftImg.style.opacity = 0;
     setTimeout(() => {
-      leftImg.src = `${API_BASE_URL}/images/${products[currentProductIndex].product_id}.jpg`;
+      leftImg.src = `${API_BASE_URL}/images/${products[currentProductIndex].image_path}`;
       leftImg.alt = products[currentProductIndex].product_name;
       leftImg.style.opacity = 1;
     }, 400);
@@ -36799,7 +36799,7 @@ async function updateTopProducts() {
     <div role="listitem" class="tp-item w-dyn-item">
       <a href="./product.html?id=${prod.product_id}" class="tp-block w-inline-block" style="opacity: 1"> 
         <div class="tp-img">
-          <img loading="lazy" src="${API_BASE_URL}/images/${prod.product_id}.jpg" alt="${prod.product_name}" class="tp-image" />
+          <img loading="lazy" src="${API_BASE_URL}/images/${prod.image_path}" alt="${prod.product_name}" class="tp-image" />
         </div>
         <hr />
         <div class="tp-bottom">
@@ -36866,7 +36866,7 @@ async function renderLatest(brand = "") {
     <div role="listitem" class="product-item w-dyn-item">
       <a href="./product.html?id=${prod.product_id}" class="product-block w-inline-block" style="opacity: 1">
         <div class="product-img">
-          <img loading="lazy" src="${API_BASE_URL}/images/${prod.product_id}.jpg" alt="${prod.product_name}" class="product-image" />
+          <img loading="lazy" src="${API_BASE_URL}/images/${prod.image_path}" alt="${prod.product_name}" class="product-image" />
         </div>
         <hr class="product-divider" />
         <div>
