@@ -36672,106 +36672,147 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Top products
-const brandData = [
-  {
-    id: 101,
-    name: "Zero Frizz",
-    image: "./assets/zero frizz.jpg",
-    products: [
-      { id: 1, img: "./assets/zero-frizz-product.jpg", name: "Shampoo", slug: "zero-frizz-shampoo" },
-      { id: 2, img: "./assets/zero-frizz-2.webp", name: "Serum", slug: "zero-frizz-serum" },
-      { id: 3, img: "./assets/zero-frizz-product.jpg", name: "Shampoo", slug: "zero-frizz-shampoo-2" },
-    ],
-  },
-  {
-    id: 102,
-    name: "Hair Burst",
-    image: "./assets/hair burst.jpg",
-    products: [
-      { id: 4, img: "./assets/hair-burst(1).jpg", name: "Shampoo", slug: "hair-burst-shampoo-1" },
-      { id: 5, img: "./assets/hair-burst(2).jpg", name: "Shampoo", slug: "hair-burst-shampoo-2" },
-      { id: 6, img: "./assets/hair-burst(3).jpg", name: "Conditioner", slug: "hair-burst-conditioner" },
-    ],
-  },
-  {
-    id: 103,
-    name: "Karseell",
-    image: "./assets/karseell-bg.jpg",
-    products: [
-      { id: 7, img: "./assets/karseel(1).jpg", name: "Hair mask", slug: "karseell-mask" },
-      { id: 8, img: "./assets/karseell(2).jpg", name: "Shampoo", slug: "karseell-shampoo" },
-      { id: 9, img: "./assets/karseell(3).jpg", name: "Hair oil", slug: "karseell-oil" },
-    ],
-  },
-  {
-    id: 104,
-    name: "Revox",
-    image: "./assets/revox-bg.jpg",
-    products: [
-      { id: 10, img: "./assets/revox(1).jpg", name: "Argan Oil", slug: "revox-argan" },
-      { id: 11, img: "./assets/revox(2).jpg", name: "Moisturising", slug: "revox-moist" },
-      { id: 12, img: "./assets/revox(3).jpg", name: "Face Cleansing Gel", slug: "revox-cleansing" },
-    ],
-  },
-  {
-    id: 105,
-    name: "Momento",
-    image: "./assets/momento-bg.jpg",
-    products: [
-      { id: 13, img: "./assets/momento(1).jpg", name: "SunScreen Lotion", slug: "momento-sunscreen" },
-      { id: 14, img: "./assets/momento(2).jpg", name: "Gel After Sun", slug: "momento-after-sun" },
-      { id: 15, img: "./assets/momento(3).jpg", name: "Tanning Oil", slug: "momento-tanning" },
-    ],
-  },
-  {
-    id: 106,
-    name: "Dissar",
-    image: "./assets/disaar-bg.jpg",
-    products: [
-      { id: 16, img: "./assets/disaar(1).png", name: "Whitening Foundation", slug: "disaar-foundation" },
-      { id: 17, img: "./assets/disaar(2).png", name: "Whitening Cream", slug: "disaar-cream" },
-      { id: 18, img: "./assets/disaar(3).png", name: "Whitening Eye mask", slug: "disaar-eye-mask" },
-    ],
-  },
-];
-
+// const brandData = [
+//   {
+//     id: 101,
+//     name: "Zero Frizz",
+//     image: "./assets/zero frizz.jpg",
+//     products: [
+//       { id: 1, img: "./assets/zero-frizz-product.jpg", name: "Shampoo", slug: "zero-frizz-shampoo" },
+//       { id: 2, img: "./assets/zero-frizz-2.webp", name: "Serum", slug: "zero-frizz-serum" },
+//       { id: 3, img: "./assets/zero-frizz-product.jpg", name: "Shampoo", slug: "zero-frizz-shampoo-2" },
+//     ],
+//   },
+//   {
+//     id: 102,
+//     name: "Hair Burst",
+//     image: "./assets/hair burst.jpg",
+//     products: [
+//       { id: 4, img: "./assets/hair-burst(1).jpg", name: "Shampoo", slug: "hair-burst-shampoo-1" },
+//       { id: 5, img: "./assets/hair-burst(2).jpg", name: "Shampoo", slug: "hair-burst-shampoo-2" },
+//       { id: 6, img: "./assets/hair-burst(3).jpg", name: "Conditioner", slug: "hair-burst-conditioner" },
+//     ],
+//   },
+//   {
+//     id: 103,
+//     name: "Karseell",
+//     image: "./assets/karseell-bg.jpg",
+//     products: [
+//       { id: 7, img: "./assets/karseel(1).jpg", name: "Hair mask", slug: "karseell-mask" },
+//       { id: 8, img: "./assets/karseell(2).jpg", name: "Shampoo", slug: "karseell-shampoo" },
+//       { id: 9, img: "./assets/karseell(3).jpg", name: "Hair oil", slug: "karseell-oil" },
+//     ],
+//   },
+//   {
+//     id: 104,
+//     name: "Revox",
+//     image: "./assets/revox-bg.jpg",
+//     products: [
+//       { id: 10, img: "./assets/revox(1).jpg", name: "Argan Oil", slug: "revox-argan" },
+//       { id: 11, img: "./assets/revox(2).jpg", name: "Moisturising", slug: "revox-moist" },
+//       { id: 12, img: "./assets/revox(3).jpg", name: "Face Cleansing Gel", slug: "revox-cleansing" },
+//     ],
+//   },
+//   {
+//     id: 105,
+//     name: "Momento",
+//     image: "./assets/momento-bg.jpg",
+//     products: [
+//       { id: 13, img: "./assets/momento(1).jpg", name: "SunScreen Lotion", slug: "momento-sunscreen" },
+//       { id: 14, img: "./assets/momento(2).jpg", name: "Gel After Sun", slug: "momento-after-sun" },
+//       { id: 15, img: "./assets/momento(3).jpg", name: "Tanning Oil", slug: "momento-tanning" },
+//     ],
+//   },
+//   {
+//     id: 106,
+//     name: "Dissar",
+//     image: "./assets/disaar-bg.jpg",
+//     products: [
+//       { id: 16, img: "./assets/disaar(1).png", name: "Whitening Foundation", slug: "disaar-foundation" },
+//       { id: 17, img: "./assets/disaar(2).png", name: "Whitening Cream", slug: "disaar-cream" },
+//       { id: 18, img: "./assets/disaar(3).png", name: "Whitening Eye mask", slug: "disaar-eye-mask" },
+//     ],
+//   },
+// ];
+const topProductBrands = [
+  "Zero frizz",
+  "Hair burst",
+  "Karseell",
+  "Revox just",
+  "Momento",
+  "Disaar"
+]
 let currentBrandIndex = 0;
+let currentProductIndex = 0;
 
-function updateTopProducts() {
+const API_BASE_URL = "http://localhost:5000";
+const API_KEY = "896e85feafaaf9f97856998b274e42188b9ae1661ce6c8d8e99538b4a6f6c32a";
+
+// top products
+async function getTopSoldProducts({ brand = "", category = "" } = {}) {
+  const params = new URLSearchParams();
+
+  if (brand) params.append("brand", brand);
+  if (category) params.append("category", category);
+
+
+  const response = await fetch(
+    `${API_BASE_URL}/products/reports/top-sold/public?${params.toString()}`,
+    {
+      method: "GET",
+      headers: {
+        "X-API-Key": API_KEY
+      }
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error(`API Error: ${response.status}`);
+  }
+
+  return response.json();
+}
+
+async function updateTopProducts() {
   const listContainer = document.querySelector(".tp-list");
   const leftImg = document.querySelector(".tp-left img");
+  
+  const brand = topProductBrands[currentBrandIndex]
+  const res = await getTopSoldProducts({brand}); 
+  const products = res.data; // list of products
+  if (!products.length || !products) return;
 
-  if (!brandData.length || !listContainer) return;
+  if(listContainer) listContainer.innerHTML = "";
 
-  const brand = brandData[currentBrandIndex];
 
   if (leftImg) {
     leftImg.style.transition = "opacity 0.4s ease-in-out";
     leftImg.style.opacity = 0;
     setTimeout(() => {
-      leftImg.src = brand.image;
-      leftImg.alt = brand.name;
+      leftImg.src = `${API_BASE_URL}/images/${products[currentProductIndex].product_id}.jpg`;
+      leftImg.alt = products[currentProductIndex].product_name;
       leftImg.style.opacity = 1;
     }, 400);
   }
 
- const productsHTML = brand.products.map(prod => `
+ const productsHTML = products.map(prod => `
     <div role="listitem" class="tp-item w-dyn-item">
-      <a href="./product.html?id=${prod.id}" class="tp-block w-inline-block" style="opacity: 1"> 
+      <a href="./product.html?id=${prod.product_id}" class="tp-block w-inline-block" style="opacity: 1"> 
         <div class="tp-img">
-          <img loading="lazy" src="${prod.img}" alt="${prod.name}" class="tp-image" />
+          <img loading="lazy" src="${API_BASE_URL}/images/${prod.product_id}.jpg" alt="${prod.product_name}" class="tp-image" />
         </div>
         <hr />
         <div class="tp-bottom">
-          <h5 class="tp-heading">${prod.name}</h5>
+          <h5 class="tp-heading">${prod.product_name}</h5>
         </div>
       </a>
     </div>
 `).join("");
 
-  listContainer.innerHTML = productsHTML;
+  if(listContainer) listContainer.innerHTML = productsHTML;
 
-  currentBrandIndex = (currentBrandIndex + 1) % brandData.length;
+  currentBrandIndex = (currentBrandIndex + 1) % topProductBrands.length;
+  currentProductIndex = (currentProductIndex + 1) % products.length;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -36780,48 +36821,76 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+async function getLatestProducts({ brand = ""} = {}) {
+  const params = new URLSearchParams();
+
+  if (brand) params.append("brand", brand);
+  const response = await fetch(
+    `${API_BASE_URL}/products/latest?${params.toString()}`,
+    {
+      method: "GET",
+      headers: {
+        "X-API-Key": API_KEY
+      }
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error(`API Error: ${response.status}`);
+  }
+
+  return response.json();
+}
+
 // latest products 
 
-const latestProductsData = [
-  { id: 201, name: "Tan Gel", brand: "Momento", img: "./assets/fifth-product.png" },
-  { id: 202, name: "Sun Screen", brand: "Momento", img: "./assets/sec-product.png" },
-  { id: 203, name: "Hair Care Spray", brand: "Karseell", img: "./assets/sixth-product.png" },
-  { id: 204, name: "Whitening Cream", brand: "Disaar", img: "./assets/first-product.png" }
-];
-
-function renderLatest(products) {
+// const latestProductsData = [
+//   { id: 201, name: "Tan Gel", brand: "Momento", img: "./assets/fifth-product.png" },
+//   { id: 202, name: "Sun Screen", brand: "Momento", img: "./assets/sec-product.png" },
+//   { id: 203, name: "Hair Care Spray", brand: "Karseell", img: "./assets/sixth-product.png" },
+//   { id: 204, name: "Whitening Cream", brand: "Disaar", img: "./assets/first-product.png" }
+// ];
+let latestProductsData = []
+async function renderLatest(brand = "") {
   const listContainer = document.getElementById("latest-products-list");
   if (!listContainer) return;
+  listContainer.innerHTML = "";
 
+  const res = await getLatestProducts({ brand })
+  const products = res.data || []
+  latestProductsData = products
+  if(products.length == 0){
+    return;
+  }
   listContainer.innerHTML = products.map(prod => `
     <div role="listitem" class="product-item w-dyn-item">
-      <a href="./product.html?id=${prod.id}" class="product-block w-inline-block" style="opacity: 1">
+      <a href="./product.html?id=${prod.product_id}" class="product-block w-inline-block" style="opacity: 1">
         <div class="product-img">
-          <img loading="lazy" src="${prod.img}" alt="${prod.name}" class="product-image" />
+          <img loading="lazy" src="${API_BASE_URL}/images/${prod.product_id}.jpg" alt="${prod.product_name}" class="product-image" />
         </div>
         <hr class="product-divider" />
         <div>
-          <h5 class="product-name">${prod.name}</h5>
+          <h5 class="product-name">${prod.product_name}</h5>
         </div>
       </a>
     </div>
   `).join("");
 }
+
 document.addEventListener("DOMContentLoaded", () => {
-  renderLatest(latestProductsData);
+  renderLatest();
 
   const filterSelect = document.getElementById("brandFilter");
   
   filterSelect?.addEventListener("change", (e) => {
     const selectedBrand = e.target.value;
-    
     if (selectedBrand === "all") {
-      renderLatest(latestProductsData);
+      renderLatest("all");
     } else {
-      const filtered = latestProductsData.filter(p => 
-        p.brand.toLowerCase() === selectedBrand.toLowerCase()
-      );
-      renderLatest(filtered);
+      // const filtered = latestProductsData.filter(p => 
+      //   p.brand.toLowerCase() === selectedBrand.toLowerCase()
+      // );
+      renderLatest(selectedBrand);
     }
   });
 });
@@ -36843,12 +36912,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const selectedBrand = e.target.value;
         
         if (selectedBrand === "all") {
-            renderLatest(latestProductsData);
+            renderLatest();
         } else {
-            const filtered = latestProductsData.filter(p => 
-                p.brand.toLowerCase() === selectedBrand.toLowerCase()
-            );
-            renderLatest(filtered);
+            // const filtered = latestProductsData.filter(p => 
+            //     p.brand.toLowerCase() === selectedBrand.toLowerCase()
+            // );
+            renderLatest(selectedBrand);
         }
     });
 });

@@ -36405,12 +36405,23 @@ const filterData = {
   ],
 };
 
+// const API_BASE_URL = "http://localhost:5000";
+// const API_KEY = "896e85feafaaf9f97856998b274e42188b9ae1661ce6c8d8e99538b4a6f6c32a";
+
 async function fetchProductsFromServer() {
-  try {
-    startApp();
-  } catch (error) {
-    console.error("Error loading products:", error);
-  }
+    try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const typeFromUrl = urlParams.get('type');
+        const brandFromUrl = urlParams.get('brand');
+        const response = await fetch(`${API_BASE_URL}/shop?${urlParams.toString()}`, { headers: { "X-API-Key": API_KEY }});
+        const result = await response.json();
+
+        allProducts = result.data;                 
+        currentDisplayedProducts = [...allProducts];
+        startApp(); 
+    } catch (error) {
+        console.error("Error loading products:", error);
+    }
 }
 
 function startApp() {
@@ -36467,12 +36478,12 @@ function renderProducts(list) {
           .map(
             (product) => `
       <div role="listitem" class="product-item w-dyn-item">
-          <a href="./product.html?id=${product.id}" class="product-block w-inline-block">
+          <a href="./product.html?id=${product.product_id}" class="product-block w-inline-block">
               <div class="product-img">
-                  <img loading="lazy" src="${product.img}" alt="${product.name}" class="product-image" />
+                  <img loading="lazy" src="${API_BASE_URL}/images/${product.product_id}.jpg" alt="${product.product_name}" class="product-image" />
               </div>
               <hr class="product-divider" />
-              <h5 class="product-name">${product.name}</h5>
+              <h5 class="product-name">${product.product_name}</h5>
           </a>
       </div>
   `,
@@ -36508,25 +36519,60 @@ function renderSidebarFilters() {
   initAccordion();
 }
 
-function applyAllFilters() {
-  const selectedBrands = Array.from(
-    document.querySelectorAll('input[name="brand"]:checked'),
-  ).map((el) => el.value);
-  const selectedTypes = Array.from(
-    document.querySelectorAll('input[name="type"]:checked'),
-  ).map((el) => el.value);
+async function applyAllFilters() {
+  const selectedBrands = Array.from(document.querySelectorAll('input[name="brand"]:checked')).map(el => el.value);
+  const selectedTypes = Array.from(document.querySelectorAll('input[name="type"]:checked')).map(el => el.value);
   const maxPrice = document.getElementById("priceRange")?.value || 2000;
 
-  currentDisplayedProducts = allProducts.filter((product) => {
-    const matchesBrand =
-      selectedBrands.length === 0 || selectedBrands.includes(product.brand);
-    const matchesType =
-      selectedTypes.length === 0 || selectedTypes.includes(product.type);
-    const matchesPrice = product.price <= maxPrice;
-    return matchesBrand && matchesType && matchesPrice;
-  });
+  const sortVal = document.querySelector(".sort-dropdown")?.value;
 
-  renderProducts(currentDisplayedProducts);
+    const params = new URLSearchParams();
+
+    if (selectedBrands.length === 1) {
+        params.append("brand", selectedBrands[0]);
+    }
+
+    if (selectedTypes.length === 1) {
+        params.append("type", selectedTypes[0]);
+    }
+
+    if (maxPrice) {
+        params.append("price", maxPrice);
+    }
+
+    const sortMap = {
+        az: "alpha_asc",
+        za: "alpha_desc",
+        new: "date_new_old",
+        old: "date_old_new",
+        best: "price_high_low"
+    };
+
+    if (sortVal && sortMap[sortVal]) {
+        params.append("sort", sortMap[sortVal]);
+    }
+
+    try {
+        const response = await fetch(`${API_BASE_URL}/shop?${params.toString()}`,{
+      headers: { "X-API-Key": API_KEY }
+    }
+  );
+        const result = await response.json();
+
+        currentDisplayedProducts = result.data;
+        renderProducts(currentDisplayedProducts);
+    } catch (err) {
+        console.error("Filter error:", err);
+    }
+
+  // currentDisplayedProducts = allProducts.filter(product => {
+  //   const matchesBrand = selectedBrands.length === 0 || selectedBrands.includes(product.brand);
+  //   const matchesType = selectedTypes.length === 0 || selectedTypes.includes(product.type);
+  //   const matchesPrice = product.price <= maxPrice;
+  //   return matchesBrand && matchesType && matchesPrice;
+  // });
+
+  //renderProducts(currentDisplayedProducts);
 }
 
 function initEventListeners() {
@@ -36541,31 +36587,9 @@ function initEventListeners() {
     applyAllFilters();
   });
 
-  const sortSelect = document.querySelector(".sort-dropdown");
-  sortSelect?.addEventListener("change", function () {
-    const val = this.value;
-
-    let sortedData = [...currentDisplayedProducts];
-
-    if (val === "az") {
-      sortedData.sort((a, b) => a.name.localeCompare(b.name));
-    } else if (val === "za") {
-      sortedData.sort((a, b) => b.name.localeCompare(a.name));
-    } else if (val === "new") {
-      sortedData.sort(
-        (a, b) =>
-          new Date(b.date || "2000-01-01") - new Date(a.date || "2000-01-01"),
-      );
-    } else if (val === "old") {
-      sortedData.sort(
-        (a, b) =>
-          new Date(a.date || "2000-01-01") - new Date(b.date || "2000-01-01"),
-      );
-    } else if (val === "best") {
-      sortedData.sort((a, b) => b.price - a.price);
-    }
-
-    renderProducts(sortedData);
+    const sortSelect = document.querySelector(".sort-dropdown");
+    sortSelect?.addEventListener("change", function() {
+    applyAllFilters(); 
   });
 }
 function initAccordion() {
