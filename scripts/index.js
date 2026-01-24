@@ -36745,7 +36745,7 @@ const topProductBrands = [
 let currentBrandIndex = 0;
 let currentProductIndex = 0;
 
-const API_BASE_URL = "http://localhost:5000";
+const API_BASE_URL = "https://order-app.gemegypt.net/api";
 const API_KEY = "896e85feafaaf9f97856998b274e42188b9ae1661ce6c8d8e99538b4a6f6c32a";
 
 // top products

@@ -36405,23 +36405,23 @@ const filterData = {
   ],
 };
 
-// const API_BASE_URL = "http://localhost:5000";
-// const API_KEY = "896e85feafaaf9f97856998b274e42188b9ae1661ce6c8d8e99538b4a6f6c32a";
-
 async function fetchProductsFromServer() {
-    try {
-        const urlParams = new URLSearchParams(window.location.search);
-        const typeFromUrl = urlParams.get('type');
-        const brandFromUrl = urlParams.get('brand');
-        const response = await fetch(`${API_BASE_URL}/shop?${urlParams.toString()}`, { headers: { "X-API-Key": API_KEY }});
-        const result = await response.json();
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const typeFromUrl = urlParams.get("type");
+    const brandFromUrl = urlParams.get("brand");
+    const response = await fetch(
+      `${API_BASE_URL}/shop?${urlParams.toString()}`,
+      { headers: { "X-API-Key": API_KEY } },
+    );
+    const result = await response.json();
 
-        allProducts = result.data;                 
-        currentDisplayedProducts = [...allProducts];
-        startApp(); 
-    } catch (error) {
-        console.error("Error loading products:", error);
-    }
+    allProducts = result.data;
+    currentDisplayedProducts = [...allProducts];
+    startApp();
+  } catch (error) {
+    console.error("Error loading products:", error);
+  }
 }
 
 function startApp() {
@@ -36520,50 +36520,53 @@ function renderSidebarFilters() {
 }
 
 async function applyAllFilters() {
-  const selectedBrands = Array.from(document.querySelectorAll('input[name="brand"]:checked')).map(el => el.value);
-  const selectedTypes = Array.from(document.querySelectorAll('input[name="type"]:checked')).map(el => el.value);
+  const selectedBrands = Array.from(
+    document.querySelectorAll('input[name="brand"]:checked'),
+  ).map((el) => el.value);
+  const selectedTypes = Array.from(
+    document.querySelectorAll('input[name="type"]:checked'),
+  ).map((el) => el.value);
   const maxPrice = document.getElementById("priceRange")?.value || 2000;
 
   const sortVal = document.querySelector(".sort-dropdown")?.value;
 
-    const params = new URLSearchParams();
+  const params = new URLSearchParams();
 
-    if (selectedBrands.length === 1) {
-        params.append("brand", selectedBrands[0]);
-    }
+  if (selectedBrands.length === 1) {
+    params.append("brand", selectedBrands[0]);
+  }
 
-    if (selectedTypes.length === 1) {
-        params.append("type", selectedTypes[0]);
-    }
+  if (selectedTypes.length === 1) {
+    params.append("type", selectedTypes[0]);
+  }
 
-    if (maxPrice) {
-        params.append("price", maxPrice);
-    }
+  if (maxPrice) {
+    params.append("price", maxPrice);
+  }
 
-    const sortMap = {
-        az: "alpha_asc",
-        za: "alpha_desc",
-        new: "date_new_old",
-        old: "date_old_new",
-        best: "price_high_low"
-    };
+  const sortMap = {
+    az: "alpha_asc",
+    za: "alpha_desc",
+    new: "date_new_old",
+    old: "date_old_new",
+    best: "price_high_low",
+  };
 
-    if (sortVal && sortMap[sortVal]) {
-        params.append("sort", sortMap[sortVal]);
-    }
+  if (sortVal && sortMap[sortVal]) {
+    params.append("sort", sortMap[sortVal]);
+  }
 
-    try {
-        const response = await fetch(`${API_BASE_URL}/shop?${params.toString()}`,{
-      headers: { "X-API-Key": API_KEY }
-    }
-  );
-        const result = await response.json();
+  try {
+    const response = await fetch(`${API_BASE_URL}/shop?${params.toString()}`, {
+      headers: { "X-API-Key": API_KEY },
+    });
+    const result = await response.json();
 
-        currentDisplayedProducts = result.data;
-        renderProducts(currentDisplayedProducts);
-    } catch (err) {
-        console.error("Filter error:", err);
-    }
+    currentDisplayedProducts = result.data;
+    renderProducts(currentDisplayedProducts);
+  } catch (err) {
+    console.error("Filter error:", err);
+  }
 
   // currentDisplayedProducts = allProducts.filter(product => {
   //   const matchesBrand = selectedBrands.length === 0 || selectedBrands.includes(product.brand);
@@ -36587,9 +36590,9 @@ function initEventListeners() {
     applyAllFilters();
   });
 
-    const sortSelect = document.querySelector(".sort-dropdown");
-    sortSelect?.addEventListener("change", function() {
-    applyAllFilters(); 
+  const sortSelect = document.querySelector(".sort-dropdown");
+  sortSelect?.addEventListener("change", function () {
+    applyAllFilters();
   });
 }
 function initAccordion() {
