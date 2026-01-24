@@ -36799,7 +36799,7 @@ async function updateTopProducts() {
     <div role="listitem" class="tp-item w-dyn-item">
       <a href="./product.html?id=${prod.product_id}" class="tp-block w-inline-block" style="opacity: 1"> 
         <div class="tp-img">
-          <img loading="lazy" src="${API_BASE_URL}/images/${prod.image_path}" alt="${prod.product_name}" class="tp-image" />
+          <img loading="lazy" src="${API_BASE_URL}/images/${prod.bar_code}.jpg" alt="${prod.product_name}" class="tp-image" />
         </div>
         <hr />
         <div class="tp-bottom">
@@ -36866,7 +36866,7 @@ async function renderLatest(brand = "") {
     <div role="listitem" class="product-item w-dyn-item">
       <a href="./product.html?id=${prod.product_id}" class="product-block w-inline-block" style="opacity: 1">
         <div class="product-img">
-          <img loading="lazy" src="${API_BASE_URL}/images/${prod.image_path}" alt="${prod.product_name}" class="product-image" />
+          <img loading="lazy" src="${API_BASE_URL}/images/${prod.bar_code}.jpg" alt="${prod.product_name}" class="product-image" />
         </div>
         <hr class="product-divider" />
         <div>
