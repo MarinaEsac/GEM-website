@@ -36742,10 +36742,12 @@ const topProductBrands = [
   "Momento",
   "Disaar"
 ]
+const topProductsCache = {}; 
 let currentBrandIndex = 0;
 let currentProductIndex = 0;
 
 const API_BASE_URL = "https://order-app.gemegypt.net/api";
+//const API_BASE_URL = "http://localhost:5000";
 const API_KEY = "896e85feafaaf9f97856998b274e42188b9ae1661ce6c8d8e99538b4a6f6c32a";
 
 // top products
@@ -36778,8 +36780,13 @@ async function updateTopProducts() {
   const leftImg = document.querySelector(".tp-left img");
   
   const brand = topProductBrands[currentBrandIndex]
-  const res = await getTopSoldProducts({brand}); 
-  const products = res.data; // list of products
+  if (!topProductsCache[brand]) {
+    const res = await getTopSoldProducts({ brand });
+    topProductsCache[brand] = res.data || [];
+  }
+  // const res = await getTopSoldProducts({brand}); 
+  // const products = res.data; // list of products
+  const products = topProductsCache[brand];
   if (!products.length || !products) return;
 
   if(listContainer) listContainer.innerHTML = "";
@@ -36789,7 +36796,7 @@ async function updateTopProducts() {
     leftImg.style.transition = "opacity 0.4s ease-in-out";
     leftImg.style.opacity = 0;
     setTimeout(() => {
-      leftImg.src = `${API_BASE_URL}/images/${products[currentProductIndex].image_path}`;
+      leftImg.src = `${API_BASE_URL}/images/${products[currentProductIndex].bar_code}.jpg`;
       leftImg.alt = products[currentProductIndex].product_name;
       leftImg.style.opacity = 1;
     }, 400);
@@ -36851,31 +36858,47 @@ async function getLatestProducts({ brand = ""} = {}) {
 //   { id: 204, name: "Whitening Cream", brand: "Disaar", img: "./assets/first-product.png" }
 // ];
 let latestProductsData = []
+const latestProductsCache = {};
 async function renderLatest(brand = "") {
   const listContainer = document.getElementById("latest-products-list");
   if (!listContainer) return;
   listContainer.innerHTML = "";
 
-  const res = await getLatestProducts({ brand })
-  const products = res.data || []
-  latestProductsData = products
-  if(products.length == 0){
+  const cacheKey = brand && brand !== "all" ? brand : "all";
+  if (latestProductsCache[cacheKey]) {
+    renderList(latestProductsCache[cacheKey]);
     return;
   }
+
+  
+  const res = await getLatestProducts({ brand })
+  const products = res.data || []
+  latestProductsCache[cacheKey] = products;
+  //latestProductsData = products
+  renderList(products);
+}
+
+function renderList(products) {
+  const listContainer = document.getElementById("latest-products-list");
+
+  if (!products.length) return;
+
   listContainer.innerHTML = products.map(prod => `
     <div role="listitem" class="product-item w-dyn-item">
-      <a href="./product.html?id=${prod.product_id}" class="product-block w-inline-block" style="opacity: 1">
+      <a href="./product.html?id=${prod.product_id}" class="product-block w-inline-block">
         <div class="product-img">
-          <img loading="lazy" src="${API_BASE_URL}/images/${prod.bar_code}.jpg" alt="${prod.product_name}" class="product-image" />
+          <img loading="lazy"
+               src="${API_BASE_URL}/images/${prod.bar_code}.jpg"
+               alt="${prod.product_name}"
+               class="product-image" />
         </div>
         <hr class="product-divider" />
-        <div>
-          <h5 class="product-name">${prod.product_name}</h5>
-        </div>
+        <h5 class="product-name">${prod.product_name}</h5>
       </a>
     </div>
   `).join("");
 }
+
 
 document.addEventListener("DOMContentLoaded", () => {
   renderLatest();
