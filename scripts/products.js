@@ -36388,9 +36388,9 @@ let currentDisplayedProducts = [...allProducts];
 const filterData = {
   brands: [
     { id: "dax", name: "Dax" },
-    { id: "banana-boat", name: "Banana Boat" },
-    { id: "karsell", name: "Karsell" },
-    { id: "creme-of-nature", name: "Creme of Nature" },
+    { id: "banana boat", name: "Banana Boat" },
+    { id: "karseell", name: "Karseell" },
+    { id: "creme of nature", name: "Creme of Nature" },
     { id: "fashkool", name: "FashKool" },
     { id: "carroten", name: "Carroten" },
   ],
@@ -36526,19 +36526,20 @@ async function applyAllFilters() {
   const selectedTypes = Array.from(
     document.querySelectorAll('input[name="type"]:checked'),
   ).map((el) => el.value);
+  console.log(selectedBrands[1])
   const maxPrice = document.getElementById("priceRange")?.value || 2000;
 
   const sortVal = document.querySelector(".sort-dropdown")?.value;
 
   const params = new URLSearchParams();
 
-  if (selectedBrands.length === 1) {
-    params.append("brand", selectedBrands[0]);
-  }
+  selectedBrands.forEach(brand => {
+    params.append("brand", brand);
+  });
 
-  if (selectedTypes.length === 1) {
-    params.append("type", selectedTypes[0]);
-  }
+  selectedTypes.forEach(type => {
+    params.append("type", type);
+  });
 
   if (maxPrice) {
     params.append("price", maxPrice);
