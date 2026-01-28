@@ -36405,19 +36405,27 @@ const filterData = {
   ],
 };
 
+let page = 1;
+const PER_PAGE = 25;
+let totalPages = 1;
+let isLoading = false;
+
 async function fetchProductsFromServer() {
   try {
-    const urlParams = new URLSearchParams(window.location.search);
+    //const urlParams = new URLSearchParams(window.location.search);
+    const urlParams = new URLSearchParams();
     const typeFromUrl = urlParams.get("type");
     const brandFromUrl = urlParams.get("brand");
     const response = await fetch(
-      `${API_BASE_URL}/shop?${urlParams.toString()}`,
+      `${API_BASE_URL}/shop?${urlParams.toString()}&page=1&per_page=${PER_PAGE}`,
       { headers: { "X-API-Key": API_KEY } },
     );
     const result = await response.json();
 
     allProducts = result.data;
     currentDisplayedProducts = [...allProducts];
+    totalPages = result.pagination.total_pages;
+    page = 1;
     startApp();
   } catch (error) {
     console.error("Error loading products:", error);
@@ -36427,7 +36435,8 @@ async function fetchProductsFromServer() {
 function startApp() {
   renderSidebarFilters();
 
-  const urlParams = new URLSearchParams(window.location.search);
+  //const urlParams = new URLSearchParams(window.location.search);
+  const urlParams = new URLSearchParams();
   const typeFromUrl = urlParams.get("type");
   const brandFromUrl = urlParams.get("brand");
 
@@ -36492,6 +36501,75 @@ function renderProducts(list) {
       : "<h3>No products found matching these filters.</h3>";
 }
 
+function appendProducts(list) {
+  const container = document.getElementById("productsContainer");
+  if (!container) return;
+
+  container.insertAdjacentHTML(
+    "beforeend",
+    list
+      .map(
+        (product) => `
+        <div role="listitem" class="product-item w-dyn-item">
+          <a href="./product.html?id=${product.product_id}" class="product-block w-inline-block">
+            <div class="product-img">
+              <img loading="lazy" src="${API_BASE_URL}/images/${product.bar_code}.jpg" alt="${product.product_name}" class="product-image" />
+            </div>
+            <hr class="product-divider" />
+            <h5 class="product-name">${product.product_name}</h5>
+          </a>
+        </div>
+      `
+      )
+      .join("")
+  );
+}
+
+async function loadMoreProducts() {
+  if (isLoading || page >= totalPages) return;
+  isLoading = true;
+
+  page++;
+
+  //const params = new URLSearchParams(window.location.search);
+  const params = new URLSearchParams();
+  params.append("page", page);
+  params.append("per_page", PER_PAGE);
+
+  try {
+    const res = await fetch(`${API_BASE_URL}/shop?${params.toString()}`, {
+      headers: { "X-API-Key": API_KEY },
+    });
+
+    const result = await res.json();
+
+    currentDisplayedProducts.push(...result.data);
+    appendProducts(result.data);
+
+    toggleViewMore();
+  } catch (err) {
+    console.error("View more error:", err);
+  } finally {
+    isLoading = false;
+  }
+}
+
+function toggleViewMore() {
+  const span = document.getElementById("viewMoreProductsBtn");
+  if (!span) return;
+
+  span.style.display = page < totalPages ? "block" : "none";
+}
+
+document
+  .getElementById("viewMoreProductsBtn")
+  ?.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation(); 
+    loadMoreProducts();
+});
+
+
 function renderSidebarFilters() {
   const container = document.getElementById("dynamicFiltersContainer");
   if (!container) return;
@@ -36520,18 +36598,23 @@ function renderSidebarFilters() {
 }
 
 async function applyAllFilters() {
+  page = 1;
+  currentDisplayedProducts = [];
+  document.getElementById("productsContainer").innerHTML = "";
   const selectedBrands = Array.from(
     document.querySelectorAll('input[name="brand"]:checked'),
   ).map((el) => el.value);
   const selectedTypes = Array.from(
     document.querySelectorAll('input[name="type"]:checked'),
   ).map((el) => el.value);
-  console.log(selectedBrands[1])
   const maxPrice = document.getElementById("priceRange")?.value || 2000;
 
   const sortVal = document.querySelector(".sort-dropdown")?.value;
 
   const params = new URLSearchParams();
+  params.append("page", page);
+  params.append("per_page", PER_PAGE);
+
 
   selectedBrands.forEach(brand => {
     params.append("brand", brand);
@@ -36564,7 +36647,9 @@ async function applyAllFilters() {
     const result = await response.json();
 
     currentDisplayedProducts = result.data;
+    totalPages = result.pagination.total_pages;
     renderProducts(currentDisplayedProducts);
+    toggleViewMore()
   } catch (err) {
     console.error("Filter error:", err);
   }
