@@ -36672,68 +36672,68 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Top products
-// const brandData = [
-//   {
-//     id: 101,
-//     name: "Zero Frizz",
-//     image: "./assets/zero frizz.jpg",
-//     products: [
-//       { id: 1, img: "./assets/zero-frizz-product.jpg", name: "Shampoo", slug: "zero-frizz-shampoo" },
-//       { id: 2, img: "./assets/zero-frizz-2.webp", name: "Serum", slug: "zero-frizz-serum" },
-//       { id: 3, img: "./assets/zero-frizz-product.jpg", name: "Shampoo", slug: "zero-frizz-shampoo-2" },
-//     ],
-//   },
-//   {
-//     id: 102,
-//     name: "Hair Burst",
-//     image: "./assets/hair burst.jpg",
-//     products: [
-//       { id: 4, img: "./assets/hair-burst(1).jpg", name: "Shampoo", slug: "hair-burst-shampoo-1" },
-//       { id: 5, img: "./assets/hair-burst(2).jpg", name: "Shampoo", slug: "hair-burst-shampoo-2" },
-//       { id: 6, img: "./assets/hair-burst(3).jpg", name: "Conditioner", slug: "hair-burst-conditioner" },
-//     ],
-//   },
-//   {
-//     id: 103,
-//     name: "Karseell",
-//     image: "./assets/karseell-bg.jpg",
-//     products: [
-//       { id: 7, img: "./assets/karseel(1).jpg", name: "Hair mask", slug: "karseell-mask" },
-//       { id: 8, img: "./assets/karseell(2).jpg", name: "Shampoo", slug: "karseell-shampoo" },
-//       { id: 9, img: "./assets/karseell(3).jpg", name: "Hair oil", slug: "karseell-oil" },
-//     ],
-//   },
-//   {
-//     id: 104,
-//     name: "Revox",
-//     image: "./assets/revox-bg.jpg",
-//     products: [
-//       { id: 10, img: "./assets/revox(1).jpg", name: "Argan Oil", slug: "revox-argan" },
-//       { id: 11, img: "./assets/revox(2).jpg", name: "Moisturising", slug: "revox-moist" },
-//       { id: 12, img: "./assets/revox(3).jpg", name: "Face Cleansing Gel", slug: "revox-cleansing" },
-//     ],
-//   },
-//   {
-//     id: 105,
-//     name: "Momento",
-//     image: "./assets/momento-bg.jpg",
-//     products: [
-//       { id: 13, img: "./assets/momento(1).jpg", name: "SunScreen Lotion", slug: "momento-sunscreen" },
-//       { id: 14, img: "./assets/momento(2).jpg", name: "Gel After Sun", slug: "momento-after-sun" },
-//       { id: 15, img: "./assets/momento(3).jpg", name: "Tanning Oil", slug: "momento-tanning" },
-//     ],
-//   },
-//   {
-//     id: 106,
-//     name: "Dissar",
-//     image: "./assets/disaar-bg.jpg",
-//     products: [
-//       { id: 16, img: "./assets/disaar(1).png", name: "Whitening Foundation", slug: "disaar-foundation" },
-//       { id: 17, img: "./assets/disaar(2).png", name: "Whitening Cream", slug: "disaar-cream" },
-//       { id: 18, img: "./assets/disaar(3).png", name: "Whitening Eye mask", slug: "disaar-eye-mask" },
-//     ],
-//   },
-// ];
+const brandData = [
+  {
+    id: 101,
+    name: "Zero Frizz",
+    image: "./assets/zero frizz.jpg",
+    products: [
+      { id: 1, img: "./assets/zero-frizz-product.jpg", name: "Shampoo", slug: "zero-frizz-shampoo" },
+      { id: 2, img: "./assets/zero-frizz-2.webp", name: "Serum", slug: "zero-frizz-serum" },
+      { id: 3, img: "./assets/zero-frizz-product.jpg", name: "Shampoo", slug: "zero-frizz-shampoo-2" },
+    ],
+  },
+  {
+    id: 102,
+    name: "Hair Burst",
+    image: "./assets/hair burst.jpg",
+    products: [
+      { id: 4, img: "./assets/hair-burst(1).jpg", name: "Shampoo", slug: "hair-burst-shampoo-1" },
+      { id: 5, img: "./assets/hair-burst(2).jpg", name: "Shampoo", slug: "hair-burst-shampoo-2" },
+      { id: 6, img: "./assets/hair-burst(3).jpg", name: "Conditioner", slug: "hair-burst-conditioner" },
+    ],
+  },
+  {
+    id: 103,
+    name: "Karseell",
+    image: "./assets/karseell-bg.jpg",
+    products: [
+      { id: 7, img: "./assets/karseel(1).jpg", name: "Hair mask", slug: "karseell-mask" },
+      { id: 8, img: "./assets/karseell(2).jpg", name: "Shampoo", slug: "karseell-shampoo" },
+      { id: 9, img: "./assets/karseell(3).jpg", name: "Hair oil", slug: "karseell-oil" },
+    ],
+  },
+  {
+    id: 104,
+    name: "Revox",
+    image: "./assets/revox-bg.jpg",
+    products: [
+      { id: 10, img: "./assets/revox(1).jpg", name: "Argan Oil", slug: "revox-argan" },
+      { id: 11, img: "./assets/revox(2).jpg", name: "Moisturising", slug: "revox-moist" },
+      { id: 12, img: "./assets/revox(3).jpg", name: "Face Cleansing Gel", slug: "revox-cleansing" },
+    ],
+  },
+  {
+    id: 105,
+    name: "Momento",
+    image: "./assets/momento-bg.jpg",
+    products: [
+      { id: 13, img: "./assets/momento(1).jpg", name: "SunScreen Lotion", slug: "momento-sunscreen" },
+      { id: 14, img: "./assets/momento(2).jpg", name: "Gel After Sun", slug: "momento-after-sun" },
+      { id: 15, img: "./assets/momento(3).jpg", name: "Tanning Oil", slug: "momento-tanning" },
+    ],
+  },
+  {
+    id: 106,
+    name: "Dissar",
+    image: "./assets/disaar-bg.jpg",
+    products: [
+      { id: 16, img: "./assets/disaar(1).png", name: "Whitening Foundation", slug: "disaar-foundation" },
+      { id: 17, img: "./assets/disaar(2).png", name: "Whitening Cream", slug: "disaar-cream" },
+      { id: 18, img: "./assets/disaar(3).png", name: "Whitening Eye mask", slug: "disaar-eye-mask" },
+    ],
+  },
+];
 const topProductBrands = [
   "Zero frizz",
   "Hair burst",
@@ -36780,6 +36780,7 @@ async function updateTopProducts() {
   const leftImg = document.querySelector(".tp-left img");
   
   const brand = topProductBrands[currentBrandIndex]
+  const currentBrand = brandData[currentBrandIndex];
   if (!topProductsCache[brand]) {
     const res = await getTopSoldProducts({ brand });
     topProductsCache[brand] = res.data || [];
@@ -36796,8 +36797,8 @@ async function updateTopProducts() {
     leftImg.style.transition = "opacity 0.4s ease-in-out";
     leftImg.style.opacity = 0;
     setTimeout(() => {
-      leftImg.src = `${API_BASE_URL}/images/${products[currentProductIndex].bar_code}.jpg`;
-      leftImg.alt = products[currentProductIndex].product_name;
+      leftImg.src = currentBrand.image;
+      leftImg.alt = currentBrand.name;
       leftImg.style.opacity = 1;
     }, 400);
   }
