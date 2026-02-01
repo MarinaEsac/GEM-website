@@ -43,9 +43,9 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    
+
     <link href="./styles/products.css" rel="stylesheet" type="text/css" />
-    
+
     <style>
       * {
         margin: 0;
@@ -550,11 +550,53 @@
         }
       }
       .sidebar-filter {
-        margin-top: 15px !important;
-        padding-top: 12px !important;
         position: sticky;
-        top: 115px;
-        z-index: 10;
+        top: 20px;
+        max-height: calc(100vh - 100px);
+        overflow-y: auto;
+        padding-right: 10px;
+        padding-bottom: 60px;
+      }
+
+      .sidebar-filter::-webkit-scrollbar {
+        width: 4px;
+      }
+
+      .sidebar-filter::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      .sidebar-filter::-webkit-scrollbar-thumb {
+        background: #0b2a59;
+        border-radius: 10px;
+      }
+
+      .filter-body {
+        display: none;
+        padding: 10px 0;
+      }
+
+      .filter-group.active .filter-body {
+        display: block;
+        max-height: none;
+        overflow: visible;
+      }
+
+      .filter-body label {
+        display: flex;
+        align-items: center;
+        padding: 5px 0;
+        font-size: 14px;
+        cursor: pointer;
+        transition: color 0.2s;
+      }
+
+      .filter-body label:hover {
+        color: #0b2a59;
+      }
+
+      .filter-body input[type="checkbox"] {
+        margin-right: 10px;
       }
       @media (max-width: 768px) {
         .products-toolbar {
@@ -580,24 +622,24 @@
         }
       }
       .mega-column.simple-list {
-  display: flex;
-  flex-direction: column; 
-  gap: 10px;
-  padding: 15px;
-  min-width: 200px;
-}
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+        min-width: 200px;
+      }
 
-.mega-column.simple-list a {
-  font-size: 14px;
-  color: #333;
-  text-decoration: none;
-  transition: padding-left 0.3s ease;
-}
+      .mega-column.simple-list a {
+        font-size: 14px;
+        color: #333;
+        text-decoration: none;
+        transition: padding-left 0.3s ease;
+      }
 
-.mega-column.simple-list a:hover {
-  color: #0b2a59; 
-  padding-left: 5px; 
-}
+      .mega-column.simple-list a:hover {
+        color: #0b2a59;
+        padding-left: 5px;
+      }
     </style>
     <script type="text/javascript">
       !(function (o, c) {
@@ -805,59 +847,64 @@
           </div>
         </nav>
 
-       <!-- MEGA MENU -->
-<div class="mega-frame" id="megaFrame">
-  <!-- <span class="mega-close">&times;</span> -->
+        <!-- MEGA MENU -->
+        <div class="mega-frame" id="megaFrame">
+          <!-- <span class="mega-close">&times;</span> -->
 
-  <!-- BRANDS -->
-  <!-- <div class="mega-content" id="brands">
+          <!-- BRANDS -->
+          <!-- <div class="mega-content" id="brands">
     <div class="mega-dropdown" id="brandsContainer"></div>
   </div> -->
-  <div class="mega-content" id="brands">
-  <div class="brands-radio-wrapper">
-    <div class="alphabet-sidebar" id="alphabetList"></div>
-    
-    <div class="brands-display-area" id="brandsContainer">
-       <div class="placeholder-text">Hover over a letter to see brands</div>
-    </div>
-  </div>
-</div>
+          <div class="mega-content" id="brands">
+            <div class="brands-radio-wrapper">
+              <div class="alphabet-sidebar" id="alphabetList"></div>
 
-  <!-- HAIR -->
-  <div class="mega-content dropdown-small" id="hair">
-    <div class="mega-dropdown simple-list" id="hairContainer"></div>
-  </div>
-<div class="mega-content dropdown-small" id="skin">
-    <div class="mega-dropdown simple-list" id="skinContainer"></div>
-  </div>
-  <!-- PERSONAL -->
-  <div class="mega-content dropdown-small" id="personal">
-    <div class="mega-dropdown simple-list" id="personalContainer"></div>
-  </div>
+              <div class="brands-display-area" id="brandsContainer">
+                <div class="placeholder-text">
+                  Hover over a letter to see brands
+                </div>
+              </div>
+            </div>
+          </div>
 
-  <!-- MAKEUP -->
-<div class="mega-content dropdown-small" id="makeup">
-  <div class="mega-dropdown simple-list" id="makeupToolsContainer"></div>
-</div>
+          <!-- HAIR -->
+          <div class="mega-content dropdown-small" id="hair">
+            <div class="mega-dropdown simple-list" id="hairContainer"></div>
+          </div>
+          <div class="mega-content dropdown-small" id="skin">
+            <div class="mega-dropdown simple-list" id="skinContainer"></div>
+          </div>
+          <!-- PERSONAL -->
+          <div class="mega-content dropdown-small" id="personal">
+            <div class="mega-dropdown simple-list" id="personalContainer"></div>
+          </div>
 
+          <!-- MAKEUP -->
+          <div class="mega-content dropdown-small" id="makeup">
+            <div
+              class="mega-dropdown simple-list"
+              id="makeupToolsContainer"
+            ></div>
+          </div>
 
-  <!-- FRAGRANCE -->
-  <div class="mega-content dropdown-small" id="fragrance">
-    <div class="mega-dropdown simple-list" id="fragranceContainer"></div>
-  </div>
+          <!-- FRAGRANCE -->
+          <div class="mega-content dropdown-small" id="fragrance">
+            <div
+              class="mega-dropdown simple-list"
+              id="fragranceContainer"
+            ></div>
+          </div>
 
+          <!-- SUN -->
+          <div class="mega-content dropdown-small" id="sun">
+            <div class="mega-dropdown simple-list" id="sunContainer"></div>
+          </div>
 
-  <!-- SUN -->
-  <div class="mega-content dropdown-small" id="sun">
-    <div class="mega-dropdown simple-list" id="sunContainer"></div>
-  </div>
-
-  <!-- BABY -->
-  <div class="mega-content dropdown-small" id="baby">
-    <div class="mega-dropdown simple-list" id="babyContainer"></div>
-  </div>
-
-</div>
+          <!-- BABY -->
+          <div class="mega-content dropdown-small" id="baby">
+            <div class="mega-dropdown simple-list" id="babyContainer"></div>
+          </div>
+        </div>
       </div>
     </header>
 
