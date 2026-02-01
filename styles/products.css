@@ -11418,3 +11418,192 @@ blockquote {
 .icon {
     transition: transform 0.3s ease;
 }
+
+.mega-content.dropdown-small {
+    position: absolute;
+    width: 220px;               
+    background-color: #ffffff !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+   padding: 8px 0;
+    z-index: 10001;             
+    overflow: visible;           
+}
+
+.mega-frame:has(.dropdown-small[style*="display: block"]) {
+    background: transparent !important; 
+    box-shadow: none !important;       
+    border: none !important;
+    pointer-events: none;               
+}
+
+.simple-list {
+    display: flex;
+    flex-direction: column;
+    max-height: 360px;
+    overflow-y: auto;
+    overscroll-behavior: contain; 
+    scrollbar-gutter: stable;      
+    -webkit-overflow-scrolling: touch; 
+}
+
+.simple-list::-webkit-scrollbar {
+    width: 4px; 
+}
+
+.simple-list::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.1); 
+    border-radius: 10px;
+}
+
+
+.simple-list a {
+    display: block;
+    padding: 12px 20px;
+    font-size: 13.5px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    pointer-events: auto;       
+    font-weight: 400;
+    letter-spacing: 0.2px;
+}
+
+.simple-list a:hover {
+   background-color: rgba(11, 42, 89, 0.05);
+    color: #0b2a59;        
+   padding-left: 22px;
+       
+}
+
+.dropdown-small h4, 
+.dropdown-small .mega-column h4 {
+    display: none !important;
+}
+
+
+.brands-radio-wrapper {
+    display: flex;
+    height: 200px; 
+    background: #fff;
+}
+
+.alphabet-sidebar {
+    width: 60px;
+    border-right: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    background: #fcfcfc;
+    padding: 10px 0;
+}
+
+.alphabet-sidebar span {
+    display: block;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #999;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.alphabet-sidebar span:hover,
+.alphabet-sidebar span.active {
+    color: #0b2a59;
+    background: #fff;
+    font-size: 20px;
+}
+
+.brands-display-area {
+    flex: 1;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 15px;
+    overflow-y: auto;
+    align-content: start;
+}
+
+.brands-display-area a {
+    text-decoration: none;
+    color: #444;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.brands-display-area a:hover {
+    color: #0b2a59;
+    text-decoration: underline;
+}
+
+.placeholder-text {
+    grid-column: span 4;
+    text-align: center;
+    color: #ccc;
+    margin-top: 100px;
+}
+
+.mega-content.dropdown-small {
+    padding: 10px 0;
+}
+
+.brands-display-area {
+    flex: 1;
+    padding: 25px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 15px;
+    overflow-y: auto;
+    align-content: start;
+}
+
+.mega-content.dropdown-small {
+    width: auto;
+    min-width: 200px;
+}
+.mega-frame {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;           
+    background: transparent !important; 
+    box-shadow: none !important;        
+    border: none !important;            
+    z-index: 1000;
+    display: none;
+    pointer-events: none;  
+}
+
+.mega-content {
+    pointer-events: auto;
+}
+
+#brands.mega-content {
+    width: 850px;
+    background: #fff;    
+    margin-left: 200px;  
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+    border-radius: 8px;
+    border: 1px solid #eee;
+    overflow: hidden;
+    display: flex; 
+}
+
+.mega-content.dropdown-small {
+    background: #fff;
+    width: fit-content;  
+    min-width: 220px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    border: 1px solid #eee;
+    padding: 10px 0;
+}
+
+.brands-radio-wrapper {
+    display: flex;
+    width: 100%;
+    height: 250px;
+    background: #fff;
+}

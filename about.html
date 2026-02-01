@@ -38,7 +38,7 @@
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
+    <link href="./styles/index.css" rel="stylesheet" type="text/css" />
     <link href="./styles/about.css" rel="stylesheet" type="text/css" />
     <!-- <style>
       @media (min-width: 992px) {
@@ -614,6 +614,40 @@
           border-bottom: 1px solid var(--border);
         }
       }
+      .mega-column.simple-list {
+  display: flex;
+  flex-direction: column; 
+  gap: 10px;
+  padding: 15px;
+  min-width: 200px;
+}
+
+.mega-column.simple-list a {
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+  transition: padding-left 0.3s ease;
+}
+
+.mega-column.simple-list a:hover {
+  color: #0b2a59; 
+  padding-left: 5px; 
+}
+.mega-frame {
+    width: auto !important; 
+    min-width: 200px;
+    max-width: 95vw;
+    
+}
+
+.mega-frame:has(#brands:not([style*="display: none"])) {
+    width: 95% !important;
+}
+.simple-list {
+    display: flex;
+    flex-direction: column;
+}
+
     </style>
     <script type="text/javascript">
       !(function (o, c) {
@@ -821,46 +855,58 @@
         </nav>
 
         <!-- MEGA MENU -->
-        <div class="mega-frame" id="megaFrame">
-          <span class="mega-close">&times;</span>
+<div class="mega-frame" id="megaFrame">
+  <!-- <span class="mega-close">&times;</span> -->
 
-          <!-- BRANDS -->
-          <div class="mega-content" id="brands">
-            <div class="mega-dropdown" id="brandsContainer"></div>
-          </div>
+  <!-- BRANDS -->
+  <!-- <div class="mega-content" id="brands">
+    <div class="mega-dropdown" id="brandsContainer"></div>
+  </div> -->
+  <div class="mega-content" id="brands">
+  <div class="brands-radio-wrapper">
+    <div class="alphabet-sidebar" id="alphabetList"></div>
+    
+    <div class="brands-display-area" id="brandsContainer">
+       <div class="placeholder-text">Hover over a letter to see brands</div>
+    </div>
+  </div>
+</div>
 
-          <!-- HAIR -->
-          <div class="mega-content" id="hair">
-            <div class="mega-dropdown" id="hairContainer"></div>
-          </div>
-          <div class="mega-content" id="skin">
-            <div class="mega-dropdown" id="skinContainer"></div>
-          </div>
-          <!-- PERSONAL -->
-          <div class="mega-content" id="personal">
-            <div class="mega-dropdown" id="personalContainer"></div>
-          </div>
+  <!-- HAIR -->
+  <div class="mega-content dropdown-small" id="hair">
+    <div class="mega-dropdown simple-list" id="hairContainer"></div>
+  </div>
+<div class="mega-content dropdown-small" id="skin">
+    <div class="mega-dropdown simple-list" id="skinContainer"></div>
+  </div>
+  <!-- PERSONAL -->
+  <div class="mega-content dropdown-small" id="personal">
+    <div class="mega-dropdown simple-list" id="personalContainer"></div>
+  </div>
 
-          <!-- MAKEUP -->
-          <div class="mega-content" id="makeup">
-            <div class="mega-dropdown" id="makeupToolsContainer"></div>
-          </div>
+  <!-- MAKEUP -->
+<div class="mega-content dropdown-small" id="makeup">
+  <div class="mega-dropdown simple-list" id="makeupToolsContainer"></div>
+</div>
 
-          <!-- FRAGRANCE -->
-          <div class="mega-content" id="fragrance">
-            <div class="mega-dropdown" id="fragranceContainer"></div>
-          </div>
 
-          <!-- SUN -->
-          <div class="mega-content" id="sun">
-            <div class="mega-dropdown" id="sunContainer"></div>
-          </div>
+  <!-- FRAGRANCE -->
+  <div class="mega-content dropdown-small" id="fragrance">
+    <div class="mega-dropdown simple-list" id="fragranceContainer"></div>
+  </div>
 
-          <!-- BABY -->
-          <div class="mega-content" id="baby">
-            <div class="mega-dropdown" id="babyContainer"></div>
-          </div>
-        </div>
+
+  <!-- SUN -->
+  <div class="mega-content dropdown-small" id="sun">
+    <div class="mega-dropdown simple-list" id="sunContainer"></div>
+  </div>
+
+  <!-- BABY -->
+  <div class="mega-content dropdown-small" id="baby">
+    <div class="mega-dropdown simple-list" id="babyContainer"></div>
+  </div>
+
+</div>
       </div>
     </header>
 
@@ -871,16 +917,7 @@
             <div class="about-title">
               <h1
                 data-w-id="e8abc488-3fad-09f5-8261-f051fa320bc1"
-                style="
-                  -webkit-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1)
-                    rotateX(0) rotateY(0) rotateZ(0) skew(-10deg, 0);
-                  -moz-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1)
-                    rotateX(0) rotateY(0) rotateZ(0) skew(-10deg, 0);
-                  -ms-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1)
-                    rotateX(0) rotateY(0) rotateZ(0) skew(-10deg, 0);
-                  transform: translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0)
-                    rotateY(0) rotateZ(0) skew(-10deg, 0);
-                "
+               
                 class="main-title"
               >
                 A Journey Rooted in Self-Care
@@ -888,7 +925,6 @@
             </div>
             <p
               data-w-id="16f1c8dc-306e-b80f-f405-ed0de1bc3d1a"
-              style="opacity: 0"
               class="about-data"
             >
               We believe in creating products that not only look stunning but
@@ -1851,13 +1887,14 @@
       src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/js/webflow.schunk.cc3fb98876623427.js"
       type="text/javascript"
     ></script>
-    <script src="./scripts/index.js" type="text/javascript"></script>
+    <!-- <script src="./scripts/index.js" type="text/javascript"></script> -->
 
     <script
       src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/js/webflow.888312d9.b6cb7981a5cf1176.js"
       type="text/javascript"
     ></script>
     <script src="./scripts/products.js" type="text/javascript"></script>
+    <script src="./scripts/index.js" type="text/javascript"></script>
     <script src="./scripts/about.js" type="text/javascript"></script>
   </body>
 </html>

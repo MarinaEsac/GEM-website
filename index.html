@@ -410,12 +410,11 @@
   }
 
   .top-row {
-    min-height: auto; /* stop fighting absolute logo on small screens */
+    min-height: auto; 
     flex-wrap: wrap;
     align-items: center;
     gap: 8px;
   }
-  /* show hamburger */
   .menu-toggle {
     display: inline-flex;
     align-items: center;
@@ -431,7 +430,6 @@
   }
 
 
-  /* center logo, remove absolute positioning so it doesn't overlap */
   .logo {
     position: static;
     transform: none;
@@ -446,21 +444,18 @@
     height: 56px !important;
   }
 
-  /* search spans full width under the logo/hamburger */
   .search-box {
     order: 2;
     flex: 1 1 100%;
     max-width: none;
   }
 
-  /* optional: hide social icons on tight screens to save space */
   .social-icons {
     display: none;
   }
 
-  /* collapse the big category bar into a vertical drawer */
   .nav-row {
-    display: none;                 /* closed by default */
+    display: none;                 
     flex-direction: column;
     gap: 0;
     width: 100%;
@@ -468,10 +463,9 @@
     margin-top: 6px;
   }
   .nav-row.active {
-    display: flex;                 /* opened by hamburger */
+    display: flex;               
   }
 
-  /* mega menu becomes a bottom sheet on mobile */
   .mega-frame {
     position: fixed;
     inset: 0;
@@ -914,6 +908,25 @@
 .tp-left img {
   margin-top: 40px; 
 }
+.mega-column.simple-list {
+  display: flex;
+  flex-direction: column; 
+  gap: 10px;
+  padding: 15px;
+  min-width: 200px;
+}
+
+.mega-column.simple-list a {
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+  transition: padding-left 0.3s ease;
+}
+
+.mega-column.simple-list a:hover {
+  color: #0b2a59; 
+  padding-left: 5px; 
+}
 
     </style>
     <script type="text/javascript">
@@ -1113,45 +1126,54 @@
 
 <!-- MEGA MENU -->
 <div class="mega-frame" id="megaFrame">
-  <span class="mega-close">&times;</span>
+  <!-- <span class="mega-close">&times;</span> -->
 
   <!-- BRANDS -->
-  <div class="mega-content" id="brands">
+  <!-- <div class="mega-content" id="brands">
     <div class="mega-dropdown" id="brandsContainer"></div>
+  </div> -->
+  <div class="mega-content" id="brands">
+  <div class="brands-radio-wrapper">
+    <div class="alphabet-sidebar" id="alphabetList"></div>
+    
+    <div class="brands-display-area" id="brandsContainer">
+       <div class="placeholder-text">Hover over a letter to see brands</div>
+    </div>
   </div>
+</div>
 
   <!-- HAIR -->
-  <div class="mega-content" id="hair">
-    <div class="mega-dropdown" id="hairContainer"></div>
+  <div class="mega-content dropdown-small" id="hair">
+    <div class="mega-dropdown simple-list" id="hairContainer"></div>
   </div>
-<div class="mega-content" id="skin">
-    <div class="mega-dropdown" id="skinContainer"></div>
+<div class="mega-content dropdown-small" id="skin">
+    <div class="mega-dropdown simple-list" id="skinContainer"></div>
   </div>
   <!-- PERSONAL -->
-  <div class="mega-content" id="personal">
-    <div class="mega-dropdown" id="personalContainer"></div>
+  <div class="mega-content dropdown-small" id="personal">
+    <div class="mega-dropdown simple-list" id="personalContainer"></div>
   </div>
 
   <!-- MAKEUP -->
-<div class="mega-content" id="makeup">
-  <div class="mega-dropdown" id="makeupToolsContainer"></div>
+<div class="mega-content dropdown-small" id="makeup">
+  <div class="mega-dropdown simple-list" id="makeupToolsContainer"></div>
 </div>
 
 
   <!-- FRAGRANCE -->
-  <div class="mega-content" id="fragrance">
-    <div class="mega-dropdown" id="fragranceContainer"></div>
+  <div class="mega-content dropdown-small" id="fragrance">
+    <div class="mega-dropdown simple-list" id="fragranceContainer"></div>
   </div>
 
 
   <!-- SUN -->
-  <div class="mega-content" id="sun">
-    <div class="mega-dropdown" id="sunContainer"></div>
+  <div class="mega-content dropdown-small" id="sun">
+    <div class="mega-dropdown simple-list" id="sunContainer"></div>
   </div>
 
   <!-- BABY -->
-  <div class="mega-content" id="baby">
-    <div class="mega-dropdown" id="babyContainer"></div>
+  <div class="mega-content dropdown-small" id="baby">
+    <div class="mega-dropdown simple-list" id="babyContainer"></div>
   </div>
 
 </div>

@@ -43,8 +43,9 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-
+    
     <link href="./styles/products.css" rel="stylesheet" type="text/css" />
+    
     <style>
       * {
         margin: 0;
@@ -578,6 +579,25 @@
           display: none;
         }
       }
+      .mega-column.simple-list {
+  display: flex;
+  flex-direction: column; 
+  gap: 10px;
+  padding: 15px;
+  min-width: 200px;
+}
+
+.mega-column.simple-list a {
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+  transition: padding-left 0.3s ease;
+}
+
+.mega-column.simple-list a:hover {
+  color: #0b2a59; 
+  padding-left: 5px; 
+}
     </style>
     <script type="text/javascript">
       !(function (o, c) {
@@ -785,46 +805,59 @@
           </div>
         </nav>
 
-        <div class="mega-frame" id="megaFrame">
-          <span class="mega-close">&times;</span>
+       <!-- MEGA MENU -->
+<div class="mega-frame" id="megaFrame">
+  <!-- <span class="mega-close">&times;</span> -->
 
-          <!-- BRANDS -->
-          <div class="mega-content" id="brands">
-            <div class="mega-dropdown" id="brandsContainer"></div>
-          </div>
+  <!-- BRANDS -->
+  <!-- <div class="mega-content" id="brands">
+    <div class="mega-dropdown" id="brandsContainer"></div>
+  </div> -->
+  <div class="mega-content" id="brands">
+  <div class="brands-radio-wrapper">
+    <div class="alphabet-sidebar" id="alphabetList"></div>
+    
+    <div class="brands-display-area" id="brandsContainer">
+       <div class="placeholder-text">Hover over a letter to see brands</div>
+    </div>
+  </div>
+</div>
 
-          <!-- HAIR -->
-          <div class="mega-content" id="hair">
-            <div class="mega-dropdown" id="hairContainer"></div>
-          </div>
-          <div class="mega-content" id="skin">
-            <div class="mega-dropdown" id="skinContainer"></div>
-          </div>
-          <!-- PERSONAL -->
-          <div class="mega-content" id="personal">
-            <div class="mega-dropdown" id="personalContainer"></div>
-          </div>
+  <!-- HAIR -->
+  <div class="mega-content dropdown-small" id="hair">
+    <div class="mega-dropdown simple-list" id="hairContainer"></div>
+  </div>
+<div class="mega-content dropdown-small" id="skin">
+    <div class="mega-dropdown simple-list" id="skinContainer"></div>
+  </div>
+  <!-- PERSONAL -->
+  <div class="mega-content dropdown-small" id="personal">
+    <div class="mega-dropdown simple-list" id="personalContainer"></div>
+  </div>
 
-          <!-- MAKEUP -->
-          <div class="mega-content" id="makeup">
-            <div class="mega-dropdown" id="makeupToolsContainer"></div>
-          </div>
+  <!-- MAKEUP -->
+<div class="mega-content dropdown-small" id="makeup">
+  <div class="mega-dropdown simple-list" id="makeupToolsContainer"></div>
+</div>
 
-          <!-- FRAGRANCE -->
-          <div class="mega-content" id="fragrance">
-            <div class="mega-dropdown" id="fragranceContainer"></div>
-          </div>
 
-          <!-- SUN -->
-          <div class="mega-content" id="sun">
-            <div class="mega-dropdown" id="sunContainer"></div>
-          </div>
+  <!-- FRAGRANCE -->
+  <div class="mega-content dropdown-small" id="fragrance">
+    <div class="mega-dropdown simple-list" id="fragranceContainer"></div>
+  </div>
 
-          <!-- BABY -->
-          <div class="mega-content" id="baby">
-            <div class="mega-dropdown" id="babyContainer"></div>
-          </div>
-        </div>
+
+  <!-- SUN -->
+  <div class="mega-content dropdown-small" id="sun">
+    <div class="mega-dropdown simple-list" id="sunContainer"></div>
+  </div>
+
+  <!-- BABY -->
+  <div class="mega-content dropdown-small" id="baby">
+    <div class="mega-dropdown simple-list" id="babyContainer"></div>
+  </div>
+
+</div>
       </div>
     </header>
 

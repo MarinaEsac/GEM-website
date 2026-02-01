@@ -36373,37 +36373,52 @@ function mapBrandsByLetter(brandsArray) {
 //     container.appendChild(column);
 //   });
 // }
-function renderBrands(data, containerId) {
-  const container = document.getElementById(containerId);
-  container.innerHTML = "";
+function renderAlphabetAndBrands(data) {
+    const alphabetList = document.getElementById("alphabetList");
+    const brandsContainer = document.getElementById("brandsContainer");
+    
+    alphabetList.innerHTML = "";
+    const letters = Object.keys(data).sort(); // رتبي الحروف
 
-  Object.keys(data).forEach(letter => {
-    const column = document.createElement("div");
-    column.className = "mega-column";
+    letters.forEach(letter => {
+        const span = document.createElement("span");
+        span.textContent = letter;
+        
+        // الـ Hover Action
+        span.addEventListener("mouseenter", () => {
+            // شيل الـ active من الكل وحطها هنا
+            document.querySelectorAll(".alphabet-sidebar span").forEach(s => s.classList.remove("active"));
+            span.classList.add("active");
+            
+            displaySpecificBrands(data[letter]);
+        });
 
-    const title = document.createElement("h4");
-    title.textContent = letter;
-    column.appendChild(title);
-
-    data[letter].forEach(brand => {
-      const link = document.createElement("a");
-      
-      link.href = `shop.html?brand=${encodeURIComponent(brand)}`;
-      
-      link.textContent = brand;
-      column.appendChild(link);
+        alphabetList.appendChild(span);
     });
-
-    container.appendChild(column);
-  });
 }
 
-const brandsData = mapBrandsByLetter(backendBrandsMock);
+function displaySpecificBrands(brands) {
+    const container = document.getElementById("brandsContainer");
+    container.innerHTML = "";
+
+    brands.forEach(brand => {
+        const link = document.createElement("a");
+        link.href = `shop.html?brand=${encodeURIComponent(brand)}`;
+        link.textContent = brand;
+        container.appendChild(link);
+    });
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log(brandsData);
-  renderBrands(brandsData.brands, "brandsContainer");
+    const brandsData = mapBrandsByLetter(backendBrandsMock);
+    renderAlphabetAndBrands(brandsData.brands);
 });
+const brandsData = mapBrandsByLetter(backendBrandsMock);
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   console.log(brandsData);
+//   renderBrands(brandsData.brands, "brandsContainer");
+// });
 
 document.addEventListener("DOMContentLoaded", () => {
   const navItems = document.querySelectorAll(".nav-item[data-target]");
@@ -36423,25 +36438,55 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // navItems.forEach(item => {
+  //   item.addEventListener("click", (e) => {
+  //     e.stopPropagation();
+  //     const targetId = item.dataset.target;
+  //     const targetContent = document.getElementById(targetId);
+
+  //     if (!targetContent) return;
+
+  //     const isOpen = megaFrame.style.display === "block" && targetContent.style.display === "block";
+
+  //     if (isOpen) {
+  //       closeEverything();
+  //     } else {
+  //       closeEverything(); 
+  //       megaFrame.style.display = "block";
+  //       targetContent.style.display = "block";
+  //     }
+  //   });
+  // });
   navItems.forEach(item => {
     item.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const targetId = item.dataset.target;
-      const targetContent = document.getElementById(targetId);
+        e.stopPropagation();
+        const targetId = item.dataset.target;
+        const targetContent = document.getElementById(targetId);
 
-      if (!targetContent) return;
+        if (!targetContent) return;
 
-      const isOpen = megaFrame.style.display === "block" && targetContent.style.display === "block";
-
-      if (isOpen) {
-        closeEverything();
-      } else {
+        const isOpen = targetContent.style.display === "block";
         closeEverything(); 
-        megaFrame.style.display = "block";
-        targetContent.style.display = "block";
-      }
+
+        if (!isOpen) {
+            megaFrame.style.display = "block";
+            
+            if (targetContent.classList.contains('dropdown-small')) {
+                const rect = item.getBoundingClientRect();
+                
+                targetContent.style.left = rect.left + "px";
+                
+                targetContent.style.top = "0"; 
+                
+                megaFrame.style.background = "transparent";
+            } else {
+                megaFrame.style.background = "white";
+                targetContent.style.top = "0";
+            }
+            targetContent.style.display = "block";
+        }
     });
-  });
+});
 
   document.addEventListener("click", (e) => {
     if (!megaFrame.contains(e.target)) {
@@ -36480,34 +36525,53 @@ function mapByLetter(itemsArray) {
 
   return result;
 }
-function renderMegaItems(data, containerId, baseUrl) {
+// function renderMegaItems(data, containerId, baseUrl) {
+//   const container = document.getElementById(containerId);
+//   container.innerHTML = "";
+
+//   Object.keys(data).forEach(letter => {
+//     const column = document.createElement("div");
+//     column.className = "mega-column";
+
+//     const title = document.createElement("h4");
+//     title.textContent = letter;
+//     column.appendChild(title);
+
+//     data[letter].forEach(item => {
+//       const link = document.createElement("a");
+//       link.href = `/${baseUrl}/${item.replace(/\s+/g, "-").toLowerCase()}`;
+//       link.textContent = item;
+//       column.appendChild(link);
+//     });
+
+//     container.appendChild(column);
+//   });
+// }
+
+function renderMegaItems(data, containerId, categoryType) {
   const container = document.getElementById(containerId);
+  if (!container) return;
+  
   container.innerHTML = "";
 
-  Object.keys(data).forEach(letter => {
-    const column = document.createElement("div");
-    column.className = "mega-column";
+  const column = document.createElement("div");
+  column.className = "mega-column simple-list";
 
-    const title = document.createElement("h4");
-    title.textContent = letter;
-    column.appendChild(title);
-
-    data[letter].forEach(item => {
-      const link = document.createElement("a");
-      link.href = `/${baseUrl}/${item.replace(/\s+/g, "-").toLowerCase()}`;
-      link.textContent = item;
-      column.appendChild(link);
-    });
-
-    container.appendChild(column);
+  data.forEach(item => {
+    const link = document.createElement("a");
+    link.href = `shop.html?q=${encodeURIComponent(item)}`;
+    link.textContent = item;
+    column.appendChild(link);
   });
-}
-const hairData = mapBrandsByLetter(backendHairMock);
 
-document.addEventListener("DOMContentLoaded", () => {
-  console.log(hairData);
-  renderBrands(hairData.brands, "hairContainer");
-});
+  container.appendChild(column);
+}
+// const hairData = mapBrandsByLetter(backendHairMock);
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   console.log(hairData);
+//   renderBrands(hairData.brands, "hairContainer");
+// });
 // document.addEventListener("DOMContentLoaded", () => {
 //   const navItems = document.querySelectorAll(".nav-item");
 //   const megaFrame = document.querySelector(".mega-frame");
@@ -36551,12 +36615,12 @@ const backendPersonalCareMock = [
   "Toothpaste"
 ];
 
-const personalCareData = mapBrandsByLetter(backendPersonalCareMock);
+// const personalCareData = mapBrandsByLetter(backendPersonalCareMock);
 
-document.addEventListener("DOMContentLoaded", () => {
-  console.log(personalCareData);
-  renderBrands(personalCareData.brands, "personalContainer");
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//   console.log(personalCareData);
+//   renderBrands(personalCareData.brands, "personalContainer");
+// });
 
 // makeup amd tools
 
@@ -36570,10 +36634,10 @@ const backendMakeupToolsMock = [
 
 const makeupData = mapByLetter(backendMakeupToolsMock);
 
-document.addEventListener("DOMContentLoaded", () => {
-  console.log(makeupData);
-  renderMegaItems(makeupData, "makeupToolsContainer");
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//   console.log(makeupData);
+//   renderMegaItems(makeupData, "makeupToolsContainer");
+// });
 
 
 // fragrance
@@ -36598,9 +36662,9 @@ const backendFragranceMock = [
 ];
   const fragranceData = mapByLetter(backendFragranceMock);
 
-document.addEventListener("DOMContentLoaded", () => {
-  renderMegaItems(fragranceData, "fragranceContainer", "fragrance");
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//   renderMegaItems(fragranceData, "fragranceContainer", "fragrance");
+// });
 
 // Sun Care
 const backendSunCareMock = [
@@ -36614,9 +36678,9 @@ const backendSunCareMock = [
 ];
   const sunData = mapByLetter(backendSunCareMock);
 
-document.addEventListener("DOMContentLoaded", () => {
-  renderMegaItems(sunData, "sunContainer", "sun");
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//   renderMegaItems(sunData, "sunContainer", "sun");
+// });
 
 // Baby Care
 const backendBabyCareMock = [
@@ -36630,9 +36694,9 @@ const backendBabyCareMock = [
 ];
   const babyData = mapByLetter(backendBabyCareMock);
 
-document.addEventListener("DOMContentLoaded", () => {
-  renderMegaItems(babyData, "babyContainer", "baby");
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//   renderMegaItems(babyData, "babyContainer", "baby");
+// });
 
 const backendSkinCareMock = [
   "Acne Treatment",
@@ -36667,9 +36731,9 @@ const backendSkinCareMock = [
 
  const skinData = mapByLetter(backendSkinCareMock);
 
-document.addEventListener("DOMContentLoaded", () => {
-  renderMegaItems(skinData, "skinContainer", "skin");
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//   renderMegaItems(skinData, "skinContainer", "skin");
+// });
 
 // Top products
 const brandData = [
@@ -36968,4 +37032,17 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const brandsDataMap = mapBrandsByLetter(backendBrandsMock);
+  renderAlphabetAndBrands(brandsDataMap.brands);
+
+  renderMegaItems(backendHairMock, "hairContainer");
+  renderMegaItems(backendSkinCareMock, "skinContainer");
+  renderMegaItems(backendPersonalCareMock, "personalContainer");
+  renderMegaItems(backendMakeupToolsMock, "makeupToolsContainer");
+  renderMegaItems(backendFragranceMock, "fragranceContainer");
+  renderMegaItems(backendSunCareMock, "sunContainer");
+  renderMegaItems(backendBabyCareMock, "babyContainer");
+});
+
 
