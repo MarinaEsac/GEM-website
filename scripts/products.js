@@ -36631,11 +36631,12 @@ let page = 1;
 const PER_PAGE = 25;
 let totalPages = 1;
 let isLoading = false;
+const initialUrlParams = new URLSearchParams(window.location.search);
 
 async function fetchProductsFromServer() {
   try {
     //const urlParams = new URLSearchParams(window.location.search);
-    const urlParams = new URLSearchParams();
+    const urlParams = initialUrlParams
     const typeFromUrl = urlParams.get("type");
     const brandFromUrl = urlParams.get("brand");
     const response = await fetch(
@@ -36658,7 +36659,7 @@ function startApp() {
   renderSidebarFilters();
 
   //const urlParams = new URLSearchParams(window.location.search);
-  const urlParams = new URLSearchParams();
+  const urlParams = initialUrlParams
   const typeFromUrl = urlParams.get("type");
   const brandFromUrl = urlParams.get("brand");
 
@@ -36690,10 +36691,12 @@ function startApp() {
         applyAllFilters();
       } else {
         renderProducts(allProducts);
+        toggleViewMore();
       }
     }, 50);
   } else {
     renderProducts(allProducts);
+    toggleViewMore();
   }
 
   initEventListeners();
@@ -36781,7 +36784,11 @@ function toggleViewMore() {
   const span = document.getElementById("viewMoreProductsBtn");
   if (!span) return;
 
-  span.style.display = page < totalPages ? "block" : "none";
+  const hasProducts =
+  currentDisplayedProducts && currentDisplayedProducts.length > 0;
+  span.style.display =
+    hasProducts && page < totalPages ? "block" : "none";
+  //span.style.display = page < totalPages ? "block" : "none";
 }
 
 document
