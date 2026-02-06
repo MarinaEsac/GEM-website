@@ -36061,18 +36061,19 @@
 ]);
 
 //single product
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const urlParams = new URLSearchParams(window.location.search);
-    const productId = urlParams.get('id');
+    // const productId = urlParams.get('id');
 
-    const product = allProducts.find(p => p.id == productId);
+    // const product = allProducts.find(p => p.id == productId);
+    const product = await fetchProductFromServer();
 
     if (product) {
         const mainImg = document.getElementById('mainProductImg');
-        if (mainImg) mainImg.src = product.img;
+        if (mainImg) mainImg.src = product.bar_code;
 
         const title = document.getElementById('productTitle');
-        if (title) title.textContent = product.name;
+        if (title) title.textContent = product.product_name;
 
         const desc = document.getElementById('productDescription');
         if (desc) desc.textContent = product.description || "High quality product from Gem Egypt.";
@@ -36085,3 +36086,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+async function fetchProductFromServer() {
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+    const response = await fetch(
+      `${API_BASE_URL}/product/${id}`,
+      { headers: { "X-API-Key": API_KEY } },
+    );
+    const result = await response.json();
+
+    productData = result.data;
+    return productData;
+  } catch (error) {
+    console.error("Error loading products:", error);
+  }
+}

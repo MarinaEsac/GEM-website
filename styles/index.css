@@ -11351,6 +11351,64 @@ blockquote {
   top: 58%;
   transform: translate(-50%, -50%);
 }
+
+/* Search suggestions dropdown (shared fallback for index page) */
+.search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 360px;
+  overflow-y: auto;
+  z-index: 1200;
+  box-shadow: 0 6px 22px rgba(2, 6, 23, 0.08);
+  min-width: 260px;
+}
+
+.search-suggestions:empty {
+  display: none;
+}
+
+.search-suggestions li {
+  padding: 12px 14px;
+  border-bottom: 1px solid #f3f3f3;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #222;
+}
+
+.search-suggestions li:last-child {
+  border-bottom: none;
+}
+
+.search-suggestions li:hover {
+  background-color: #f6f8f6;
+  color: #0b2a59;
+}
+
+.search-suggestions .type-badge {
+  margin-left: auto;
+  background: #0b2a59;
+  color: #fff;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Ensure parent container positions the dropdown correctly */
+.search-box { position: relative; }
 /* #brandsContainer {
   display: block !important;
 } */

@@ -36635,12 +36635,12 @@ const initialUrlParams = new URLSearchParams(window.location.search);
 
 async function fetchProductsFromServer() {
   try {
-    //const urlParams = new URLSearchParams(window.location.search);
-    const urlParams = initialUrlParams
-    const typeFromUrl = urlParams.get("type");
-    const brandFromUrl = urlParams.get("brand");
+    const urlParams = new URLSearchParams(window.location.search);
+    //const urlParams = initialUrlParams
+    lastFilterParams = new URLSearchParams(urlParams.toString());
+    const searchQuery = urlParams.get("q");
     const response = await fetch(
-      `${API_BASE_URL}/shop?${urlParams.toString()}&page=1&per_page=${PER_PAGE}`,
+      `${API_BASE_URL}/shop?${urlParams.toString()}`,
       { headers: { "X-API-Key": API_KEY } },
     );
     const result = await response.json();
@@ -36658,8 +36658,8 @@ async function fetchProductsFromServer() {
 function startApp() {
   renderSidebarFilters();
 
-  //const urlParams = new URLSearchParams(window.location.search);
-  const urlParams = initialUrlParams
+  const urlParams = new URLSearchParams(window.location.search);
+  //const urlParams = initialUrlParams
   const typeFromUrl = urlParams.get("type");
   const brandFromUrl = urlParams.get("brand");
 
@@ -36705,6 +36705,8 @@ function startApp() {
 function renderProducts(list) {
   const container = document.getElementById("productsContainer");
   if (!container) return;
+  const urlSearch = new URLSearchParams(window.location.search);
+  console.log(urlSearch)
 
   container.innerHTML =
     list.length > 0
@@ -36921,25 +36923,35 @@ document.addEventListener("DOMContentLoaded", fetchProductsFromServer);
 
 // search input
 
-document.addEventListener("DOMContentLoaded", () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const searchQuery = urlParams.get("q");
+// document.addEventListener("DOMContentLoaded", async () => {
+//   const urlParams = new URLSearchParams(window.location.search);
+//   const searchQuery = urlParams.get("q");
+//   console.log(searchQuery)
+//   const shopSearchInput = document.querySelector(".search-input");
+//   if (shopSearchInput && searchQuery) {
+//     shopSearchInput.value = searchQuery;
+//   }
 
-  if (searchQuery) {
-    const filtered = allProducts.filter(
-      (product) =>
-        product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        product.brand.toLowerCase().includes(searchQuery.toLowerCase()),
-    );
+//  try {
+//     let url = "/products/search";
 
-    renderProducts(filtered);
+//     if (searchQuery) {
+//       url += `?q=${encodeURIComponent(searchQuery)}`;
+//     }
 
-    const shopSearchInput = document.querySelector(".search-input");
-    if (shopSearchInput) shopSearchInput.value = searchQuery;
-  } else {
-    renderProducts(allProducts);
-  }
-});
+//     const res = await fetch(`${API_BASE_URL}/${url}`, {
+//       headers: {
+//         "x-api-key": API_KEY
+//       }
+//     });
+
+//     const json = await res.json();
+//     renderProducts(json.data || []);
+//   } catch (err) {
+//     console.error("Search failed", err);
+//     renderProducts([]);
+//   }
+// });
 
 document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
@@ -36963,3 +36975,215 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 100);
   }
 });
+
+
+const searchInput = document.querySelector(".search-input");
+
+function ensureSuggestionsBox() {
+  let box = document.querySelector(".search-suggestions");
+  if (box) return box;
+
+  // try to attach under the search form or search-box
+  const form = document.getElementById("searchForm") || document.querySelector('.search-box');
+  if (!form) return null;
+
+  box = document.createElement('ul');
+  box.className = 'search-suggestions';
+  box.setAttribute('role', 'listbox');
+  box.style.position = 'absolute';
+  box.style.top = '100%';
+  box.style.left = '0';
+  box.style.display = 'none';
+  box.style.zIndex = '9999';
+  // ensure it can receive pointer events when visible
+  box.style.pointerEvents = 'auto';
+  // append as last child so it can be absolutely positioned relative to parent
+  form.appendChild(box);
+  return box;
+}
+
+// Add a second argument 'searchType' (optional)
+function performSearch(query, searchType = 'text') {
+  if (!query) return;
+
+  const currentPath = window.location.pathname;
+  const isShopPage = currentPath.includes("shop.html");
+  
+  // Create the base URL for the logic
+  // If we are on shop, use current URL, otherwise create new URL object pointing to shop
+  const targetUrl = isShopPage 
+    ? new URL(window.location) 
+    : new URL(window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '/shop.html'));
+
+  // Reset pagination
+  targetUrl.searchParams.set("page", "1");
+
+  // LOGIC: specific filter vs generic text
+  if (searchType === 'brand') {
+    // If user clicked a Brand suggestion, filter by Brand specifically
+    targetUrl.searchParams.delete("q"); // clear text search
+    targetUrl.searchParams.set("brand", query.toLowerCase());
+  } 
+  else if (searchType === 'category') {
+     // If user clicked Category suggestion, filter by Type/Category
+    targetUrl.searchParams.delete("q");
+    targetUrl.searchParams.set("type", query.toLowerCase()); // Your backend expects 'type' for category list
+  } 
+  else {
+    // Standard text search (Search button or Product suggestion)
+    targetUrl.searchParams.set("q", query);
+    // Optional: decide if you want to clear other filters on a new text search
+    // targetUrl.searchParams.delete("brand");
+    // targetUrl.searchParams.delete("type");
+  }
+
+  // EXECUTION
+  if (isShopPage) {
+    // We are already here, update URL and fetch without reload
+    window.history.pushState({}, "", targetUrl);
+    
+    // Reset app state
+    page = 1;
+    currentDisplayedProducts = []; 
+    const container = document.getElementById("productsContainer");
+    if(container) container.innerHTML = ""; 
+
+    // TRIGGER THE FETCH
+    fetchProductsFromServer();
+    
+    // Hide suggestions
+    const box = document.querySelector('.search-suggestions');
+    if (box) {
+        box.innerHTML = '';
+        box.style.display = 'none';
+    }
+    
+    // Update checkboxes in sidebar to match the new URL (Optional UX polish)
+    updateSidebarFromURL(); 
+  } else {
+    // Hard redirect if not on shop page
+    window.location.href = targetUrl.toString();
+  }
+}
+
+// Helper to check sidebar boxes based on URL (Add this if you want sidebar to sync)
+function updateSidebarFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+    
+    const brand = params.get("brand");
+    if(brand) {
+        const cb = document.querySelector(`input[name="brand"][value="${brand}"]`);
+        if(cb) cb.checked = true;
+    }
+    
+    const type = params.get("type");
+    if(type) {
+        const cb = document.querySelector(`input[name="type"][value="${type}"]`);
+        if(cb) cb.checked = true;
+    }
+}
+
+
+function renderSuggestions(items) {
+  const box = ensureSuggestionsBox();
+  if (!box) return;
+
+  if (!items || items.length === 0) {
+    box.innerHTML = '';
+    box.style.display = 'none';
+    return;
+  }
+
+  box.innerHTML = "";
+  box.style.display = 'block';
+
+  items.forEach((item) => {
+    const li = document.createElement("li");
+    let label = item.text;
+    if(item.type === 'brand') label = `${item.text} <small style='opacity:0.6'>(Brand)</small>`;
+    if(item.type === 'category') label = `${item.text} <small style='opacity:0.6'>(Category)</small>`;
+
+    li.innerHTML = label; 
+    li.classList.add("suggestion", item.type);
+
+    // FIX: Use mousedown to beat the blur event
+    li.addEventListener("mousedown", (e) => {
+      e.preventDefault();
+      // Pass the text AND the type to our helper
+      performSearch(item.text, item.type);
+    });
+
+    box.appendChild(li);
+  });
+}
+
+let debounceTimer;
+
+function debounce() {
+  clearTimeout(debounceTimer);
+
+  const q = (searchInput && searchInput.value) ? searchInput.value.trim() : "";
+
+  if (q.length < 2) {
+    const box = document.querySelector('.search-suggestions') || ensureSuggestionsBox();
+    if (box) {
+      box.innerHTML = "";
+      box.style.display = 'none';
+    }
+    return;
+  }
+
+  debounceTimer = setTimeout(async () => {
+    try {
+      const res = await fetch(
+        `${API_BASE_URL}/products/suggestions?q=${encodeURIComponent(q)}`,
+        {
+          headers: {
+            "x-api-key": API_KEY
+          }
+        }
+      );
+
+
+      const json = await res.json();
+      renderSuggestions(json.data || []);
+    } catch (err) {
+      console.error(err);
+    }
+  }, 300);
+}
+
+if (searchInput) {
+  searchInput.addEventListener("input", debounce);
+}
+
+// close suggestions when input loses focus (but allow clicks on suggestions)
+if (searchInput) {
+  searchInput.addEventListener('blur', () => {
+    setTimeout(() => {
+      const box = document.querySelector('.search-suggestions');
+      if (box) {
+        box.innerHTML = '';
+        box.style.display = 'none';
+      }
+    }, 150);
+  });
+  searchInput.addEventListener('focus', () => {
+    // recreate box if missing so typing immediately shows suggestions
+    const box = ensureSuggestionsBox();
+    if (box) box.style.display = 'none';
+  });
+}
+// search button click - navigate to shop with query
+const searchBtn = document.querySelector('.search-btn');
+if (searchBtn) {
+  searchBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    
+    const input = document.querySelector('.search-input');
+    if (input && input.value.trim().length > 0) {
+      performSearch(input.value.trim(), 'text');
+    }
+  });
+}
