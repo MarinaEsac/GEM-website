@@ -36378,15 +36378,13 @@ function renderAlphabetAndBrands(data) {
     const brandsContainer = document.getElementById("brandsContainer");
     
     alphabetList.innerHTML = "";
-    const letters = Object.keys(data).sort(); // رتبي الحروف
+    const letters = Object.keys(data).sort(); 
 
     letters.forEach(letter => {
         const span = document.createElement("span");
         span.textContent = letter;
         
-        // الـ Hover Action
         span.addEventListener("mouseenter", () => {
-            // شيل الـ active من الكل وحطها هنا
             document.querySelectorAll(".alphabet-sidebar span").forEach(s => s.classList.remove("active"));
             span.classList.add("active");
             
@@ -36421,78 +36419,73 @@ const brandsData = mapBrandsByLetter(backendBrandsMock);
 // });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const navItems = document.querySelectorAll(".nav-item[data-target]");
-  const megaFrame = document.querySelector(".mega-frame");
-  const megaContents = document.querySelectorAll(".mega-content");
-  const closeBtn = document.querySelector(".mega-close");
+    const navItems = document.querySelectorAll(".nav-item[data-target]");
+    const megaFrame = document.getElementById("megaFrame");
+    const closeBtn = document.querySelector(".mega-close");
 
-  function closeEverything() {
-    megaFrame.style.display = "none";
-    megaContents.forEach(c => (c.style.display = "none"));
-  }
+    function closeEverything() {
+        if (megaFrame) {
+            megaFrame.style.display = "none";
+            megaFrame.style.background = "white"; 
+        }
+        document.querySelectorAll(".mega-content").forEach(c => {
+            c.style.display = "none";
+        });
+    }
 
-  if (closeBtn) {
-    closeBtn.addEventListener("click", (e) => {
-      e.stopPropagation(); 
-      closeEverything();
-    });
-  }
+    navItems.forEach(item => {
+        item.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const targetId = item.getAttribute("data-target");
+            const targetContent = document.getElementById(targetId);
 
-  // navItems.forEach(item => {
-  //   item.addEventListener("click", (e) => {
-  //     e.stopPropagation();
-  //     const targetId = item.dataset.target;
-  //     const targetContent = document.getElementById(targetId);
+            if (!targetContent || !megaFrame) return;
 
-  //     if (!targetContent) return;
-
-  //     const isOpen = megaFrame.style.display === "block" && targetContent.style.display === "block";
-
-  //     if (isOpen) {
-  //       closeEverything();
-  //     } else {
-  //       closeEverything(); 
-  //       megaFrame.style.display = "block";
-  //       targetContent.style.display = "block";
-  //     }
-  //   });
-  // });
-  navItems.forEach(item => {
-    item.addEventListener("click", (e) => {
-        e.stopPropagation();
-        const targetId = item.dataset.target;
-        const targetContent = document.getElementById(targetId);
-
-        if (!targetContent) return;
-
-        const isOpen = targetContent.style.display === "block";
-        closeEverything(); 
-
-        if (!isOpen) {
-            megaFrame.style.display = "block";
+            const isOpen = targetContent.style.display === "block";
             
-            if (targetContent.classList.contains('dropdown-small')) {
-                const rect = item.getBoundingClientRect();
-                
-                targetContent.style.left = rect.left + "px";
-                
-                targetContent.style.top = "0"; 
-                
-                megaFrame.style.background = "transparent";
-            } else {
-                megaFrame.style.background = "white";
-                targetContent.style.top = "0";
+            closeEverything(); 
+
+            if (!isOpen) {
+                megaFrame.style.display = "block";
+                targetContent.style.display = "block";
+
+                if (window.innerWidth <= 768) {
+                    targetContent.style.left = "0";
+                    targetContent.style.top = "0";
+                    targetContent.style.position = "relative";
+                    megaFrame.style.background = "white";
+                } else {
+                    if (targetContent.classList.contains('dropdown-small')) {
+                        const rect = item.getBoundingClientRect();
+                        targetContent.style.left = rect.left + "px";
+                        targetContent.style.top = "0";
+                        megaFrame.style.background = "transparent";
+                    } else {
+                        megaFrame.style.background = "white";
+                    }
+                }
             }
-            targetContent.style.display = "block";
+        });
+    });
+
+    if (closeBtn) {
+        closeBtn.addEventListener("click", closeEverything);
+    }
+
+    document.addEventListener("click", (e) => {
+        if (megaFrame && !megaFrame.contains(e.target) && !e.target.closest('.nav-item')) {
+            closeEverything();
         }
     });
-});
 
-  document.addEventListener("click", (e) => {
-    if (!megaFrame.contains(e.target)) {
-      closeEverything();
-    }
-  });
+    renderAlphabetAndBrands(mapBrandsByLetter(backendBrandsMock).brands);
+    renderMegaItems(backendHairMock, "hairContainer");
+    renderMegaItems(backendSkinCareMock, "skinContainer");
+    renderMegaItems(backendPersonalCareMock, "personalContainer");
+    renderMegaItems(backendMakeupToolsMock, "makeupToolsContainer");
+    renderMegaItems(backendFragranceMock, "fragranceContainer");
+    renderMegaItems(backendSunCareMock, "sunContainer");
+    renderMegaItems(backendBabyCareMock, "babyContainer");
 });
 
 

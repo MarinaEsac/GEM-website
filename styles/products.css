@@ -10888,60 +10888,6 @@ blockquote {
     opacity: 0.7;
   }
 
-  /* mega menu becomes a bottom sheet on mobile */
-  .mega-frame {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-    display: none;
-    z-index: 1000;
-  }
-  .mega-frame.active {
-    display: block;
-  }
-
-  .mega-content {
-    display: none !important;
-    position: fixed !important;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    max-height: 70vh;
-    overflow: auto;
-    background: var(--bg);
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    padding: 16px;
-    z-index: 1001;
-  }
-  .mega-content.active {
-    display: block !important;
-  }
-
-  .mega-close {
-    background-color: #fff;
-    position: absolute;
-    right: 12px;
-    top: 370px;
-    font-size: 22px;
-    line-height: 1;
-    cursor: pointer;
-  }
-
-  .mega-dropdown {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-  }
-  .mega-column h4 {
-    margin: 8px 0 6px;
-  }
-  .mega-column a {
-    display: block;
-    padding: 6px 0;
-    border-bottom: 1px solid var(--border);
-  }
-
   /* "View More" dropdown works in a fixed layer so it doesn't overflow off-screen */
   .more-item {
     position: relative;
@@ -11040,47 +10986,7 @@ blockquote {
   }
 }
 
-/* Mobile mega-menu as bottom sheet (only if you’re using it) */
 @media (max-width: 768px) {
-  .mega-frame {
-    position: fixed !important;
-    inset: 0 !important;
-    background: rgba(0, 0, 0, 0.4) !important;
-    display: none !important;
-    z-index: 1000 !important;
-  }
-  .mega-frame.active {
-    display: block !important;
-  }
-
-  .mega-content {
-    display: none !important;
-    position: fixed !important;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    max-height: 70vh;
-    overflow: auto;
-    background: var(--bg);
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    padding: 16px;
-    z-index: 1001;
-  }
-  .mega-content.active {
-    display: block !important;
-  }
-
-  .mega-dropdown {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-  }
-  .mega-column a {
-    display: block;
-    padding: 6px 0;
-    border-bottom: 1px solid var(--border);
-  }
   .hero-slider {
     display: unset !important;
     height: "50vh" !important;
@@ -11723,3 +11629,206 @@ blockquote {
 
 /* Ensure parent container positions the dropdown correctly */
 .search-box { position: relative; }
+@media (max-width: 1024px) {
+  .logo img {
+    height: 72px !important;
+  }
+  .search-box {
+    max-width: 360px;
+  }
+  .nav-row {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 8px 12px;
+  }
+
+  .top-row {
+    min-height: auto; 
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    font-size: 20px;
+    line-height: 1;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: transparent;
+    color: inherit;
+    order: 1; 
+  }
+
+
+  .logo {
+    position: static;
+    transform: none;
+    order: 0;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+  }
+  .logo img {
+    height: 56px !important;
+  }
+
+  .search-box {
+    order: 2;
+    flex: 1 1 100%;
+    max-width: none;
+  }
+
+  .social-icons {
+    display: none;
+  }
+
+  .middle-nav {
+    order: 3;
+    width: 100%;
+  }
+  .middle-nav .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+  }
+  .middle-nav .nav-item,
+  .middle-nav .nav-links > a,
+  .middle-nav .nav-links > .nav-item {
+    padding: 6px 8px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .nav-row {
+    display: none;                 
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    border-top: 1px solid var(--border);
+    margin-top: 6px;
+  }
+  .nav-row.active {
+    display: flex;                 
+  }
+  .nav-row .nav-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 4px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+  }
+  .nav-row .nav-item .chev {
+    transform: translateY(1px);
+    font-size: 12px;
+    opacity: 0.7;
+  }
+  .more-item {
+    position: relative;
+  }
+  .more-item .more-dropdown {
+    position: fixed;
+    right: 12px;
+    top: 60px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    display: none;
+    z-index: 1100;
+  }
+  .more-item.active .more-dropdown {
+    display: block;
+  }
+}
+
+@media (max-width: 400px) {
+  .logo img {
+    height: 48px !important;
+  }
+  .search-input {
+    font-size: 13px;
+    padding: 9px 12px;
+  }
+  .middle-nav .nav-links {
+    gap: 6px;
+  }
+}
+
+@media (max-width: 768px) {
+  
+
+}
+@media (max-width: 768px) {
+  .menu-toggle {
+    width: 35px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+   padding: 6px 10px;
+    font-size: 20px;
+    line-height: 1;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: transparent;
+  }
+
+}
+@media (max-width: 820px) {
+  .logo {
+    position: static !important;
+    transform: none !important;
+    margin: 0 auto !important;
+  }
+}
+@media (max-width: 768px) {
+  .logo img {
+    height: 56px !important; 
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-row {
+    display: none !important;            
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    border-top: 1px solid var(--border);
+    margin-top: 6px;
+  }
+  .nav-row.active {
+    display: flex !important;            
+  }
+  .nav-row .nav-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 4px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 520px) {
+  .search-box {
+    display: flex !important;            
+    flex: 1 1 100%;
+    max-width: none;
+  }
+}
+>>>>>>> Stashed changes

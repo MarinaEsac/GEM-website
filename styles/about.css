@@ -10843,60 +10843,6 @@ blockquote {
     opacity: 0.7;
   }
 
-  /* mega menu becomes a bottom sheet on mobile */
-  .mega-frame {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.4);
-    display: none;
-    z-index: 1000;
-  }
-  .mega-frame.active {
-    display: block;
-  }
-
-  .mega-content {
-    display: none;
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    max-height: 70vh;
-    overflow: auto;
-    background: var(--bg);
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    padding: 16px;
-    z-index: 1001;
-  }
-  .mega-content.active {
-    display: block;
-  }
-
-    .mega-close {
-    background-color: #fff;
-    position: absolute;
-    right: 12px;
-    top: 370px;
-    font-size: 22px;
-    line-height: 1;
-    cursor: pointer;
-  }
-
-  /* typical mega dropdown columns: stack tighter on mobile */
-  .mega-dropdown {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-  }
-  .mega-column h4 {
-    margin: 8px 0 6px;
-  }
-  .mega-column a {
-    display: block;
-    padding: 6px 0;
-    border-bottom: 1px solid var(--border);
-  }
 
   /* "View More" dropdown works in a fixed layer so it doesn't overflow off-screen */
   .more-item {
@@ -10988,49 +10934,16 @@ blockquote {
   }
 }
 
-/* Optional: don’t hard-hide the search on small screens (if you want it visible) */
 @media (max-width: 520px) {
   .search-box {
-    display: flex !important;            /* cancel earlier "display:none" */
+    display: flex !important;            
     flex: 1 1 100%;
     max-width: none;
   }
 }
 
-/* Mobile mega-menu as bottom sheet (only if you’re using it) */
 @media (max-width: 768px) {
-  .mega-frame {
-    position: fixed !important;
-    inset: 0 !important;
-    background: rgba(0,0,0,0.4) !important;
-    display: none !important;
-    z-index: 1000 !important;
-  }
-  .mega-frame.active { display: block !important; }
-
-  .mega-content {
-    display: none !important;
-    position: fixed !important;
-    left: 0; right: 0; bottom: 0;
-    max-height: 70vh; overflow: auto;
-    background: var(--bg);
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    padding: 16px;
-    z-index: 1001;
-  }
-  .mega-content.active { display: block !important; }
-
-  .mega-dropdown {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-  }
-  .mega-column a {
-    display: block;
-    padding: 6px 0;
-    border-bottom: 1px solid var(--border);
-  }
+ 
     .hero-slider{
     display: unset !important;
     height: '50vh' !important;

@@ -10730,21 +10730,7 @@ blockquote {
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
-.nav-row {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-}
-/* .nav-item { position: relative; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 4px; transition: color 0.2s ease; } */
-.nav-item {
-  position: relative;
-  padding: 0 15px;
-}
 
-.nav-item .chev {
-  font-size: 0.8rem;
-  margin-left: 5px;
-}
 
 .mega-frame {
   width: 100%;
@@ -10862,21 +10848,7 @@ blockquote {
   gap: 25px;
 }
 
-.nav-item {
-  font-size: 15px;
-  font-weight: 500;
-  color: #222;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
 
-.nav-item:hover {
-  color: #0077cc;
-}
 
 .more-item {
   position: relative;
@@ -10973,7 +10945,151 @@ blockquote {
     gap: 8px;
   }
 }
+/* ====== Mobile (<= 768px) ====== */
+@media (max-width: 768px) {
+  .header {
+    padding: 8px 12px;
+  }
 
+  .top-row {
+    min-height: auto; /* stop fighting absolute logo on small screens */
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+  /* show hamburger */
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    font-size: 20px;
+    line-height: 1;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: transparent;
+    color: inherit;
+    order: 1; /* first item on the row */
+  }
+
+
+  /* center logo, remove absolute positioning so it doesn't overlap */
+  .logo {
+    position: static;
+    transform: none;
+    order: 0;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+  }
+  .logo img {
+    height: 56px !important;
+  }
+
+  /* search spans full width under the logo/hamburger */
+  .search-box {
+    order: 2;
+    flex: 1 1 100%;
+    max-width: none;
+  }
+
+  /* optional: hide social icons on tight screens to save space */
+  .social-icons {
+    display: none;
+  }
+
+  /* middle row links wrap and scroll nicely, no layout explosions */
+  .middle-nav {
+    order: 3;
+    width: 100%;
+  }
+  .middle-nav .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+  }
+  .middle-nav .nav-item,
+  .middle-nav .nav-links > a,
+  .middle-nav .nav-links > .nav-item {
+    padding: 6px 8px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* collapse the big category bar into a vertical drawer */
+  .nav-row {
+    display: none;                 /* closed by default */
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    border-top: 1px solid var(--border);
+    margin-top: 6px;
+  }
+  .nav-row.active {
+    display: flex;                 /* opened by hamburger */
+  }
+  .nav-row .nav-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 4px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+  }
+  .nav-row .nav-item .chev {
+    transform: translateY(1px);
+    font-size: 12px;
+    opacity: 0.7;
+  }
+  /* "View More" dropdown works in a fixed layer so it doesn't overflow off-screen */
+  .more-item {
+    position: relative;
+  }
+  .more-item .more-dropdown {
+    position: fixed;
+    right: 12px;
+    top: 60px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    display: none;
+    z-index: 1100;
+  }
+  .more-item.active .more-dropdown {
+    display: block;
+  }
+}
+/* Let the hamburger actually open the menu */
+@media (max-width: 768px) {
+  .nav-row {
+    display: none !important;            /* closed by default */
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    border-top: 1px solid var(--border);
+    margin-top: 6px;
+  }
+  .nav-row.active {
+    display: flex !important;            /* open when .active is toggled by JS */
+  }
+  .nav-row .nav-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 4px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+  }
+}
 /* ====== Mobile (<= 768px) ====== */
 @media (max-width: 768px) {
   .header {
@@ -11040,52 +11156,7 @@ blockquote {
     gap: 8px;
     width: 100%;
   }
-  .middle-nav .nav-item,
-  .middle-nav .nav-links > a,
-  .middle-nav .nav-links > .nav-item {
-    padding: 6px 8px;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  /* collapse the big category bar into a vertical drawer */
-  .nav-row {
-    display: none; /* closed by default */
-    flex-direction: column;
-    gap: 0;
-    width: 100%;
-    border-top: 1px solid var(--border);
-    margin-top: 6px;
-  }
-  .nav-row.active {
-    display: flex; /* opened by hamburger */
-  }
-  .nav-row .nav-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 4px;
-    border-bottom: 1px solid var(--border);
-    cursor: pointer;
-  }
-  .nav-row .nav-item .chev {
-    transform: translateY(1px);
-    font-size: 12px;
-    opacity: 0.7;
-  }
-
-  /* mega menu becomes a bottom sheet on mobile */
-  .mega-frame {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-    display: none;
-    z-index: 1000;
-  }
+ 
   .mega-frame.active {
     display: block;
   }
@@ -11190,27 +11261,6 @@ blockquote {
 }
 
 /* Let the hamburger actually open the menu */
-@media (max-width: 768px) {
-  .nav-row {
-    display: none !important; /* closed by default */
-    flex-direction: column;
-    gap: 0;
-    width: 100%;
-    border-top: 1px solid var(--border);
-    margin-top: 6px;
-  }
-  .nav-row.active {
-    display: flex !important; /* open when .active is toggled by JS */
-  }
-  .nav-row .nav-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 4px;
-    border-bottom: 1px solid var(--border);
-    cursor: pointer;
-  }
-}
 
 /* Optional: don’t hard-hide the search on small screens (if you want it visible) */
 @media (max-width: 520px) {
@@ -11223,13 +11273,7 @@ blockquote {
 
 /* Mobile mega-menu as bottom sheet (only if you’re using it) */
 @media (max-width: 768px) {
-  .mega-frame {
-    position: fixed !important;
-    inset: 0 !important;
-    background: rgba(0, 0, 0, 0.4) !important;
-    display: none !important;
-    z-index: 1000 !important;
-  }
+
   .mega-frame.active {
     display: block !important;
   }
