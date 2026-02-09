@@ -36373,12 +36373,34 @@ function mapBrandsByLetter(brandsArray) {
 //     container.appendChild(column);
 //   });
 // }
+const topBrands = [
+    "Andrea",
+    "Karsell",
+    "Kiss",
+    "Revox",
+    "Silkia"
+];
 function renderAlphabetAndBrands(data) {
     const alphabetList = document.getElementById("alphabetList");
     const brandsContainer = document.getElementById("brandsContainer");
     
     alphabetList.innerHTML = "";
-    const letters = Object.keys(data).sort(); 
+    const topSpan = document.createElement("span");
+    topSpan.textContent = "Top Brands";
+    topSpan.classList.add("top-brands");
+    console.log(topSpan);
+    topSpan.addEventListener("mouseenter", () => {
+        document.querySelectorAll(".alphabet-sidebar span")
+            .forEach(s => s.classList.remove("active"));
+
+        topSpan.classList.add("active");
+        displaySpecificBrands(topBrands);
+    });
+
+    alphabetList.appendChild(topSpan)
+
+    
+    const letters = Object.keys(data).sort(); // رتبي الحروف
 
     letters.forEach(letter => {
         const span = document.createElement("span");
@@ -36407,10 +36429,10 @@ function displaySpecificBrands(brands) {
     });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    const brandsData = mapBrandsByLetter(backendBrandsMock);
-    renderAlphabetAndBrands(brandsData.brands);
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//     const brandsData = mapBrandsByLetter(backendBrandsMock);
+//     renderAlphabetAndBrands(brandsData.brands);
+// });
 const brandsData = mapBrandsByLetter(backendBrandsMock);
 
 // document.addEventListener("DOMContentLoaded", () => {
