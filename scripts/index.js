@@ -36374,11 +36374,11 @@ function mapBrandsByLetter(brandsArray) {
 //   });
 // }
 const topBrands = [
-    "Andrea",
+    "Zero frizz",
     "Karsell",
-    "Kiss",
+    "Xl",
     "Revox",
-    "Silkia"
+    "Dalin"
 ];
 function renderAlphabetAndBrands(data) {
     const alphabetList = document.getElementById("alphabetList");
@@ -36386,7 +36386,7 @@ function renderAlphabetAndBrands(data) {
     
     alphabetList.innerHTML = "";
     const topSpan = document.createElement("span");
-    topSpan.textContent = "Top Brands";
+    topSpan.textContent = "Top";
     topSpan.classList.add("top-brands");
     console.log(topSpan);
     topSpan.addEventListener("mouseenter", () => {
