@@ -27,7 +27,12 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <link href="./styles/index.css" rel="stylesheet" type="text/css" />
-    
+    <link rel="preload" as="image" href="./assets/hair-burst.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="./assets/revox image.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="./assets/sunscreen-image.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="./assets/gem-history.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="./assets/gem-events.webp" fetchpriority="high" />
+
     <style>
        * {
         margin: 0;
@@ -1009,7 +1014,123 @@
     -webkit-overflow-scrolling: touch;
   }
 }
+.brand {
+  overflow: hidden;
+  position: relative;
 
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.brandSwiper .swiper-wrapper {
+  width: max-content;
+  animation: brandScroll 110s linear infinite;
+}
+
+.brandSwiper .swiper-slide {
+  width: auto !important;
+  flex-shrink: 0;
+}
+
+.brandSwiper img {
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+}
+
+@keyframes brandScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+@media screen and (max-width: 767px) {
+    .tp-left {
+        display: none !important;
+    }
+
+    .tp-inner {
+        display: block;
+        padding: 20px;
+    }
+    .tp-list {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr; 
+        gap: 15px;
+        padding: 0;
+    }
+
+    .tp-item {
+        width: 100% !important;
+        margin-bottom: 20px;
+    }
+
+    .section-heading {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 30px;
+        transform: none !important; 
+    }
+    
+    .tp-block {
+        opacity: 1 !important; 
+    }
+}
+
+.mobile-only-heading {
+    display: none;
+}
+
+@media screen and (max-width: 767px) {
+    
+    .tp-left {
+        display: none !important;
+    }
+
+    .mobile-only-heading {
+        display: block;
+        text-align: center;
+        font-size: 28px;
+        margin: 20px 0;
+        color: #0b2a59;
+    }
+
+    .tp-inner {
+        display: block !important; 
+        padding: 0 15px;
+    }
+
+    .tp-list {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .tp-block {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .tp-img img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+}
     </style>
     <script type="text/javascript">
         !(function (o, c) {
@@ -1268,240 +1389,475 @@
             <div class="swiper brandSwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="./assets/daX-01.png" alt="DAX" loading="lazy"/>
+                        <img src="./assets/daX-01.webp" alt="DAX" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/BANANA BOAT.png" alt="Banana Boat" loading="lazy"/>
+                        <img src="./assets/BANANA BOAT.webp" alt="Banana Boat" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Cristal Momento-01.png" alt="Momento" loading="lazy"/>
+                        <img src="./assets/Cristal Momento-01.webp" alt="Momento" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Bobini.png" alt="Bobini" loading="lazy"/>
+                        <img src="./assets/Bobini.webp" alt="Bobini" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Carroten.png" alt="Carroten" loading="lazy"/>
+                        <img src="./assets/Carroten.webp" alt="Carroten" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Crital Ravita-01.png" alt="Ravita" loading="lazy"/>
+                        <img src="./assets/Crital Ravita-01.webp" alt="Ravita" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Karseell.png" alt="Karseell" loading="lazy"/>
+                        <img src="./assets/Karseell.webp" alt="Karseell" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Revox Plex-01.png" alt="Revox Plex" loading="lazy"/>
+                        <img src="./assets/Revox Plex-01.webp" alt="Revox Plex" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Schick New-01.png" alt="Schick" loading="lazy" />
+                        <img src="./assets/Schick New-01.webp" alt="Schick" loading="lazy" />
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/salon Perfect-01.png" alt="salon perfect" loading="lazy"/>
+                        <img src="./assets/salon Perfect-01.webp" alt="salon perfect" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/RT_Logos_Stacked_Black.png" alt="RT_Logos_Stacked_Black" loading="lazy"/>
+                        <img src="./assets/RT_Logos_Stacked_Black.webp" alt="RT_Logos_Stacked_Black" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Play Girl-01.png" alt="Play Girl" loading="lazy"/>
+                        <img src="./assets/Play Girl-01.webp" alt="Play Girl" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Perfumer's Choice-01.png" alt="Perfumer's Choice" loading="lazy"/>
+                        <img src="./assets/Perfumer's Choice-01.webp" alt="Perfumer's Choice" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Milton-Lloyd-01.png" alt="Milton-Lloyd" loading="lazy"/>
+                        <img src="./assets/Milton-Lloyd-01.webp" alt="Milton-Lloyd" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Ladys Secret-01.png" alt="Ladys Secret" loading="lazy"/>
+                        <img src="./assets/Ladys Secret-01.webp" alt="Ladys Secret" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/l`origin-01.png" alt="l`origin" loading="lazy"/>
+                        <img src="./assets/l`origin-01.webp" alt="l`origin" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/kiss-01.png" alt="kiss" loading="lazy"/>
+                        <img src="./assets/kiss-01.webp" alt="kiss" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Kashmir-01.png" alt="Kashmir" loading="lazy"/>
+                        <img src="./assets/Kashmir-01.webp" alt="Kashmir" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/impress new-01.png" alt="impress new" loading="lazy"/>
+                        <img src="./assets/impress new-01.webp" alt="impress new" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/ibd-01.png" alt="ibd" loading="lazy"/>
+                        <img src="./assets/ibd-01.webp" alt="ibd" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/hawaii.png" alt="hawaii" loading="lazy"/>
+                        <img src="./assets/hawaii.webp" alt="hawaii" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Frais-01.png" alt="frais" loading="lazy"/>
+                        <img src="./assets/Frais-01.webp" alt="frais" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/fe-01.png" alt="fe" loading="lazy"/>
+                        <img src="./assets/fe-01.webp" alt="fe" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Eco Tools-01.png" alt="eco tools" loading="lazy"/>
+                        <img src="./assets/Eco Tools-01.webp" alt="eco tools" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Duo-01.png" alt="duo" loading="lazy"/>
+                        <img src="./assets/Duo-01.webp" alt="duo" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Deomania.png" alt="Deomania" loading="lazy"/>
+                        <img src="./assets/Deomania.webp" alt="Deomania" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/COLOUR ME  logo.png" alt="color me" loading="lazy"/>
+                        <img src="./assets/COLOUR ME  logo.webp" alt="color me" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/ARDELL.png" alt="ardell" loading="lazy"/>
+                        <img src="./assets/ARDELL.webp" alt="ardell" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Andera.png" alt="Andera" loading="lazy"/>
+                        <img src="./assets/Andera.webp" alt="Andera" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Union cosmetic.png" alt="Union cosmetic" loading="lazy"/>
+                        <img src="./assets/Union cosmetic.webp" alt="Union cosmetic" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/wetbrush new 2025-01.png" alt="wetbrush" loading="lazy"/>
+                        <img src="./assets/wetbrush new 2025-01.webp" alt="wetbrush" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/XL-01.png" alt="XL" loading="lazy"/>
+                        <img src="./assets/XL-01.webp" alt="XL" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/YM.png" alt="YM" loading="lazy"/>
+                        <img src="./assets/YM.webp" alt="YM" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/1-.png" alt="Batiste" loading="lazy"/>
+                        <img src="./assets/1-.webp" alt="Batiste" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Armada-01.png" alt="Armada" loading="lazy"/>
+                        <img src="./assets/Armada-01.webp" alt="Armada" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/cabana sun.jpg" alt="cabana sun" loading="lazy"/>
+                        <img src="./assets/cabana sun.webp" alt="cabana sun" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Calypso-01.jpg" alt="Calypso" loading="lazy"/>
+                        <img src="./assets/Calypso-01.webp" alt="Calypso" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Cliven Italy-01.png" alt="Cliven Italy" loading="lazy"/>
+                        <img src="./assets/Cliven Italy-01.webp" alt="Cliven Italy" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Cocoa Skin Therapy-01.png" alt="Cocoa Skin Therapy" loading="lazy"/>
+                        <img src="./assets/Cocoa Skin Therapy-01.webp" alt="Cocoa Skin Therapy" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Creme of nature-01.png" alt="Creme of nature" loading="lazy"/>
+                        <img src="./assets/Creme of nature-01.webp" alt="Creme of nature" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/dimples.png" alt="dimples" loading="lazy"/>
+                        <img src="./assets/dimples.webp" alt="dimples" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Disaar ..png" alt="Disaar" loading="lazy"/>
+                        <img src="./assets/Disaar ..webp" alt="Disaar" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Enercos.png" alt="Enercos" loading="lazy"/>
+                        <img src="./assets/Enercos.webp" alt="Enercos" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Energy hair food-01.png" alt="Energy hair food" loading="lazy"/>
+                        <img src="./assets/Energy hair food-01.webp" alt="Energy hair food" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/FashKool New-01.png" alt="FashKool" loading="lazy"/>
+                        <img src="./assets/FashKool New-01.webp" alt="FashKool" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Galeria Professional-02.png" alt="Galeria" loading="lazy"/>
+                        <img src="./assets/Galeria Professional-02.webp" alt="Galeria" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/zero frizz new-01.png" alt="zero frizz" loading="lazy"/>
+                        <img src="./assets/zero frizz new-01.webp" alt="zero frizz" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Zact new.png" alt="zact" loading="lazy"/>
+                        <img src="./assets/Zact new.webp" alt="zact" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/youthhair-01.png" alt="youthhair" loading="lazy"/>
+                        <img src="./assets/youthhair-01.webp" alt="youthhair" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/yara-01.png" alt="yara" loading="lazy"/>
+                        <img src="./assets/yara-01.webp" alt="yara" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Wildcolor new-01 (1).png" alt="Wildcolor" loading="lazy" />
+                        <img src="./assets/Wildcolor new-01 (1).webp" alt="Wildcolor" loading="lazy" />
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/uniq one.png" alt="uniq one" loading="lazy"/>
+                        <img src="./assets/uniq one.webp" alt="uniq one" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Stoply-01.png" alt="stoply" loading="lazy"/>
+                        <img src="./assets/Stoply-01.webp" alt="stoply" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Starkin-01.png" alt="Starkin" loading="lazy"/>
+                        <img src="./assets/Starkin-01.webp" alt="Starkin" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Smart Collection.png" alt="smart collection" loading="lazy"/>
+                        <img src="./assets/Smart Collection.webp" alt="smart collection" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Thichker fuller Hair-01 (2).png" alt="Thichker fuller Hair" loading="lazy"/>
+                        <img src="./assets/Thichker fuller Hair-01 (2).webp" alt="Thichker fuller Hair" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Silkia-01 (2).png" alt="Silkia" loading="lazy"/>
+                        <img src="./assets/Silkia-01 (2).webp" alt="Silkia" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/SGX-01 (4).png" alt="SGX" loading="lazy"/>
+                        <img src="./assets/SGX-01 (4).webp" alt="SGX" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/SG-01 (2).png" alt="SG" loading="lazy"/>
+                        <img src="./assets/SG-01 (2).webp" alt="SG" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Selsium-01 (1).png" alt="Selsium" loading="lazy"/>
+                        <img src="./assets/Selsium-01 (1).webp" alt="Selsium" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Revox-01 (2).png" alt="revox" loading="lazy"/>
+                        <img src="./assets/Revox-01 (2).webp" alt="revox" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/REVLON profissional (2).png" alt="REVLON" loading="lazy"/>
+                        <img src="./assets/REVLON profissional (2).webp" alt="REVLON" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Re-gen New-01 (2).png" alt="Re-gen" loading="lazy"/>
+                        <img src="./assets/Re-gen New-01 (2).webp" alt="Re-gen" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Ravita logo-01 (2).png" alt="Ravita" loading="lazy"/>
+                        <img src="./assets/Ravita logo-01 (2).webp" alt="Ravita" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Playtex (2).png" alt="Playtex" loading="lazy"/>
+                        <img src="./assets/Playtex (2).webp" alt="Playtex" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/ORS(3)-01 (2).png" alt="ors" loading="lazy"/>
+                        <img src="./assets/ORS(3)-01 (2).webp" alt="ors" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Oriense-01 (2).png" alt="Oriense" loading="lazy"/>
+                        <img src="./assets/Oriense-01 (2).webp" alt="Oriense" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Olaplex (2).png" alt="Olaplex" loading="lazy"/>
+                        <img src="./assets/Olaplex (2).webp" alt="Olaplex" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Ohoud (2).png" alt="Ohoud" loading="lazy"/>
+                        <img src="./assets/Ohoud (2).webp" alt="Ohoud" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Nature s Bounty Black-03.png" alt="Nature s Bounty" loading="lazy"/>
+                        <img src="./assets/Nature s Bounty Black-03.webp" alt="Nature s Bounty" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/NATURALIS new.png" alt="NATURALIS" loading="lazy"/>
+                        <img src="./assets/NATURALIS new.webp" alt="NATURALIS" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Moroccanoil.png" alt="Moroccanoil" loading="lazy"/>
+                        <img src="./assets/Moroccanoil.webp" alt="Moroccanoil" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Morfose-02.png" alt="Morfose" loading="lazy"/>
+                        <img src="./assets/Morfose-02.webp" alt="Morfose" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Modish-01.png" alt="Modish" loading="lazy"/>
+                        <img src="./assets/Modish-01.webp" alt="Modish" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/LILEN new.png" alt="LILEN" loading="lazy"/>
+                        <img src="./assets/LILEN new.webp" alt="LILEN" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/kodomo-01.png" alt="kodomo" loading="lazy"/>
+                        <img src="./assets/kodomo-01.webp" alt="kodomo" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/kativa.png" alt="kativa" loading="lazy"/>
+                        <img src="./assets/kativa.webp" alt="kativa" loading="lazy"/>
                     </div>
                     <div class="swiper-slide">
-                        <img src="./assets/Hair Burst-01.png" alt="Hair Burst" loading="lazy"/>
+                        <img src="./assets/Hair Burst-01.webp" alt="Hair Burst" loading="lazy"/>
+                    </div>
+                      <div class="swiper-slide">
+                        <img src="./assets/daX-01.webp" alt="DAX" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/BANANA BOAT.webp" alt="Banana Boat" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Cristal Momento-01.webp" alt="Momento" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Bobini.webp" alt="Bobini" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Carroten.webp" alt="Carroten" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Crital Ravita-01.webp" alt="Ravita" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Karseell.webp" alt="Karseell" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Revox Plex-01.webp" alt="Revox Plex" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Schick New-01.webp" alt="Schick" loading="lazy" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/salon Perfect-01.webp" alt="salon perfect" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/RT_Logos_Stacked_Black.webp" alt="RT_Logos_Stacked_Black" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Play Girl-01.webp" alt="Play Girl" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Perfumer's Choice-01.webp" alt="Perfumer's Choice" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Milton-Lloyd-01.webp" alt="Milton-Lloyd" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Ladys Secret-01.webp" alt="Ladys Secret" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/l`origin-01.webp" alt="l`origin" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/kiss-01.webp" alt="kiss" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Kashmir-01.webp" alt="Kashmir" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/impress new-01.webp" alt="impress new" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/ibd-01.webp" alt="ibd" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/hawaii.webp" alt="hawaii" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Frais-01.webp" alt="frais" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/fe-01.webp" alt="fe" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Eco Tools-01.webp" alt="eco tools" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Duo-01.webp" alt="duo" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Deomania.webp" alt="Deomania" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/COLOUR ME  logo.webp" alt="color me" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/ARDELL.webp" alt="ardell" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Andera.webp" alt="Andera" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Union cosmetic.webp" alt="Union cosmetic" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/wetbrush new 2025-01.webp" alt="wetbrush" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/XL-01.webp" alt="XL" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/YM.webp" alt="YM" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/1-.webp" alt="Batiste" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Armada-01.webp" alt="Armada" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/cabana sun.webp" alt="cabana sun" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Calypso-01.webp" alt="Calypso" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Cliven Italy-01.webp" alt="Cliven Italy" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Cocoa Skin Therapy-01.webp" alt="Cocoa Skin Therapy" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Creme of nature-01.webp" alt="Creme of nature" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/dimples.webp" alt="dimples" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Disaar ..webp" alt="Disaar" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Enercos.webp" alt="Enercos" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Energy hair food-01.webp" alt="Energy hair food" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/FashKool New-01.webp" alt="FashKool" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Galeria Professional-02.webp" alt="Galeria" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/zero frizz new-01.webp" alt="zero frizz" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Zact new.webp" alt="zact" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/youthhair-01.webp" alt="youthhair" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/yara-01.webp" alt="yara" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Wildcolor new-01 (1).webp" alt="Wildcolor" loading="lazy" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/uniq one.webp" alt="uniq one" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Stoply-01.webp" alt="stoply" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Starkin-01.webp" alt="Starkin" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Smart Collection.webp" alt="smart collection" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Thichker fuller Hair-01 (2).webp" alt="Thichker fuller Hair" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Silkia-01 (2).webp" alt="Silkia" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/SGX-01 (4).webp" alt="SGX" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/SG-01 (2).webp" alt="SG" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Selsium-01 (1).webp" alt="Selsium" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Revox-01 (2).webp" alt="revox" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/REVLON profissional (2).webp" alt="REVLON" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Re-gen New-01 (2).webp" alt="Re-gen" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Ravita logo-01 (2).webp" alt="Ravita" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Playtex (2).webp" alt="Playtex" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/ORS(3)-01 (2).webp" alt="ors" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Oriense-01 (2).webp" alt="Oriense" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Olaplex (2).webp" alt="Olaplex" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Ohoud (2).webp" alt="Ohoud" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Nature s Bounty Black-03.webp" alt="Nature s Bounty" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/NATURALIS new.webp" alt="NATURALIS" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Moroccanoil.webp" alt="Moroccanoil" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Morfose-02.webp" alt="Morfose" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Modish-01.webp" alt="Modish" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/LILEN new.webp" alt="LILEN" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/kodomo-01.webp" alt="kodomo" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/kativa.webp" alt="kativa" loading="lazy"/>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/Hair Burst-01.webp" alt="Hair Burst" loading="lazy"/>
                     </div>
                 </div>
+                
             </div>
     </section>
 
@@ -1525,7 +1881,7 @@
                                 </a>
                             </div>
                             <div class="image-box">
-                                <img src="./assets/hair-burst.jpg" alt="Hero 1" class="hero-img animate" loading="lazy"/>
+                                <img src="./assets/hair-burst.webp" alt="Hero 1" class="hero-img animate" loading="lazy"/>
                             </div>
                         </div>
                     </div>
@@ -1543,7 +1899,7 @@
                                 Now</a>
                         </div>
                         <div class="image-box">
-                            <img src="./assets/revox image.png" alt="Hero 2" class="hero-img animate" loading="lazy"/>
+                            <img src="./assets/revox image.webp" alt="Hero 2" class="hero-img animate" loading="lazy"/>
                         </div>
                     </div>
                 </div>
@@ -1561,7 +1917,7 @@
                             </a>
                         </div>
                         <div class="image-box">
-                            <img src="./assets/sunscreen-image.png" alt="Hero 3" class="hero-img animate" loading="lazy"/>
+                            <img src="./assets/sunscreen-image.webp" alt="Hero 3" class="hero-img animate" loading="lazy"/>
                         </div>
                     </div>
                 </div>
@@ -1574,12 +1930,12 @@
     </div>
     <div class="side-images">
         <a href="./about.html" class="side-box">
-            <img src="./assets/gem-history.png" alt="Gem History" loading="lazy">
+            <img src="./assets/gem-history.webp" alt="Gem History" loading="lazy">
             <h3 class="side-title">Gem History</h3>
         </a>
 
         <a href="./events.html" class="side-box">
-            <img src="./assets/gem-events.jpg" alt="Gem Events" loading="lazy">
+            <img src="./assets/gem-events.webp" alt="Gem Events" loading="lazy">
             <h3 class="side-title">Gem Events</h3>
         </a>
     </div>
@@ -1611,16 +1967,17 @@
     </script>
 
     <script>
-        var swiper = new Swiper(".brandSwiper", {
-            slidesPerView: "auto",
-            spaceBetween: 10,
-            loop: true,
-            speed: 700,
-            autoplay: {
-                delay: 0,
-                disableOnInteraction: false,
-            },
-        });
+var swiper = new Swiper(".brandSwiper", {
+  slidesPerView: "auto",
+  spaceBetween: 60,
+  loop: true,
+  speed: 8000, 
+  autoplay: {
+    delay: 0,
+    disableOnInteraction: false,
+  },
+  allowTouchMove: false,
+});
 
     </script>
 
@@ -2189,7 +2546,7 @@
                   " alt="About Image" class="ma-image" />
                     </div>
                     <div data-w-id="ff3f6cc3-0b72-89e1-5348-7ed51cb61a07" style="opacity: 0" class="ma-img _03">
-                        <img src="./assets/jardInFlamingo.jpg"
+                        <img src="./assets/jardInFlamingo.webp"
                             loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"  alt="About Image" class="ma-image" />
                     </div>
                 </div>
@@ -2198,7 +2555,7 @@
     </section>
     
     <section class="top-product">
-
+       <h2 class="section-heading mobile-only-heading">Top Products</h2>
             <div class="tp-inner">
 
                 <div data-w-id="1757ee07-0ee1-a553-15b2-165c47b7fdea" class="tp-left">
@@ -2227,7 +2584,7 @@
                   display: none;
                 " class="on-scroll"></div>
 
-                    <img src="./assets/zero frizz.jpg" loading="lazy" style="
+                    <img src="./assets/zero frizz.webp" loading="lazy" style="
                   filter: blur(5px);
                   -webkit-transform: translate3d(0, 0, 0) scale3d(1.5, 1.5, 1)
                     rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
@@ -2533,7 +2890,7 @@ Suitable for most hair types, especially dry, brittle, or chemically treated hai
                       rotateY(0) rotateZ(0) skew(0, 0);
                     display: none;
                   " class="on-scroll"></div>
-                        <img src="./assets/karseel-bg.jpg"
+                        <img src="./assets/karseel-bg.webp"
                             loading="lazy" style="
                     filter: blur(5px);
                     -webkit-transform: translate3d(0, 0, 0) scale3d(1.5, 1.5, 1)
@@ -2566,36 +2923,36 @@ Suitable for most hair types, especially dry, brittle, or chemically treated hai
                     <h5 class="branding-heading">A WORLDWIDE TRUSTED BEAUTY BRAND</h5>
                     <div class="branding-wrapper">
                         <div data-w-id="7504781e-bf66-ad04-1f08-74972868272f" class="branding-block">
-                            <img src="./assets/carrefour-logo.png" loading="lazy" alt="Branding Logo" height="Auto"
+                            <img src="./assets/carrefour-logo.webp" loading="lazy" alt="Branding Logo" height="Auto"
                                 class="branding-logo" />
                         </div>
                         <div data-w-id="7504781e-bf66-ad04-1f08-749728682731" class="branding-block">
-                            <img src="./assets/spinneys-logo.png" loading="lazy" alt="Branding Logo" height="Auto"
+                            <img src="./assets/spinneys-logo.webp" loading="lazy" alt="Branding Logo" height="Auto"
                                 class="branding-logo logo-spinneys" />
 
                         </div>
                         <div data-w-id="7504781e-bf66-ad04-1f08-749728682733" class="branding-block">
-                            <img src="./assets/elazaby-logo.png" loading="lazy" alt="Branding Logo" height="Auto"
+                            <img src="./assets/elazaby-logo.webp" loading="lazy" alt="Branding Logo" height="Auto"
                                 class="branding-logo" />
                         </div>
                         <div data-w-id="7504781e-bf66-ad04-1f08-749728682735" class="branding-block">
-                            <img src="./assets/panda-logo.png" loading="lazy" alt="Branding Logo" height="Auto"
+                            <img src="./assets/panda-logo.webp" loading="lazy" alt="Branding Logo" height="Auto"
                                 class="branding-logo" />
                         </div>
                         <div data-w-id="7504781e-bf66-ad04-1f08-749728682735" class="branding-block">
-                            <img src="./assets/flamingo-logo.png" loading="lazy" alt="Branding Logo" height="Auto"
+                            <img src="./assets/flamingo-logo.webp" loading="lazy" alt="Branding Logo" height="Auto"
                                 class="branding-logo" />
                         </div>
                         <div data-w-id="7504781e-bf66-ad04-1f08-749728682735" class="branding-block">
-                            <img src="./assets/oscar-logo.svg" loading="lazy" alt="Branding Logo" height="Auto"
+                            <img src="./assets/oscar-logo.webp" loading="lazy" alt="Branding Logo" height="Auto"
                                 class="branding-logo" />
                         </div>
                         <div data-w-id="7504781e-bf66-ad04-1f08-749728682735" class="branding-block">
-                            <img src="./assets/amazon-logo.png" loading="lazy" alt="Branding Logo" height="Auto"
+                            <img src="./assets/amazon-logo.webp" loading="lazy" alt="Branding Logo" height="Auto"
                                 class="branding-logo" />
                         </div>
                         <div data-w-id="7504781e-bf66-ad04-1f08-749728682735" class="branding-block">
-                            <img src="./assets/seif-logo.png" loading="lazy" alt="Branding Logo" height="Auto"
+                            <img src="./assets/seif-logo.webp" loading="lazy" alt="Branding Logo" height="Auto"
                                 class="branding-logo" />
                         </div>
 
@@ -2711,7 +3068,7 @@ Suitable for most hair types, especially dry, brittle, or chemically treated hai
         </div>
         <div class="ip-bottom">
             <div class="ip-block">
-                <img src="./assets/mojo.jpg"
+                <img src="./assets/mojo.webp"
                     loading="lazy" style="opacity: 0" data-w-id="b810b992-0b83-4c2f-0a27-234b96d87492" alt="Post Image"
                     class="ip-image" />
             </div>
@@ -2726,7 +3083,7 @@ Suitable for most hair types, especially dry, brittle, or chemically treated hai
                     class="ip-image" />
             </div>
             <div class="ip-block">
-                <img src="./assets/revoxFooter.jpg"
+                <img src="./assets/revoxFooter.webp"
                     loading="lazy" style="opacity: 0" data-w-id="ebf1c5c0-d95e-2883-7477-f53a8eab68ca" alt="Post Image"
                     class="ip-image" />
             </div>

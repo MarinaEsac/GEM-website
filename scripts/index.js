@@ -36733,7 +36733,7 @@ const brandData = [
   {
     id: 101,
     name: "Zero Frizz",
-    image: "./assets/zero frizz.jpg",
+    image: "./assets/zero frizz.webp",
     products: [
       { id: 1, img: "./assets/zero-frizz-product.jpg", name: "Shampoo", slug: "zero-frizz-shampoo" },
       { id: 2, img: "./assets/zero-frizz-2.webp", name: "Serum", slug: "zero-frizz-serum" },
@@ -36743,7 +36743,7 @@ const brandData = [
   {
     id: 102,
     name: "Hair Burst",
-    image: "./assets/hair burst.jpg",
+    image: "./assets/hair burst.webp",
     products: [
       { id: 4, img: "./assets/hair-burst(1).jpg", name: "Shampoo", slug: "hair-burst-shampoo-1" },
       { id: 5, img: "./assets/hair-burst(2).jpg", name: "Shampoo", slug: "hair-burst-shampoo-2" },
@@ -36753,7 +36753,7 @@ const brandData = [
   {
     id: 103,
     name: "Karseell",
-    image: "./assets/karseell-bg.jpg",
+    image: "./assets/karseell-bg.webp",
     products: [
       { id: 7, img: "./assets/karseel(1).jpg", name: "Hair mask", slug: "karseell-mask" },
       { id: 8, img: "./assets/karseell(2).jpg", name: "Shampoo", slug: "karseell-shampoo" },
@@ -36763,7 +36763,7 @@ const brandData = [
   {
     id: 104,
     name: "Revox",
-    image: "./assets/revox-bg.jpg",
+    image: "./assets/revox-bg.webp",
     products: [
       { id: 10, img: "./assets/revox(1).jpg", name: "Argan Oil", slug: "revox-argan" },
       { id: 11, img: "./assets/revox(2).jpg", name: "Moisturising", slug: "revox-moist" },
@@ -36773,7 +36773,7 @@ const brandData = [
   {
     id: 105,
     name: "Momento",
-    image: "./assets/momento-bg.jpg",
+    image: "./assets/momento-bg.webp",
     products: [
       { id: 13, img: "./assets/momento(1).jpg", name: "SunScreen Lotion", slug: "momento-sunscreen" },
       { id: 14, img: "./assets/momento(2).jpg", name: "Gel After Sun", slug: "momento-after-sun" },
@@ -36783,7 +36783,7 @@ const brandData = [
   {
     id: 106,
     name: "Dissar",
-    image: "./assets/disaar-bg.jpg",
+    image: "./assets/disaar-bg.webp",
     products: [
       { id: 16, img: "./assets/disaar(1).png", name: "Whitening Foundation", slug: "disaar-foundation" },
       { id: 17, img: "./assets/disaar(2).png", name: "Whitening Cream", slug: "disaar-cream" },
