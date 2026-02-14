@@ -586,7 +586,15 @@
     -webkit-overflow-scrolling: touch;
   }
 }
+.event-logo-wrapper {
+  margin-bottom: 15px;
+}
 
+.event-brand-logo {
+  max-height: 100px;
+  width: auto;
+  object-fit: contain;
+}
     </style>
     <script type="text/javascript">
       !(function (o, c) {
@@ -868,7 +876,14 @@
 
     <section class="event-details">
       <div class="event-info">
-        <h1 id="event-title">Egy Beauty</h1>
+          <div class="event-logo-wrapper">
+                <img
+                  src="./assets/egybeauty-logo (2).jpeg"
+                  alt="EgyBeauty Logo"
+                  class="event-brand-logo"
+                />
+              </div>
+
         <p id="event-year">2024</p>
       </div>
 
@@ -884,60 +899,67 @@
       </div>
     </section>
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const eventData = JSON.parse(localStorage.getItem("selectedEvent"));
+     document.addEventListener("DOMContentLoaded", () => {
+  const eventData = JSON.parse(localStorage.getItem("selectedEvent"));
 
-        if (!eventData || !eventData.images) {
-          console.warn("No event data found.");
-          return;
+  if (!eventData || !eventData.images) {
+    console.warn("No event data found.");
+    return;
+  }
+
+  const logo = document.getElementById("event-logo");
+  if (logo && eventData.logo) {
+    logo.src = eventData.logo;
+    logo.alt = eventData.title;
+  }
+
+  document.getElementById("event-year").textContent = eventData.year;
+
+  const gallery = document.querySelector(".event-gallery-inner");
+  gallery.innerHTML = "";
+
+  eventData.images.forEach((src) => {
+    const img = document.createElement("img");
+    img.dataset.src = src;
+    img.alt = eventData.title;
+    img.loading = "lazy";
+    img.classList.add("lazy-img");
+    gallery.appendChild(img);
+  });
+
+  setTimeout(() => {
+    const lazyImages = document.querySelectorAll("img.lazy-img");
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          const src = img.dataset.src;
+
+          if (src) {
+            img.src = src;
+            img.onload = () => img.classList.add("loaded");
+          }
+
+          obs.unobserve(img);
         }
-
-        document.getElementById("event-title").textContent = eventData.title;
-        document.getElementById("event-year").textContent = eventData.year;
-
-        const gallery = document.querySelector(".event-gallery-inner");
-        gallery.innerHTML = "";
-
-        eventData.images.forEach((src) => {
-          const img = document.createElement("img");
-          img.dataset.src = src;
-          img.alt = eventData.title;
-          img.loading = "lazy";
-          img.classList.add("lazy-img");
-          gallery.appendChild(img);
-        });
-
-        setTimeout(() => {
-          const lazyImages = document.querySelectorAll("img.lazy-img");
-          const observer = new IntersectionObserver((entries, obs) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                const img = entry.target;
-                const src = img.dataset.src;
-
-                if (src) {
-                  img.src = src;
-                  img.onload = () => img.classList.add("loaded");
-                }
-
-                obs.unobserve(img);
-              }
-            });
-          });
-
-          lazyImages.forEach((img, index) => {
-            observer.observe(img);
-
-            if (index < 3) {
-              const src = img.dataset.src;
-              if (src) {
-                img.src = src;
-                img.onload = () => img.classList.add("loaded");
-              }
-            }
-          });
-        }, 300);
       });
+    });
+
+    lazyImages.forEach((img, index) => {
+      observer.observe(img);
+
+      if (index < 3) {
+        const src = img.dataset.src;
+        if (src) {
+          img.src = src;
+          img.onload = () => img.classList.add("loaded");
+        }
+      }
+    });
+  }, 300);
+});
+
     </script>
 
     <section class="footer">
