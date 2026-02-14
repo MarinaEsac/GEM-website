@@ -36404,7 +36404,6 @@ const filterData = {
     { id: "cabana", name: "Cabana" },
     { id: "calypso", name: "Calypso" },
     { id: "cameleo", name: "Cameleo" },
-    { id: "cantu", name: "Cantu" },
     { id: "carex", name: "Carex" },
     { id: "carroten", name: "Carroten" },
     { id: "choice", name: "Choice" },
