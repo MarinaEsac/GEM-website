@@ -32,7 +32,7 @@
     <link rel="preload" as="image" href="./assets/sunscreen-image.webp" fetchpriority="high" />
     <link rel="preload" as="image" href="./assets/gem-history.webp" fetchpriority="high" />
     <link rel="preload" as="image" href="./assets/gem-events.webp" fetchpriority="high" />
-
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <style>
        * {
         margin: 0;
@@ -679,13 +679,13 @@
   border-radius: 12px;
 }
 
-.product-block:hover {
+/* .product-block:hover {
   transform: translateY(-20px) scale(1.15);
   box-shadow: 0 20px 35px rgba(0, 0, 0, 0.25); 
   background-color: #0b2a59;
   z-index: 10;
   position: relative;
-}
+} */
 .product-block {
   display: block;
   text-align: center;
@@ -700,11 +700,11 @@
   transition: all 0.3s ease;
 }
 
-.product-block:hover {
+/* .product-block:hover {
   background: #fff;  
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
   transform: translateY(-15px) scale(1.05);
-}
+} */
 
 .product-block .product-divider {
   border: none;
@@ -718,17 +718,17 @@
   border-color: #0b2a59;
 }
 
-.product-block:hover .product-name {
+/* .product-block:hover .product-name {
   color: #0b2a59; 
   font-weight: 600;
-}
+} */
 
 .product-name {
     transition: color 0.4s ease;
 }
-.product-name:hover {
+/* .product-name:hover {
     color: #fff;
-}
+} */
 .section-header {
   display: flex;
   justify-content: space-between;
@@ -1877,7 +1877,7 @@
                                     shine, and overall strength — naturally.
                                 </p>
                                 <a href="./shop.html" class="hero-btn animate" style="background-color: #0b2a59;">
-                                    Shop Collection
+                                    Discover More
                                 </a>
                             </div>
                             <div class="image-box">
@@ -1895,8 +1895,8 @@
                                 Discover skincare essentials designed to keep your skin
                                 radiant and fresh.
                             </p>
-                            <a href="./shop.html" class="hero-btn animate" style="background-color: #0b2a59;">Shop
-                                Now</a>
+                            <a href="./shop.html" class="hero-btn animate" style="background-color: #0b2a59;">Discover
+                                More</a>
                         </div>
                         <div class="image-box">
                             <img src="./assets/revox image.webp" alt="Hero 2" class="hero-img animate" loading="lazy"/>
@@ -2448,7 +2448,7 @@ var swiper = new Swiper(".brandSwiper", {
               />
               <h3 class="shop-heading">BEAUTY TOOLS</h3>
               <p class="shop-text">Precision for flawless beauty.</p>
-               <a href="./shop.html?type=beauty tools" class="shop-btn">Shop Now</a>
+               <a href="./shop.html?type=beauty tools" class="shop-btn">Discover More</a>
               <!-- <a href="./shop.html" class="shop-btn">Shop Now</a> -->
             </div>
 
@@ -2461,7 +2461,7 @@ var swiper = new Swiper(".brandSwiper", {
               />
               <h3 class="shop-heading">FRAGRANCES</h3>
               <p class="shop-text">Long-lasting, captivating scents.</p>
-              <a href="./shop.html?type=fragrance" class="shop-btn">Shop Now</a>
+              <a href="./shop.html?type=fragrance" class="shop-btn">Discover More</a>
             </div>
 
             <div class="shop-card">
@@ -2473,7 +2473,7 @@ var swiper = new Swiper(".brandSwiper", {
               />
               <h3 class="shop-heading">MAKEUP</h3>
               <p class="shop-text">Enhance, define, and glow.</p>
-               <a href="./shop.html?type=makeup" class="shop-btn">Shop Now</a>
+               <a href="./shop.html?type=makeup" class="shop-btn">Discover More</a>
             </div>
             
             <div class="shop-card">
@@ -2485,7 +2485,7 @@ var swiper = new Swiper(".brandSwiper", {
               />
               <h3 class="shop-heading">SKINCARE</h3>
               <p class="shop-text">Nourish, hydrate, and glow.</p>
-            <a href="./shop.html?type=skincare" class="shop-btn">Shop Now</a>
+            <a href="./shop.html?type=skincare" class="shop-btn">Discover More</a>
             </div>
           </div>
         </div>
@@ -2496,58 +2496,49 @@ var swiper = new Swiper(".brandSwiper", {
             <div class="ma-wrapper">
                 <div class="ma-left">
                     <div>
-                        <h2 data-w-id="c9789961-bc6b-1fb3-c0c6-bcfd7ce3a72c" style="opacity: 0" class="ma-title">
-                            Transparency in Every Blend
-                        </h2>
-                        <p data-w-id="31213350-a685-3279-5dc6-a15117259a6e" style="opacity: 0" class="ma-text">
-                            Free from harmful chemicals with nourishing botanicals, and
-                            designed to deliver visible results without compromising your
-                            skin’s health.
-                        </p>
-                    </div>
-                    <a data-w-id="9bd536a9-413b-486d-6751-5e6957b23296" style="opacity: 0" href="./about.html"
+                        <!-- <h3 data-w-id="c9789961-bc6b-1fb3-c0c6-bcfd7ce3a72c" style="opacity: 0" class="ma-title">
+                           THE REVOLUTION OF 
+                           <h1 class="bg-danger">BEAUTY</h1>
+                        </h3> -->
+                       <img data-w-id="c9789961-bc6b-1fb3-c0c6-bcfd7ce3a72c" style="opacity: 0" src="./assets/pmg.png" loading="lazy" alt="About Image" class="ma-image ma-title" />
+           <a data-w-id="9bd536a9-413b-486d-6751-5e6957b23296" style="opacity: 0" href="./about.html"
                         class="primary-button w-inline-block">
-                        <div class="button-arrow-block">
+                        <!-- <div class="button-arrow-block">
                             <img src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
                                 loading="lazy" alt="Arrow" class="button-arrow" /><img
                                 src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
                                 loading="lazy" alt="Arrow" class="button-arrow hover" />
-                        </div>
+                        </div> -->
                         <div class="button-text-wrap">
                             <div class="text-wrapper">
-                                <div class="button-text">About</div>
-                                <div class="button-text hover">About</div>
+                                <div class="button-text">Learn</div>
+                                <div class="button-text hover">Learn</div>
                             </div>
                             <div class="text-wrapper">
-                                <div class="button-text-bottom">GEM</div>
-                                <div class="button-text-bottom hover">GEM</div>
+                                <div class="button-text-bottom">More</div>
+                                <div class="button-text-bottom hover">More</div>
                             </div>
                         </div>
                     </a>
+                    </div>
+                   
                 </div>
                 <div class="ma-right">
                     <div data-w-id="473e4178-4e76-24a9-5eb0-b347cc94d6a4" style="opacity: 0" class="ma-img">
-                        <img src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/68159b2b84719f7d0a8d0a4e_about-img-01.webp"
-                            loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px" srcset="
-                    https://cdn.prod.website-files.com/673c1b266c8975806880591c/68159b2b84719f7d0a8d0a4e_about-img-01-p-500.webp   500w,
-                    https://cdn.prod.website-files.com/673c1b266c8975806880591c/68159b2b84719f7d0a8d0a4e_about-img-01-p-800.webp   800w,
-                    https://cdn.prod.website-files.com/673c1b266c8975806880591c/68159b2b84719f7d0a8d0a4e_about-img-01-p-1080.webp 1080w,
-                    https://cdn.prod.website-files.com/673c1b266c8975806880591c/68159b2b84719f7d0a8d0a4e_about-img-01.webp        1380w
-                  " alt="About Image" class="ma-image" />
+                      
+                            <img src="./assets/skincare-image.jpeg"
+                            loading="lazy"  alt="About Image" class="ma-image" />
                     </div>
                     <div id="w-node-_51670322-41b3-478f-43d0-e17a4d8736ca-68805929"
                         data-w-id="51670322-41b3-478f-43d0-e17a4d8736ca" style="opacity: 0" class="ma-img _02">
-                        <img src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/68159b2a6a005996848fd9ae_about-img-03.webp"
-                            loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px" srcset="
-                    https://cdn.prod.website-files.com/673c1b266c8975806880591c/68159b2a6a005996848fd9ae_about-img-03-p-500.webp   500w,
-                    https://cdn.prod.website-files.com/673c1b266c8975806880591c/68159b2a6a005996848fd9ae_about-img-03-p-800.webp   800w,
-                    https://cdn.prod.website-files.com/673c1b266c8975806880591c/68159b2a6a005996848fd9ae_about-img-03-p-1080.webp 1080w,
-                    https://cdn.prod.website-files.com/673c1b266c8975806880591c/68159b2a6a005996848fd9ae_about-img-03.webp        1300w
-                  " alt="About Image" class="ma-image" />
+                        <img src="./assets/makeup-image.jpeg"
+                            loading="lazy" alt="About Image" class="ma-image" />
                     </div>
                     <div data-w-id="ff3f6cc3-0b72-89e1-5348-7ed51cb61a07" style="opacity: 0" class="ma-img _03">
-                        <img src="./assets/jardInFlamingo.webp"
-                            loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"  alt="About Image" class="ma-image" />
+                         <img src="./assets/haircare-image.jpeg"
+                            loading="lazy" alt="About Image" class="ma-image" />
+                            
+                            
                     </div>
                 </div>
             </div>
@@ -2809,7 +2800,7 @@ setInterval(updateTopProducts, 9000);
             </div>
             <div class="cta-bottom">
                 <p class="single-text">
-                    Join our beauty community and receive discounts, beauty tips, and
+                    Join our beauty community , beauty tips and
                     new product updates directly in your inbox!
                 </p>
                 <div class="cta-block w-form">
@@ -2858,7 +2849,7 @@ Suitable for most hair types, especially dry, brittle, or chemically treated hai
 
                         </p>
                     </div>
-                    <a href="/shop.html" class="primary-button w-inline-block">
+                    <!-- <a href="/shop.html" class="primary-button w-inline-block">
                         <div class="button-arrow-block">
                             <img src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67f666c0df174b3efd04d254_arrow-white.svg"
                                 loading="lazy" alt="Arrow" class="button-arrow" /><img
@@ -2875,7 +2866,7 @@ Suitable for most hair types, especially dry, brittle, or chemically treated hai
                                 <div class="button-text-bottom hover">Now</div>
                             </div>
                         </div>
-                    </a>
+                    </a> -->
                 </div>
                 <div class="features-right">
                     <div data-w-id="49478597-52ec-fae4-90b6-68a725110b9e" class="features-img">
@@ -2958,13 +2949,13 @@ Suitable for most hair types, especially dry, brittle, or chemically treated hai
 
                     </div>
                 </div>
-                <div data-w-id="7504781e-bf66-ad04-1f08-749728682739" class="branding-bottom">
+                <!-- <div data-w-id="7504781e-bf66-ad04-1f08-749728682739" class="branding-bottom">
                     <div class="branding-info">
                         “Fast delivery and excellent products. My new favorite beauty
                         brand!”
                     </div>
 
-                </div>
+                </div> -->
             </div>
         </div>
     </section>

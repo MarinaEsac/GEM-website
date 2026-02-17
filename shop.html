@@ -426,7 +426,7 @@
 
       .sidebar-filter {
         position: sticky;
-        top: 20px;
+        top: 100px;
         max-height: calc(100vh - 100px);
         overflow-y: auto;
         padding-right: 10px;
@@ -662,10 +662,6 @@
     -webkit-overflow-scrolling: touch;
   }
 }
-#megaFrame {
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
 
 .alphabet-sidebar {
   overflow-y: auto !important;
@@ -799,23 +795,6 @@
         padding-top: 80px !important; 
         z-index: 10001 !important; 
     }
-}
-@media (max-width: 768px) {
-
-  #megaFrame {
-    overflow: hidden !important;
-  }
-
-  .mega-content {
-    height: 100% !important;
-    overflow: hidden !important;
-  }
-
-  .brands-radio-wrapper {
-    height: 100% !important;
-    overflow: hidden !important;
-    display: flex !important;
-  }
 }
 
 @media (max-width: 768px) {
@@ -1303,17 +1282,23 @@
           });
         });
       })();
-      const buttons = document.querySelectorAll(".view-btn");
-      const productsList = document.querySelector(".products-list");
+     const buttons = document.querySelectorAll(".view-btn");
+const productsList = document.querySelector(".products-list");
 
-      buttons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          buttons.forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
+buttons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    buttons.forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
 
-          productsList.className = "products-list " + btn.dataset.view;
-        });
-      });
+    const viewClass = btn.dataset.view;
+
+    productsList.classList.remove("grid-1", "grid-2", "grid-5");
+
+    productsList.classList.add(viewClass);
+
+    localStorage.setItem("selectedView", viewClass);
+  });
+});
     </script>
 
     <section class="footer">
