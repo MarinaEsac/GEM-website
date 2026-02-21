@@ -36404,7 +36404,6 @@ const filterData = {
     { id: "cabana", name: "Cabana" },
     { id: "calypso", name: "Calypso" },
     { id: "cameleo", name: "Cameleo" },
-    { id: "cantu", name: "Cantu" },
     { id: "carex", name: "Carex" },
     { id: "carroten", name: "Carroten" },
     { id: "choice", name: "Choice" },
@@ -36715,11 +36714,16 @@ function renderProducts(list) {
             (product) => `
       <div role="listitem" class="product-item w-dyn-item">
           <a href="./product.html?id=${product.product_id}" class="product-block w-inline-block">
+          <div class="product-content-wrapper">
               <div class="product-img">
                   <img loading="lazy" src="${API_BASE_URL}/images/${product.bar_code}.jpg" alt="${product.product_name}" class="product-image" />
               </div>
-              <hr class="product-divider" />
+              <div class="product-info-main">
               <h5 class="product-name">${product.product_name}</h5>
+              </div>
+
+                 
+              </div>
           </a>
       </div>
   `,
@@ -36742,7 +36746,6 @@ function appendProducts(list) {
             <div class="product-img">
               <img loading="lazy" src="${API_BASE_URL}/images/${product.bar_code}.jpg" alt="${product.product_name}" class="product-image" />
             </div>
-            <hr class="product-divider" />
             <h5 class="product-name">${product.product_name}</h5>
           </a>
         </div>

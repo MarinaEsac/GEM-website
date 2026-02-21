@@ -11831,3 +11831,214 @@ blockquote {
     max-width: none;
   }
 }
+
+#productsContainer.grid-1 .product-content-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px 0;
+}
+
+#productsContainer.grid-1 .product-img {
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+
+#productsContainer.grid-1 .product-info-main {
+    flex-grow: 1;
+    text-align: left;
+}
+
+#productsContainer.grid-1 .price-text {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#productsContainer.grid-1 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#productsContainer.grid-1 .product-content-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: #fff;
+   
+}
+
+#productsContainer.grid-1 .product-img {
+    width: 180px;      
+    min-width: 180px;  
+    height: 180px;      
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 30px; 
+}
+
+#productsContainer.grid-1 .product-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+#productsContainer.grid-1 .product-info-main {
+    flex: 1; 
+}
+
+#productsContainer.grid-1 .product-name {
+    font-size: 22px;
+    font-weight: 200;
+    margin-bottom: 10px;
+}
+
+#productsContainer.grid-1 .product-content-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 0; 
+    background: #fff;
+    overflow: hidden; 
+}
+
+#productsContainer.grid-1 .product-img {
+    width: 200px;
+    min-width: 200px;
+    height: 200px;
+    margin: 0; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#productsContainer.grid-1 .product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+#productsContainer.grid-1 .product-info-main {
+    padding: 25px;
+    flex: 1;
+}
+
+
+#productsContainer.grid-1 {
+    display: flex;
+    flex-direction: column;
+    gap: 0; 
+}
+
+.product-list-item {
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.2s ease;
+}
+
+.product-list-item:hover {
+    background-color: #fafafa; 
+}
+
+.product-flex-row {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    padding: 20px 0;
+    text-decoration: none;
+    color: inherit;
+}
+
+.product-img-box {
+    width: 130px;
+    height: 130px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-img-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; 
+}
+
+.product-info-box {
+    flex: 1; 
+    padding: 0 40px;
+}
+
+.product-name-text {
+    font-size: 17px;
+    font-weight: 400; 
+    color: #1a1a1a;
+    line-height: 1.4;
+    margin: 0;
+    font-family: 'Inter', sans-serif; 
+}
+
+.product-price-box {
+    text-align: right;
+    min-width: 120px;
+    font-size: 19px;
+    font-weight: 700;
+    color: #000;
+}
+
+.product-price-box .currency {
+    font-size: 14px;
+    margin-right: 3px;
+}
+
+.product-price-box .cents {
+    font-size: 11px;
+    vertical-align: super; 
+}
+
+#productsContainer.grid-1 .product-block {
+    display: flex !important;
+    width: 100% !important;
+}
+
+#productsContainer.grid-1 .product-content-wrapper {
+    display: flex !important;
+    flex-direction: row !important; 
+    align-items: center !important;
+    width: 100% !important;
+    padding: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+#productsContainer.grid-1 .product-img {
+    flex: 0 0 150px !important; 
+    margin-right: 30px !important;
+    margin-bottom: 0 !important; 
+}
+
+#productsContainer.grid-1 .product-info-main {
+    flex: 1 !important;
+    text-align: left !important; 
+}
+
+.products-list.grid-1 .w-dyn-item,
+.products-list.grid-1 .product-item {
+    width: 100% !important;
+    display: block !important;
+}
+
+.products-list.grid-1 .product-block,
+.products-list.grid-1 .product-content-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+}
+.w-pagination-next.primary-button {
+    display: flex !important;
+    flex-direction: row !important;   
+    align-items: center !important;
+    justify-content: center;
+    gap: 8px;
+}
