@@ -1,6 +1,6 @@
 .event-details {
-  max-width: 1200px;
-  margin: 20px auto;
+  max-width: 1800px;
+  margin: 8px auto;
   padding: 20px;
   text-align: center;
   font-family: "Poppins", sans-serif;
@@ -30,7 +30,7 @@
   overflow: hidden;
 }
 
-.event-gallery-inner {
+/* .event-gallery-inner {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 15px;
@@ -47,6 +47,26 @@
 
 .event-gallery-inner img:hover {
   transform: scale(1.05);
+} */
+
+.event-gallery-inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 10px;
 }
 
+.event-gallery-inner img {
+  width: 100%;
+  aspect-ratio: 3 / 2;     /* يحافظ على نسبة الصور */
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);  /* يعطي عمق للصورة */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
 
+.event-gallery-inner img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.3); /* يبرز الصورة عند hover */
+}

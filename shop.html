@@ -1359,10 +1359,13 @@ buttons.forEach((btn) => {
 
       <!-- BOTTOM -->
       <div class="footer-bottom">
-        <p>© 2025 GEM. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
-      </div>
+  <p>© <span id="year"></span> GEM. All Rights Reserved. | 
+  <a href="#">Privacy Policy</a></p>
+</div>
     </section>
-
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
     <!-- <a
       href="https://webflow.com/templates/html/bavia-website-template"
       target="_blank"

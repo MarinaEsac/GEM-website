@@ -5843,7 +5843,7 @@ blockquote {
   padding-bottom: 60px;
 }
 
-.branding-wrapper {
+/* .branding-wrapper {
   grid-column-gap: 20px;
   grid-template-rows: auto;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -5866,7 +5866,7 @@ blockquote {
   filter: grayscale();
   width: 100%;
   max-width: 180px;
-}
+} */
 
 .branding-inner {
   grid-row-gap: 80px;
@@ -6457,7 +6457,7 @@ blockquote {
 }
 
 .about-hero {
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
   overflow: hidden;
 }
 
@@ -6476,7 +6476,7 @@ blockquote {
 }
 
 .about-title {
-  margin-bottom: 15px;
+  margin-bottom: 6px;
   overflow: hidden;
 }
 
@@ -10987,4 +10987,8 @@ blockquote {
     width: 300px;
     height: 200px;
   }
+}
+.bold {
+  font-weight: 600;
+  font-size: large;
 }
