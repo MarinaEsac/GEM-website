@@ -36063,7 +36063,7 @@
 // Explain;
 
 // contact us form
-document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+document.getElementById('contactForm')?.addEventListener('submit', async function(e) {
     e.preventDefault(); 
 
     const btn = document.getElementById('submitBtn');
@@ -36076,10 +36076,18 @@ document.getElementById('contactForm')?.addEventListener('submit', function(e) {
         message: document.getElementById('userMessage').value
     };
 
+    const formDataSubmission = new FormData();
+    formDataSubmission.append("email", formData.email);
+    formDataSubmission.append("content", formData.message);
+    formDataSubmission.append("sender", formData.fullName);
+    formDataSubmission.append("number", formData.phone);
+
+    await sendFormRequest(formDataSubmission)
     btn.textContent = "SENDING...";
     btn.disabled = true;
 
     console.log("Data to be sent to Backend:", formData);
+
 
     setTimeout(() => {
         alert("Success! Data collected. Ready for Backend API.");
@@ -36088,3 +36096,23 @@ document.getElementById('contactForm')?.addEventListener('submit', function(e) {
         this.reset();
     }, 1500);
 });
+
+
+async function sendFormRequest(formData) {
+  const response = await fetch(
+    `${API_BASE_URL}/contact-us/form`,
+    {
+      method: "POST",
+      headers: {
+        "X-API-Key": API_KEY
+      },
+      body: formData
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error(`API Error: ${response.status}`);
+  }
+
+  return response.json();
+}
