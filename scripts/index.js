@@ -36388,6 +36388,7 @@ function renderAlphabetAndBrands(data) {
     const topSpan = document.createElement("span");
     topSpan.textContent = "Top";
     topSpan.classList.add("top-brands");
+    topSpan.classList.add("active");
     console.log(topSpan);
     topSpan.addEventListener("mouseenter", () => {
         document.querySelectorAll(".alphabet-sidebar span")

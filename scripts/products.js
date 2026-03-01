@@ -36626,107 +36626,205 @@ const filterData = {
   ]
 };
 
-let page = 1;
 const PER_PAGE = 25;
-let totalPages = 1;
-let isLoading = false;
-const initialUrlParams = new URLSearchParams(window.location.search);
 
-async function fetchProductsFromServer() {
-  try {
-    const urlParams = new URLSearchParams(window.location.search);
-    //const urlParams = initialUrlParams
-    lastFilterParams = new URLSearchParams(urlParams.toString());
-    const searchQuery = urlParams.get("q");
-    const response = await fetch(
-      `${API_BASE_URL}/shop?${urlParams.toString()}`,
-      { headers: { "X-API-Key": API_KEY } },
-    );
-    const result = await response.json();
+const state = {
+  page: 1,
+  perPage: PER_PAGE,
+  totalPages: 1,
+  isLoading: false,
 
-    allProducts = result.data;
-    currentDisplayedProducts = [...allProducts];
-    totalPages = result.pagination.total_pages;
-    page = 1;
-    startApp();
-  } catch (error) {
-    console.error("Error loading products:", error);
+  q: "",
+  brands: [],
+  types: [],
+  price: "",
+  sort: "alpha_asc",
+};
+
+allProducts = [];
+currentDisplayedProducts = [];
+let debounceTimer = null;
+let filterApplyTimer = null;
+
+const SORT_UI_TO_API = {
+  az: "alpha_asc",
+  za: "alpha_desc",
+  new: "date_new_old",
+  old: "date_old_new",
+  best: "price_high_low",
+};
+
+const SORT_API_TO_UI = Object.fromEntries(
+  Object.entries(SORT_UI_TO_API).map(([ui, api]) => [api, ui]),
+);
+
+function normalizeValue(value) {
+  return String(value || "").trim().toLowerCase();
+}
+
+function uniq(arr) {
+  return [...new Set(arr)];
+}
+
+function parseStateFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+
+  state.q = (params.get("q") || "").trim();
+  state.brands = uniq(params.getAll("brand").map(normalizeValue).filter(Boolean));
+  state.types = uniq(params.getAll("type").map(normalizeValue).filter(Boolean));
+  state.price = params.get("price") || "";
+  state.sort = params.get("sort") || "alpha_asc";
+  state.page = 1; // always start from first page on fresh load/search/filter change
+}
+
+function buildParams(pageOverride = state.page) {
+  const params = new URLSearchParams();
+
+  if (state.q) params.set("q", state.q);
+
+  state.brands.forEach((brand) => {
+    if (brand) params.append("brand", brand);
+  });
+
+  state.types.forEach((type) => {
+    if (type) params.append("type", type);
+  });
+
+  if (state.price !== "" && state.price !== null && state.price !== undefined) {
+    params.set("price", state.price);
+  }
+
+  if (state.sort) params.set("sort", state.sort);
+
+  params.set("page", String(pageOverride));
+  params.set("per_page", String(state.perPage));
+
+  return params;
+}
+
+function updateUrlFromState() {
+  const params = new URLSearchParams();
+
+  if (state.q) params.set("q", state.q);
+  state.brands.forEach((brand) => params.append("brand", brand));
+  state.types.forEach((type) => params.append("type", type));
+  if (state.price) params.set("price", state.price);
+  if (state.sort && state.sort !== "alpha_asc") params.set("sort", state.sort);
+
+  const newUrl = `${window.location.pathname}${params.toString() ? `?${params.toString()}` : ""}`;
+  window.history.pushState({}, "", newUrl);
+}
+
+function syncUiFromState() {
+  // search input
+  const searchInput = document.querySelector(".search-input");
+  if (searchInput) {
+    searchInput.value = state.q || "";
+  }
+
+  // reset all checkboxes first
+  document.querySelectorAll('input[name="brand"]').forEach((cb) => {
+    cb.checked = state.brands.includes(normalizeValue(cb.value));
+  });
+
+  document.querySelectorAll('input[name="type"]').forEach((cb) => {
+    cb.checked = state.types.includes(normalizeValue(cb.value));
+  });
+
+  // price
+  const priceSlider = document.getElementById("priceRange");
+  const priceValue = document.getElementById("priceValue");
+  if (priceSlider) {
+    const sliderValue = state.price || priceSlider.value || 2000;
+    priceSlider.value = sliderValue;
+    if (priceValue) {
+      priceValue.textContent = `LE ${Number(sliderValue).toLocaleString()}`;
+    }
+  }
+
+  // sort
+  const sortSelect = document.querySelector(".sort-dropdown");
+  if (sortSelect) {
+    sortSelect.value = SORT_API_TO_UI[state.sort] || "az";
   }
 }
 
-function startApp() {
-  renderSidebarFilters();
+function readFiltersFromUiIntoState() {
+  state.brands = Array.from(
+    document.querySelectorAll('input[name="brand"]:checked'),
+  ).map((el) => normalizeValue(el.value));
 
-  const urlParams = new URLSearchParams(window.location.search);
-  //const urlParams = initialUrlParams
-  const typeFromUrl = urlParams.get("type");
-  const brandFromUrl = urlParams.get("brand");
+  state.types = Array.from(
+    document.querySelectorAll('input[name="type"]:checked'),
+  ).map((el) => normalizeValue(el.value));
 
-  if (typeFromUrl || brandFromUrl) {
-    setTimeout(() => {
-      let hasAppliedFilter = false;
+  const priceSlider = document.getElementById("priceRange");
+  state.price = priceSlider?.value || "";
 
-      if (typeFromUrl) {
-        const typeCheckbox = document.querySelector(
-          `input[name="type"][value="${typeFromUrl}"]`,
-        );
-        if (typeCheckbox) {
-          typeCheckbox.checked = true;
-          hasAppliedFilter = true;
-        }
-      }
+  const sortSelect = document.querySelector(".sort-dropdown");
+  state.sort = SORT_UI_TO_API[sortSelect?.value] || "alpha_asc";
+}
 
-      if (brandFromUrl) {
-        const brandCheckbox = document.querySelector(
-          `input[name="brand"][value="${brandFromUrl}"]`,
-        );
-        if (brandCheckbox) {
-          brandCheckbox.checked = true;
-          hasAppliedFilter = true;
-        }
-      }
+async function fetchProducts({ append = false } = {}) {
+  if (state.isLoading) return;
 
-      if (hasAppliedFilter) {
-        applyAllFilters();
-      } else {
-        renderProducts(allProducts);
-        toggleViewMore();
-      }
-    }, 50);
-  } else {
-    renderProducts(allProducts);
+  state.isLoading = true;
+
+  try {
+    const params = buildParams(state.page);
+    const response = await fetch(`${API_BASE_URL}/shop?${params.toString()}`, {
+      headers: { "X-API-Key": API_KEY },
+    });
+
+    const result = await response.json();
+
+    const fetchedProducts = result?.data || [];
+    state.totalPages = result?.pagination?.total_pages || 1;
+
+    if (append) {
+      currentDisplayedProducts.push(...fetchedProducts);
+      appendProducts(fetchedProducts);
+    } else {
+      allProducts = [...fetchedProducts];
+      currentDisplayedProducts = [...fetchedProducts];
+      renderProducts(currentDisplayedProducts);
+    }
+
     toggleViewMore();
+  } catch (error) {
+    console.error("Error loading products:", error);
+  } finally {
+    state.isLoading = false;
   }
-
-  initEventListeners();
 }
 
 function renderProducts(list) {
   const container = document.getElementById("productsContainer");
   if (!container) return;
-  const urlSearch = new URLSearchParams(window.location.search);
-  console.log(urlSearch)
 
   container.innerHTML =
     list.length > 0
       ? list
           .map(
             (product) => `
-      <div role="listitem" class="product-item w-dyn-item">
+        <div role="listitem" class="product-item w-dyn-item">
           <a href="./product.html?id=${product.product_id}" class="product-block w-inline-block">
-          <div class="product-content-wrapper">
+            <div class="product-content-wrapper">
               <div class="product-img">
-                  <img loading="lazy" src="${API_BASE_URL}/images/${product.bar_code}.jpg" alt="${product.product_name}" class="product-image" />
+                <img
+                  loading="lazy"
+                  src="${API_BASE_URL}/images/${product.bar_code}.jpg"
+                  alt="${product.product_name}"
+                  class="product-image"
+                />
               </div>
               <div class="product-info-main">
-              <h5 class="product-name">${product.product_name}</h5>
+                <h5 class="product-name">${product.product_name}</h5>
               </div>
-
-                 
-              </div>
+            </div>
           </a>
-      </div>
-  `,
+        </div>
+      `,
           )
           .join("")
       : "<h3>No products found matching these filters.</h3>";
@@ -36734,7 +36832,7 @@ function renderProducts(list) {
 
 function appendProducts(list) {
   const container = document.getElementById("productsContainer");
-  if (!container) return;
+  if (!container || !list.length) return;
 
   container.insertAdjacentHTML(
     "beforeend",
@@ -36743,10 +36841,19 @@ function appendProducts(list) {
         (product) => `
         <div role="listitem" class="product-item w-dyn-item">
           <a href="./product.html?id=${product.product_id}" class="product-block w-inline-block">
-            <div class="product-img">
-              <img loading="lazy" src="${API_BASE_URL}/images/${product.bar_code}.jpg" alt="${product.product_name}" class="product-image" />
+            <div class="product-content-wrapper">
+              <div class="product-img">
+                <img
+                  loading="lazy"
+                  src="${API_BASE_URL}/images/${product.bar_code}.jpg"
+                  alt="${product.product_name}"
+                  class="product-image"
+                />
+              </div>
+              <div class="product-info-main">
+                <h5 class="product-name">${product.product_name}</h5>
+              </div>
             </div>
-            <h5 class="product-name">${product.product_name}</h5>
           </a>
         </div>
       `,
@@ -36754,55 +36861,20 @@ function appendProducts(list) {
       .join(""),
   );
 }
-let lastFilterParams = new URLSearchParams();
-
-async function loadMoreProducts() {
-  if (isLoading || page >= totalPages) return;
-  isLoading = true;
-
-  page++;
-
-  //const params = new URLSearchParams(window.location.search);
-  const params = new URLSearchParams(lastFilterParams.toString());
-  params.append("page", page);
-  params.append("per_page", PER_PAGE);
-
-  try {
-    const res = await fetch(`${API_BASE_URL}/shop?${params.toString()}`, {
-      headers: { "X-API-Key": API_KEY },
-    });
-
-    const result = await res.json();
-
-    currentDisplayedProducts.push(...result.data);
-    appendProducts(result.data);
-
-    toggleViewMore();
-  } catch (err) {
-    console.error("View more error:", err);
-  } finally {
-    isLoading = false;
-  }
-}
 
 function toggleViewMore() {
-  const span = document.getElementById("viewMoreProductsBtn");
-  if (!span) return;
+  const btn = document.getElementById("viewMoreProductsBtn");
+  if (!btn) return;
 
-  const hasProducts =
-  currentDisplayedProducts && currentDisplayedProducts.length > 0;
-  span.style.display =
-    hasProducts && page < totalPages ? "block" : "none";
-  //span.style.display = page < totalPages ? "block" : "none";
+  const hasProducts = currentDisplayedProducts.length > 0;
+  btn.style.display = hasProducts && state.page < state.totalPages ? "block" : "none";
 }
 
-document
-  .getElementById("viewMoreProductsBtn")
-  ?.addEventListener("click", (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    loadMoreProducts();
-  });
+async function loadMoreProducts() {
+  if (state.isLoading || state.page >= state.totalPages) return;
+  state.page += 1;
+  await fetchProducts({ append: true });
+}
 
 function renderSidebarFilters() {
   const container = document.getElementById("dynamicFiltersContainer");
@@ -36810,310 +36882,119 @@ function renderSidebarFilters() {
 
   const createGroup = (title, data, name) => `
     <div class="filter-group">
-        <div class="filter-header">
-            <span>${title}</span>
-            <span class="icon">⌄</span>
-        </div>
-        <div class="filter-body">
-            ${data
-              .map(
-                (item) => `
-                <label><input type="checkbox" name="${name}" value="${item.id}" /> ${item.name}</label>
-            `,
-              )
-              .join("")}
-        </div>
-    </div>`;
+      <div class="filter-header">
+        <span>${title}</span>
+        <span class="icon">⌄</span>
+      </div>
+      <div class="filter-body">
+        ${data
+          .map(
+            (item) => `
+            <label>
+              <input type="checkbox" name="${name}" value="${normalizeValue(item.id)}" />
+              ${item.name}
+            </label>
+          `,
+          )
+          .join("")}
+      </div>
+    </div>
+  `;
 
   container.innerHTML =
     createGroup("Brand", filterData.brands, "brand") +
     createGroup("Product Type", filterData.productTypes, "type");
+
   initAccordion();
 }
 
-async function applyAllFilters() {
-  page = 1;
-  currentDisplayedProducts = [];
-  document.getElementById("productsContainer").innerHTML = "";
-  const selectedBrands = Array.from(
-    document.querySelectorAll('input[name="brand"]:checked'),
-  ).map((el) => el.value);
-  const selectedTypes = Array.from(
-    document.querySelectorAll('input[name="type"]:checked'),
-  ).map((el) => el.value);
-  const maxPrice = document.getElementById("priceRange")?.value || 2000;
-  
-  const sortVal = document.querySelector(".sort-dropdown")?.value;
-
-  
-  lastFilterParams = new URLSearchParams();
-  selectedBrands.forEach((brand) => {
-    lastFilterParams.append("brand", brand);
-  });
-  
-  selectedTypes.forEach((type) => {
-    lastFilterParams.append("type", type);
-  });
-  
-  if (maxPrice) {
-    lastFilterParams.append("price", maxPrice);
-  }
-
-  const sortMap = {
-    az: "alpha_asc",
-    za: "alpha_desc",
-    new: "date_new_old",
-    old: "date_old_new",
-    best: "price_high_low",
-  };
-
-  if (sortVal && sortMap[sortVal]) {
-    lastFilterParams.append("sort", sortMap[sortVal]);
-  }
-
-  const params = new URLSearchParams(lastFilterParams.toString());
-  params.append("page", page);
-  params.append("per_page", PER_PAGE);
-
-  try {
-    const response = await fetch(`${API_BASE_URL}/shop?${params.toString()}`, {
-      headers: { "X-API-Key": API_KEY },
-    });
-    const result = await response.json();
-
-    currentDisplayedProducts = result.data;
-    totalPages = result.pagination.total_pages;
-    renderProducts(currentDisplayedProducts);
-    toggleViewMore();
-  } catch (err) {
-    console.error("Filter error:", err);
-  }
-
-  // currentDisplayedProducts = allProducts.filter(product => {
-  //   const matchesBrand = selectedBrands.length === 0 || selectedBrands.includes(product.brand);
-  //   const matchesType = selectedTypes.length === 0 || selectedTypes.includes(product.type);
-  //   const matchesPrice = product.price <= maxPrice;
-  //   return matchesBrand && matchesType && matchesPrice;
-  // });
-
-  //renderProducts(currentDisplayedProducts);
+function applyCurrentFilters() {
+  state.page = 1;
+  readFiltersFromUiIntoState();
+  updateUrlFromState();
+  fetchProducts({ append: false });
 }
 
-function initEventListeners() {
-  const sidebar = document.getElementById("sidebarFilters");
-  sidebar?.addEventListener("change", applyAllFilters);
-
-  const priceSlider = document.getElementById("priceRange");
-  priceSlider?.addEventListener("input", (e) => {
-    const priceValue = document.getElementById("priceValue");
-    if (priceValue)
-      priceValue.textContent = `LE ${Number(e.target.value).toLocaleString()}`;
-    applyAllFilters();
-  });
-
-  const sortSelect = document.querySelector(".sort-dropdown");
-  sortSelect?.addEventListener("change", function () {
-    applyAllFilters();
-  });
+function debouncedApplyFilters(delay = 250) {
+  clearTimeout(filterApplyTimer);
+  filterApplyTimer = setTimeout(() => {
+    applyCurrentFilters();
+  }, delay);
 }
+
 function initAccordion() {
   document.querySelectorAll(".filter-header").forEach((header) => {
     header.onclick = () => header.parentElement.classList.toggle("active");
   });
 }
 
-document.addEventListener("DOMContentLoaded", fetchProductsFromServer);
-
-// search input
-
-// document.addEventListener("DOMContentLoaded", async () => {
-//   const urlParams = new URLSearchParams(window.location.search);
-//   const searchQuery = urlParams.get("q");
-//   console.log(searchQuery)
-//   const shopSearchInput = document.querySelector(".search-input");
-//   if (shopSearchInput && searchQuery) {
-//     shopSearchInput.value = searchQuery;
-//   }
-
-//  try {
-//     let url = "/products/search";
-
-//     if (searchQuery) {
-//       url += `?q=${encodeURIComponent(searchQuery)}`;
-//     }
-
-//     const res = await fetch(`${API_BASE_URL}/${url}`, {
-//       headers: {
-//         "x-api-key": API_KEY
-//       }
-//     });
-
-//     const json = await res.json();
-//     renderProducts(json.data || []);
-//   } catch (err) {
-//     console.error("Search failed", err);
-//     renderProducts([]);
-//   }
-// });
-
-document.addEventListener("DOMContentLoaded", () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const selectedBrand = urlParams.get("brand");
-
-  if (selectedBrand) {
-    setTimeout(() => {
-      const brandCheckbox = document.querySelector(
-        `input[name="brand"][value="${selectedBrand.toLowerCase()}"]`,
-      );
-
-      if (brandCheckbox) {
-        brandCheckbox.checked = true;
-        applyAllFilters();
-      } else {
-        const filtered = allProducts.filter(
-          (p) => p.brand.toLowerCase() === selectedBrand.toLowerCase(),
-        );
-        renderProducts(filtered);
-      }
-    }, 100);
-  }
-});
-
-
-const searchInput = document.querySelector(".search-input");
-
 function ensureSuggestionsBox() {
   let box = document.querySelector(".search-suggestions");
   if (box) return box;
 
-  // try to attach under the search form or search-box
-  const form = document.getElementById("searchForm") || document.querySelector('.search-box');
+  const form =
+    document.getElementById("searchForm") ||
+    document.querySelector(".search-box");
+
   if (!form) return null;
 
-  box = document.createElement('ul');
-  box.className = 'search-suggestions';
-  box.setAttribute('role', 'listbox');
-  box.style.position = 'absolute';
-  box.style.top = '100%';
-  box.style.left = '0';
-  box.style.display = 'none';
-  box.style.zIndex = '9999';
-  // ensure it can receive pointer events when visible
-  box.style.pointerEvents = 'auto';
-  // append as last child so it can be absolutely positioned relative to parent
+  // ensure anchor element can position absolute children
+  const computedPosition = window.getComputedStyle(form).position;
+  if (computedPosition === "static") {
+    form.style.position = "relative";
+  }
+
+  box = document.createElement("ul");
+  box.className = "search-suggestions";
+  box.setAttribute("role", "listbox");
+  box.style.position = "absolute";
+  box.style.top = "100%";
+  box.style.left = "0";
+  box.style.right = "0";
+  box.style.display = "none";
+  box.style.zIndex = "9999";
+  box.style.pointerEvents = "auto";
+
   form.appendChild(box);
   return box;
 }
 
-// Add a second argument 'searchType' (optional)
-function performSearch(query, searchType = 'text') {
-  if (!query) return;
-
-  const currentPath = window.location.pathname;
-  const isShopPage = currentPath.includes("shop.html");
-  
-  // Create the base URL for the logic
-  // If we are on shop, use current URL, otherwise create new URL object pointing to shop
-  const targetUrl = isShopPage 
-    ? new URL(window.location) 
-    : new URL(window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '/shop.html'));
-
-  // Reset pagination
-  targetUrl.searchParams.set("page", "1");
-
-  // LOGIC: specific filter vs generic text
-  if (searchType === 'brand') {
-    // If user clicked a Brand suggestion, filter by Brand specifically
-    targetUrl.searchParams.delete("q"); // clear text search
-    targetUrl.searchParams.set("brand", query.toLowerCase());
-  } 
-  else if (searchType === 'category') {
-     // If user clicked Category suggestion, filter by Type/Category
-    targetUrl.searchParams.delete("q");
-    targetUrl.searchParams.set("type", query.toLowerCase()); // Your backend expects 'type' for category list
-  } 
-  else {
-    // Standard text search (Search button or Product suggestion)
-    targetUrl.searchParams.set("q", query);
-    // Optional: decide if you want to clear other filters on a new text search
-    // targetUrl.searchParams.delete("brand");
-    // targetUrl.searchParams.delete("type");
-  }
-
-  // EXECUTION
-  if (isShopPage) {
-    // We are already here, update URL and fetch without reload
-    window.history.pushState({}, "", targetUrl);
-    
-    // Reset app state
-    page = 1;
-    currentDisplayedProducts = []; 
-    const container = document.getElementById("productsContainer");
-    if(container) container.innerHTML = ""; 
-
-    // TRIGGER THE FETCH
-    fetchProductsFromServer();
-    
-    // Hide suggestions
-    const box = document.querySelector('.search-suggestions');
-    if (box) {
-        box.innerHTML = '';
-        box.style.display = 'none';
-    }
-    
-    // Update checkboxes in sidebar to match the new URL (Optional UX polish)
-    updateSidebarFromURL(); 
-  } else {
-    // Hard redirect if not on shop page
-    window.location.href = targetUrl.toString();
-  }
+function hideSuggestions() {
+  const box = document.querySelector(".search-suggestions");
+  if (!box) return;
+  box.innerHTML = "";
+  box.style.display = "none";
 }
-
-// Helper to check sidebar boxes based on URL (Add this if you want sidebar to sync)
-function updateSidebarFromURL() {
-    const params = new URLSearchParams(window.location.search);
-    document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
-    
-    const brand = params.get("brand");
-    if(brand) {
-        const cb = document.querySelector(`input[name="brand"][value="${brand}"]`);
-        if(cb) cb.checked = true;
-    }
-    
-    const type = params.get("type");
-    if(type) {
-        const cb = document.querySelector(`input[name="type"][value="${type}"]`);
-        if(cb) cb.checked = true;
-    }
-}
-
 
 function renderSuggestions(items) {
   const box = ensureSuggestionsBox();
   if (!box) return;
 
   if (!items || items.length === 0) {
-    box.innerHTML = '';
-    box.style.display = 'none';
+    hideSuggestions();
     return;
   }
 
   box.innerHTML = "";
-  box.style.display = 'block';
+  box.style.display = "block";
 
   items.forEach((item) => {
     const li = document.createElement("li");
     let label = item.text;
-    if(item.type === 'brand') label = `${item.text} <small style='opacity:0.6'>(Brand)</small>`;
-    if(item.type === 'category') label = `${item.text} <small style='opacity:0.6'>(Category)</small>`;
 
-    li.innerHTML = label; 
+    if (item.type === "brand") {
+      label = `${item.text} <small style="opacity:0.6">(Brand)</small>`;
+    } else if (item.type === "category") {
+      label = `${item.text} <small style="opacity:0.6">(Category)</small>`;
+    } else if (item.type === "product") {
+      label = `${item.text} <small style="opacity:0.6">(Product)</small>`;
+    }
+
+    li.innerHTML = label;
     li.classList.add("suggestion", item.type);
 
-    // FIX: Use mousedown to beat the blur event
     li.addEventListener("mousedown", (e) => {
       e.preventDefault();
-      // Pass the text AND the type to our helper
       performSearch(item.text, item.type);
     });
 
@@ -37121,72 +37002,157 @@ function renderSuggestions(items) {
   });
 }
 
-let debounceTimer;
+function getShopUrlBase() {
+  const currentPath = window.location.pathname;
+  const isShopPage = currentPath.includes("shop.html");
 
-function debounce() {
-  clearTimeout(debounceTimer);
-
-  const q = (searchInput && searchInput.value) ? searchInput.value.trim() : "";
-
-  if (q.length < 2) {
-    const box = document.querySelector('.search-suggestions') || ensureSuggestionsBox();
-    if (box) {
-      box.innerHTML = "";
-      box.style.display = 'none';
-    }
-    return;
+  if (isShopPage) {
+    return new URL(window.location.href);
   }
 
-  debounceTimer = setTimeout(async () => {
-    try {
-      const res = await fetch(
-        `${API_BASE_URL}/products/suggestions?q=${encodeURIComponent(q)}`,
-        {
-          headers: {
-            "x-api-key": API_KEY
-          }
-        }
-      );
+  return new URL(
+    window.location.origin +
+      window.location.pathname.replace(/\/[^/]*$/, "/shop.html"),
+  );
+}
 
+function performSearch(query, searchType = "text") {
+  const cleanQuery = String(query || "").trim();
+  if (!cleanQuery) return;
 
-      const json = await res.json();
-      renderSuggestions(json.data || []);
-    } catch (err) {
-      console.error(err);
+  if (searchType === "brand") {
+    state.q = "";
+    state.brands = [normalizeValue(cleanQuery)];
+    state.page = 1;
+  } else if (searchType === "category") {
+    state.q = "";
+    state.types = [normalizeValue(cleanQuery)];
+    state.page = 1;
+  } else {
+    // text/product search should be preserved with later sidebar filtering
+    state.q = cleanQuery;
+    state.page = 1;
+  }
+
+  const isShopPage = window.location.pathname.includes("shop.html");
+
+  if (isShopPage) {
+    updateUrlFromState();
+    syncUiFromState();
+    fetchProducts({ append: false });
+    hideSuggestions();
+  } else {
+    const targetUrl = getShopUrlBase();
+    const params = new URLSearchParams();
+
+    if (searchType === "brand") {
+      params.set("brand", normalizeValue(cleanQuery));
+    } else if (searchType === "category") {
+      params.set("type", normalizeValue(cleanQuery));
+    } else {
+      params.set("q", cleanQuery);
     }
-  }, 300);
+
+    targetUrl.search = params.toString();
+    window.location.href = targetUrl.toString();
+  }
 }
 
-if (searchInput) {
-  searchInput.addEventListener("input", debounce);
-}
+function initEventListeners() {
+  const sidebar = document.getElementById("sidebarFilters");
+  sidebar?.addEventListener("change", () => {
+    applyCurrentFilters();
+  });
 
-// close suggestions when input loses focus (but allow clicks on suggestions)
-if (searchInput) {
-  searchInput.addEventListener('blur', () => {
-    setTimeout(() => {
-      const box = document.querySelector('.search-suggestions');
-      if (box) {
-        box.innerHTML = '';
-        box.style.display = 'none';
-      }
-    }, 150);
+  const priceSlider = document.getElementById("priceRange");
+  priceSlider?.addEventListener("input", (e) => {
+    const priceValue = document.getElementById("priceValue");
+    if (priceValue) {
+      priceValue.textContent = `LE ${Number(e.target.value).toLocaleString()}`;
+    }
+    debouncedApplyFilters(250);
   });
-  searchInput.addEventListener('focus', () => {
-    // recreate box if missing so typing immediately shows suggestions
-    const box = ensureSuggestionsBox();
-    if (box) box.style.display = 'none';
+
+  const sortSelect = document.querySelector(".sort-dropdown");
+  sortSelect?.addEventListener("change", () => {
+    applyCurrentFilters();
   });
-}
-// search button click - navigate to shop with query
-const searchBtn = document.querySelector('.search-btn');
-if (searchBtn) {
-  searchBtn.addEventListener('click', (e) => {
+
+  const viewMoreBtn = document.getElementById("viewMoreProductsBtn");
+  viewMoreBtn?.addEventListener("click", (e) => {
     e.preventDefault();
-    
-    const input = document.querySelector('.search-input');
-    if (input && input.value.trim().length > 0) {
-      performSearch(input.value.trim(), 'text');
-    }
+    e.stopPropagation();
+    loadMoreProducts();
+  });
+
+  const searchInput = document.querySelector(".search-input");
+  const searchBtn = document.querySelector(".search-btn");
+
+  if (searchInput) {
+    searchInput.addEventListener("input", () => {
+      clearTimeout(debounceTimer);
+
+      const q = searchInput.value.trim();
+
+      if (q.length < 2) {
+        hideSuggestions();
+        return;
+      }
+
+      debounceTimer = setTimeout(async () => {
+        try {
+          const res = await fetch(
+            `${API_BASE_URL}/products/suggestions?q=${encodeURIComponent(q)}`,
+            {
+              headers: {
+                "x-api-key": API_KEY,
+              },
+            },
+          );
+
+          const json = await res.json();
+          renderSuggestions(json.data || []);
+        } catch (err) {
+          console.error("Suggestion error:", err);
+        }
+      }, 300);
+    });
+
+    searchInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        performSearch(searchInput.value.trim(), "text");
+      }
+    });
+
+    searchInput.addEventListener("blur", () => {
+      setTimeout(() => hideSuggestions(), 150);
+    });
+
+    searchInput.addEventListener("focus", () => {
+      ensureSuggestionsBox();
+    });
+  }
+
+  searchBtn?.addEventListener("click", (e) => {
+    e.preventDefault();
+    performSearch(searchInput?.value?.trim() || "", "text");
+  });
+
+  window.addEventListener("popstate", () => {
+    parseStateFromUrl();
+    syncUiFromState();
+    state.page = 1;
+    fetchProducts({ append: false });
   });
 }
+
+async function initShopPage() {
+  renderSidebarFilters();
+  parseStateFromUrl();
+  syncUiFromState();
+  initEventListeners();
+  await fetchProducts({ append: false });
+}
+
+document.addEventListener("DOMContentLoaded", initShopPage);
