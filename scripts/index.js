@@ -36238,7 +36238,7 @@
 // Explain;
 
 const backendBrandsMock = [
-  "Andera",
+  "Andrea",
   "Ardell",
   "Armada",
   "Avene",
@@ -36389,7 +36389,6 @@ function renderAlphabetAndBrands(data) {
     topSpan.textContent = "Top";
     topSpan.classList.add("top-brands");
     topSpan.classList.add("active");
-    console.log(topSpan);
     topSpan.addEventListener("mouseenter", () => {
         document.querySelectorAll(".alphabet-sidebar span")
             .forEach(s => s.classList.remove("active"));
@@ -36399,6 +36398,8 @@ function renderAlphabetAndBrands(data) {
     });
 
     alphabetList.appendChild(topSpan)
+    topSpan.classList.add("active");
+    displaySpecificBrands(topBrands);
 
     
     const letters = Object.keys(data).sort(); // رتبي الحروف

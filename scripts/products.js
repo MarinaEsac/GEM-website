@@ -36632,6 +36632,7 @@ const state = {
   page: 1,
   perPage: PER_PAGE,
   totalPages: 1,
+  total: 0,  
   isLoading: false,
 
   q: "",
@@ -36767,6 +36768,11 @@ function readFiltersFromUiIntoState() {
 
 async function fetchProducts({ append = false } = {}) {
   if (state.isLoading) return;
+  if (!append) {
+    setViewMoreVisible(false);
+    state.total = 0;
+    state.totalPages = 1;
+}
 
   state.isLoading = true;
 
@@ -36779,7 +36785,8 @@ async function fetchProducts({ append = false } = {}) {
     const result = await response.json();
 
     const fetchedProducts = result?.data || [];
-    state.totalPages = result?.pagination?.total_pages || 1;
+    state.totalPages = Number(result?.pagination?.total_pages ?? 1);
+    state.total = Number(result?.pagination?.total ?? 0);
 
     if (append) {
       currentDisplayedProducts.push(...fetchedProducts);
@@ -36862,12 +36869,29 @@ function appendProducts(list) {
   );
 }
 
+function setViewMoreVisible(isVisible) {
+  const btn = document.getElementById("viewMoreProductsBtn");
+  if (!btn) return;
+  const wrapper = btn.closest(".w-pagination-wrapper"); // Webflow wrapper
+
+  if (isVisible) {
+    // show (pick flex because Webflow uses flex for pagination)
+    btn.style.setProperty("display", "flex", "important");
+    if (wrapper) wrapper.style.setProperty("display", "flex", "important");
+  } else {
+    // hide (force it)
+    btn.style.setProperty("display", "none", "important");
+    if (wrapper) wrapper.style.setProperty("display", "none", "important");
+  }
+}
+
 function toggleViewMore() {
   const btn = document.getElementById("viewMoreProductsBtn");
   if (!btn) return;
 
-  const hasProducts = currentDisplayedProducts.length > 0;
-  btn.style.display = hasProducts && state.page < state.totalPages ? "block" : "none";
+  const hasNextPage = state.page < state.totalPages;
+  const shouldShow = state.totalPages > 1 && hasNextPage;
+  setViewMoreVisible(shouldShow);
 }
 
 async function loadMoreProducts() {
@@ -37152,6 +37176,7 @@ async function initShopPage() {
   parseStateFromUrl();
   syncUiFromState();
   initEventListeners();
+  setViewMoreVisible(false);
   await fetchProducts({ append: false });
 }
 
