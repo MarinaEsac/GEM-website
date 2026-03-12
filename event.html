@@ -28,6 +28,7 @@
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
+    <meta name="format-detection" content="telephone=no">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -595,6 +596,22 @@
         width: auto;
         object-fit: contain;
       }
+      @media (max-width: 768px) {
+
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+  }
+
+  .logo {
+    position: static !important;
+    left: auto !important;
+    transform: none !important;
+    margin: 2px !important;
+  }
+
+}
     </style>
     <script type="text/javascript">
       !(function (o, c) {
@@ -732,7 +749,7 @@
               <div class="nav-item more-item">
                 <span>View More ▾</span>
                 <div class="more-dropdown">
-                  <a href="#">Blogs</a>
+                  <a href="./blog.html">Blogs</a>
                   <a href="./events.html">Events</a>
                   <a href="./about.html">About Us</a>
                   <a
@@ -756,7 +773,7 @@
 
         <nav class="nav-row" id="primary-nav">
           <div class="nav-item" data-target="brands">
-            BRANDS <span class="chev">▾</span>
+            Brands<span class="chev">▾</span>
           </div>
           <div class="nav-item" data-target="hair">
             Hair Care <span class="chev">▾</span>

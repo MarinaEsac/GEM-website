@@ -2445,7 +2445,7 @@ textarea.w-select {
   --landscape-mobile: 80px;
   --portrait-mobile: 80px;
   --primary: #ebf5e9;
-  --background: #f8f3ee;
+  --background: #e6e5e5;
 }
 
 .w-layout-blockcontainer {
@@ -4512,7 +4512,7 @@ blockquote {
 
 .container {
   width: 100%;
-  max-width: 1400px;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding-left: 20px;
@@ -5755,7 +5755,7 @@ blockquote {
 .about-left {
   color: var(--background);
   width: 100%;
-  max-width: 26%;
+  max-width: 34%;
   min-height: 520px;
   max-height: 520px;
   position: relative;
@@ -5795,7 +5795,7 @@ blockquote {
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
-  max-width: 62%;
+  max-width: 92%;
   font-size: 18px;
   line-height: 150%;
   display: flex;

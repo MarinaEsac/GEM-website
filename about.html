@@ -29,6 +29,7 @@
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
+    <meta name="format-detection" content="telephone=no">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -692,6 +693,59 @@
     height: auto;
   }
 }
+@media (max-width: 768px) {
+
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+  }
+
+  .logo {
+    position: static !important;
+    left: auto !important;
+    transform: none !important;
+    margin: 2px !important;
+  }
+
+}
+@media (max-width: 768px) {
+
+  .about-left img {
+    width: 100% !important;
+    height: 250px;          
+    object-fit: cover;     
+    transform: none !important; 
+    filter: none !important;    
+  }
+
+  .about-left {
+    width: 100%;
+  }
+
+}
+@media (max-width: 768px) {
+
+  .about-wrapper {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .about-left {
+    min-height: auto !important;
+    max-height: none !important;
+    height: 180px !important;
+  }
+
+  .about-left img {
+    width: 100%;
+    height: 220px;   
+    object-fit: cover;
+    transform: none !important;
+    filter: none !important;
+  }
+
+}
     </style>
     <script type="text/javascript">
       !(function (o, c) {
@@ -851,7 +905,7 @@
               <div class="nav-item more-item">
                 <span>View More ▾</span>
                 <div class="more-dropdown">
-                  <a href="#">Blogs</a>
+                  <a href="./blog.html">Blogs</a>
                   <a href="./events.html">Events</a>
                   <a href="./about.html">About Us</a>
                   <a
@@ -875,7 +929,7 @@
 
         <nav class="nav-row" id="primary-nav">
           <div class="nav-item" data-target="brands">
-            BRANDS <span class="chev">▾</span>
+            Brands<span class="chev">▾</span>
           </div>
           <div class="nav-item" data-target="hair">
             Hair Care <span class="chev">▾</span>
@@ -961,95 +1015,7 @@
       </div>
     </header>
 
-    <section class="about-hero">
-      <div class="w-layout-blockcontainer container w-container about-inner">
-        <!-- <div class="about-inner"> -->
-        <!-- <div class="marquee">
-          <div class="marquee-inner">
-            <div class="marquee-block">
-              <div class="scoll-text">Your Beauty,</div>
-              <div class="scoll-text">Our Passion<br /></div>
-              <img
-                src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67ff95922e879f26b588f609_marquee-02.svg"
-                loading="lazy"
-                alt="Marquee Image"
-                class="marquee-icon"
-              />
-            </div>
-            <div class="marquee-block">
-              <div class="scoll-text">Your Beauty,</div>
-              <div class="scoll-text">Our Passion<br /></div>
-              <img
-                src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67ff95922e879f26b588f609_marquee-02.svg"
-                loading="lazy"
-                alt="Marquee Image"
-                class="marquee-icon"
-              />
-            </div>
-          </div>
-        </div> -->
-        <div class="about-data-wrap">
-          <div class="about-title">
-            <h1
-              data-w-id="e8abc488-3fad-09f5-8261-f051fa320bc1"
-              class="main-title"
-            >
-              A Journey Rooted in Self-Care
-            </h1>
-          </div>
-          <p
-            data-w-id="16f1c8dc-306e-b80f-f405-ed0de1bc3d1a"
-            class="about-data"
-          >
-          
-           <span class="bold">GEM GROUP</span> developed an education & training center for beauty industry professionals and for retail sales.
-          </p>
-        </div>
-        <div class="about-wrap">
-          <div
-            data-w-id="73532231-54cb-a4c1-2fe9-e11e08f7c360"
-            class="about-main-img first"
-          >
-            <img
-              src="./assets/nature-bounty.webp"
-              loading="lazy"
-              sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-            
-              alt="About Image"
-              class="about-main-image"
-            />
-          </div>
-          <div
-            data-w-id="868d78d7-a49c-9948-5142-c40cc65d69b0"
-            class="about-main-img center"
-          >
-            <img
-              src="./assets/zero-frizz(3).webp"
-              loading="lazy"
-              sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-           
-              alt="About Image"
-              class="about-main-image"
-            />
-          </div>
-          <div
-            data-w-id="41b8cd96-b32c-6aff-9272-167bc7f68c7d"
-            class="about-main-img last"
-          >
-            <img
-              src="./assets/momento(4).webp"
-              loading="lazy"
-              sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-              
-              alt="About Image"
-              class="about-main-image"
-            />
-          </div>
-        </div>
-        <div class="about-text"></div>
-        <!-- </div> -->
-      </div>
-    </section>
+    <section class="about-hero"></section>
     <div class="page-wrapper">
       <section class="about">
         <div class="w-layout-blockcontainer container w-container">
@@ -1073,7 +1039,7 @@
                 class="on-scroll"
               ></div>
               <img
-                src="./assets/products(2).webp"
+                src="./assets/gem-history.jpg"
                 loading="lazy"
                 style="
                   filter: blur(5px);
@@ -1087,8 +1053,7 @@
                     rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
                 "
                 sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                alt="About Image"
-               
+                alt="About Image"               
                 class="on-scroll-image"
               />
             </div>
@@ -1157,7 +1122,7 @@
                     </div>
                   </a> -->
                 </div>
-                <div
+                <!-- <div
                   data-w-id="062e3ac8-2d90-4a8d-8523-2c168c04e90d"
                   class="about-img"
                 >
@@ -1195,7 +1160,7 @@
                    
                     class="on-scroll-image"
                   />
-                </div>
+                </div> -->
               </div>
               <div class="fact-wrap">
                 <div class="fact-block">
@@ -1561,7 +1526,7 @@
         </div>
       </section>
       <section class="vision">
-        <div class="marquee">
+        <!-- <div class="marquee">
           <div class="marquee-inner">
             <div class="marquee-block">
               <div class="scoll-text">Your Beauty,</div>
@@ -1584,7 +1549,7 @@
               />
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="w-layout-blockcontainer container w-container">
           <div class="vision-inner">
             <div
@@ -1606,7 +1571,7 @@
                 class="on-scroll"
               ></div>
               <img
-                src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/67ff53415e8c22b76a637c1b_vision.webp"
+                src="./assets/about-gem.png"
                 loading="lazy"
                 style="
                   filter: blur(5px);
@@ -1621,14 +1586,6 @@
                 "
                 sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
                 alt="Vision Image"
-                srcset="
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/67ff53415e8c22b76a637c1b_vision-p-500.webp   500w,
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/67ff53415e8c22b76a637c1b_vision-p-800.webp   800w,
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/67ff53415e8c22b76a637c1b_vision-p-1080.webp 1080w,
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/67ff53415e8c22b76a637c1b_vision-p-1600.webp 1600w,
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/67ff53415e8c22b76a637c1b_vision-p-2000.webp 2000w,
-                  https://cdn.prod.website-files.com/673c1b266c8975806880591c/67ff53415e8c22b76a637c1b_vision.webp        2080w
-                "
                 class="on-scroll-image"
               />
             </div>
