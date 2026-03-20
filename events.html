@@ -28,6 +28,7 @@
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
+    <meta name="format-detection" content="telephone=no">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -586,6 +587,22 @@
           -webkit-overflow-scrolling: touch;
         }
       }
+      @media (max-width: 768px) {
+
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+  }
+
+  .logo {
+    position: static !important;
+    left: auto !important;
+    transform: none !important;
+    margin: 2px !important;
+  }
+
+}
     </style>
     <script type="text/javascript">
       !(function (o, c) {
@@ -745,7 +762,7 @@
               <div class="nav-item more-item">
                 <span>View More ▾</span>
                 <div class="more-dropdown">
-                  <a href="#">Blogs</a>
+                  <a href="./blog.html">Blogs</a>
                   <a href="./events.html">Events</a>
                   <a href="./about.html">About Us</a>
                   <a
@@ -769,7 +786,7 @@
 
         <nav class="nav-row" id="primary-nav">
           <div class="nav-item" data-target="brands">
-            BRANDS <span class="chev">▾</span>
+            Brands<span class="chev">▾</span>
           </div>
           <div class="nav-item" data-target="hair">
             Hair Care <span class="chev">▾</span>
@@ -908,6 +925,21 @@
             </div>
           </a>
         </div>
+
+         <div class="event-card">
+          <a href="./event.html">
+            <img
+              data-src="./assets/SHR_0273.webp"
+              src="./assets/SHR_0273.webp"
+              alt="Event 2"
+              loading="lazy"
+            />
+            <div class="overlay">
+              <h3>Egy beauty</h3>
+              <p>2021</p>
+            </div>
+          </a>
+        </div>
       </div>
     </section>
     <script>
@@ -952,7 +984,49 @@
               "./assets/event24(11).webp",
             ];
           } else if (year === "2023") {
-            images = [];
+            images = [
+              "./assets/Egy Beauty 2023 (5).webp"
+              ,"./assets/Egy Beauty 2023 (6).webp"
+              ,"./assets/Egy Beauty 2023 (17).webp"
+              ,"./assets/Egy Beauty 2023 (62).webp"
+              ,"./assets/Egy Beauty 2023 (63).webp"
+              ,"./assets/Egy Beauty 2023 (82).webp"
+              ,"./assets/Egy Beauty 2023 (91).webp"
+              ,"./assets/Egy Beauty 2023 (36).webp"
+              ,"./assets/Egy Beauty 2023 (44).webp"
+              ,"./assets/Egy Beauty 2023 (45).webp"
+              ,"./assets/Egy Beauty 2023 (47).webp"
+              ,"./assets/Egy Beauty 2023 (20).webp"
+              ,"./assets/Egy Beauty 2023 (21).webp"
+              ,"./assets/Egy Beauty 2023 (22).webp"
+              ,"./assets/Egy Beauty 2023 (23).webp"
+              ,"./assets/Egy Beauty 2023 (26).webp"
+              ,"./assets/Egy Beauty 2023 (27).webp"
+              ,"./assets/Egy Beauty 2023 (28).webp"
+              ,"./assets/Egy Beauty 2023 (29).webp"
+              ,"./assets/Egy Beauty 2023 (30).webp"
+            ];
+          } else if (year === "2021") {
+            images = [
+              "./assets/SHR_0273.webp",
+              "./assets/SHR_0275.webp",
+              "./assets/RED_4192.webp",
+              "./assets/M1 (457).webp",
+              "./assets/M1 (464).webp",
+              "./assets/E1 (198).webp",
+              "./assets/E3 (151).webp",
+              "./assets/E3 (170).webp",
+              "./assets/M1 (89).webp",
+              "./assets/M1 (436).webp",
+              "./assets/M2 (24).webp",
+              "./assets/M2 (33).webp",
+              "./assets/M2 (64).webp",
+              "./assets/M2 (112).webp",
+              "./assets/M2 (119).webp",
+              "./assets/M2 (145).webp",
+              "./assets/M2 (158).webp",
+              "./assets/M2 (169).webp"
+            ];
           }
 
           localStorage.setItem(
