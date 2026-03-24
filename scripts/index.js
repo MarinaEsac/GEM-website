@@ -36299,13 +36299,7 @@ function mapBrandsByLetter(brandsArray) {
 //     container.appendChild(column);
 //   });
 // }
-const topBrands = [
-    "Zero frizz",
-    "Karsell",
-    "Xl",
-    "Revox",
-    "Dalin"
-];
+let topBrands = [];
 function renderAlphabetAndBrands(data) {
     const alphabetList = document.getElementById("alphabetList");
     const brandsContainer = document.getElementById("brandsContainer");
@@ -36741,7 +36735,14 @@ const brandData = [
     ],
   },
 ];
-let topProductBrands = []
+const topProductBrands = [
+  "Zero frizz",
+  "Hair burst",
+  "Karseell",
+  "Revox just",
+  "Momento",
+  "Disaar"
+]
 async function loadTopBrands() {
   try {
     let url = `${API_BASE_URL}/products/reports/top-sold-brands/public`;
@@ -36752,9 +36753,9 @@ async function loadTopBrands() {
 
     const data = await res.json();
 
-    const topBrands = (data.data || []).map(item => item.brand);
+    const topBrandsServer = (data.data || []).map(item => item.brand);
 
-    topProductBrands = topBrands;
+    topBrands = topBrandsServer
   } catch (err) {
     console.error("Error fetching top brands:", err);
     return [];
