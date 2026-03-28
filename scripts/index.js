@@ -36237,99 +36237,25 @@
 // })();
 // Explain;
 
-const backendBrandsMock = [
-  "Andrea",
-  "Ardell",
-  "Armada",
-  "Avene",
-  "Batiste",
-  "Banana Boat",
-  "Bioderma",
-  "Bobini",
-  "Burberry",
-  "Cabana Sun",
-  "Calvin Klein",
-  "Calypso",
-  "Carroten",
-  "Cetaphil",
-  "Cliven Italy",
-  "Cocoa Skin Therapy",
-  "Colour Me",
-  "Cristal Momento",
-  "Creme of Nature",
-  "DAX",
-  "Deomania",
-  "Dimples",
-  "Disaar",
-  "Dove",
-  "Duo",
-  "Eco Tools",
-  "Enercos",
-  "Energy Hair Food",
-  "Essence",
-  "FashKool",
-  "Frais",
-  "Garnier",
-  "Galeria",
-  "Gillette",
-  "Hair Burst",
-  "Hawaiian Tropic",
-  "Huda Beauty",
-  "IBD",
-  "Impress New",
-  "Kashmir",
-  "Karsell",
-  "Kativa",
-  "Kiss",
-  "Kodomo",
-  "Lady’s Secret",
-  "Lilien",
-  "L'Oréal",
-  "L`Origin",
-  "Milton-Lloyd",
-  "Modish",
-  "Momento",
-  "Moroccanoil",
-  "Morfose",
-  "Naturalis",
-  "Nature’s Bounty",
-  "Nivea",
-  "Ohoud",
-  "Olaplex",
-  "Oriense",
-  "ORS",
-  "Pantene",
-  "Perfumer’s Choice",
-  "Play Girl",
-  "Playtex",
-  "Ravita",
-  "Re-Gen",
-  "Revox",
-  "Revox Plex",
-  "Revlon",
-  "RT Logos Stacked",
-  "Salon Perfect",
-  "Schick",
-  "SG",
-  "SGX",
-  "Selsium",
-  "Silkia",
-  "Smart Collection",
-  "Starkin",
-  "Stoply",
-  "Thicker Fuller Hair",
-  "Uniq One",
-  "Union Cosmetic",
-  "Vichy",
-  "WetBrush",
-  "Wildcolor",
-  "XL",
-  "Yara",
-  "YM",
-  "YouthHair",
-  "Zact",
-  "Zero Frizz"
-];
+let backendBrandsMock = [];
+
+async function loadBrandNames() {
+  try {
+    const res = await fetch(`${API_BASE_URL}/products/brands`, {
+      headers: { "X-API-Key": API_KEY },
+    });
+
+    const data = await res.json();
+
+    const brands = data.brands || [];
+
+    backendBrandsMock = brands;
+
+  } catch (err) {
+    console.error("Error loading brand names:", err);
+    return [];
+  }
+}
 
 function mapBrandsByLetter(brandsArray) {
   const result = {};
@@ -36373,13 +36299,7 @@ function mapBrandsByLetter(brandsArray) {
 //     container.appendChild(column);
 //   });
 // }
-const topBrands = [
-    "Zero frizz",
-    "Karsell",
-    "Xl",
-    "Revox",
-    "Dalin"
-];
+let topBrands = [];
 function renderAlphabetAndBrands(data) {
     const alphabetList = document.getElementById("alphabetList");
     const brandsContainer = document.getElementById("brandsContainer");
@@ -36501,7 +36421,7 @@ document.addEventListener("DOMContentLoaded", () => {
             closeEverything();
         }
     });
-
+    
     renderAlphabetAndBrands(mapBrandsByLetter(backendBrandsMock).brands);
     renderMegaItems(backendHairMock, "hairContainer");
     renderMegaItems(backendSkinCareMock, "skinContainer");
@@ -36823,6 +36743,24 @@ const topProductBrands = [
   "Momento",
   "Disaar"
 ]
+async function loadTopBrands() {
+  try {
+    let url = `${API_BASE_URL}/products/reports/top-sold-brands/public`;
+
+    const res = await fetch(url, {
+      headers: { "X-API-Key": API_KEY },
+    });
+
+    const data = await res.json();
+
+    const topBrandsServer = (data.data || []).map(item => item.brand);
+
+    topBrands = topBrandsServer
+  } catch (err) {
+    console.error("Error fetching top brands:", err);
+    return [];
+  }
+}
 const topProductsCache = {}; 
 let currentBrandIndex = 0;
 let currentProductIndex = 0;
@@ -37049,7 +36987,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  await loadBrandNames()
+  await loadTopBrands();
   const brandsDataMap = mapBrandsByLetter(backendBrandsMock);
   renderAlphabetAndBrands(brandsDataMap.brands);
 
