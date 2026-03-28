@@ -43,19 +43,37 @@
     <link
       rel="preload"
       as="image"
-      href="./assets/hair-burst.webp"
+      href="./assets/intuition.jpeg"
       fetchpriority="high"
     />
     <link
       rel="preload"
       as="image"
-      href="./assets/revox image.webp"
+      href="./assets/karseell-banner.jpeg"
       fetchpriority="high"
     />
     <link
       rel="preload"
       as="image"
-      href="./assets/sunscreen-image.webp"
+      href="./assets/ravita-banner.jpeg"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="./assets/intuition mobile.jpeg"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="./assets/karseell mobile.jpeg"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="./assets/ravita mobile.jpg.jpeg"
       fetchpriority="high"
     />
     <link
@@ -83,7 +101,7 @@
       }
 
       body {
-        background-color: #ffffff;
+        background-color: #f8f8f8;
         color: #333;
         line-height: 1.6;
         padding-top: 140px;
@@ -1196,7 +1214,7 @@
       .side-images {
         display: flex;
         gap: 20px;
-        max-width: 1400px;
+        max-width: 1440px;
         /* margin: 60px auto; */
       }
 
@@ -1469,6 +1487,95 @@
           /* margin: 0 auto; */
         }
       }
+
+      .hero-slider,
+      .heroSwiper,
+      .slide-content {
+        height: auto !important;
+      }
+      .hero-slider {
+        width: 100%;
+        /* max-width: 1700px; */
+        margin: 20px auto;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .hero-slider,
+      .heroSwiper,
+      .swiper-wrapper,
+      .swiper-slide {
+        height: auto !important;
+        max-height: none !important;
+      }
+
+      .heroSwiper {
+        width: 100%;
+      }
+      @media (max-width: 768px) {
+        .img1 {
+          content: url("./assets/intuition\ mobile.jpeg");
+        }
+
+        .img2 {
+          content: url("./assets/karseell\ mobile.jpeg");
+        }
+
+        .img3 {
+          content: url("./assets/ravita\ mobile.jpg.jpeg");
+        }
+      }
+
+.swiper-slide {
+  height: 100%;
+}
+.swiper-slide {
+  width: 100%;
+  height: 100%;
+}
+/* .hero-slider {
+  height: 90vh;
+  background-color: #f5f5f5; 
+} */
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swiper-slide {
+  height: 90vh;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* .hero-slider {
+  width: 96%;
+  max-width: 1600px;
+  margin: 20px auto;
+} */
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-img {
+  width: 100%;
+  max-height: 85vh;
+  object-fit: contain; 
+  border-radius: 20px;
+  display: block;
+}
+.img1,
+.img2,
+.img3 {
+  width: 95%;        
+  margin: 0 auto;  
+  display: block;  
+  border-radius: 20px;
+}
     </style>
     <script type="text/javascript">
       !(function (o, c) {
@@ -2523,119 +2630,57 @@
         </div>
       </div>
     </section>
-
-    <section class="hero-slider">
-      <div class="swiper heroSwiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="slide-content">
-              <div class="text-box">
-                <h1 class="hero-title animate">Glow with Protection</h1>
-                <p class="hero-desc animate" style="color: grey">
-                  Achieve a radiant golden tan while keeping your skin nourished
-                  and protected with Carroten sun care.
-                </p>
-                <a
-                  href="./shop.html"
-                  class="hero-btn animate"
-                  style="background-color: #0b2a59"
-                >
-                  Discover More
-                </a>
-              </div>
-              <div class="image-box">
-                <img
-                  src="./assets/sunscreen-image.webp"
-                  alt="Hero 3"
-                  class="hero-img animate"
-                  loading="lazy"
-                />
-              </div>
+    <div class="main-container">
+      <section class="hero-slider">
+        <div class="swiper heroSwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img
+                src="./assets/intuition.jpeg"
+                alt="Hero 3"
+                class="img1"
+                loading="lazy"
+                style="border-radius: 40px;"
+              />
             </div>
-          </div>
 
-          <div class="swiper-slide">
-            <div class="slide-content">
-              <div class="text-box">
-                <h1 class="hero-title animate">
-                  Longer, Stronger, Healthier Hair
-                </h1>
-                <p class="hero-desc animate" style="color: grey">
-                  Nourish your hair with Hairburst formulas designed to boost
-                  growth, shine, and overall strength — naturally.
-                </p>
-                <a
-                  href="./shop.html"
-                  class="hero-btn animate"
-                  style="background-color: #0b2a59"
-                >
-                  Discover More
-                </a>
-              </div>
-              <div class="image-box">
-                <img
-                  src="./assets/hair-burst.webp"
-                  alt="Hero 1"
-                  class="hero-img animate"
-                  loading="lazy"
-                />
-              </div>
+            <div class="swiper-slide">
+              <img
+                src="./assets/karseell-banner.jpeg"
+                alt="Brand 1"
+                class="img2"
+                loading="lazy"
+                style="border-radius: 40px;"
+              />
             </div>
-          </div>
 
-          <div class="swiper-slide">
-            <div class="slide-content">
-              <div class="text-box">
-                <h1 class="hero-title animate">Glow Like Never Before</h1>
-                <p class="hero-desc animate" style="color: grey">
-                  Discover skincare essentials designed to keep your skin
-                  radiant and fresh.
-                </p>
-                <a
-                  href="./shop.html"
-                  class="hero-btn animate"
-                  style="background-color: #0b2a59"
-                  >Discover More</a
-                >
-              </div>
-              <div class="image-box">
-                <img
-                  src="./assets/revox image.webp"
-                  alt="Hero 2"
-                  class="hero-img animate"
-                  loading="lazy"
-                />
-              </div>
+            <div class="swiper-slide">
+              <img
+                src="./assets/ravita-banner.jpeg"
+                alt="Brand 2"
+                class="img3"
+                loading="lazy"
+                style="border-radius: 40px;"
+              />
             </div>
           </div>
         </div>
-
-        <!-- <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div> -->
-        <!-- <div class="swiper-pagination"></div> -->
-      </div>
-      <!-- <div class="side-images">
+      </section>
+      <div class="side-images">
         <a href="./about.html" class="side-box">
-            <img src="./assets/gem-history.webp" alt="Gem History" loading="lazy">
-            <h3 class="side-title">Gem History</h3>
+          <img
+            src="./assets/gem-history.webp"
+            alt="Gem History"
+            loading="lazy"
+          />
+          <h3 class="side-title">Gem History</h3>
         </a>
 
         <a href="./events.html" class="side-box">
-            <img src="./assets/gem-events.webp" alt="Gem Events" loading="lazy">
-            <h3 class="side-title">Gem Events</h3>
+          <img src="./assets/event24(2).webp" alt="Gem Events" loading="lazy" />
+          <h3 class="side-title">Gem Events</h3>
         </a>
-    </div> -->
-    </section>
-    <div class="side-images">
-      <a href="./about.html" class="side-box">
-        <img src="./assets/gem-history.webp" alt="Gem History" loading="lazy" />
-        <h3 class="side-title">Gem History</h3>
-      </a>
-
-      <a href="./events.html" class="side-box">
-        <img src="./assets/event24(2).webp" alt="Gem Events" loading="lazy" />
-        <h3 class="side-title">Gem Events</h3>
-      </a>
+      </div>
     </div>
     <link
       rel="stylesheet"
@@ -2647,7 +2692,7 @@
       var swiper = new Swiper(".heroSwiper", {
         loop: true,
         autoplay: {
-          delay: 2000,
+          delay: 5000,
           disableOnInteraction: false,
         },
         navigation: {
@@ -2659,7 +2704,7 @@
           clickable: true,
         },
         effect: "slide",
-        speed: 600,
+        speed: 800,
       });
     </script>
 
@@ -3156,7 +3201,7 @@
               loading="lazy"
             />
             <h3 class="shop-heading">HAIRCARE</h3>
-           <p class="shop-text">Care for stronger, healthier hair.</p>
+            <p class="shop-text">Care for stronger, healthier hair.</p>
             <a href="./shop.html?type=beauty tools" class="shop-btn"
               >Discover More</a
             >
@@ -3359,14 +3404,14 @@
             const leftSwiper = new Swiper(".leftSwiper", {
               loop: true,
               autoplay: {
-                delay: 4000,
+                delay: 2000,
                 disableOnInteraction: false,
               },
               navigation: {
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
               },
-              speed: 800,
+              speed: 400,
             });
           </script>
         </div>
@@ -3381,7 +3426,7 @@
               >
                 <div class="tp-img">
                   <!-- <img loading="lazy" src="./assets/zero-frizz-product.jpg" alt="Product Image" sizes="100vw"
-                                        class="tp-image" /> -->
+                      class="tp-image" /> -->
                 </div>
                 <hr />
                 <div class="tp-bottom">

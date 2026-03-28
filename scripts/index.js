@@ -36875,13 +36875,13 @@ async function updateTopProducts() {
 
 
   if (leftImg) {
-    leftImg.style.transition = "opacity 0.4s ease-in-out";
+   leftImg.style.transition = "opacity 0.2s ease-in-out";
     leftImg.style.opacity = 0;
     setTimeout(() => {
       leftImg.src = currentBrand.image;
       leftImg.alt = currentBrand.name;
       leftImg.style.opacity = 1;
-    }, 400);
+    }, 100);
   }
 
  const productsHTML = products.map(prod => `
@@ -36906,7 +36906,7 @@ async function updateTopProducts() {
 
 document.addEventListener("DOMContentLoaded", () => {
   updateTopProducts();
-  setInterval(updateTopProducts, 9000);
+  setInterval(updateTopProducts, 3000);
 });
 
 

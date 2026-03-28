@@ -41,6 +41,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <link href="./styles/index.css" rel="stylesheet" type="text/css" />
     <link href="./styles/about.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- <style>
       @media (min-width: 992px) {
         html.w-mod-js:not(.w-mod-ix)
@@ -131,7 +132,7 @@
       }
 
       body {
-        background-color: #ffffff;
+        background-color: #f8f8f8;
         color: #333;
         line-height: 1.6;
         /* padding-top: 140px; */
@@ -746,6 +747,56 @@
   }
 
 }
+.branding-features{
+display:grid;
+grid-template-columns: repeat(6,1fr);
+gap:40px;
+text-align:center;
+padding:70px 0;
+}
+
+@media (max-width:1000px){
+.branding-features{
+grid-template-columns: repeat(3,1fr);
+}
+}
+
+@media (max-width:600px){
+.branding-features{
+grid-template-columns: repeat(2,1fr);
+}
+}
+
+.feature-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.feature-icon{
+  font-size:38px;
+  color: #0b2a59;;
+  margin-bottom:15px;
+}
+
+.feature-item h4{
+  font-size:20px;
+  font-weight:600;
+  margin-bottom:10px;
+}
+
+.feature-item p{
+  font-size:15px;
+  color:#666;
+  line-height:1.6;
+  max-width:260px;
+}
+@media (max-width: 768px){
+  .branding-features{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
     </style>
     <script type="text/javascript">
       !(function (o, c) {
@@ -1182,11 +1233,11 @@
           </div>
         </div>
       </section>
-      <section class="branding">
+      <section class="brands">
         <div class="w-layout-blockcontainer container w-container">
           <div class="branding-inner">
             <div class="branding-top">
-              <h5 class="branding-heading">A WORLDWIDE TRUSTED BEAUTY BRAND</h5>
+              <!-- <h5 class="branding-heading">A WORLDWIDE TRUSTED BEAUTY BRAND</h5>
               <div class="branding-wrapper">
                 <div
                   data-w-id="7504781e-bf66-ad04-1f08-74972868272f"
@@ -1320,7 +1371,46 @@
                     class="branding-logo"
                   />
                 </div>
-              </div>
+              </div> -->
+       <div class="branding-features">
+
+  <div class="feature-item">
+    <i class="fa-solid fa-box feature-icon"></i>
+    <h4>Product SKUs</h4>
+    <p>5,000</p>
+  </div>
+
+  <div class="feature-item">
+    <i class="fa-solid fa-truck feature-icon"></i>
+    <h4>Distribution Vehicles</h4>
+    <p>25</p>
+  </div>
+
+  <div class="feature-item">
+    <i class="fa-solid fa-chart-line feature-icon"></i>
+    <h4>Sales Turnover</h4>
+    <p>750,000,000</p>
+  </div>
+
+  <div class="feature-item">
+    <i class="fa-solid fa-user-group feature-icon"></i>
+    <h4>Suppliers</h4>
+    <p>42</p>
+  </div>
+
+  <div class="feature-item">
+    <i class="fa-solid fa-hand-holding-dollar feature-icon"></i>
+    <h4>Sales People</h4>
+    <p>85</p>
+  </div>
+
+  <div class="feature-item">
+    <i class="fa-solid fa-handshake feature-icon"></i>
+    <h4>Direct Distribution</h4>
+    <p>5,482</p>
+  </div>
+
+</div>
             </div>
             <!-- <div data-w-id="7504781e-bf66-ad04-1f08-749728682739" class="branding-bottom">
                     <div class="branding-info">

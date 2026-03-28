@@ -5835,14 +5835,6 @@ blockquote {
   line-height: 100%;
 }
 
-.branding {
-  margin-bottom: var(--desktop);
-  background-color: var(--background);
-  text-align: center;
-  padding-top: 60px;
-  padding-bottom: 60px;
-}
-
 /* .branding-wrapper {
   grid-column-gap: 20px;
   grid-template-rows: auto;
@@ -10378,12 +10370,10 @@ blockquote {
   color: #f6f8f6;
 }
 
-.branding {
-  margin-bottom: var(--desktop);
+.brands {
   background-color: var(--background);
   text-align: center;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  margin-bottom: 60px;
 }
 
 /* .branding-wrapper {

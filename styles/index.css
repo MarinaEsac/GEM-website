@@ -22,7 +22,7 @@ body {
     Roboto,
     "Helvetica Neue",
     Arial;
-  background: #ffffff;
+  background: #f8f8f8;
   color: var(--accent);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -5876,8 +5876,8 @@ blockquote {
 }
 
 .branding-block {
-  width: 150px;
-  height: 150px;
+  width: 110px;
+  height: 110px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -5933,7 +5933,7 @@ blockquote {
   color: var(--title);
   font-size: 28px;
   font-style: italic;
-  line-height: 150%;
+  /* line-height: 150%; */
 }
 
 .branding-text {
@@ -10351,7 +10351,7 @@ blockquote {
   /* grid-template-columns: 3fr 1fr; */
   align-items: center;
   position: relative;
-  background: linear-gradient(135deg, #fbfaf9 0%, #ffffff 100%);
+  /* background: linear-gradient(135deg, #fbfaf9 0%, #ffffff 100%); */
   border-radius: 10px;
   overflow: hidden;
 }
@@ -10654,11 +10654,11 @@ blockquote {
 .shop-categories {
   padding-top: 4px;
   padding-bottom: 50px;
-  background: #fdfcf9;
+  /* background: #fdfcf9; */
 }
 
 .shop-container {
-  max-width: 90%;
+  max-width: 96%;
   margin: 0 auto;
 }
 
