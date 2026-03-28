@@ -36790,10 +36790,42 @@ async function getTopSoldProducts({ brand = "", category = "" } = {}) {
   if (!response.ok) {
     throw new Error(`API Error: ${response.status}`);
   }
-
+  
   return response.json();
 }
 
+const fallbackProducts = {
+  "Zero frizz": [
+    { product_id: "1", product_name: "Zero Frizz Avocado Serum", bar_code: "./assets/Zero Frizz Avocado Serum-Current.jpg" },
+    { product_id: "2", product_name: "Zero Frizz Avocado Shampoo", bar_code: "./assets/Zero Frizz Avocado Shampoo-Current.jpg" },
+    { product_id: "3", product_name: "Zero Frizz Avocado Conditioner", bar_code: "./assets/Zero Frizz Avocado Conditioner-Current View.jpg" }
+  ],
+  "Hair burst": [
+    { product_id: "4", product_name: "Conditioner", bar_code: "./assets/Hair burst Conditioner-Current.jpg" },
+    { product_id: "5", product_name: "Oil", bar_code: "./assets/Hair burst Oil-Current.jpg" },
+    { product_id: "6", product_name: "Spray", bar_code: "./assets/Hair burst Spray-Current.jpg" }
+  ],
+  "Karseell": [
+    { product_id: "7", product_name: "Cleanser", bar_code: "./assets/Karseell Cleanser-Current.jpg" },
+    { product_id: "8", product_name: "Moisturizer", bar_code: "./assets/Karseell Moisturizer-Current.jpg" },
+    { product_id: "9", product_name: "Serum", bar_code: "./assets/Karseell Serum-Current.jpg" }
+  ],
+  "Revox just": [
+    { product_id: "10", product_name: "Cleanser", bar_code: "./assets/Revox just Cleanser-Current.jpg" },
+    { product_id: "11", product_name: "Moisturizer", bar_code: "./assets/Revox just Moisturizer-Current.jpg" },
+    { product_id: "12", product_name: "Serum", bar_code: "./assets/Revox just Serum-Current.jpg" }
+  ],
+  "Momento": [
+    { product_id: "13", product_name: "Cleanser", bar_code: "./assets/Momento Cleanser-Current.jpg" },
+    { product_id: "14", product_name: "Moisturizer", bar_code: "./assets/Momento Moisturizer-Current.jpg" },
+    { product_id: "15", product_name: "Serum", bar_code: "./assets/Momento Serum-Current.jpg" }
+  ],
+  "Disaar": [
+    { product_id: "16", product_name: "Cleanser", bar_code: "./assets/Disaar Cleanser-Current.jpg" },
+    { product_id: "17", product_name: "Moisturizer", bar_code: "./assets/Disaar Moisturizer-Current.jpg" },
+    { product_id: "18", product_name: "Serum", bar_code: "./assets/Disaar Serum-Current.jpg" }
+  ]
+};
 async function updateTopProducts() {
   const listContainer = document.querySelector(".tp-list");
   const leftImg = document.querySelector(".tp-left img");
@@ -36806,9 +36838,17 @@ async function updateTopProducts() {
   }
   // const res = await getTopSoldProducts({brand}); 
   // const products = res.data; // list of products
-  const products = topProductsCache[brand];
+  let products = topProductsCache[brand];
+  
   if (!products.length || !products) return;
 
+  const brandFallback = fallbackProducts[brand] || [];
+  if (products.length < 3) {
+    const needed = 3 - products.length;
+    const extra = brandFallback.slice(0, needed);
+    products = [...products, ...extra];
+  }
+  
   if(listContainer) listContainer.innerHTML = "";
 
 
