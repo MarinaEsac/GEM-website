@@ -36681,7 +36681,7 @@ function renderMegaItems(data, containerId, categoryType) {
 
   data.forEach((item) => {
     const link = document.createElement("a");
-    link.href = `shop.html?q=${encodeURIComponent(item)}`;
+    link.href = `shop.html?type=${encodeURIComponent(item)}`;
     link.textContent = item;
     column.appendChild(link);
   });
