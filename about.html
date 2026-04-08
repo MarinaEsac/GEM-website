@@ -1991,18 +1991,24 @@ grid-template-columns: repeat(2,1fr);
         );
       });
     </script>
-    <script>
+   <script>
   function setHeaderSpacing() {
     const header = document.querySelector(".header-wrapper");
     const page = document.querySelector(".page-wrapper");
 
     if (header && page) {
-      page.style.marginTop = header.offsetHeight + "px";
+      const headerHeight = header.getBoundingClientRect().height;
+      
+      const finalSpacing = headerHeight - 60; 
+      
+      page.style.marginTop = (finalSpacing > 0 ? finalSpacing : 0) + "px";
     }
   }
 
   window.addEventListener("load", setHeaderSpacing);
   window.addEventListener("resize", setHeaderSpacing);
+  
+  document.addEventListener("DOMContentLoaded", setHeaderSpacing);
 </script>
   </body>
 </html>
