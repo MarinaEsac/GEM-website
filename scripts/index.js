@@ -36269,13 +36269,14 @@ let backendBrandsMock = [];
 
 async function loadBrandNames() {
   try {
-    const res = await fetch(`${API_BASE_URL}/products/brands`, {
+    const res = await fetch(`${API_BASE_URL}/products/unique_brands`, {
       headers: { "X-API-Key": API_KEY },
     });
 
     const data = await res.json();
 
-    const brands = data.brands || [];
+    const brands = (data.brands || []).map(brandObj => brandObj.name);
+    
 
     backendBrandsMock = brands;
   } catch (err) {
@@ -36681,7 +36682,7 @@ function renderMegaItems(data, containerId, categoryType) {
 
   data.forEach((item) => {
     const link = document.createElement("a");
-    link.href = `shop.html?q=${encodeURIComponent(item)}`;
+    link.href = `shop.html?type=${encodeURIComponent(item)}`;
     link.textContent = item;
     column.appendChild(link);
   });
@@ -36952,8 +36953,8 @@ const topProductsCache = {};
 let currentBrandIndex = 0;
 let currentProductIndex = 0;
 
-const API_BASE_URL = "https://order-app.gemegypt.net/api";
-//const API_BASE_URL = "http://localhost:5000";
+//const API_BASE_URL = "https://order-app.gemegypt.net/api";
+const API_BASE_URL = "http://localhost:5000";
 const API_KEY =
   "896e85feafaaf9f97856998b274e42188b9ae1661ce6c8d8e99538b4a6f6c32a";
 
