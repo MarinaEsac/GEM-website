@@ -797,6 +797,9 @@ grid-template-columns: repeat(2,1fr);
     grid-template-columns: repeat(2,1fr);
   }
 }
+/* .page-wrapper {
+  padding-top: 40px; 
+} */
     </style>
     <script type="text/javascript">
       !(function (o, c) {
@@ -1066,7 +1069,7 @@ grid-template-columns: repeat(2,1fr);
       </div>
     </header>
 
-    <section class="about-hero"></section>
+    <!-- <section class="about-hero"></section> -->
     <div class="page-wrapper">
       <section class="about">
         <div class="w-layout-blockcontainer container w-container">
@@ -1988,5 +1991,18 @@ grid-template-columns: repeat(2,1fr);
         );
       });
     </script>
+    <script>
+  function setHeaderSpacing() {
+    const header = document.querySelector(".header-wrapper");
+    const page = document.querySelector(".page-wrapper");
+
+    if (header && page) {
+      page.style.marginTop = header.offsetHeight + "px";
+    }
+  }
+
+  window.addEventListener("load", setHeaderSpacing);
+  window.addEventListener("resize", setHeaderSpacing);
+</script>
   </body>
 </html>
