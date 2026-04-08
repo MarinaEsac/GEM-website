@@ -79,7 +79,7 @@
     <link
       rel="preload"
       as="image"
-      href="./assets/gem-history.webp"
+      href="./assets/gemHistory.webp"
       fetchpriority="high"
     />
     <link
@@ -92,6 +92,7 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap"
       rel="stylesheet"
     />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
       * {
         margin: 0;
@@ -567,7 +568,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100px !important;
+         width: auto !important;
+
       }
 
       .brand .swiper-slide img {
@@ -1105,7 +1107,7 @@
 
       .brandSwiper .swiper-wrapper {
         width: max-content;
-        animation: brandScroll 110s linear infinite;
+        animation: brandScroll 90s linear infinite;
       }
 
       .brandSwiper .swiper-slide {
@@ -1119,14 +1121,14 @@
         object-fit: contain;
       }
 
-      @keyframes brandScroll {
+      /* @keyframes brandScroll {
         from {
           transform: translateX(0);
         }
         to {
           transform: translateX(-100%);
         }
-      }
+      } */
       @media screen and (max-width: 767px) {
         .tp-left {
           display: none !important;
@@ -1526,13 +1528,6 @@
         }
       }
 
-.swiper-slide {
-  height: 100%;
-}
-.swiper-slide {
-  width: 100%;
-  height: 100%;
-}
 /* .hero-slider {
   height: 90vh;
   background-color: #f5f5f5; 
@@ -1544,7 +1539,7 @@
   align-items: center;
 }
 .swiper-slide {
-  height: 90vh;
+  /* height: 90vh; */
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -1575,6 +1570,56 @@
   margin: 0 auto;  
   display: block;  
   border-radius: 20px;
+}
+.brandSwiper .swiper-wrapper,
+.brandingSwiper .swiper-wrapper {
+    transition-timing-function: linear !important;
+    -webkit-transition-timing-function: linear !important;
+}
+
+.brandSwiper .swiper-slide {
+    width: auto !important;
+    display: flex;
+    align-items: center;
+    margin-right: 40px; 
+}
+
+.brandSwiper .swiper-slide img {
+    height: 35px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.brandingSwiper {
+    width: 100%;
+    padding: 50px 0;
+    overflow: hidden;
+}
+
+.branding-block.swiper-slide {
+    width: 160px !important;
+    height: 120px;
+    background-color: #fff;
+    border-radius: 8px;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.branding-logo {
+    max-height: 60px !important;
+    width: auto !important;
+    object-fit: contain;
+    transform: scale(1.4); 
+    image-rendering: -webkit-optimize-contrast;
+    transition: transform 0.3s ease;
+}
+
+.heroSwiper .swiper-slide {
+    height: 90vh;
 }
     </style>
     <script type="text/javascript">
@@ -1844,7 +1889,7 @@
       </div>
     </header>
 
-    <section class="brand" style="width: 100%">
+    <section class="brand">
       <div class="swiper brandSwiper container">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
@@ -1901,13 +1946,7 @@
               loading="lazy"
             />
           </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/RT_Logos_Stacked_Black.webp"
-              alt="RT_Logos_Stacked_Black"
-              loading="lazy"
-            />
-          </div>
+         
           <div class="swiper-slide">
             <img
               src="./assets/Play Girl-01.webp"
@@ -1922,13 +1961,7 @@
               loading="lazy"
             />
           </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Milton-Lloyd-01.webp"
-              alt="Milton-Lloyd"
-              loading="lazy"
-            />
-          </div>
+        
           <div class="swiper-slide">
             <img
               src="./assets/Ladys Secret-01.webp"
@@ -1959,22 +1992,11 @@
           <div class="swiper-slide">
             <img src="./assets/ibd-01.webp" alt="ibd" loading="lazy" />
           </div>
-          <div class="swiper-slide">
-            <img src="./assets/hawaii.webp" alt="hawaii" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/Frais-01.webp" alt="frais" loading="lazy" />
-          </div>
+         
           <div class="swiper-slide">
             <img src="./assets/fe-01.webp" alt="fe" loading="lazy" />
           </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Eco Tools-01.webp"
-              alt="eco tools"
-              loading="lazy"
-            />
-          </div>
+        
           <div class="swiper-slide">
             <img src="./assets/Duo-01.webp" alt="duo" loading="lazy" />
           </div>
@@ -1994,13 +2016,7 @@
           <div class="swiper-slide">
             <img src="./assets/Andera.webp" alt="Andera" loading="lazy" />
           </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Union cosmetic.webp"
-              alt="Union cosmetic"
-              loading="lazy"
-            />
-          </div>
+          
           <div class="swiper-slide">
             <img
               src="./assets/wetbrush new 2025-01.webp"
@@ -2011,15 +2027,11 @@
           <div class="swiper-slide">
             <img src="./assets/XL-01.webp" alt="XL" loading="lazy" />
           </div>
-          <div class="swiper-slide">
-            <img src="./assets/YM.webp" alt="YM" loading="lazy" />
-          </div>
+        
           <div class="swiper-slide">
             <img src="./assets/1-.webp" alt="Batiste" loading="lazy" />
           </div>
-          <div class="swiper-slide">
-            <img src="./assets/Armada-01.webp" alt="Armada" loading="lazy" />
-          </div>
+         
           <div class="swiper-slide">
             <img
               src="./assets/cabana sun.webp"
@@ -2037,13 +2049,7 @@
               loading="lazy"
             />
           </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Cocoa Skin Therapy-01.webp"
-              alt="Cocoa Skin Therapy"
-              loading="lazy"
-            />
-          </div>
+         
           <div class="swiper-slide">
             <img
               src="./assets/Creme of nature-01.webp"
@@ -2051,9 +2057,7 @@
               loading="lazy"
             />
           </div>
-          <div class="swiper-slide">
-            <img src="./assets/dimples.webp" alt="dimples" loading="lazy" />
-          </div>
+        
           <div class="swiper-slide">
             <img src="./assets/Disaar ..webp" alt="Disaar" loading="lazy" />
           </div>
@@ -2111,9 +2115,7 @@
           <div class="swiper-slide">
             <img src="./assets/uniq one.webp" alt="uniq one" loading="lazy" />
           </div>
-          <div class="swiper-slide">
-            <img src="./assets/Stoply-01.webp" alt="stoply" loading="lazy" />
-          </div>
+         
           <div class="swiper-slide">
             <img src="./assets/Starkin-01.webp" alt="Starkin" loading="lazy" />
           </div>
@@ -2131,13 +2133,7 @@
               loading="lazy"
             />
           </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Silkia-01 (2).webp"
-              alt="Silkia"
-              loading="lazy"
-            />
-          </div>
+         
           <div class="swiper-slide">
             <img src="./assets/SGX-01 (4).webp" alt="SGX" loading="lazy" />
           </div>
@@ -2175,9 +2171,7 @@
               loading="lazy"
             />
           </div>
-          <div class="swiper-slide">
-            <img src="./assets/Playtex (2).webp" alt="Playtex" loading="lazy" />
-          </div>
+        
           <div class="swiper-slide">
             <img src="./assets/ORS(3)-01 (2).webp" alt="ors" loading="lazy" />
           </div>
@@ -2191,9 +2185,7 @@
           <div class="swiper-slide">
             <img src="./assets/Olaplex (2).webp" alt="Olaplex" loading="lazy" />
           </div>
-          <div class="swiper-slide">
-            <img src="./assets/Ohoud (2).webp" alt="Ohoud" loading="lazy" />
-          </div>
+         
           <div class="swiper-slide">
             <img
               src="./assets/Nature s Bounty Black-03.webp"
@@ -2201,13 +2193,7 @@
               loading="lazy"
             />
           </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/NATURALIS new.webp"
-              alt="NATURALIS"
-              loading="lazy"
-            />
-          </div>
+        
           <div class="swiper-slide">
             <img
               src="./assets/Moroccanoil.webp"
@@ -2227,9 +2213,7 @@
           <div class="swiper-slide">
             <img src="./assets/kodomo-01.webp" alt="kodomo" loading="lazy" />
           </div>
-          <div class="swiper-slide">
-            <img src="./assets/kativa.webp" alt="kativa" loading="lazy" />
-          </div>
+        
           <div class="swiper-slide">
             <img
               src="./assets/Hair Burst-01.webp"
@@ -2237,396 +2221,7 @@
               loading="lazy"
             />
           </div>
-          <div class="swiper-slide">
-            <img src="./assets/daX-01.webp" alt="DAX" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/BANANA BOAT.webp"
-              alt="Banana Boat"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Cristal Momento-01.webp"
-              alt="Momento"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/Bobini.webp" alt="Bobini" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/Carroten.webp" alt="Carroten" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Crital Ravita-01.webp"
-              alt="Ravita"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/Karseell.webp" alt="Karseell" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Revox Plex-01.webp"
-              alt="Revox Plex"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Schick New-01.webp"
-              alt="Schick"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/salon Perfect-01.webp"
-              alt="salon perfect"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/RT_Logos_Stacked_Black.webp"
-              alt="RT_Logos_Stacked_Black"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Play Girl-01.webp"
-              alt="Play Girl"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Perfumer's Choice-01.webp"
-              alt="Perfumer's Choice"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Milton-Lloyd-01.webp"
-              alt="Milton-Lloyd"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Ladys Secret-01.webp"
-              alt="Ladys Secret"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/l`origin-01.webp"
-              alt="l`origin"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/kiss-01.webp" alt="kiss" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/Kashmir-01.webp" alt="Kashmir" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/impress new-01.webp"
-              alt="impress new"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/ibd-01.webp" alt="ibd" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/hawaii.webp" alt="hawaii" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/Frais-01.webp" alt="frais" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/fe-01.webp" alt="fe" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Eco Tools-01.webp"
-              alt="eco tools"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/Duo-01.webp" alt="duo" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/Deomania.webp" alt="Deomania" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/COLOUR ME  logo.webp"
-              alt="color me"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/ARDELL.webp" alt="ardell" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/Andera.webp" alt="Andera" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Union cosmetic.webp"
-              alt="Union cosmetic"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/wetbrush new 2025-01.webp"
-              alt="wetbrush"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/XL-01.webp" alt="XL" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/YM.webp" alt="YM" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/1-.webp" alt="Batiste" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/Armada-01.webp" alt="Armada" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/cabana sun.webp"
-              alt="cabana sun"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/Calypso-01.webp" alt="Calypso" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Cliven Italy-01.webp"
-              alt="Cliven Italy"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Cocoa Skin Therapy-01.webp"
-              alt="Cocoa Skin Therapy"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Creme of nature-01.webp"
-              alt="Creme of nature"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/dimples.webp" alt="dimples" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/Disaar ..webp" alt="Disaar" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/Enercos.webp" alt="Enercos" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Energy hair food-01.webp"
-              alt="Energy hair food"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/FashKool New-01.webp"
-              alt="FashKool"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Galeria Professional-02.webp"
-              alt="Galeria"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/zero frizz new-01.webp"
-              alt="zero frizz"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/Zact new.webp" alt="zact" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/youthhair-01.webp"
-              alt="youthhair"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/yara-01.webp" alt="yara" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Wildcolor new-01 (1).webp"
-              alt="Wildcolor"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/uniq one.webp" alt="uniq one" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/Stoply-01.webp" alt="stoply" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/Starkin-01.webp" alt="Starkin" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Smart Collection.webp"
-              alt="smart collection"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Thichker fuller Hair-01 (2).webp"
-              alt="Thichker fuller Hair"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Silkia-01 (2).webp"
-              alt="Silkia"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/SGX-01 (4).webp" alt="SGX" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/SG-01 (2).webp" alt="SG" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Selsium-01 (1).webp"
-              alt="Selsium"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/Revox-01 (2).webp" alt="revox" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/REVLON profissional (2).webp"
-              alt="REVLON"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Re-gen New-01 (2).webp"
-              alt="Re-gen"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Ravita logo-01 (2).webp"
-              alt="Ravita"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/Playtex (2).webp" alt="Playtex" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/ORS(3)-01 (2).webp" alt="ors" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Oriense-01 (2).webp"
-              alt="Oriense"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/Olaplex (2).webp" alt="Olaplex" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/Ohoud (2).webp" alt="Ohoud" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Nature s Bounty Black-03.webp"
-              alt="Nature s Bounty"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/NATURALIS new.webp"
-              alt="NATURALIS"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Moroccanoil.webp"
-              alt="Moroccanoil"
-              loading="lazy"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/Morfose-02.webp" alt="Morfose" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/Modish-01.webp" alt="Modish" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/LILEN new.webp" alt="LILEN" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/kodomo-01.webp" alt="kodomo" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/kativa.webp" alt="kativa" loading="lazy" />
-          </div>
-          <div class="swiper-slide">
-            <img
-              src="./assets/Hair Burst-01.webp"
-              alt="Hair Burst"
-              loading="lazy"
-            />
-          </div>
+      
         </div>
       </div>
     </section>
@@ -2669,7 +2264,7 @@
       <div class="side-images">
         <a href="./about.html" class="side-box">
           <img
-            src="./assets/gem-history.webp"
+            src="./assets/gemHistory.webp"
             alt="Gem History"
             loading="lazy"
           />
@@ -2706,35 +2301,29 @@
         effect: "slide",
         speed: 800,
       });
-    </script>
-
-    <script>
-      var swiper = new Swiper(".brandSwiper", {
-        slidesPerView: "auto",
-        spaceBetween: 40,
-        breakpoints: {
-          0: {
-            slidesPerView: 3,
-            spaceBetween: 10,
-          },
-          768: {
-            slidesPerView: 5,
-            spaceBetween: 20,
-          },
-          1024: {
-            slidesPerView: 6,
-            spaceBetween: 30,
-          },
-        },
-        loop: true,
-        speed: 9000,
-        autoplay: {
-          delay: 0,
-          disableOnInteraction: false,
-        },
-        allowTouchMove: false,
-      });
-    </script>
+  
+  window.addEventListener('load', function() {
+  const swiper = new Swiper('.brandSwiper', {
+    loop: true,
+    speed: 1400, 
+    allowTouchMove: false,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+    },
+    slidesPerView: 'auto',
+    
+    loopedSlides: 50, 
+    loopAdditionalSlides: 10, 
+    
+    freeMode: {
+      enabled: true,
+      momentum: false,
+    },
+    watchSlidesProgress: true, 
+  });
+});
+</script>
 
     <!-- <section class="categories">
         <div class="w-layout-blockcontainer container w-container">
@@ -3195,7 +2784,7 @@
         <div class="shop-grid">
           <div class="shop-card">
             <img
-              src="./assets/hareCare.jpeg"
+              src="./assets/hareCare.webp"
               alt="Beauty Tools"
               class="shop-img"
               loading="lazy"
@@ -3224,7 +2813,7 @@
 
           <div class="shop-card">
             <img
-              src="./assets/makeup(2).jpeg"
+              src="./assets/makeup(2).webp"
               alt="Makeup"
               class="shop-img"
               loading="lazy"
@@ -3236,7 +2825,7 @@
 
           <div class="shop-card">
             <img
-              src="./assets/skinCare.jpeg"
+              src="./assets/skinCare.webp"
               alt="Skincare"
               class="shop-img"
               loading="lazy"
@@ -3300,7 +2889,7 @@
               class="ma-img"
             >
               <img
-                src="./assets/skincare-image.jpeg"
+                src="./assets/skincare-image.webp"
                 loading="lazy"
                 alt="About Image"
                 class="ma-image"
@@ -3313,7 +2902,7 @@
               class="ma-img _02"
             >
               <img
-                src="./assets/makeup-image.jpeg"
+                src="./assets/makeup-image.webp"
                 loading="lazy"
                 alt="About Image"
                 class="ma-image"
@@ -3325,7 +2914,7 @@
               class="ma-img _03"
             >
               <img
-                src="./assets/haircare-image.jpeg"
+                src="./assets/haircare-image.webp"
                 loading="lazy"
                 alt="About Image"
                 class="ma-image"
@@ -3658,156 +3247,190 @@ setInterval(updateTopProducts, 9000);
       </div>
     </section>
 
-    <section class="branding">
-      <div class="w-layout-blockcontainer container w-container">
-        <div class="branding-inner">
-          <div class="branding-top">
-            <h5 class="branding-heading">A WORLDWIDE TRUSTED BEAUTY BRAND</h5>
-            <div class="branding-wrapper">
-              <div
-                data-w-id="7504781e-bf66-ad04-1f08-74972868272f"
-                class="branding-block"
-              >
-                <img
-                  src="./assets/carrefour-logo.webp"
-                  loading="lazy"
-                  alt="Branding Logo"
-                  height="Auto"
-                  class="branding-logo"
-                />
-              </div>
-              <div
-                data-w-id="7504781e-bf66-ad04-1f08-749728682731"
-                class="branding-block"
-              >
-                <img
-                  src="./assets/spinneys-logo.webp"
-                  loading="lazy"
-                  alt="Branding Logo"
-                  height="Auto"
-                  class="branding-logo logo-spinneys"
-                />
-              </div>
-              <div
-                data-w-id="7504781e-bf66-ad04-1f08-749728682733"
-                class="branding-block"
-              >
-                <img
-                  src="./assets/elazaby-logo.webp"
-                  loading="lazy"
-                  alt="Branding Logo"
-                  height="Auto"
-                  class="branding-logo"
-                />
-              </div>
-              <div
-                data-w-id="7504781e-bf66-ad04-1f08-749728682735"
-                class="branding-block"
-              >
-                <img
-                  src="./assets/panda-logo.webp"
-                  loading="lazy"
-                  alt="Branding Logo"
-                  height="Auto"
-                  class="branding-logo"
-                />
-              </div>
-              <div
-                data-w-id="7504781e-bf66-ad04-1f08-749728682735"
-                class="branding-block"
-              >
-                <img
-                  src="./assets/flamingo-logo.webp"
-                  loading="lazy"
-                  alt="Branding Logo"
-                  height="Auto"
-                  class="branding-logo"
-                />
-              </div>
-              <div
-                data-w-id="7504781e-bf66-ad04-1f08-749728682735"
-                class="branding-block"
-              >
-                <img
-                  src="./assets/oscar-logo.webp"
-                  loading="lazy"
-                  alt="Branding Logo"
-                  height="Auto"
-                  class="branding-logo"
-                />
-              </div>
-              <div
-                data-w-id="7504781e-bf66-ad04-1f08-749728682735"
-                class="branding-block"
-              >
-                <img
-                  src="./assets/amazon-logo.webp"
-                  loading="lazy"
-                  alt="Branding Logo"
-                  height="Auto"
-                  class="branding-logo"
-                />
-              </div>
-              <div
-                data-w-id="7504781e-bf66-ad04-1f08-749728682735"
-                class="branding-block"
-              >
-                <img
-                  src="./assets/seif-logo.webp"
-                  loading="lazy"
-                  alt="Branding Logo"
-                  height="Auto"
-                  class="branding-logo"
-                />
-              </div>
-              <div
-                data-w-id="7504781e-bf66-ad04-1f08-749728682735"
-                class="branding-block"
-              >
-                <img
-                  src="./assets/lulu.webp"
-                  loading="lazy"
-                  alt="Branding Logo"
-                  height="Auto"
-                  class="branding-logo"
-                />
-              </div>
-              <div
-                data-w-id="7504781e-bf66-ad04-1f08-749728682735"
-                class="branding-block"
-              >
-                <img
-                  src="./assets/noon.webp"
-                  loading="lazy"
-                  alt="Branding Logo"
-                  height="Auto"
-                  class="branding-logo"
-                />
-              </div>
-              <div
-                data-w-id="7504781e-bf66-ad04-1f08-749728682735"
-                class="branding-block"
-              >
-                <img
-                  src="./assets/seoudi.webp"
-                  loading="lazy"
-                  alt="Branding Logo"
-                  height="Auto"
-                  class="branding-logo"
-                />
-              </div>
-            </div>
+ <section class="branding">
+  <div class="w-layout-blockcontainer container w-container">
+    <div class="branding-inner">
+      <h5 class="branding-heading">A WORLDWIDE TRUSTED BEAUTY BRAND</h5>
+      
+      <div class="swiper brandingSwiper">
+        <div class="swiper-wrapper">
+          
+          <div class="swiper-slide branding-block">
+            <a href="https://www.carrefouregypt.com/mafegy/en" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/carrefour-logo.webp" loading="lazy" alt="Carrefour" class="branding-logo" />
+            </a>
           </div>
-          <!-- <div data-w-id="7504781e-bf66-ad04-1f08-749728682739" class="branding-bottom">
-                    <div class="branding-info">
-                        “Fast delivery and excellent products. My new favorite beauty
-                        brand!”
-                    </div>
 
-                </div> -->
+          <div class="swiper-slide branding-block">
+            <a href="https://spinneys-egypt.com/en" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/spinneys-logo.webp" loading="lazy" alt="Spinneys" class="branding-logo logo-spinneys" />
+            </a>
+          </div>
+
+          <div class="swiper-slide branding-block">
+            <a href="https://elezabypharmacy.com/" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/elazaby-logo.webp" loading="lazy" alt="El Ezaby" class="branding-logo" />
+            </a>
+          </div>
+
+          <div class="swiper-slide branding-block">
+            <a href="https://apps.apple.com/ng/app/panda-%D8%A8%D9%86%D8%AF%D9%87/id1059989053" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/panda-logo.webp" loading="lazy" alt="Panda" class="branding-logo" />
+            </a>
+          </div>
+
+          <div class="swiper-slide branding-block">
+            <a href="https://apps.apple.com/ar/app/flamingo-hyper-market/id6502718036?l=en-GB" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/flamingo-logo.webp" loading="lazy" alt="Flamingo" class="branding-logo" />
+            </a>
+          </div>
+
+          <div class="swiper-slide branding-block">
+            <a href="https://www.oscarstores.com/" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/oscar-logo.webp" loading="lazy" alt="Oscar" class="branding-logo" />
+            </a>
+          </div>
+
+          <div class="swiper-slide branding-block">
+            <a href="https://www.amazon.eg/-/en/ref=nav_logo" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/amazon-logo.webp" loading="lazy" alt="Amazon" class="branding-logo" />
+            </a>
+          </div>
+
+          <div class="swiper-slide branding-block">
+            <a href="https://seif-online.com/en" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/seif-logo.webp" loading="lazy" alt="Seif" class="branding-logo" />
+            </a>
+          </div>
+
+          <div class="swiper-slide branding-block">
+            <img src="./assets/lulu.webp" loading="lazy" alt="Lulu" class="branding-logo" />
+          </div>
+
+          <div class="swiper-slide branding-block">
+            <a href="https://www.noon.com/egypt-en/" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/noon.webp" loading="lazy" alt="Noon" class="branding-logo" />
+            </a>
+          </div>
+
+          <div class="swiper-slide branding-block">
+            <a href="https://seoudisupermarket.com/en/select-store" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/seoudi.webp" loading="lazy" alt="Seoudi" class="branding-logo" />
+            </a>
+          </div>
+
+          <div class="swiper-slide branding-block">
+            <a href="https://www.samirwilliam.com/" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/samirWilliam.webp" loading="lazy" alt="Samir William" class="branding-logo" />
+            </a>
+          </div>
+
+          <div class="swiper-slide branding-block">
+            <a href="https://alfouadpharmacies.com//" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/alfouad.webp" loading="lazy" alt="Al Fouad" class="branding-logo" />
+            </a>
+          </div>
+
+          <div class="swiper-slide branding-block">
+            <a href="https://alzoghbipharmacy.com/en/" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/elzoghbi.webp" loading="lazy" alt="El Zoghbi" class="branding-logo" />
+            </a>
+          </div>
+
+          <div class="swiper-slide branding-block">
+            <a href="https://www.hyperone.com.eg/en/" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/hyperone.webp" loading="lazy" alt="Hyperone" class="branding-logo" />
+            </a>
+          </div>
+
+          <div class="swiper-slide branding-block">
+            <a href="https://www.bgomla.com/" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/beit-elgomla.webp" loading="lazy" alt="Beit El Gomla" class="branding-logo" />
+            </a>
+          </div>
+
+          <div class="swiper-slide branding-block">
+            <a href="https://doss-online.com/en" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/dos-pharmacy.webp" loading="lazy" alt="Dos Pharmacy" class="branding-logo" />
+            </a>
+          </div>
+
+          <div class="swiper-slide branding-block">
+            <a href="https://lotuspharmacies.com/" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/lotus.webp" loading="lazy" alt="Lotus" class="branding-logo" />
+            </a>
+          </div>
+
+          <div class="swiper-slide branding-block">
+            <a href="https://alainpharmacy.ae/" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/alain.webp" loading="lazy" alt="Al Ain" class="branding-logo" />
+            </a>
+          </div>
+
+          <div class="swiper-slide branding-block">
+            <a href="https://16377.tel/" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/sehha.webp" loading="lazy" alt="Sehha" class="branding-logo" />
+            </a>
+          </div>
+
+          <div class="swiper-slide branding-block">
+            <a href="https://alabdellatif-tarshouby.com/ar" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/eltarshoby.webp" loading="lazy" alt="El Tarshouby" class="branding-logo" />
+            </a>
+          </div>
+
+          <div class="swiper-slide branding-block">
+            <a href="https://www.bloompharmacy.com/ar" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/bloom.webp" loading="lazy" alt="Bloom" class="branding-logo" />
+            </a>
+          </div>
+ <div class="swiper-slide branding-block">
+            <a href="http://bim.eg/" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/bim.webp" loading="lazy" alt="Bloom" class="branding-logo" />
+            </a>
+          </div>
+          <div class="swiper-slide branding-block">
+            <a href="https://www.kheirzaman.com//" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/kher-zaman.webp" loading="lazy" alt="Bloom" class="branding-logo" />
+            </a>
+          </div>
+           <div class="swiper-slide branding-block">
+            <a href="https://www.facebook.com/negmetheliopolisgamalsalama/?locale=ar_AR" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/negmet-helioples.webp" loading="lazy" alt="Bloom" class="branding-logo" />
+            </a>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  window.addEventListener('load', function() {
+    const swiper = new Swiper('.brandingSwiper', {
+      loop: true,              
+      speed: 3000,             
+      allowTouchMove: false,
+      
+      autoplay: {
+        delay: 0,           
+        disableOnInteraction: false,
+      },
+
+      slidesPerView: 'auto',   
+      loopedSlides: 30,        
+      centeredSlides: false,   
+      
+      spaceBetween: 8, 
+freeMode: {
+        enabled: true,
+        momentum: false,       
+      },
+      resistance: false,
+      loopPreventsSliding: false,
+    });
+  });
+</script>
     <!-- <section class="blogs">
         <div class="w-layout-blockcontainer container w-container">
           <div class="section-title">
@@ -3927,7 +3550,7 @@ setInterval(updateTopProducts, 9000);
         </div>
         <div class="ip-block">
           <img
-            src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/6800e102ba85362ab76ba1a8_post-02.webp"
+            src="./assets/revox-plex.webp"
             loading="lazy"
             style="opacity: 0"
             data-w-id="ce10d34d-b081-857e-5c86-2dbe02c555c0"
@@ -3937,7 +3560,7 @@ setInterval(updateTopProducts, 9000);
         </div>
         <div class="ip-block">
           <img
-            src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/6800e102a67ca46db99c1159_post-03.webp"
+            src="./assets/ravita-footer.webp"
             loading="lazy"
             style="opacity: 0"
             data-w-id="9fa834ae-04c5-9e33-bbf6-59d9271ef3bc"
@@ -3967,7 +3590,7 @@ setInterval(updateTopProducts, 9000);
         </div>
         <div class="ip-block">
           <img
-            src="https://cdn.prod.website-files.com/673c1b266c8975806880591c/6800e103708711d4cfaeef5b_post-06.webp"
+            src="./assets/wet-brush.webp"
             loading="lazy"
             style="opacity: 0"
             data-w-id="181895e5-676a-190c-5595-516bb8725b83"
@@ -3981,7 +3604,7 @@ setInterval(updateTopProducts, 9000);
       <div class="footer-inner">
         <!-- LEFT LOGO -->
         <div class="footer-logo">
-          <img src="./assets/Gem Egypt.png" alt="Company Logo" loading="lazy" />
+          <img src="./assets/Gem Egypt.webp" alt="Company Logo" loading="lazy" />
         </div>
 
         <!-- CATEGORIES -->
@@ -4156,5 +3779,6 @@ setInterval(updateTopProducts, 9000);
         );
       });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   </body>
 </html>

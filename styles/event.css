@@ -58,15 +58,15 @@
 
 .event-gallery-inner img {
   width: 100%;
-  aspect-ratio: 3 / 2;     /* يحافظ على نسبة الصور */
+  aspect-ratio: 3 / 2;    
   object-fit: cover;
   border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);  /* يعطي عمق للصورة */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);  
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   cursor: pointer;
 }
 
 .event-gallery-inner img:hover {
   transform: scale(1.05);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.3); /* يبرز الصورة عند hover */
+  box-shadow: 0 12px 25px rgba(0,0,0,0.3); 
 }

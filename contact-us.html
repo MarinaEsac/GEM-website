@@ -38,7 +38,7 @@
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
-   <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="telephone=no" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -559,10 +559,6 @@
         transition: 0.3s;
       }
 
-      /* Map */
-      .map {
-        margin-top: 50px;
-      }
       .map iframe {
         width: 100%;
         height: 420px;
@@ -823,21 +819,63 @@
         }
       }
       @media (max-width: 768px) {
+        .top-row {
+          display: flex;
+          justify-content: space-between;
+          /* align-items: center; */
+        }
 
-  .top-row {
-    display: flex;
-    justify-content: space-between;
-    /* align-items: center; */
-  }
+        .logo {
+          position: static !important;
+          left: auto !important;
+          transform: none !important;
+          margin: 2px !important;
+        }
+      }
+      .field-label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        font-size: 14px;
+        color: #333;
+        text-align: left;
+      }
 
-  .logo {
-    position: static !important;
-    left: auto !important;
-    transform: none !important;
-    margin: 2px !important;
-  }
+      .form-select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background-color: #fff;
+        font-size: 15px;
+        color: #555;
+        margin-bottom: 15px;
+        outline: none;
+        transition: border-color 0.3s ease;
+        cursor: pointer;
+      }
 
-}
+      .form-select:focus {
+        border-color: #000;
+      }
+
+      .contact-form .row {
+        margin-bottom: 10px;
+      }
+      .contact-section .container {
+        display: flex;
+        align-items: flex-start;
+        gap: 30px;
+      }
+
+      .contact-info.card {
+        align-self: flex-start;
+        flex: 1;
+      }
+
+      .contact-form.card {
+        flex: 1.5;
+      }
     </style>
     <script type="text/javascript">
       !(function (o, c) {
@@ -1209,6 +1247,88 @@
                 required
               />
             </div>
+        <div class="row">
+  <label for="enquiryType" class="field-label">Nature of enquiry:</label>
+  <select name="enquiry_type" id="enquiryType" class="form-select" required>
+    <option value="" disabled selected>Select a department</option>
+    <option value="General Inquiry">General Inquiry</option>
+    <option value="Customer Support">Customer Support</option>
+    <option value="Complaints">Complaints</option>
+    <option value="Feedback">Feedback</option>
+    <option value="Product Inquiry">Product Inquiry</option>
+    <option value="Product Availability">Product Availability</option>
+    <option value="Ingredients Inquiry">Ingredients / Safety Inquiry</option>
+    <option value="Skin Consultation">Skin Consultation</option>
+    <option value="Wholesale">Wholesale / Distribution</option>
+    <option value="Suppliers">Suppliers</option>
+    <option value="Export">Export Department</option>
+  </select>
+</div>
+
+<div class="row" id="countryRow" style="display: none;">
+  <label for="country" class="field-label">Export Destination:</label>
+  <select name="country" id="country" class="form-select">
+    <option value="" disabled selected>Select a country</option>
+
+    <optgroup label="Middle East">
+      <option value="SA">Saudi Arabia</option>
+      <option value="AE">United Arab Emirates</option>
+      <option value="QA">Qatar</option>
+      <option value="KW">Kuwait</option>
+      <option value="OM">Oman</option>
+      <option value="BH">Bahrain</option>
+    </optgroup>
+
+    <optgroup label="Africa">
+      <option value="EG">Egypt</option>
+      <option value="MA">Morocco</option>
+      <option value="NG">Nigeria</option>
+      <option value="KE">Kenya</option>
+      <option value="ZA">South Africa</option>
+    </optgroup>
+
+    <optgroup label="Europe">
+      <option value="GB">United Kingdom</option>
+      <option value="FR">France</option>
+      <option value="DE">Germany</option>
+      <option value="IT">Italy</option>
+      <option value="ES">Spain</option>
+      <option value="NL">Netherlands</option>
+    </optgroup>
+
+    <optgroup label="Americas">
+      <option value="US">United States</option>
+      <option value="CA">Canada</option>
+      <option value="BR">Brazil</option>
+    </optgroup>
+
+    <optgroup label="Asia-Pacific">
+      <option value="IN">India</option>
+      <option value="CN">China</option>
+      <option value="JP">Japan</option>
+      <option value="KR">South Korea</option>
+      <option value="AU">Australia</option>
+    </optgroup>
+
+    <option value="OTHER">Other</option>
+  </select>
+</div>
+<script>
+  const enquiryType = document.getElementById("enquiryType");
+  const countryRow = document.getElementById("countryRow");
+  const countrySelect = document.getElementById("country");
+
+  enquiryType.addEventListener("change", function () {
+    if (this.value === "Export") {
+      countryRow.style.display = "block";
+      countrySelect.required = true;
+    } else {
+      countryRow.style.display = "none";
+      countrySelect.required = false;
+      countrySelect.value = "";
+    }
+  });
+</script>
             <textarea
               name="message"
               id="userMessage"
@@ -1244,7 +1364,11 @@
       <div class="footer-inner">
         <!-- LEFT LOGO -->
         <div class="footer-logo">
-          <img src="./assets/Gem Egypt.png" alt="Company Logo" loading="lazy" />
+          <img
+            src="./assets/Gem Egypt.webp"
+            alt="Company Logo"
+            loading="lazy"
+          />
         </div>
 
         <!-- CATEGORIES -->

@@ -36349,7 +36349,7 @@ function renderAlphabetAndBrands(data) {
   topSpan.classList.add("active");
   displaySpecificBrands(topBrands);
 
-  const letters = Object.keys(data).sort(); // رتبي الحروف
+  const letters = Object.keys(data).sort();
 
   letters.forEach((letter) => {
     const span = document.createElement("span");
