@@ -1596,30 +1596,34 @@
     padding: 50px 0;
     overflow: hidden;
 }
-
 .branding-block.swiper-slide {
-    width: 160px !important;
-    height: 120px;
+    width: 140px !important;
+    height: 90px;
     background-color: #fff;
-    border-radius: 8px;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    padding: 15px;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 10px;
     box-sizing: border-box;
+    overflow: hidden; 
 }
 
 .branding-logo {
-    max-height: 60px !important;
-    width: auto !important;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
-    transform: scale(1.4); 
-    image-rendering: -webkit-optimize-contrast;
-    transition: transform 0.3s ease;
+    width: auto !important;
+    height: auto !important;
+    transform: none;
 }
-
 .heroSwiper .swiper-slide {
     height: 90vh;
+}
+.logo-spinneys {
+  transform: scale(1.5);
 }
     </style>
     <script type="text/javascript">
@@ -3263,7 +3267,7 @@ setInterval(updateTopProducts, 9000);
 
           <div class="swiper-slide branding-block">
             <a href="https://spinneys-egypt.com/en" target="_blank" rel="noopener noreferrer">
-              <img src="./assets/spinneys-logo.webp" loading="lazy" alt="Spinneys" class="branding-logo logo-spinneys" />
+              <img src="./assets/spinnyes-logo.webp" loading="lazy" alt="Spinneys" class="branding-logo logo-spinneys" />
             </a>
           </div>
 
