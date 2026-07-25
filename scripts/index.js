@@ -37269,32 +37269,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 // footer
-document.addEventListener("DOMContentLoaded", () => {
-  const brandSelect = document.getElementById("footerBrandSelect");
-
-  if (brandSelect && typeof filterData !== "undefined" && filterData.brands) {
-    brandSelect.innerHTML = '<option value="">Select Brand</option>';
-
-    filterData.brands.forEach((brand) => {
-      const option = document.createElement("option");
-      option.value = brand.id;
-      option.textContent = brand.name;
-      brandSelect.appendChild(option);
-    });
-
-    brandSelect.addEventListener("change", (e) => {
-      const selectedBrand = e.target.value;
-      if (selectedBrand) {
-        window.location.href = `shop.html?brand=${selectedBrand}`;
-      }
-    });
-  }
-});
 document.addEventListener("DOMContentLoaded", async () => {
   await loadBrandNames();
   await loadTopBrands();
   const brandsDataMap = mapBrandsByLetter(backendBrandsMock);
   renderAlphabetAndBrands(brandsDataMap.brands);
+
+  populateFooterBrands();
 
   renderMegaItems(backendHairMock, "hairContainer");
   renderMegaItems(backendSkinCareMock, "skinContainer");
@@ -37304,3 +37285,24 @@ document.addEventListener("DOMContentLoaded", async () => {
   renderMegaItems(backendSunCareMock, "sunContainer");
   renderMegaItems(backendBabyCareMock, "babyContainer");
 });
+
+function populateFooterBrands() {
+  const brandSelect = document.getElementById("footerBrandSelect");
+
+  if (!brandSelect || !backendBrandsMock.length) return;
+
+  brandSelect.innerHTML = '<option value="">Select Brand</option>';
+
+  backendBrandsMock.forEach((brand) => {
+    const option = document.createElement("option");
+    option.value = brand;
+    option.textContent = brand;
+    brandSelect.appendChild(option);
+  });
+
+  brandSelect.addEventListener("change", (e) => {
+    if (e.target.value) {
+      window.location.href = `shop.html?brand=${e.target.value}`;
+    }
+  });
+}
