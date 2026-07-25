@@ -36070,7 +36070,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (product) {
         const mainImg = document.getElementById('mainProductImg');
-        if (mainImg) mainImg.src = `${API_BASE_URL}/images/${product.bar_code}`;
+        if (mainImg) mainImg.src = `${API_BASE_URL}/images/${product.bar_code},jpg`;
 
         const title = document.getElementById('productTitle');
         if (title) title.textContent = product.product_name;
