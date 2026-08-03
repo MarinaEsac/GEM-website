@@ -843,6 +843,150 @@
   }
 
 }
+.sidebar-filter{
+
+    width:290px;
+
+    /* background:#fff; */
+
+    padding:30px;
+
+    border-radius:24px;
+
+    border:1px solid #efefef;
+
+    box-shadow:
+    0 20px 45px rgba(0,0,0,.05);
+
+    position:sticky;
+    top:120px;
+}
+
+.filter-title{
+
+    font-size:24px;
+    font-weight:700;
+    letter-spacing:1px;
+
+    margin-bottom:35px;
+}
+.filter-group{
+    border-bottom:1px solid #ececec;
+}
+
+.filter-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:22px 0;
+
+    font-size:15px;
+    font-weight:600;
+
+    cursor:pointer;
+}
+
+.filter-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    font-size:15px;
+    font-weight:600;
+
+    cursor:pointer;
+}
+
+.filter-header:hover{
+
+    color:#111;
+}
+
+.filter-body{
+
+    padding-top:18px;
+}
+
+.icon{
+
+    transition:.35s;
+}
+
+.filter-group.active .icon{
+
+    transform:rotate(180deg);
+}
+.price-slider{
+
+    width:100%;
+    height:4px;
+
+    appearance:none;
+
+    background:#ddd;
+
+    border-radius:20px;
+}
+
+.price-slider::-webkit-slider-thumb{
+
+    appearance:none;
+
+    width:16px;
+    height:16px;
+
+    border-radius:50%;
+
+    background:#111;
+
+    border:4px solid white;
+
+    box-shadow:0 0 0 2px #111;
+
+    cursor:pointer;
+}
+.filter-actions{
+
+    margin-top:30px;
+
+    display:flex;
+
+    gap:12px;
+}
+
+.clear-btn{
+
+    flex:1;
+
+    height:46px;
+
+    border-radius:14px;
+
+    background:#f5f5f5;
+
+    border:none;
+
+    cursor:pointer;
+}
+
+.apply-btn{
+
+    flex:1;
+
+    height:46px;
+
+    border-radius:14px;
+
+    border:none;
+
+    background:#111;
+
+    color:white;
+
+    cursor:pointer;
+}
     </style>
     <script type="text/javascript">
       !(function (o, c) {
@@ -1116,7 +1260,7 @@
         <button class="mobile-filter-trigger" id="openFilter">
             <i class="fas fa-filter"></i> Filters & Sorting
         </button>
-
+<!-- 
 <aside class="sidebar-filter" id="sidebarFilters">
             <button id="closeFilter" style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 30px; color: #333;">&times;</button>
             
@@ -1134,7 +1278,46 @@
                 </div>
             </div>
             <div id="dynamicFiltersContainer"></div>
-        </aside>
+        </aside> -->
+        <aside class="sidebar-filter" id="sidebarFilters">
+
+    <button id="closeFilter" class="close-filter">
+        &times;
+    </button>
+
+    <!-- <h3 class="filter-title">
+        Filters
+    </h3> -->
+
+    <div class="filter-group active">
+
+        <div>
+            <span style="font-weight: 500;">Price</span>
+            <!-- <span class="icon">⌄</span> -->
+        </div>
+
+        <div class="filter-body">
+
+            <input
+                type="range"
+                id="priceRange"
+                min="0"
+                max="2000"
+                value="1750"
+                class="price-slider">
+
+            <div class="price-labels">
+                <span>LE 0</span>
+                <span id="priceValue">LE 1,750</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="dynamicFiltersContainer"></div>
+
+</aside>
           <div class="product-right">
             <div class="products-toolbar">
               <div class="controls">
