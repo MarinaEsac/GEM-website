@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    GEM Content Dashboard
+  </title>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js"
+  ></script>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f6f8;
+      color: #222;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .login-container {
+      max-width: 420px;
+      margin: 100px auto;
+      background: white;
+      padding: 35px;
+      border-radius: 12px;
+      box-shadow:
+        0 4px 18px rgba(0,0,0,.08);
+    }
+
+    .login-container h1 {
+      color: #0b2a59;
+      margin-top: 0;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 11px;
+      margin-top: 6px;
+      margin-bottom: 16px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    button {
+      border: 0;
+      background: #0b2a59;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button.secondary {
+      background: #777;
+    }
+
+    button.danger {
+      background: #a92c2c;
+    }
+
+    .dashboard-header {
+      background: #0b2a59;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 30px;
+    }
+
+    .dashboard-header h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .dashboard {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .tab-button {
+      background: white;
+      color: #0b2a59;
+      border: 1px solid #0b2a59;
+    }
+
+    .tab-button.active {
+      background: #0b2a59;
+      color: white;
+    }
+
+    .panel {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow:
+        0 3px 12px rgba(0,0,0,.06);
+    }
+
+    .panel h2 {
+      margin-top: 0;
+      color: #0b2a59;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+      gap: 15px;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    .blogger-form {
+      background: #f8f8f8;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 25px;
+    }
+
+    .blogger-item {
+      display: grid;
+
+      grid-template-columns:
+        40px
+        75px
+        1fr
+        120px
+        90px
+        90px;
+
+      align-items: center;
+
+      gap: 15px;
+
+      background: white;
+
+      border:
+        1px solid #e5e5e5;
+
+      border-radius: 10px;
+
+      padding: 10px 15px;
+
+      margin-bottom: 10px;
+    }
+
+    .blogger-item.hidden-item {
+      opacity: .55;
+    }
+
+    .drag-handle {
+      font-size: 24px;
+      cursor: grab;
+      color: #777;
+      user-select: none;
+    }
+
+    .blogger-item img {
+      width: 65px;
+      height: 65px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .blogger-name {
+      font-weight: bold;
+    }
+
+    .blogger-url {
+      color: #777;
+      font-size: 13px;
+      word-break: break-all;
+    }
+
+    .visibility {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .visibility input {
+      width: auto;
+      margin: 0;
+    }
+
+    .message {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: #0b2a59;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 8px;
+      display: none;
+      z-index: 5000;
+    }
+
+    @media(max-width: 800px) {
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .full {
+        grid-column: auto;
+      }
+
+      .blogger-item {
+        grid-template-columns:
+          30px
+          60px
+          1fr;
+      }
+
+      .blogger-item .action {
+        grid-column: auto;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+<!-- ================= LOGIN ================= -->
+
+<div
+  id="loginView"
+  class="login-container"
+>
+
+  <h1>
+    GEM Content
+  </h1>
+
+  <p>
+    Website content management
+  </p>
+
+  <form id="loginForm">
+
+    <label>
+      Username
+    </label>
+
+    <input
+      id="loginUsername"
+      autocomplete="username"
+      required
+    >
+
+
+    <label>
+      Password
+    </label>
+
+    <input
+      id="loginPassword"
+      type="password"
+      autocomplete="current-password"
+      required
+    >
+
+
+    <button type="submit">
+      Login
+    </button>
+
+  </form>
+
+</div>
+
+
+
+<!-- ================= DASHBOARD ================= -->
+
+<div
+  id="dashboardView"
+  class="hidden"
+>
+
+  <header class="dashboard-header">
+
+    <h1>
+      GEM Website Content
+    </h1>
+
+    <button
+      id="logoutButton"
+      type="button"
+    >
+      Logout
+    </button>
+
+  </header>
+
+
+  <main class="dashboard">
+
+    <div class="tabs">
+
+      <button
+        class="tab-button active"
+        data-tab="contactPanel"
+      >
+        Contact Us
+      </button>
+
+      <button
+        class="tab-button"
+        data-tab="bloggersPanel"
+      >
+        Bloggers
+      </button>
+
+    </div>
+
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section
+      id="contactPanel"
+      class="panel"
+    >
+
+      <h2>
+        Contact Us Content
+      </h2>
+
+      <p>
+        These values control the left card
+        on the Contact Us page.
+      </p>
+
+      <form id="contactFormEditor">
+
+        <div class="contact-grid">
+
+
+          <div class="full">
+
+            <label>
+              Section title
+            </label>
+
+            <input
+              id="sectionTitle"
+              required
+            >
+
+          </div>
+
+
+          <div class="full">
+
+            <label>
+              Location
+            </label>
+
+            <textarea
+              id="locationText"
+              required
+            ></textarea>
+
+          </div>
+
+
+          <div>
+
+            <label>
+              Email
+            </label>
+
+            <input
+              id="contactEmailEditor"
+              type="email"
+              required
+            >
+
+          </div>
+
+
+          <div>
+
+            <label>
+              Phone numbers
+            </label>
+
+            <input
+              id="phoneText"
+              required
+            >
+
+          </div>
+
+
+          <div class="full">
+
+            <label>
+              Follow us title
+            </label>
+
+            <input
+              id="followTitle"
+              required
+            >
+
+          </div>
+
+
+          <div>
+
+            <label>
+              Facebook URL
+            </label>
+
+            <input
+              id="facebookUrl"
+              type="url"
+            >
+
+          </div>
+
+
+          <div>
+
+            <label>
+              Instagram URL
+            </label>
+
+            <input
+              id="instagramUrl"
+              type="url"
+            >
+
+          </div>
+
+
+          <div>
+
+            <label>
+              TikTok URL
+            </label>
+
+            <input
+              id="tiktokUrl"
+              type="url"
+            >
+
+          </div>
+
+
+        </div>
+
+
+        <button type="submit">
+          Save Contact Information
+        </button>
+
+      </form>
+
+    </section>
+
+
+
+    <!-- ================= BLOGGERS ================= -->
+
+    <section
+      id="bloggersPanel"
+      class="panel hidden"
+    >
+
+      <h2>
+        Bloggers
+      </h2>
+
+      <p>
+        Drag bloggers to change their
+        display order.
+      </p>
+      <button
+        id="importCurrentBloggers"
+        type="button"
+        class="secondary"
+      >
+        Import Current Bloggers
+      </button>
+
+      <br><br>
+
+
+      <div class="blogger-form">
+
+        <h3 id="bloggerFormTitle">
+          Add Blogger
+        </h3>
+
+        <form id="bloggerForm">
+
+          <input
+            type="hidden"
+            id="bloggerId"
+          >
+
+
+          <label>
+            Name
+          </label>
+
+          <input
+            id="bloggerNameInput"
+            required
+          >
+
+
+          <label>
+            Instagram / Reel URL
+          </label>
+
+          <input
+            id="bloggerUrlInput"
+            type="url"
+            required
+          >
+
+
+          <label>
+            Image
+          </label>
+
+          <input
+            id="bloggerImageInput"
+            type="file"
+            accept=".png,.jpg,.jpeg,.webp"
+          >
+
+
+          <label class="visibility">
+
+            <input
+              id="bloggerVisibleInput"
+              type="checkbox"
+              checked
+            >
+
+            Visible on website
+
+          </label>
+
+          <br>
+
+
+          <button type="submit">
+            Save Blogger
+          </button>
+
+          <button
+            id="cancelEditButton"
+            type="button"
+            class="secondary hidden"
+          >
+            Cancel Edit
+          </button>
+
+        </form>
+
+      </div>
+
+
+      <div id="bloggersList"></div>
+
+    </section>
+
+  </main>
+
+</div>
+
+
+<div
+  id="message"
+  class="message"
+></div>
+
+<script
+  src="./scripts/content-dashboard.js"
+  type="text/javascript"
+></script>
+
+
+
+</body>
+</html>

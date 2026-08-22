@@ -36116,3 +36116,178 @@ async function sendFormRequest(formData) {
 
   return response.json();
 }
+
+// =====================================================
+// Website controlled contact information
+// =====================================================
+
+document.addEventListener(
+  "DOMContentLoaded",
+  loadControlledContact
+);
+
+
+async function loadControlledContact() {
+
+  try {
+
+    const response = await fetch(
+      `${API_BASE_URL}/content/contact`
+    );
+
+
+    if (!response.ok) {
+      throw new Error(
+        `HTTP ${response.status}`
+      );
+    }
+
+
+    const result =
+      await response.json();
+
+
+    const data =
+      result.data;
+
+
+    if (!data) {
+      return;
+    }
+
+
+    setText(
+      "contactSectionTitle",
+      data.section_title
+    );
+
+
+    setText(
+      "contactLocation",
+      data.location_text
+    );
+
+
+    setText(
+      "contactPhone",
+      data.phone_text
+    );
+
+
+    setText(
+      "contactFollowTitle",
+      data.follow_title
+    );
+
+
+    const email =
+      document.getElementById(
+        "contactEmail"
+      );
+
+
+    if (
+      email
+      && data.email
+    ) {
+
+      email.textContent =
+        data.email;
+
+      email.href =
+        `mailto:${data.email}`;
+
+    }
+
+
+    setSocialLink(
+      "contactFacebook",
+      data.facebook_url
+    );
+
+
+    setSocialLink(
+      "contactInstagram",
+      data.instagram_url
+    );
+
+
+    setSocialLink(
+      "contactTiktok",
+      data.tiktok_url
+    );
+
+
+  } catch (error) {
+
+    console.error(
+      "Unable to load controlled contact content:",
+      error
+    );
+
+    // Leave existing hardcoded HTML
+    // untouched if the backend fails.
+
+  }
+
+}
+
+
+function setText(
+  id,
+  value
+) {
+
+  const element =
+    document.getElementById(
+      id
+    );
+
+
+  if (
+    element
+    && value
+  ) {
+
+    element.textContent =
+      value;
+
+  }
+
+}
+
+
+function setSocialLink(
+  id,
+  value
+) {
+
+  const element =
+    document.getElementById(
+      id
+    );
+
+
+  if (!element) {
+    return;
+  }
+
+
+  if (!value) {
+
+    element.style.display =
+      "none";
+
+    return;
+
+  }
+
+
+  element.href =
+    value;
+
+
+  element.style.display =
+    "";
+
+}
