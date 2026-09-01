@@ -232,6 +232,109 @@
       display: none;
       z-index: 5000;
     }
+    .event-form {
+      background: #f8f8f8;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 25px;
+    }
+
+    .event-item {
+      display: grid;
+      grid-template-columns:
+        40px
+        75px
+        1fr
+        100px
+        120px
+        90px
+        90px;
+
+      align-items: center;
+      gap: 15px;
+
+      border: 1px solid #e5e5e5;
+      border-radius: 10px;
+
+      padding: 10px 15px;
+      margin-bottom: 10px;
+    }
+
+    .event-item.hidden-item {
+      opacity: .55;
+    }
+
+    .event-item img {
+      width: 65px;
+      height: 65px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .event-name {
+      font-weight: bold;
+    }
+
+    .event-meta {
+      color: #777;
+      font-size: 13px;
+    }
+
+    .image-preview {
+      margin-bottom: 16px;
+    }
+
+    .image-preview img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+    .gallery-editor {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .gallery-editor-item {
+      position: relative;
+    }
+
+    .gallery-editor-item img {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .gallery-remove {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+
+      padding: 3px 7px;
+
+      border-radius: 50%;
+
+      background: #a92c2c;
+      color: white;
+
+      font-size: 12px;
+    }
+
+    @media(max-width: 800px) {
+
+      .event-item {
+        grid-template-columns:
+          30px
+          60px
+          1fr;
+      }
+
+    }
 
     @media(max-width: 800px) {
 
@@ -352,6 +455,20 @@
         data-tab="bloggersPanel"
       >
         Bloggers
+      </button>
+
+      <button
+        class="tab-button"
+        data-tab="eventsPanel"
+      >
+        Events
+      </button>
+
+      <button
+        class="tab-button"
+        data-tab="aboutPanel"
+      >
+        About Us
       </button>
 
     </div>
@@ -610,6 +727,374 @@
 
 
       <div id="bloggersList"></div>
+
+    </section>
+    
+    <!-- ================= EVENTS ================= -->
+
+    <section
+      id="eventsPanel"
+      class="panel hidden"
+    >
+
+      <h2>
+        Events
+      </h2>
+
+      <p>
+        Add, edit, hide, remove and reorder
+        events displayed on the Events page.
+      </p>
+
+
+      <div class="event-form">
+
+        <h3 id="eventFormTitle">
+          Add Event
+        </h3>
+
+
+        <form id="eventForm">
+
+          <input
+            type="hidden"
+            id="eventId"
+          >
+
+
+          <label>
+            Event title
+          </label>
+
+          <input
+            id="eventTitleInput"
+            required
+          >
+
+
+          <label>
+            Year
+          </label>
+
+          <input
+            id="eventYearInput"
+            required
+          >
+
+
+          <label>
+            Cover image
+          </label>
+
+          <input
+            id="eventCoverInput"
+            type="file"
+            accept=".png,.jpg,.jpeg,.webp"
+          >
+
+          <div
+            id="eventCoverPreview"
+            class="image-preview"
+          ></div>
+
+
+          <label>
+            Event logo
+          </label>
+
+          <input
+            id="eventLogoInput"
+            type="file"
+            accept=".png,.jpg,.jpeg,.webp"
+          >
+
+          <div
+            id="eventLogoPreview"
+            class="image-preview"
+          ></div>
+
+
+          <label>
+            Add gallery images
+          </label>
+
+          <input
+            id="eventGalleryInput"
+            type="file"
+            accept=".png,.jpg,.jpeg,.webp"
+            multiple
+          >
+
+
+          <div
+            id="currentEventGallery"
+            class="gallery-editor"
+          ></div>
+
+
+          <label class="visibility">
+
+            <input
+              id="eventVisibleInput"
+              type="checkbox"
+              checked
+            >
+
+            Visible on website
+
+          </label>
+
+
+          <br><br>
+
+
+          <button type="submit">
+            Save Event
+          </button>
+
+
+          <button
+            id="cancelEventEditButton"
+            type="button"
+            class="secondary hidden"
+          >
+            Cancel Edit
+          </button>
+
+        </form>
+
+      </div>
+
+
+      <div id="eventsList"></div>
+
+    </section>
+
+    <!-- ================= ABOUT US ================= -->
+
+    <section
+      id="aboutPanel"
+      class="panel hidden"
+    >
+
+      <h2>
+        About Us
+      </h2>
+
+      <p>
+        Control the main content displayed
+        on the About Us page.
+      </p>
+
+
+      <form id="aboutFormEditor">
+
+        <div class="contact-grid">
+
+
+          <div class="full">
+
+            <label>
+              Story title
+            </label>
+
+            <input
+              id="aboutStoryTitleInput"
+              required
+            >
+
+          </div>
+
+
+          <div class="full">
+
+            <label>
+              Story text
+            </label>
+
+            <textarea
+              id="aboutStoryTextInput"
+              required
+            ></textarea>
+
+          </div>
+
+
+          <div class="full">
+
+            <label>
+              Story image
+            </label>
+
+            <input
+              id="aboutStoryImageInput"
+              type="file"
+              accept=".png,.jpg,.jpeg,.webp"
+            >
+
+            <div
+              id="aboutStoryImagePreview"
+              class="image-preview"
+            ></div>
+
+          </div>
+
+
+          <div>
+
+            <label>
+              Pharmacies value
+            </label>
+
+            <input
+              id="aboutPharmaciesValue"
+            >
+
+          </div>
+
+
+          <div>
+
+            <label>
+              Pharmacies label
+            </label>
+
+            <input
+              id="aboutPharmaciesLabel"
+            >
+
+          </div>
+
+
+          <div>
+
+            <label>
+              Salons value
+            </label>
+
+            <input
+              id="aboutSalonsValue"
+            >
+
+          </div>
+
+
+          <div>
+
+            <label>
+              Salons label
+            </label>
+
+            <input
+              id="aboutSalonsLabel"
+            >
+
+          </div>
+
+
+          <div>
+
+            <label>
+              Total outlets value
+            </label>
+
+            <input
+              id="aboutOutletsValue"
+            >
+
+          </div>
+
+
+          <div>
+
+            <label>
+              Total outlets label
+            </label>
+
+            <input
+              id="aboutOutletsLabel"
+            >
+
+          </div>
+
+
+          <div class="full">
+
+            <label>
+              Vision section heading
+            </label>
+
+            <input
+              id="aboutVisionHeading"
+              required
+            >
+
+          </div>
+
+
+          <div class="full">
+
+            <label>
+              Mission title
+            </label>
+
+            <input
+              id="aboutMissionTitle"
+              required
+            >
+
+          </div>
+
+
+          <div class="full">
+
+            <label>
+              Mission text
+            </label>
+
+            <textarea
+              id="aboutMissionText"
+              required
+            ></textarea>
+
+          </div>
+
+
+          <div class="full">
+
+            <label>
+              Vision title
+            </label>
+
+            <input
+              id="aboutVisionTitle"
+              required
+            >
+
+          </div>
+
+
+          <div class="full">
+
+            <label>
+              Vision text
+            </label>
+
+            <textarea
+              id="aboutVisionText"
+              required
+            ></textarea>
+
+          </div>
+
+        </div>
+
+
+        <button type="submit">
+          Save About Us
+        </button>
+
+      </form>
 
     </section>
 
