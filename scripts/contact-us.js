@@ -36068,12 +36068,15 @@ document.getElementById('contactForm')?.addEventListener('submit', async functio
 
     const btn = document.getElementById('submitBtn');
     const responseMsg = document.getElementById('formResponse');
-    
+    const enquiryTypeValue = document.getElementById('enquiryType').value;
+    const countryValue = document.getElementById('country').value;
     const formData = {
         fullName: document.getElementById('userName').value,
         phone: document.getElementById('userPhone').value,
         email: document.getElementById('userEmail').value,
-        message: document.getElementById('userMessage').value
+        message: document.getElementById('userMessage').value,
+        enquiryType: enquiryTypeValue,
+        ...(enquiryTypeValue === 'Export' && { country: countryValue }),
     };
 
     const formDataSubmission = new FormData();
@@ -36081,6 +36084,10 @@ document.getElementById('contactForm')?.addEventListener('submit', async functio
     formDataSubmission.append("content", formData.message);
     formDataSubmission.append("sender", formData.fullName);
     formDataSubmission.append("number", formData.phone);
+    formDataSubmission.append("enquiryType", formData.enquiryType);
+    if (enquiryTypeValue === 'Export') {
+      formDataSubmission.append('country', countryValue);
+    }
 
     await sendFormRequest(formDataSubmission)
     btn.textContent = "SENDING...";
